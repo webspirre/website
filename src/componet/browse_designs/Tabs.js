@@ -107,7 +107,7 @@ const HorizontalTabs = ({ tabs, data }) => {
             }`}
           >
             {tab.label}
-          </button>border-4
+          </button>
         ))}
       </div>
 
