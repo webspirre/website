@@ -1,6 +1,6 @@
 // Import necessary modules and data
 
-"use client"
+"use client";
 
 import React, { useState, ChangeEvent, useRef, useEffect } from "react";
 import Image from "next/image";
@@ -159,26 +159,17 @@ export default function Navbar() {
         <ul className="flex space-x-8 items-center">
           <li>
             <Link
-              href="/price"
-              className="hover: text-[black] font-medium"
-            >
-              Pricing
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/auth/login"
-              className="hover: text-[black]  font-medium"
-            >
-              Log in
-            </Link>
-          </li>
-          <li>
-            <Link
               href="/auth/register"
-              className="hover: bg-black p-3 px-8 text-white rounded-[10px] border border-[#BBBBBB] "
+              className="hover: bg-black p-3 px-4 text-white text-[12px] rounded-[10px] border flex items-center gap-2 border-[#BBBBBB] "
             >
-              Sign Up
+              <Image
+                height={20}
+                width={20}
+                src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707387992/utilities/Vector_3_drikcp.svg"
+                alt="rice"
+                className=""
+              />
+              Upgrade now{" "}
             </Link>
           </li>
 
@@ -199,76 +190,128 @@ export default function Navbar() {
 
             {/* More nav links pop-up */}
             {showMoreNavLinks && (
-              <div className="absolute text-[12px] -right-[10px] mt-6  bg-white border z-10 w-[150px] rounded-md shadow-md">
-                <Link
-                  href="#terms"
-                  className="block text-[black] mb-4 hover:underline"
-                >
-                  <div className="flex justify-between px-4 pt-4">
-                    <p>Terms</p>
+              <div className="absolute text-[12px] -right-[10px] mt-6  bg-white border z-10 w-[200px] rounded-md shadow-md">
+                <Link href="/bookmark" className="block text-[black] mb-2 ">
+                  <div className=" border-b pb-4 items-center pt-4">
+                    <div className="flex items-center gap-2 px-4">
+                      <Image
+                        height={20}
+                        width={25}
+                        src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707388441/utilities/Intersect_1_zn8u9a.svg"
+                        alt="rice"
+                        className=""
+                      />
+                      <p className="font-bold text-[14px]">Bookmark</p>
+                    </div>
+                  </div>
+                </Link>
+                <Link href="/profile" className="block text-[black] mb-4 ">
+                  <div className="flex gap-2 px-4 items-center pt-2">
                     <Image
                       height={20}
-                      width={10}
-                      src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706058587/utilities/arrow_up_wwf67d.svg"
+                      width={25}
+                      src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707388442/utilities/Vector_4_orgh9u.svg"
                       alt="rice"
                       className=""
                     />
+                    <p className="font-bold text-[14px]">Profile</p>
                   </div>
                 </Link>
-                <Link
-                  href="#privacy"
-                  className="block mb-4 text-[black] hover:underline"
+                {/* <Link
+                  href="/settings"
+                  className="block text-[black] mb-4 hover:"
                 >
-                  <div className="flex justify-between px-4">
-                    <p> Privacy Policy</p>
+                  <div className="flex gap-2 px-4 items-center pt-2">
                     <Image
                       height={20}
-                      width={10}
-                      src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706058587/utilities/arrow_up_wwf67d.svg"
+                      width={25}
+                      src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707388441/utilities/Vector_5_izymzc.svg"
                       alt="rice"
                       className=""
                     />
+                    <p className="font-bold text-[14px]">Settings</p>
                   </div>
-                </Link>
+                </Link> */}
                 <Link
-                  href="#support"
-                  className="block text-[black] mb-4 hover:underline"
+                  href="/notifications  "
+                  className="block text-[black] mb-4 hover:"
                 >
-                  <div className="flex justify-between px-4">
-                    <p>Support</p>
+                  <div className="flex gap-2 px-4 items-center pt-2">
                     <Image
                       height={20}
-                      width={10}
-                      src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706058587/utilities/arrow_up_wwf67d.svg"
+                      width={25}
+                      src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707389050/utilities/bell_icon_e0cutg.svg"
                       alt="rice"
                       className=""
                     />
+                    <p className="font-bold text-[14px]">Notifications</p>
                   </div>
                 </Link>
                 <Link
-                  href="#updates"
-                  className="block text-[black] hover:underline"
+                  href="/notifications"
+                  className="block text-[black] mb-4 hover:"
                 >
-                  <div className="flex gap-2 border-t-2 border-b-2 py-2 px-4 mb-2">
+                  <div className="flex items-center gap-2 px-4 pt-2">
                     <Image
                       height={20}
-                      width={10}
+                      width={25}
                       src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706058912/utilities/updates_icon_l9larw.svg"
                       alt="rice"
                       className=""
                     />
-                    <p>Updates</p>
+                    <p className="font-bold text-[14px]">Updates</p>
                   </div>
                 </Link>
-                <div className="flex justify-end">
-                  <Image
-                    height={20}
-                    width={15}
-                    src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706059476/utilities/Vector_1_a4rbuv.svg"
-                    alt="rice"
-                    className="mx-4 mb-2"
-                  />
-                </div>
+
+                <Link
+                  href="/terms"
+                  className="block text-[black] border-t mb-4 hover:"
+                >
+                  <div className="flex justify-between px-4 pt-4">
+                    <p className=" text-[14px]">Terms</p>
+                    <Image
+                      height={20}
+                      width={10}
+                      src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706058587/utilities/arrow_up_wwf67d.svg"
+                      alt="rice"
+                      className=""
+                    />
+                  </div>
+                </Link>
+                <Link href="/policy" className="block mb-4 text-[black] hover:">
+                  <div className="flex justify-between px-4">
+                    <p className=" text-[14px]"> Privacy Policy</p>
+                    <Image
+                      height={20}
+                      width={10}
+                      src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706058587/utilities/arrow_up_wwf67d.svg"
+                      alt="rice"
+                      className=""
+                    />
+                  </div>
+                </Link>
+                <Link
+                  href="/support"
+                  className="block text-[black] mb-4 hover:"
+                >
+                  <div className="flex justify-between px-4">
+                    <p className=" text-[14px]">Support</p>
+                    <Image
+                      height={20}
+                      width={10}
+                      src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706058587/utilities/arrow_up_wwf67d.svg"
+                      alt="rice"
+                      className=""
+                    />
+                  </div>
+                </Link>
+                <Link href="#updates" className="block text-[black] hover:">
+                  <div className="flex gap-2 border-t-2  py-2 px-4 mb-2">
+                    <p className=" text-[14px] text-red-600 font-bold">
+                      Log Out
+                    </p>
+                  </div>
+                </Link>
               </div>
             )}
           </div>

@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:ital@1&family=Nunito&family=Playfair+Display&family=Poppins&family=Vidaloka&display=swap");
 
-  @import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Poppins:wght@300;400;500;700;800;900&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&family=Poppins:wght@300;400;500;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -25,9 +23,72 @@ body {
   background: white;
   font-family: "Poppins", sans-serif;
 }
+.wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.slider {
+  height: 100vh;
+  position: relative;
+  background: white;
+  overflow: hidden;
+}
+
+.slide {
+  align-items: center;
+  animation: slideshow 200s linear infinite;
+}
+
+.slide img {
+  /* height: 700px; */
+  border: 2px;
+  width: 100%;
+}
+
+@keyframes slideshow {
+  0% {
+    transform: translateY(0); /* Change to translateY */
+  }
+  100% {
+    transform: translateY(-100%); /* Change to translateY */
+  }
+}
+
+/* _________________________________________________________________________________________________-____ */
+
+.wrapper1 {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider1 {
+  height: 100vh;
+  position: relative;
+  background: white;
+  overflow: hidden;
+}
+
+.slide1 {
+  align-items: center;
+  animation: slideshow1 200s linear infinite;
+}
+
+.slide1 img {
+  /* height: 700px; */
+  width: 100%;
+  border: 2px;
+}
+
+@keyframes slideshow1 {
+  100% {
+    transform: translateY(0); /* Change to translateY */
+  }
+  0% {
+    transform: translateY(-100%); /* Change to translateY */
   }
 }

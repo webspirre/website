@@ -18,19 +18,15 @@ const Browse = () => {
   ];
 
   return (
-    <div className="p-4 pt-8 max-w-screen-xl mx-auto">
+    <div className="p-4 pt-8 max-w-screen-xl mx-2 mb-2">
       <Image
         src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705960658/utilities/Browse_designs_kubbae.svg"
         height={673}
         width={200}
         alt="design"
       />
-      <div className="flex gap-4 pt-8 pb-4">
-        <h1>Desktop</h1> <h1>Mobile</h1>
-      </div>
-      <div className="flex">
-        <div>
-        </div>
+
+      <div className="mt-2">
         <div>
           <Tabs tabs={tabs} data={data} />
         </div>

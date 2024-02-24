@@ -11,7 +11,10 @@
   "dependencies": {
     "@fontsource/carter-one": "^5.0.8",
     "@next/font": "^14.1.0",
+    "@prisma/client": "^5.9.1",
+    "framer-motion": "^11.0.3",
     "next": "14.1.0",
+    "prisma": "^5.9.1",
     "react": "^18",
     "react-dom": "^18"
   },

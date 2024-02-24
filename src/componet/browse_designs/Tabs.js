@@ -20,6 +20,12 @@ const HorizontalTabs = ({ tabs, data }) => {
 
   const deviceFilters = ["Desktop", "Mobile"];
 
+  // Calculate the count for each category
+  const categoryCounts = tabs.map(({ label }) => ({
+    label,
+    count: data.filter((item) => item.category === label).length,
+  }));
+
   const filteredData = data
     .filter(
       (item) => activeTab === 0 || item.category === tabs[activeTab].label
@@ -44,76 +50,110 @@ const HorizontalTabs = ({ tabs, data }) => {
   }, [selectedFilters]);
 
   return (
-    <div>
+    <div className="mb-4">
       {/* Device Filters */}
       {deviceFilters.map((device, index) => (
         <button
           key={index}
           onClick={() => setDeviceFilter(device)}
-          className={`px-4 py-2 border-b-2 ${
+          className={`pr-4 py-2 mb-4 border-b-2 ${
             deviceFilter === device
-              ? "border-blue-500 text-blue-500"
+              ? "border-gray-500 text-gray-700"
               : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-500"
           }`}
         >
           {device}
         </button>
       ))}
-      <div className="flex items-center mb-4">
-        {/* Dropdown Button */}
-        <div className="relative mr-4">
-          <button
-            onClick={() => setShowFilterOptions(!showFilterOptions)}
-            className="border border-gray-300 p-1 rounded-md"
-          >
-            <div className="flex items-center gap-2 px-4 py-2 bg-[#F1F0EE] rounded-full">
-              <Image
-                src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705965289/utilities/Vector_dlval9.svg"
-                width={20}
-                height={50}
-                alt="design"
-              />
-              <p className="font-bold text-[16px]">Filter</p>
-            </div>
-          </button>
-          {/* Filter Options */}
-          {showFilterOptions && (
-            <div className="absolute top-8 right-0 bg-white border border-gray-300 p-2 mt-4 rounded-md shadow-md">
-              {filterOptions.map((option, index) => (
-                <div key={index} className="flex items-center mb-1">
-                  <input
-                    type="checkbox"
-                    id={option}
-                    checked={selectedFilters.includes(option)}
-                    onChange={() => handleFilterClick(option)}
-                    className="mr-2 "
+      <div
+        className="flex items-center overflow-hidden"
+        style={{ whiteSpace: "nowrap", width: "1430px" }}
+      >
+        <div
+          className="flex gap-2 custom-scrollbar "
+          style={{
+            overflowX: "auto",
+            marginBottom: "-18.5px", // Adjust for scrollbar height
+          }}
+        >
+          {/* Dropdown Button */}
+          <div className="mr-2">
+            <button
+              onClick={() => setShowFilterOptions(!showFilterOptions)}
+              className=""
+            >
+              <div className="flex  items-center gap-4">
+                <div className="flex items-center gap-2 min-w-fit p-4 py-2 bg-[#F1F0EE] rounded-full">
+                  <Image
+                    src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705965289/utilities/Vector_dlval9.svg"
+                    width={20}
+                    height={50}
+                    alt="design"
                   />
-                  <label htmlFor={option}>{option}</label>
+                  <p className="font-bold text-center text-[16px]">Filter</p>
                 </div>
-              ))}
-            </div>
-          )}
-        </div>
+                <div className="h-[40px] mr-4 min-w-[1px] bg-[#BDBDBD]"> </div>
+              </div>
+            </button>
 
-        {/* Tabs */}
-        {tabs.map((tab, index) => (
-          <button
-            key={index}
-            onClick={() => setActiveTab(index)}
-            className={`px-8 py-2 border-b-2 ${
-              activeTab === index
-                ? "border-2 rounded-full bg-black text-white font-bold"
-                : "border-2 rounded-full mx-1 text-gray-500 hover:text-gray-700 font hover:border-gray-500"
-            }`}
-          >
-            {tab.label}
-          </button>border-4
-        ))}
+            {/* Filter Options */}
+            {showFilterOptions && (
+              <div className="absolute top-8 right-100 w-[150px] text-[14px] font-medium bg-white border border-gray-300 p-2 mt-4 rounded-md shadow-md">
+                {filterOptions.map((option, index) => (
+                  <div key={index} className="flex items-center mb-1">
+                    <input
+                      type="checkbox"
+                      id={option}
+                      checked={selectedFilters.includes(option)}
+                      onChange={() => handleFilterClick(option)}
+                      className="mr-2 "
+                    />
+                    <label htmlFor={option}>{option}</label>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Tabs */}
+          {tabs.map((tab, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveTab(index)}
+              className={`px-4 py-2 border-b-2 mr-2 w-fit  ${
+                activeTab === index
+                  ? "border-2 rounded-full bg-black text-white font-medium"
+                  : "border-2 text-[16px] rounded-full  text-black hover:text-gray-700 font-medium hover:border-gray-500"
+              }`}
+            >
+              {categoryCounts.find((c) => c.label === tab.label)?.count > 0 ? (
+                <>
+                  <div className="flex gap-2 items-center ">
+                    <div>{tab.label}</div>
+
+                    <div
+                      className={`bg-[#F3F4F6] rounded-full p-1 text-[12px] ${
+                        activeTab === index
+                          ? "rounded-full bg-[#F3F4F6] text-black "
+                          : "rounded-full  text-black hover:text-gray-700  hover:border-gray-500"
+                      }`}
+                    >
+                      {categoryCounts.find((c) => c.label === tab.label)?.count}
+                      
+                    </div>
+                  </div>
+                </>
+              ) : (
+                tab.label
+              )}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Tab Content */}
-      <div className="mt-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+      <div className="mt-4 w-[1460px] px-4">
+        <div className="grid grid-cols-3 gap-8">
           {filteredData.map((item) => (
             <Card key={item.id} {...item} />
           ))}
