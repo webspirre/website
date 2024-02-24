@@ -20,8 +20,8 @@ function Form() {
           Join Webspirre
         </h1>
         <p className="text-center text-[13px] mb-4">
-          Skip the hard part. Get inspiration from the internet’s <br /> best designed
-          and highest-converting websites{" "}
+          Skip the hard part. Get inspiration from the internet&apos;s <br />{" "}
+          best designed and highest-converting websites{" "}
         </p>
       </div>
 
@@ -75,7 +75,7 @@ function Form() {
       </p>
       <p className="text-[13px] text-[#64748B]">
         By continuing to sign up, you confirm that you agree <br /> to
-        Webspirre’s Terms & Conditions and Privacy Policy.
+        Webspirre&apos;s Terms & Conditions and Privacy Policy.
       </p>
     </div>
   );
