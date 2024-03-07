@@ -1,6 +1,10 @@
+"use client";
+
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
 
 function Form() {
   return (
@@ -24,15 +28,15 @@ function Form() {
           best designed and highest-converting websites
         </p>
       </div>
-      <Link href="/">
+      <button onClick={() => signIn("google")}>
         <Image
           height={20}
           width={430}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707163747/utilities/Frame_49_ucklyh.svg"
-          alt="left"
+          alt="google button"
           className=""
         />{" "}
-      </Link>
+      </button>
 
       <div className="flex gap-2 items-center">
         <div className="w-[200px] h-[2px] bg-[#C7C7C7]"></div>

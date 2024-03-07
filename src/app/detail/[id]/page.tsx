@@ -5,8 +5,12 @@ import data from "@/componet/browse_designs/data";
 import { useParams } from "next/navigation";
 import ItemDetail from "./ItemDetail";
 import Navbar from "@/componet/nav/Navbar";
+import { useSession, signOut } from "next-auth/react";
+
 
 function Page() {
+      const { status } = useSession();
+
   const { id } = useParams<{ id: string }>();
 
   const [currentProjectId, setCurrentProjectId] = useState<number>(

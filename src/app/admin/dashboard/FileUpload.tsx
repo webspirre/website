@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useRef, ChangeEvent } from "react";
 

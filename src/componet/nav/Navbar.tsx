@@ -6,6 +6,7 @@ import React, { useState, ChangeEvent, useRef, useEffect } from "react";
 import Image from "next/image";
 import data from "../browse_designs/data"; // Import your data file
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 
 interface Project {
   id: number;
@@ -16,6 +17,10 @@ interface Project {
 }
 
 export default function Navbar() {
+  const { status } = useSession();
+
+
+
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<Project[]>([]);
   const [showSearchResults, setShowSearchResults] = useState<boolean>(false);
@@ -158,20 +163,28 @@ export default function Navbar() {
         {/* Regular navigation items */}
         <ul className="flex space-x-8 items-center">
           <li>
-            <Link
-              href="/price"
-              className="hover: text-[black] font-medium"
-            >
+            <Link href="/price" className="hover: text-[black] font-medium">
               Pricing
             </Link>
           </li>
           <li>
-            <Link
-              href="/auth/login"
-              className="hover: text-[black]  font-medium"
-            >
-              Log in
-            </Link>
+            {status === "authenticated" ? (
+              <div>
+                <Link
+                  href="/auth/login"
+                  className="hover: text-[black]  font-medium"
+                >
+                  Log out
+                </Link>
+              </div>
+            ) : (
+              <Link
+                href="/auth/login"
+                className="hover: text-[black]  font-medium"
+              >
+                Log in
+              </Link>
+            )}
           </li>
           <li>
             <Link
