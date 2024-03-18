@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/componet/nav/Navbar";
 import { NextAuthProvider } from "@/componet/Providers";
 
 
