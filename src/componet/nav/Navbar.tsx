@@ -6,7 +6,6 @@ import React, { useState, ChangeEvent, useRef, useEffect } from "react";
 import Image from "next/image";
 import data from "../browse_designs/data"; // Import your data file
 import Link from "next/link";
-import { useSession, signOut } from "next-auth/react";
 
 interface Project {
   id: number;
@@ -17,7 +16,6 @@ interface Project {
 }
 
 export default function Navbar() {
-  const { status } = useSession();
 
 
 

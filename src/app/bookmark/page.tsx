@@ -2,7 +2,6 @@ import Navbar from '@/componet/nav/Navbar2'
 import React from 'react'
 import Bookmarks from './Bookmarks'
 import CardList from './Card'
-import { useSession, signOut } from "next-auth/react";
 
 
 function page() {

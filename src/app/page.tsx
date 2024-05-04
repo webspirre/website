@@ -6,25 +6,20 @@ import Browse from "../componet/browse_designs/Browse";
 import Navbar from "@/componet/nav/Navbar";
 import Navbar1 from "@/componet/nav/Navbar1";
 
-import { useSession, signOut } from "next-auth/react";
 
 export default function Home() {
-  const { status } = useSession();
 
   const backgroundImageUrl =
     "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705724835/utilities/background_illustration_lcdskr.svg";
 
   return (
     <main>
-      {status === "authenticated" ? (
         <>
           <Navbar1 />
         </>
-      ) : (
-        <>
+        {/* <>
           <Navbar />
-        </>
-      )}
+        </> */}
       <div
         style={{
           backgroundImage: `url(${backgroundImageUrl})`,
@@ -64,12 +59,7 @@ export default function Home() {
       </div>
       <Browse />
 
-      <Link
-        href="/admin/dashboard"
-        className="bg-black py-4 px-8 text-white rounded-[20px] border border-[#BBBBBB] font-medium text-[18px]"
-      >
-        Admin
-      </Link>
+      
     </main>
   );
 }
