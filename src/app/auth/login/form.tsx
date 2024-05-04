@@ -1,6 +1,5 @@
 "use client";
 
-import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -28,7 +27,7 @@ function Form() {
           best designed and highest-converting websites
         </p>
       </div>
-      <button onClick={() => signIn("google")}>
+      <button >
         <Image
           height={20}
           width={430}
