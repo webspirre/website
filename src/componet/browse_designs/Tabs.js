@@ -50,7 +50,7 @@ const HorizontalTabs = ({ tabs, data }) => {
   }, [selectedFilters]);
 
   return (
-    <div className="mb-4 w-full">
+    <div className="mb-4 w-[1320px]">
       {/* Device Filters */}
       {deviceFilters.map((device, index) => (
         <button
@@ -73,7 +73,7 @@ const HorizontalTabs = ({ tabs, data }) => {
           className="flex gap-2 custom-scrollbar "
           style={{
             overflowX: "auto",
-            marginBottom: "18.5px", // Adjust for scrollbar height
+            scrollbarWidth: "none", // Hide the scrollbar for Firefox
           }}
         >
           {/* Dropdown Button */}
@@ -152,7 +152,7 @@ const HorizontalTabs = ({ tabs, data }) => {
 
       {/* Tab Content */}
       <div className="flex justify-center">
-        <div className="  mt-4 w-[1423px] px-4">
+        <div className="  mt-4 w-full px-4">
           <div className="grid grid-cols-3 gap-8">
             {filteredData.map((item) => (
               <Card key={item.id} {...item} />

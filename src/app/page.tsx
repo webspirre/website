@@ -14,10 +14,10 @@ export default function Home() {
 
   return (
     <main>
-        <>
-          <Navbar1 />
-        </>
-        {/* <>
+      <>
+        <Navbar1 />
+      </>
+      {/* <>
           <Navbar />
         </> */}
       <div
@@ -57,9 +57,9 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <Browse />
-
-      
+      <div className="">
+        <Browse />
+      </div>
     </main>
   );
 }
