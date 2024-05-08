@@ -74,7 +74,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-[#F8F7F4] p-4 border-b border-[#BBBBBB] items-center">
+    <nav className="bg-[#F8F7F4] px-4 pb-4 border-b border-[#BBBBBB] items-center">
       <nav className="max-w-screen mx-2 flex justify-between items-center">
         <Link href="/">
           <Image
@@ -96,7 +96,7 @@ export default function Navbar() {
           />
 
           {/* Display search results */}
-          {showSearchResults && <SearchResults searchResults={searchResults} />}
+          {showSearchResults && <SearchResults searchResults={searchResults}  />}
         </div>
 
         {/* Regular navigation items */}
