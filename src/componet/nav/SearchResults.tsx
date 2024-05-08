@@ -1,6 +1,8 @@
 // SearchResults.tsx
 import React from "react";
 import Image from "next/image";
+import { Project } from "./Navbar"; // Import the Project type from Navbar.tsx
+
 
 interface SearchResultsProps {
   searchResults: Project[];

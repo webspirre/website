@@ -8,13 +8,15 @@ import SearchResults from "./SearchResults";
 import NavLinks from "./NavLinks";
 import MoreNavLinks from "./MoreNavLinks";
 
-interface Project {
+// Define the Project type
+export interface Project {
   id: number;
   name: string;
   category: string;
   logoUrl: string;
   description?: string;
 }
+
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState<string>("");
