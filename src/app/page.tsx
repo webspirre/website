@@ -6,28 +6,20 @@ import Browse from "../componet/browse_designs/Browse";
 import Navbar from "@/componet/nav/Navbar";
 import Navbar1 from "@/componet/nav/Navbar1";
 
-import { useSession, signOut } from "next-auth/react";
-
-
 
 export default function Home() {
-
-    const { status } = useSession();
 
   const backgroundImageUrl =
     "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705724835/utilities/background_illustration_lcdskr.svg";
 
   return (
     <main>
-      {status === "authenticated" ? (
-        <>
-          <Navbar1 />
-        </>
-      ) : (
-        <>
+      <>
+        <Navbar1 />
+      </>
+      {/* <>
           <Navbar />
-        </>
-      )}
+        </> */}
       <div
         style={{
           backgroundImage: `url(${backgroundImageUrl})`,
@@ -48,7 +40,7 @@ export default function Home() {
 
         <h1 className="text-[24px] w-[600px] pt-4 text-center">
           Skip the stressful part. Get real and practical web design inspiration
-          from the internet’s best designed and highest-converting websites.
+          from the internet&#39;s best designed and highest-converting websites.
         </h1>
         <div className="flex items-center justify-center gap-4 pt-6">
           <Link
@@ -65,17 +57,9 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <Browse />
-
-      <Link
-        href="/admin/dashboard"
-        className="bg-black py-4 px-8 text-white rounded-[20px] border border-[#BBBBBB] font-medium text-[18px]"
-      >
-        Admin
-      </Link>
+      <div className="">
+        <Browse />
+      </div>
     </main>
   );
 }
-
-
-
