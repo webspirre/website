@@ -50,8 +50,8 @@ const HorizontalTabs = ({ tabs, data }) => {
   }, [selectedFilters]);
 
   return (
-    <div className="mb-4 sm:w-[1320px]">
-      {/* Device Filters */}
+    <div className="mb-4"> 
+      {/* Device Filters  sm:max-w-[1320px] mx-auto w-full */}
       {deviceFilters.map((device, index) => (
         <button
           key={index}
@@ -91,7 +91,7 @@ const HorizontalTabs = ({ tabs, data }) => {
                     alt="design"
                   />
                   <p className="font-bold text-center text-[16px]">Filter</p>
-                </div>
+                </div>4
                 <div className="h-[40px] mr-4 min-w-[1px] bg-[#BDBDBD]"> </div>
               </div>
             </button>
