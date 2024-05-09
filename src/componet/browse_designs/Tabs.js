@@ -70,7 +70,7 @@ const HorizontalTabs = ({ tabs, data }) => {
         style={{ whiteSpace: "nowrap" }}
       >
         <div
-          className="flex gap-2 custom-scrollbar "
+          className="flex gap-2 custom-scrollbar w-[500pc]"
           style={{
             overflowX: "auto",
             scrollbarWidth: "none", // Hide the scrollbar for Firefox
@@ -134,7 +134,7 @@ const HorizontalTabs = ({ tabs, data }) => {
                     <div
                       className={`bg-[#F3F4F6] rounded-full p-1 text-[12px] ${
                         activeTab === index
-                          ? "rounded-full bg-[#F3F4F6] text-black "
+                          ? "rounded-full bg-[#F3F4F6] text-black"
                           : "rounded-full  text-black hover:text-gray-700  hover:border-gray-500"
                       }`}
                     >
@@ -152,8 +152,8 @@ const HorizontalTabs = ({ tabs, data }) => {
 
       {/* Tab Content */}
       <div className="flex justify-center">
-        <div className="  mt-4 w-full px-4">
-          <div className="grid grid-cols-3 gap-8">
+        <div className="  mt-4 mx-auto w-full px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {filteredData.map((item) => (
               <Card key={item.id} {...item} />
             ))}
