@@ -50,7 +50,7 @@ const HorizontalTabs = ({ tabs, data }) => {
   }, [selectedFilters]);
 
   return (
-    <div className="mb-4 w-[1320px]">
+    <div className="mb-4 sm:w-[1320px]">
       {/* Device Filters */}
       {deviceFilters.map((device, index) => (
         <button
@@ -152,8 +152,8 @@ const HorizontalTabs = ({ tabs, data }) => {
 
       {/* Tab Content */}
       <div className="flex justify-center">
-        <div className="  mt-4 w-full px-4">
-          <div className="grid grid-cols-3 gap-8">
+        <div className="  mt-4 w-full sm:px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {filteredData.map((item) => (
               <Card key={item.id} {...item} />
             ))}

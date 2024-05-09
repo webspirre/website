@@ -8,7 +8,7 @@ interface NavLinksProps {
 
 const NavLinks: React.FC<NavLinksProps> = ({ status }) => {
   return (
-    <ul className="flex space-x-8 items-center">
+    <ul className="flex space-x- sm:space-x-8 items-center">
       <li>
         <Link href="/price" className="hidden sm:flex text-[black] font-medium">
           Pricing

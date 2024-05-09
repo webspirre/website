@@ -19,7 +19,7 @@ const Browse = () => {
 
   return (
     <div className="flex justify-center w-full items-center">
-      <div className=" p-4 pt-8 w- mx-2 mb-2">
+      <div className=" p-4 pt-8 w-full sm:mx-2 mb-2">
         <Image
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705960658/utilities/Browse_designs_kubbae.svg"
           height={673}

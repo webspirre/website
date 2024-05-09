@@ -38,7 +38,7 @@ const Card = ({ id, name, category, imageUrl, logoUrl, description }) => {
           >
             {logoUrl && (
               <div className="">
-                <img src={logoUrl} alt={`${name} Logo`} className="h-10 w-8" />
+                <img src={logoUrl} alt={`${name} Logo`} className="sm:h-10 sm:w-8" />
               </div>
             )}
           </Link>

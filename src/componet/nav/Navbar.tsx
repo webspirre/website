@@ -82,7 +82,14 @@ export default function Navbar() {
             width={150}
             src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/logo_e8rxwj.svg"
             alt="Logo"
-            className="rounded-lg"
+            className="rounded-lg hidden sm:flex"
+          />
+          <Image
+            height={60}
+            width={60}
+            src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715204582/utilities/WhatsApp_Image_2024-05-07_at_15.43.18_a30adac2-removebg-preview_w6vuzw.png"
+            alt="Logo"
+            className="rounded-lg pt-2 sm:hidden"
           />
         </Link>
         <div className="relative">
@@ -96,14 +103,17 @@ export default function Navbar() {
           />
 
           {/* Display search results */}
-          {showSearchResults && <SearchResults searchResults={searchResults}  />}
+          {showSearchResults && <SearchResults searchResults={searchResults} />}
         </div>
 
         {/* Regular navigation items */}
         <NavLinks status={"authenticated"} />
 
         {/* More nav links */}
-        <MoreNavLinks showMoreNavLinks={showMoreNavLinks} />
+        <MoreNavLinks
+          showMoreNavLinks={showMoreNavLinks}
+          toggleMoreNavLinks={toggleMoreNavLinks}
+        />
       </nav>
     </nav>
   );
