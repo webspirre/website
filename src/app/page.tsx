@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main>
       <>
-        <Navbar1 />
+        <Navbar />
       </>
       {/* <>
           <Navbar />
@@ -35,25 +35,32 @@ export default function Home() {
           width={650}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705952595/utilities/hero_H1_and_vector_sy4fzl.svg"
           alt="rice"
-          className="rounded-lg"
+          className="px-4"
         />
 
-        <h1 className="text-[24px] w-[600px] pt-4 text-center">
+        <h1 className="sm:text-[24px] px-4 sm:w-[600px] pt-4 text-center">
           Skip the stressful part. Get real and practical web design inspiration
           from the internet&#39;s best designed and highest-converting websites.
         </h1>
-        <div className="flex items-center justify-center gap-4 pt-6">
+        <div className="flex items-center justify-center gap-4 px-4 pt-6">
           <Link
             href="/"
-            className="bg-black py-4 px-8 text-white rounded-[20px] border border-[#BBBBBB] font-medium text-[18px]"
+            className="bg-black py-4 px-4 sm:py-4 sm:px-8 text-white rounded-[20px] border border-[#BBBBBB] font-medium text-[14px] sm:text-[18px]"
           >
             Get started now
           </Link>
           <Link
             href="/"
-            className="bg-white p-4 px-8 text-black rounded-[20px] border border-[#BBBBBB] font-medium text-[18px]"
+            className="bg-white flex items-center gap-2 py-4 px-4 sm:py-4 sm:px-8 text-black rounded-[20px] border border-[#BBBBBB] font-medium text-[14px] sm:text-[18px]"
           >
-            Learn More
+            <Image
+              height={40}
+              width={20}
+              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715212239/utilities/play_icon_1_zueuon.svg"
+              alt="rice"
+              className=""
+            />
+            See how it works
           </Link>
         </div>
       </div>

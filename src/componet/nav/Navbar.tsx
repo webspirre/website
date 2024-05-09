@@ -8,13 +8,15 @@ import SearchResults from "./SearchResults";
 import NavLinks from "./NavLinks";
 import MoreNavLinks from "./MoreNavLinks";
 
-interface Project {
+// Define the Project type
+export interface Project {
   id: number;
   name: string;
   category: string;
   logoUrl: string;
   description?: string;
 }
+
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -72,7 +74,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-[#F8F7F4] p-4 border-b border-[#BBBBBB] items-center">
+    <nav className="bg-[#F8F7F4] px-4 pb-4 border-b border-[#BBBBBB] items-center">
       <nav className="max-w-screen mx-2 flex justify-between items-center">
         <Link href="/">
           <Image
@@ -80,7 +82,14 @@ export default function Navbar() {
             width={150}
             src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/logo_e8rxwj.svg"
             alt="Logo"
-            className="rounded-lg"
+            className="rounded-lg hidden sm:flex"
+          />
+          <Image
+            height={60}
+            width={60}
+            src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715204582/utilities/WhatsApp_Image_2024-05-07_at_15.43.18_a30adac2-removebg-preview_w6vuzw.png"
+            alt="Logo"
+            className="rounded-lg pt-2 sm:hidden"
           />
         </Link>
         <div className="relative">
@@ -101,7 +110,10 @@ export default function Navbar() {
         <NavLinks status={"authenticated"} />
 
         {/* More nav links */}
-        <MoreNavLinks showMoreNavLinks={showMoreNavLinks} />
+        <MoreNavLinks
+          showMoreNavLinks={showMoreNavLinks}
+          toggleMoreNavLinks={toggleMoreNavLinks}
+        />
       </nav>
     </nav>
   );

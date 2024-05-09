@@ -8,15 +8,15 @@ interface NavLinksProps {
 
 const NavLinks: React.FC<NavLinksProps> = ({ status }) => {
   return (
-    <ul className="flex space-x-8 items-center">
+    <ul className="flex pt-2 sm:space-x-8 items-center">
       <li>
-        <Link href="/price" className="hover: text-[black] font-medium">
+        <Link href="/price" className="hidden sm:flex text-[black] font-medium">
           Pricing
         </Link>
       </li>
       <li>
         {status === "authenticated" ? (
-          <div>
+          <div className="hidden sm:flex">
             <Link
               href="/auth/login"
               className="hover: text-[black]  font-medium"
@@ -25,7 +25,10 @@ const NavLinks: React.FC<NavLinksProps> = ({ status }) => {
             </Link>
           </div>
         ) : (
-          <Link href="/auth/login" className="hover: text-[black]  font-medium">
+          <Link
+            href="/auth/login"
+            className="hidden sm:flex text-[black]  font-medium"
+          >
             Log in
           </Link>
         )}
@@ -33,7 +36,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ status }) => {
       <li>
         <Link
           href="/auth/register"
-          className="hover: bg-black p-3 px-8 text-white rounded-[10px] border border-[#BBBBBB] "
+          className="hidden sm:flex bg-black p-3 px-8 text-white rounded-[10px] border border-[#BBBBBB] "
         >
           Sign Up
         </Link>
