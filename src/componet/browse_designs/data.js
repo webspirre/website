@@ -4,6 +4,8 @@ const data = [
     id: 1,
     name: "Project 1",
     category: "Software & SaaS",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
@@ -24,6 +26,8 @@ const data = [
     id: 2,
     name: "Project 2",
     category: "Software & SaaS",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
@@ -44,6 +48,9 @@ const data = [
     id: 3,
     name: "Project 3",
     category: "Software & SaaS",
+
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
@@ -64,6 +71,8 @@ const data = [
     id: 4,
     name: "Project 4",
     category: "AI",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
@@ -84,6 +93,8 @@ const data = [
     id: 5,
     name: "Project 5",
     category: "AI",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
@@ -104,6 +115,8 @@ const data = [
     id: 6,
     name: "Project 6",
     category: "AI",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
@@ -124,6 +137,8 @@ const data = [
     id: 7,
     name: "Project 7",
     category: "Fintech",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
@@ -144,6 +159,8 @@ const data = [
     id: 8,
     name: "Project 8",
     category: "Fintech",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
@@ -164,6 +181,8 @@ const data = [
     id: 9,
     name: "Project 9",
     category: "Fintech",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
@@ -184,6 +203,8 @@ const data = [
     id: 10,
     name: "Project 10",
     category: "Agency & Corporate",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
@@ -204,6 +225,8 @@ const data = [
     id: 11,
     name: "Project 11",
     category: "Agency & Corporate",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
@@ -224,6 +247,8 @@ const data = [
     id: 12,
     name: "Project 12",
     category: "Agency & Corporate",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
@@ -244,6 +269,8 @@ const data = [
     id: 13,
     name: "Project 13",
     category: "E-Commerce",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
@@ -264,6 +291,8 @@ const data = [
     id: 14,
     name: "Project 14",
     category: "E-Commerce",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
@@ -284,6 +313,8 @@ const data = [
     id: 15,
     name: "Project 15",
     category: "E-Commerce",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
@@ -304,6 +335,8 @@ const data = [
     id: 16,
     name: "Project 16",
     category: "Crypto & Web3",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
@@ -324,6 +357,8 @@ const data = [
     id: 17,
     name: "Project 17",
     category: "Crypto & Web3",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
@@ -344,6 +379,8 @@ const data = [
     id: 18,
     name: "Project 18",
     category: "Crypto & Web3",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
@@ -364,6 +401,8 @@ const data = [
     id: 19,
     name: "Project 19",
     category: "Travel & Hospitality",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
@@ -384,6 +423,8 @@ const data = [
     id: 20,
     name: "Project 20",
     category: "Travel & Hospitality",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
@@ -404,6 +445,8 @@ const data = [
     id: 21,
     name: "Project 21",
     category: "Travel & Hospitality",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
@@ -424,6 +467,8 @@ const data = [
     id: 22,
     name: "Project 22",
     category: "Software & SaaS",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
@@ -444,6 +489,8 @@ const data = [
     id: 23,
     name: "Project 23",
     category: "Software & SaaS",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
@@ -464,6 +511,8 @@ const data = [
     id: 24,
     name: "Project 24",
     category: "Software & SaaS",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
@@ -484,6 +533,8 @@ const data = [
     id: 25,
     name: "Project 25",
     category: "AI",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
@@ -504,6 +555,8 @@ const data = [
     id: 26,
     name: "Project 26",
     category: "AI",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
@@ -524,6 +577,8 @@ const data = [
     id: 27,
     name: "Project 27",
     category: "AI",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
@@ -544,6 +599,8 @@ const data = [
     id: 28,
     name: "Project 28",
     category: "Travel & Hospitality",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "404 Page",
@@ -564,6 +621,8 @@ const data = [
     id: 29,
     name: "Project 29",
     category: "Travel & Hospitality",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Login Page",
@@ -584,6 +643,8 @@ const data = [
     id: 30,
     name: "Project 30",
     category: "Travel & Hospitality",
+    mobileImageUrlss:
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
     imageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
