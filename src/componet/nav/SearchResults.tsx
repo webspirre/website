@@ -10,7 +10,7 @@ interface SearchResultsProps {
 
 const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
   return (
-    <div className="absolute items-center justify-center mt- p-4  sm:px-[50px] z-10 sm:w-[600px] bg-white border-l border-r border-b border-[#BBBBBB] rounded-b-md shadow-md ">
+    <div className="absolute items-center justify-center mt- p-4  sm:px-[50px] z-10 w-[300px] sm:w-[600px] bg-white border-l border-r border-b border-[#BBBBBB] rounded-b-md shadow-md ">
       {/* Display search results */}
       {searchResults.map((result) => (
         <div key={result.id} className="mb-8 flex items-center ">
