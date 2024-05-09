@@ -3,12 +3,103 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import data from "../../../componet/browse_designs/data";
+import cx from "classnames";
+import BottomBar from "./BottomBar";
 
 interface ItemDetailProps {
   id: number;
   onNext: () => void;
   onPrevious: () => void;
 }
+
+const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
+  websiteData,
+  isTop,
+}) => {
+  return (
+    <>
+      {/* Detail Content */}
+      <div
+        className={cx(
+          isTop
+            ? "block md:hidden mb-10 p-3"
+            : "hidden md:block p-4 border-[#F3F4F6] border-2 shadow-lg rounded-lg",
+          " mt-8"
+        )}
+      >
+        <div className="flex gap-4 mb-4 items-center">
+          {/* website logo */}
+          <Image
+            height={20}
+            width={44}
+            src={websiteData.logoUrl}
+            alt="rice"
+            className="p-2 rounded-lg border border-[#F1F0EE]"
+          />
+          {/* website name */}
+          <h1 className="font-bold ">{websiteData.name}</h1>
+        </div>
+        {/* website long description */}
+        <p className="text-[12px] text-[#6E6E6E]">
+          {websiteData.longDescription}
+        </p>
+
+        <div className="border-t border-gray my-4"></div>
+        <div className="">
+          <table className="w-full">
+            {!isTop ? (
+              <tbody>
+                <tr className="text-[12px] text-[#6E6E6E]">
+                  <td className="p-2 ">Category</td>
+                  {/* website category */}
+                  <td className="p-2">{websiteData.category}</td>
+                </tr>
+                <tr className="text-[12px] text-[#6E6E6E]">
+                  <td className="p-2">Views</td>
+                  {/* number of veiws */}
+                  <td className="p-2">{websiteData.views}</td>
+                </tr>
+                <tr className="text-[12px] text-[#6E6E6E]">
+                  <td className="p-2">Last updated</td>
+                  {/* last updated */}
+                  <td className="p-2">{websiteData.lastUpdated}</td>
+                </tr>
+              </tbody>
+            ) : (
+              <tbody className="flex space-x-1 text-[10px] text-[#6E6E6E]">
+                <tr className="">
+                  <td className="p-2 ">Category</td>
+                  {/* website category */}
+                </tr>
+                <tr className="">
+                  <td className="p-2">{websiteData.category}</td>
+                </tr>
+                <tr className="">
+                  <td className="p-2">Last updated</td>
+                  {/* last updated */}
+                </tr>
+                <tr className="">
+                  <td className="p-2">{websiteData.lastUpdated}</td>
+                </tr>
+                <tr className="">
+                  <td className="p-2">Views</td>
+                  {/* number of veiws */}
+                </tr>
+                <tr className="">
+                  <td className="p-2">{websiteData.views}</td>
+                </tr>
+              </tbody>
+            )}
+
+            {/*  */}
+          </table>
+        </div>
+
+        <div className="border-t border-gray my-4"></div>
+      </div>
+    </>
+  );
+};
 
 function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
   const [isMobileView, setIsMobileView] = useState(false);
@@ -44,13 +135,15 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
           onClick={handleNext}
         />
       </div>
-      <div className="w-fit bg-[#F1F0EE] p-2 ml-2 sm:ml-[80px] mb-8 shadow-md rounded-full">
+      {/* Detail Item Content */}
+      <ItemDetailContent websiteData={websiteData} isTop={true} />{" "}
+      <div className="w-fit bg-[#F1F0EE] p-2 mx-auto sm:ml-[80px] mb-8 shadow-md rounded-full ">
         {/* Desktop and Mobile switch, to show the desktop or mobile image on the website image space*/}
         <div className="flex items-center space-x-4 ">
           <div
             className={`cursor-pointer ${
               !isMobileView
-                ? "bg-white rounded-full shadow-lg p-4 px-6"
+                ? "bg-white rounded-full shadow-lg p-4 px-"
                 : "p-4 pl-6"
             }`}
             onClick={() => setIsMobileView(false)}
@@ -70,9 +163,9 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
         </div>
       </div>
       <div className="w-[90%] ml-2 sm:ml-[80px] flex item-center justify-center">
-        <div className="grid grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-6 gap-4">
           {/* First Column */}
-          <div className={`col-span-4 `}>
+          <div className={`col-span-4 bg-red-200 mx-auto`}>
             {/* the website image */}
             <Image
               height={isMobileView ? 500 : 20}
@@ -125,49 +218,10 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
                 </div>
               </Link>
             </div>
-            <div className="p-4 border-[#F3F4F6] border-2 shadow-lg rounded-lg mt-8">
-              <div className="flex gap-4 mb-4 items-center">
-                {/* website logo */}
-                <Image
-                  height={20}
-                  width={44}
-                  src={websiteData.logoUrl}
-                  alt="rice"
-                  className="p-2 rounded-lg border border-[#F1F0EE]"
-                />
-                {/* website name */}
-                <h1 className="font-bold ">{websiteData.name}</h1>
-              </div>
-              {/* website long description */}
-              <p className="text-[12px] text-[#6E6E6E]">
-                {websiteData.longDescription}
-              </p>
 
-              <div className="border-t border-gray my-4"></div>
-              <div className="">
-                <table className="w-full">
-                  <tbody>
-                    <tr className="text-[12px] text-[#6E6E6E]">
-                      <td className="p-2 ">Category</td>
-                      {/* website category */}
-                      <td className="p-2">{websiteData.category}</td>
-                    </tr>
-                    <tr className="text-[12px] text-[#6E6E6E]">
-                      <td className="p-2">Views</td>
-                      {/* number of veiws */}
-                      <td className="p-2">{websiteData.views}</td>
-                    </tr>
-                    <tr className="text-[12px] text-[#6E6E6E]">
-                      <td className="p-2">Last updated</td>
-                      {/* last updated */}
-                      <td className="p-2">{websiteData.lastUpdated}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="border-t border-gray my-4"></div>
-            </div>
+            <BottomBar />
+            {/* Detail Content */}
+            <ItemDetailContent websiteData={websiteData} isTop={false} />
           </div>
         </div>
       </div>

@@ -6,9 +6,7 @@ import { useParams } from "next/navigation";
 import ItemDetail from "./ItemDetail";
 import Navbar from "@/componet/nav/Navbar";
 
-
 function Page() {
-
   const { id } = useParams<{ id: string }>();
 
   const [currentProjectId, setCurrentProjectId] = useState<number>(
@@ -28,7 +26,7 @@ function Page() {
   return (
     <>
       <Navbar />
-      <div className="justify-center px-20 mt-[100px]">
+      <div className="justify-center px-2 md:px-20 mt-5 md:mt-[100px]">
         <ItemDetail
           id={currentProjectId}
           onNext={handleNext}
