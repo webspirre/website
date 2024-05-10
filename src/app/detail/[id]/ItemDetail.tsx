@@ -24,7 +24,7 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
           isTop
             ? "block md:hidden mb-10 p-3"
             : "hidden md:block p-4 border-[#F3F4F6] border-2 shadow-lg rounded-lg",
-          "mt-0 md:mt-8"
+          "mt-0 xl:mt-8"
         )}
       >
         <div className="flex gap-4 mb-4 items-center">
@@ -164,10 +164,10 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
           </div>
         </div>
       </div>
-      <div className="w-[90%] ml-2 sm:ml-[80px] flex item-center justify-center">
+      <div className="w-[90%] md:w-full ml-2 md:ml-4 xl:ml-[80px] flex item-center justify-center">
         <div className="grid grid-cols-1 sm:grid-cols-6 gap-4">
           {/* First Column */}
-          <div className={`col-span-4 mx-auto`}>
+          <div className={`col-span-4 md:col-span-3 mx-auto`}>
             {/* the website image */}
             <Image
               height={isMobileView ? 500 : 20}
@@ -183,7 +183,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
           </div>
 
           {/* Second Column */}
-          <div className={`col-span-2 px-4`}>
+          <div className={`col-span-2 md:col-span-3 px-4`}>
             {/* Your content for the second column */}
             <div className="flex gap-4">
               <div className="p-4 flex items-center bg-[#F1F0EE] border border-[#94A3B8] rounded-lg">
