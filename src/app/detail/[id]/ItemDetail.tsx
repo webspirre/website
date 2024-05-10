@@ -72,21 +72,23 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
                   {/* website category */}
                 </tr>
                 <tr className="">
-                  <td className="p-2">{websiteData.category}</td>
+                  <td className="p-2 font-semibold">{websiteData.category}</td>
                 </tr>
                 <tr className="">
                   <td className="p-2">Last updated</td>
                   {/* last updated */}
                 </tr>
                 <tr className="">
-                  <td className="p-2">{websiteData.lastUpdated}</td>
+                  <td className="p-2 font-semibold">
+                    {websiteData.lastUpdated}
+                  </td>
                 </tr>
                 <tr className="">
                   <td className="p-2">Views</td>
                   {/* number of veiws */}
                 </tr>
                 <tr className="">
-                  <td className="p-2">{websiteData.views}</td>
+                  <td className="p-2 font-semibold">{websiteData.views}</td>
                 </tr>
               </tbody>
             )}
