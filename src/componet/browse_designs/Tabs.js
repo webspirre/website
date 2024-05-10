@@ -161,7 +161,7 @@ const HorizontalTabs = ({ tabs, data }) => {
         <div className="  mt-4 w-full sm:px-4">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {filteredData.map((item) => (
-              <Card key={item.id} {...item} />
+              <Card key={item.id} {...item} deviceFilter={deviceFilter} />
             ))}
           </div>
         </div>

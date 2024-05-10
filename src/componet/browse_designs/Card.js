@@ -2,7 +2,16 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const Card = ({ id, name, category, imageUrl, logoUrl, description }) => {
+const Card = ({
+  id,
+  name,
+  category,
+  imageUrl,
+  mobileImageUrlss,
+  logoUrl,
+  description,
+  deviceFilter,
+}) => {
   const [showMorePopup, setShowMorePopup] = useState(false);
   const [showBookmarkPopup, setShowBookmarkPopup] = useState(false);
 
@@ -20,25 +29,25 @@ const Card = ({ id, name, category, imageUrl, logoUrl, description }) => {
 
   return (
     <div className="bg-white rounded-md relative">
-      <Link
-        href={`/detail/${id}`}
-        passHref
-        className="bg-white rounded-md "
-      >
+      <Link href={`/detail/${id}`} passHref className="bg-white rounded-md ">
         <div className=" bg-[#F0F0F0] p-4 rounded-md ">
-          <img src={imageUrl} alt={name} className="mb-2 rounded-md" />
+          <img
+            src={deviceFilter === "Mobile" ? mobileImageUrlss : imageUrl}
+            alt={name}
+            className="mb-2 rounded-md"
+          />
         </div>
       </Link>
       <div className="flex py-8 justify-between items-center">
         <div className="flex items-center mt-2 gap-2">
-          <Link
-            href={`/detail/${id}`}
-            passHref
-            className="bg-white rounded-md"
-          >
+          <Link href={`/detail/${id}`} passHref className="bg-white rounded-md">
             {logoUrl && (
               <div className="">
-                <img src={logoUrl} alt={`${name} Logo`} className="sm:h-10 sm:w-8" />
+                <img
+                  src={logoUrl}
+                  alt={`${name} Logo`}
+                  className="sm:h-10 sm:w-8"
+                />
               </div>
             )}
           </Link>
