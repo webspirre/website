@@ -24,7 +24,7 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
           isTop
             ? "block md:hidden mb-10 p-3"
             : "hidden md:block p-4 border-[#F3F4F6] border-2 shadow-lg rounded-lg",
-          " mt-8"
+          "mt-0 xl:mt-8"
         )}
       >
         <div className="flex gap-4 mb-4 items-center">
@@ -72,21 +72,23 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
                   {/* website category */}
                 </tr>
                 <tr className="">
-                  <td className="p-2">{websiteData.category}</td>
+                  <td className="p-2 font-semibold">{websiteData.category}</td>
                 </tr>
                 <tr className="">
                   <td className="p-2">Last updated</td>
                   {/* last updated */}
                 </tr>
                 <tr className="">
-                  <td className="p-2">{websiteData.lastUpdated}</td>
+                  <td className="p-2 font-semibold">
+                    {websiteData.lastUpdated}
+                  </td>
                 </tr>
                 <tr className="">
                   <td className="p-2">Views</td>
                   {/* number of veiws */}
                 </tr>
                 <tr className="">
-                  <td className="p-2">{websiteData.views}</td>
+                  <td className="p-2 font-semibold">{websiteData.views}</td>
                 </tr>
               </tbody>
             )}
@@ -95,7 +97,7 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
           </table>
         </div>
 
-        <div className="border-t border-gray my-4"></div>
+        <div className="border-t border-gray my-0 md:my-4"></div>
       </div>
     </>
   );
@@ -137,13 +139,13 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
       </div>
       {/* Detail Item Content */}
       <ItemDetailContent websiteData={websiteData} isTop={true} />{" "}
-      <div className="w-fit bg-[#F1F0EE] p-2 mx-auto sm:ml-[80px] mb-8 shadow-md rounded-full ">
+      <div className="w-fit bg-[#F1F0EE] p-1 md:p-2 mx-auto sm:ml-[80px] mb-8 shadow-md rounded-full">
         {/* Desktop and Mobile switch, to show the desktop or mobile image on the website image space*/}
-        <div className="flex items-center space-x-4 ">
+        <div className="flex items-center justify-center space-x-4 ">
           <div
             className={`cursor-pointer ${
               !isMobileView
-                ? "bg-white rounded-full shadow-lg p-4 px-"
+                ? "bg-white rounded-full shadow-lg p-3 px-6"
                 : "p-4 pl-6"
             }`}
             onClick={() => setIsMobileView(false)}
@@ -153,7 +155,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
           <div
             className={`cursor-pointer ${
               isMobileView
-                ? "bg-white rounded-full shadow-md p-4 px-6"
+                ? "bg-white rounded-full shadow-md p-3 px-6"
                 : "p-4 pr-6"
             }`}
             onClick={() => setIsMobileView(true)}
@@ -162,10 +164,10 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
           </div>
         </div>
       </div>
-      <div className="w-[90%] ml-2 sm:ml-[80px] flex item-center justify-center">
+      <div className="w-[90%] md:w-full ml-2 md:ml-4 xl:ml-[80px] flex item-center justify-center">
         <div className="grid grid-cols-1 sm:grid-cols-6 gap-4">
           {/* First Column */}
-          <div className={`col-span-4 bg-red-200 mx-auto`}>
+          <div className={`col-span-4 md:col-span-3 mx-auto`}>
             {/* the website image */}
             <Image
               height={isMobileView ? 500 : 20}
@@ -181,7 +183,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
           </div>
 
           {/* Second Column */}
-          <div className={`col-span-2 px-4`}>
+          <div className={`col-span-2 md:col-span-3 px-4`}>
             {/* Your content for the second column */}
             <div className="flex gap-4">
               <div className="p-4 flex items-center bg-[#F1F0EE] border border-[#94A3B8] rounded-lg">
