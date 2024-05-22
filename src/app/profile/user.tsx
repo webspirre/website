@@ -1,7 +1,9 @@
 import Image from "next/image";
 import React from "react";
-
-function user() {
+interface UserProp {
+  handleToggle: () => void;
+}
+const user: React.FC<UserProp> = ({ handleToggle }) => {
   return (
     <div className="flex items-center justify-center my-0 sm:my-20">
       <div className="w-full sm:w-[50%] border-2 shadow-lg rounded-lg">
@@ -73,13 +75,16 @@ function user() {
           <p className="text-[#6E6E6E] text-xs sm:text-base">
             Permanently delete your account and all your content
           </p>
-          <button className="bg-[#FF0000] rounded-lg px-[100px] w-[70%] sm:w-full flex justify-center items-center whitespace-nowrap py-4 font-bold  text-white ">
+          <button
+            className="bg-[#FF0000] rounded-lg px-[100px] w-[70%] sm:w-full flex justify-center items-center whitespace-nowrap py-4 font-bold  text-white "
+            onClick={handleToggle}
+          >
             Delete your account
           </button>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default user;

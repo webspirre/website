@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import User from "./user";
 import DeleteProfileModal from "@/componet/modals/DeleteProfileModal";
 
-async function page() {
+function page() {
   const [toogleModal, setToogleModal] = useState<boolean>(false);
   const handleToggle = () => setToogleModal((prev) => !prev);
   return (
@@ -14,7 +14,7 @@ async function page() {
       <DeleteProfileModal open={toogleModal} toogleModal={handleToggle} />
       <div>
         <Navbar />
-        <User />
+        <User handleToggle={handleToggle} />
       </div>
     </>
   );
