@@ -38,22 +38,22 @@ const Card = ({
           />
         </div>
       </Link>
-      <div className="flex py-8 justify-between items-center">
-        <div className="flex items-center mt-2 gap-2">
+      <div className="flex py-8 justify-between items-start">
+        <div className="flex items-start mt-2 gap-2">
           <Link href={`/detail/${id}`} passHref className="bg-white rounded-md">
             {logoUrl && (
               <div className="">
                 <img
                   src={logoUrl}
                   alt={`${name} Logo`}
-                  className="sm:h-10 sm:w-8"
+                  className="sm:h-[24px] sm:w-[25px]"
                 />
               </div>
             )}
           </Link>
 
-          <div>
-            <p className="text-[12px] font-bold">{name}</p>
+          <div className="pr-[40px]"> 
+            <p className="text-[12px] mb-2 font-bold">{name}</p>
             {description && (
               <p className="text-gray-700 text-[11px] ">{description}</p>
             )}
