@@ -5,15 +5,19 @@ import Link from "next/link";
 import Browse from "../componet/browse_designs/Browse";
 import Navbar from "@/componet/nav/Navbar";
 import Navbar1 from "@/componet/nav/Navbar1";
-
+import VideoModal from "@/componet/modals/VideoModal";
+import { useState } from "react";
 
 export default function Home() {
+  const [toogleModal, setToogleModal] = useState<boolean>(false);
+  const handleToggle = () => setToogleModal((prev) => !prev);
 
   const backgroundImageUrl =
     "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705724835/utilities/background_illustration_lcdskr.svg";
 
   return (
     <main>
+      <VideoModal toogleModal={handleToggle} open={toogleModal} />
       <>
         <Navbar />
       </>
@@ -49,8 +53,9 @@ export default function Home() {
           >
             Get started now
           </Link>
-          <Link
-            href="/"
+          <div
+            // href="/"
+            onClick={handleToggle}
             className="bg-white flex items-center gap-2 py-4 px-4 sm:py-4 sm:px-8 text-black rounded-[20px] border border-[#BBBBBB] font-medium text-[14px] sm:text-[18px]"
           >
             <Image
@@ -61,7 +66,7 @@ export default function Home() {
               className=""
             />
             See how it works
-          </Link>
+          </div>
         </div>
       </div>
       <div className="">
