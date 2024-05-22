@@ -60,22 +60,22 @@ const SearchInput: React.FC<SearchInputProps> = ({
       </div>
 
       {/* mobile search */}
-      <div>
+      <div className={`  ${isFocused ? "" : " "} `}>
         <div
-          className={` relative sm:hidden flex justify-center  pt-[10px] px-4 ${
+          className={` relative sm:hidden flex justify-center  pt-[10px]  h-[41px] px-4 ${
             isFocused
-              ? "bg-white border-l border-r border-t absolute w-[300px]  rounded-t-md border-[#BBBBBB]"
-              : "bg-[#F8F7F4] w-[250px] "
+              ? "bg-white border-l border-r border-t absolute w-[350px]  rounded-t-md border-[#BBBBBB]"
+              : "bg-[#F8F7F4] w-[221px] "
           } `}
         >
           <div
-            className={`flex items-center  w-[250px] ${
-              isFocused ? "bg-[#EDEDED]" : "bg-white"
+            className={`flex items-center   ${
+              isFocused ? "bg-[#EDEDED] w-[350px]" : "bg-white w-[221px]"
             } border border-[#BBBBBB] rounded-full py-2 px-3 sm:py-3 sm:px-[50px]`}
           >
             <Image
-              height={20}
-              width={20}
+              height={14}
+              width={14}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/magnifier_vrq3zb.svg"
               alt="Search Icon"
               className=""
@@ -83,7 +83,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
             <input
               type="text"
               placeholder="Search..."
-              className="focus:outline-none focus:bg-[#EDEDED] pl-2 w-full"
+              className="focus:outline-none focus:bg-[#EDEDED] pl-2 text-[14px] w-full"
               value={value}
               onChange={onChange}
               onFocus={() => {

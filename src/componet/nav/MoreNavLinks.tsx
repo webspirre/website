@@ -17,7 +17,7 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
       <a href="#" className="hover:underline">
         <Image
           height={20}
-          width={50}
+          width={44}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705727048/utilities/menu_rdtahr.svg"
           alt="Menu Icon"
           className=" pt-2"
@@ -27,7 +27,7 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
 
       {/* More nav links pop-up */}
       {showMoreNavLinks && (
-        <div className="absolute text-[12px] -right-[10px] mt-6  bg-white border z-10 w-[150px] rounded-md shadow-md">
+        <div className="absolute top-4 text-[12px] -right-[10px] mt-6  bg-white  z-10 w-[150px] rounded-md shadow-md">
           {/* Your additional navigation links here */}
           <div className="absolute text-[12px] -right-[10px] mt-6  bg-white border z-10 w-[200px] rounded-md shadow-md">
             <Link href="/bookmark" className="block text-[black] mb-2 ">

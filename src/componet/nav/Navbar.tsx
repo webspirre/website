@@ -74,7 +74,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-[#F8F7F4] px-4 pb-4 border-b border-[#BBBBBB] items-center">
+    <nav className="bg-[#F8F7F4] relative px-4 pb-4 border-b border-[#BBBBBB] items-center">
       <nav className="max-w-screen mx-2 flex justify-between items-center">
         <Link href="/">
           <Image
@@ -85,8 +85,8 @@ export default function Navbar() {
             className="rounded-lg hidden sm:flex"
           />
           <Image
-            height={60}
-            width={60}
+            height={43}
+            width={57}
             src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715204582/utilities/WhatsApp_Image_2024-05-07_at_15.43.18_a30adac2-removebg-preview_w6vuzw.png"
             alt="Logo"
             className="rounded-lg pt-2 sm:hidden"
