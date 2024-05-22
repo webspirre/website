@@ -17,7 +17,6 @@ export interface Project {
   description?: string;
 }
 
-
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<Project[]>([]);

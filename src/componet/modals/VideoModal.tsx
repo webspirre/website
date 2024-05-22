@@ -2,6 +2,7 @@ import { ModalType } from "@/types/Modal.type";
 import {
   Dialog,
   DialogPanel,
+  DialogTitle,
   Transition,
   TransitionChild,
 } from "@headlessui/react";
@@ -49,12 +50,12 @@ const VideoModal: React.FC<ModalType> = ({ open, toogleModal }) => {
               >
                 <DialogPanel className="w-full max-w-full md:max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <div className="flex justify-between items-center p-3 border-b mb-5 w-full">
-                    <Dialog.Title
+                    <DialogTitle
                       as="h3"
                       className="text-xs font-medium leading-6 text-gray-900"
                     >
                       Watch how it works
-                    </Dialog.Title>
+                    </DialogTitle>
                     <ImCancelCircle
                       onClick={toogleModal}
                       className="cursor-pointer"
