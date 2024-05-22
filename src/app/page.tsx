@@ -56,7 +56,7 @@ export default function Home() {
           <div
             // href="/"
             onClick={handleToggle}
-            className="bg-white flex items-center gap-2 py-4 px-4 sm:py-4 sm:px-8 text-black rounded-[20px] border border-[#BBBBBB] font-medium text-[14px] sm:text-[18px]"
+            className="bg-white flex items-center gap-2 py-4 px-4 sm:py-4 sm:px-8 text-black rounded-[20px] border border-[#BBBBBB] font-medium text-[14px] sm:text-[18px] cursor-pointer"
           >
             <Image
               height={40}
