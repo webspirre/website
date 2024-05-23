@@ -1,30 +1,24 @@
-// SearchResults.tsx
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Project } from "./Navbar"; // Import the Project type from Navbar.tsx
 import TabButtons from "./TabButtons";
-
-
 
 interface SearchResultsProps {
   searchResults: Project[];
 }
 
 const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
-   const [activeTab, setActiveTab] = useState(0);
-   const [showFilterOptions, setShowFilterOptions] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
+  const [showFilterOptions, setShowFilterOptions] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  
-   const tabs = [
-     { label: "All" },
-     { label: "Software & SaaS" },
-     { label: "E-commerce" },
-     { label: "All" },
-     { label: "All" },
-     { label: "All" },
-     { label: "All" },
-     // Add other tabs as needed
-   ];
+  const searchResultRef = useRef<HTMLDivElement>(null);
+
+  const tabs = [
+    { label: "All" },
+    { label: "Software & SaaS" },
+    { label: "E-commerce" },
+    // Add other tabs as needed
+  ];
 
   const filterOptions = [
     "Landing Page",
@@ -43,9 +37,28 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
     }
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        searchResultRef.current &&
+        !searchResultRef.current.contains(event.target as Node)
+      ) {
+        setShowFilterOptions(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <div className="absolute items-center justify-center  p-4 sm:px-[50px] z-10 w-[350px] sm:w-[600px] bg-white border-l border-r border-b border-[#BBBBBB] rounded-b-md shadow-md">
+    <div
+      ref={searchResultRef}
+      className="absolute items-center justify-center p-4 sm:px-[50px] z-10 w-[330px] sm:w-[600px] bg-white border-l border-r border-b border-[#BBBBBB] rounded-b-md shadow-md"
+    >
       {/* Filter bar option section */}
       <TabButtons
         tabs={tabs}
@@ -57,6 +70,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
         showFilterOptions={showFilterOptions}
         setShowFilterOptions={setShowFilterOptions}
       />
+      
       {/* Display search results */}
       {searchResults.map((result) => (
         <div key={result.id} className="mb-8 flex items-center">
@@ -87,7 +101,3 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
 };
 
 export default SearchResults;
-
-
-
-

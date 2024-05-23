@@ -14,7 +14,30 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
 }) => {
   return (
     <div className="relative">
-      <a href="#" className="hover:underline">
+      <div className="hidde">
+        <a
+          href="#"
+          className="p-2 border flex flex-row gap-2 rounded-full"
+          onClick={toggleMoreNavLinks}
+        >
+          <Image
+            height={20}
+            width={40}
+            src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707432454/utilities/profile_image_b4sbia.svg"
+            alt="rice"
+            className="z-10"
+          />
+          <Image
+            height={20}
+            width={35}
+            src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707432726/utilities/hamburger_icon_mlednc.svg"
+            alt="rice"
+            className=""
+          />
+        </a>
+      </div>
+
+      <a href="#" className="hover:underline hidden">
         <Image
           height={20}
           width={44}
