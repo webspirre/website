@@ -50,7 +50,7 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
 
       {/* More nav links pop-up */}
       {showMoreNavLinks && (
-        <div className="absolute top-4 text-[12px] -right-[10px] mt-6  bg-white  z-10 w-[150px] rounded-md shadow-md">
+        <div className="absolute top-4 text-[12px] -right-[10px] mt-6  bg-white  z-[999] w-[150px] rounded-md shadow-md">
           {/* Your additional navigation links here */}
           <div className="absolute text-[12px] -right-[10px] mt-6  bg-white border z-10 w-[200px] rounded-md shadow-md">
             <Link href="/bookmark" className="block text-[black] mb-2 ">
