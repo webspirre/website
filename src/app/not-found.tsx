@@ -10,7 +10,7 @@ function NotFound() {
     "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705724835/utilities/background_illustration_lcdskr.svg";
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div
         style={{
           backgroundImage: `url(${backgroundImageUrl})`,
