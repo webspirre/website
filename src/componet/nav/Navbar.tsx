@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState, ChangeEvent, useRef, useEffect } from "react";
 import Image from "next/image";
 import data from "../browse_designs/data";
@@ -108,13 +110,14 @@ export default function Navbar() {
             </div>
           )}
         </div>
+        <div className="flex gap-8">
+          <NavLinks status={"authenticated"} />
 
-        <NavLinks status={"authenticated"} />
-
-        <MoreNavLinks
-          showMoreNavLinks={showMoreNavLinks}
-          toggleMoreNavLinks={toggleMoreNavLinks}
-        />
+          <MoreNavLinks
+            showMoreNavLinks={showMoreNavLinks}
+            toggleMoreNavLinks={toggleMoreNavLinks}
+          />
+        </div>
       </nav>
     </nav>
   );

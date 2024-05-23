@@ -1,6 +1,13 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
+import { Carter_One } from "next/font/google";
+
+const carterOne = Carter_One({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 function Bill() {
   const [isMonthly, setIsMonthly] = useState(true); // State to track billing frequency
@@ -31,6 +38,11 @@ function Bill() {
           {isMonthly ? (
             /* Monthly Fee */
             <>
+              <h1
+                className={` ${carterOne.className} text-[17px] sm:text-[24px]`}
+              >
+                Unlimited web design inspiration
+              </h1>
               <Image
                 height={20}
                 width={200}

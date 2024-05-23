@@ -94,7 +94,7 @@ const demoData: CardProps[] = [
 
 function CardList() {
   return (
-    <div className="grid grid-cols-3 gap-4 mt-8 mx-6">
+    <div className="grid grid-cols-1  sm:grid-cols-3 gap-4 mt-8 mx-6">
       {demoData.map((data) => (
         <Card
           key={data.id}

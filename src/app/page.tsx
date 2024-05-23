@@ -3,8 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import Browse from "../componet/browse_designs/Browse";
-import Navbar from "@/componet/nav/Navbar";
-import Navbar1 from "@/componet/nav/Navbar1";
 import VideoModal from "@/componet/modals/VideoModal";
 import { useState } from "react";
 
@@ -18,12 +16,8 @@ export default function Home() {
   return (
     <main>
       <VideoModal toogleModal={handleToggle} open={toogleModal} />
-      <>
-        <Navbar />
-      </>
-      {/* <>
-          <Navbar />
-        </> */}
+      
+     
       <div
         style={{
           backgroundImage: `url(${backgroundImageUrl})`,
