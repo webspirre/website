@@ -19,7 +19,9 @@ function Notification() {
     setShowDropdowns(newDropdowns);
   };
 
-  const toggleDeleteAll = () => setDeleteAll((prev) => !prev);
+  const toggleDeleteAll = () => {
+    setDeleteAll((prev) => !prev);
+  };
 
   // Sample notification data
   const notifications = [

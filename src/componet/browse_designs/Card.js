@@ -52,7 +52,7 @@ const Card = ({
             )}
           </Link>
 
-          <div className="pr-[40px]"> 
+          <div className="pr-[40px]">
             <p className="text-[12px] mb-2 font-bold">{name}</p>
             {description && (
               <p className="text-gray-700 text-[11px] ">{description}</p>
