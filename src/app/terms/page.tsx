@@ -1,4 +1,3 @@
-import Navbar from "@/componet/nav/Navbar2";
 import { Header, Typography } from "@/componet/ui";
 import Image from "next/image";
 import React from "react";
@@ -7,7 +6,6 @@ const Terms = () => {
   return (
     <>
       <div>
-        <Navbar />
         <main className="mt-10 w-full mx-auto">
           <Header
             heading={
