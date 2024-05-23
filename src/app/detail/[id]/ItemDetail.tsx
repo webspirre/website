@@ -66,7 +66,7 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
                 </tr>
               </tbody>
             ) : (
-              <tbody className="flex space-x-1 text-[10px] text-[#6E6E6E]">
+              <tbody className="flex space-x-1 text-[10px] text-[#6E6E6E] whitespace-nowrap overflow-x-scroll max-w-[350px]">
                 <tr className="">
                   <td className="p-2 ">Category</td>
                   {/* website category */}
