@@ -11,7 +11,7 @@ function Form() {
           width={100}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/logo_e8rxwj.svg"
           alt="left"
-          className=""
+          className="hidden sm:block"
         />{" "}
       </Link>
 
@@ -35,12 +35,12 @@ function Form() {
         />
       </Link>
       <div className="flex gap-2 items-center">
-        <div className="w-[200px] h-[2px] bg-[#C7C7C7]"></div>
+        <div className="w-[150px] sm:w-[200px] h-[1px] sm:h-[2px]  bg-[#C7C7C7]"></div>
         <p>or</p>
-        <div className="w-[200px] h-[2px] bg-[#C7C7C7]"></div>
+        <div className="w-[150px] sm:w-[200px] h-[1px] sm:h-[2px] bg-[#C7C7C7]"></div>
       </div>
 
-      <form className="flex flex-col gap-4">
+      <form className="flex flex-col mx-auto md:mx-0 gap-4">
         {/* Email Input */}
         <label htmlFor="email" className="text-[14px] -mb-2">
           Email address
@@ -48,7 +48,7 @@ function Form() {
         <input
           type="email"
           placeholder="example@mail.com"
-          className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] w-[430px]"
+          className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] w-[350px] md:w-[430px]"
         />
 
         {/* Password Input */}
@@ -58,7 +58,7 @@ function Form() {
         <input
           type="password"
           placeholder="**********"
-          className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[430px]"
+          className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[350px] md:w-[430px]"
         />
 
         {/* Sign Up Button */}
