@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React from 'react';
 import { Carter_One } from "next/font/google";
 
