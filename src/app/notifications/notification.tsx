@@ -17,6 +17,7 @@ function Notification() {
     const newDropdowns = [...showDropdowns];
     newDropdowns[index] = !newDropdowns[index];
     setShowDropdowns(newDropdowns);
+    setDeleteAll((prev) => !prev);
   };
 
   const toggleDeleteAll = () => {
