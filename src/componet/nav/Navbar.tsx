@@ -1,14 +1,12 @@
-// Navbar.tsx
 import React, { useState, ChangeEvent, useRef, useEffect } from "react";
 import Image from "next/image";
-import data from "../browse_designs/data"; // Import your data file
+import data from "../browse_designs/data";
 import Link from "next/link";
 import SearchInput from "./SearchInput";
 import SearchResults from "./SearchResults";
 import NavLinks from "./NavLinks";
 import MoreNavLinks from "./MoreNavLinks";
 
-// Define the Project type
 export interface Project {
   id: number;
   name: string;
@@ -17,19 +15,18 @@ export interface Project {
   description?: string;
 }
 
-
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<Project[]>([]);
   const [showSearchResults, setShowSearchResults] = useState<boolean>(false);
   const [showMoreNavLinks, setShowMoreNavLinks] = useState<boolean>(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchResultsRef = useRef<HTMLDivElement>(null);
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
     setSearchQuery(query);
 
-    // Filter data based on the search query
     const results = data.filter(
       (item) =>
         item.name.toLowerCase().includes(query.toLowerCase()) ||
@@ -46,21 +43,24 @@ export default function Navbar() {
     setShowSearchResults(true);
   };
 
-  const handleInputBlur = () => {
-    // Delay hiding the search results to handle clicks on search results
-    setTimeout(() => setShowSearchResults(false), 200);
+  const handleInputClear = () => {
+    setSearchQuery("");
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
   };
 
   const toggleMoreNavLinks = () => {
     setShowMoreNavLinks(!showMoreNavLinks);
   };
 
-  // Close search results when clicking outside the search input and results
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
         searchInputRef.current &&
-        !searchInputRef.current.contains(e.target as Node)
+        !searchInputRef.current.contains(e.target as Node) &&
+        searchResultsRef.current &&
+        !searchResultsRef.current.contains(e.target as Node)
       ) {
         setShowSearchResults(false);
       }
@@ -93,23 +93,24 @@ export default function Navbar() {
           />
         </Link>
         <div className="relative">
-          {/* Search input box with search icon */}
           <SearchInput
             value={searchQuery}
             onChange={handleSearchChange}
             onFocus={handleInputFocus}
-            onBlur={handleInputBlur}
+            onClear={handleInputClear}
             searchInputRef={searchInputRef}
+            isFocused={showSearchResults}
           />
 
-          {/* Display search results */}
-          {showSearchResults && <SearchResults searchResults={searchResults} />}
+          {showSearchResults && (
+            <div ref={searchResultsRef}>
+              <SearchResults searchResults={searchResults} />
+            </div>
+          )}
         </div>
 
-        {/* Regular navigation items */}
         <NavLinks status={"authenticated"} />
 
-        {/* More nav links */}
         <MoreNavLinks
           showMoreNavLinks={showMoreNavLinks}
           toggleMoreNavLinks={toggleMoreNavLinks}
