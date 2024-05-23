@@ -6,8 +6,7 @@ import Bill from "./Bill";
 
 function page() {
   return (
-    <div className="mb-20">
-     
+    <div className="mb-20 px-4">
       <Top />
       <Bill />
     </div>

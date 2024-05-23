@@ -15,7 +15,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ status }) => {
           Pricing
         </Link>
       </li>
-      <li>
+      <li className="hidden sm:block">
         <Link
           href="/auth/register"
           className=" bg-black p-3 px-4 text-white text-[12px] rounded-[10px] border flex items-center gap-2 border-[#BBBBBB] "
