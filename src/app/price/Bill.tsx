@@ -61,7 +61,7 @@ function Bill() {
         </div>
         <div className="flex justify-center">
           <Link
-            href=""
+            href="/checkout"
             className="text-black  rounded-lg p-4 bg-white text-[20px] text-center font-bold w-full"
           >
             Get started now
@@ -152,7 +152,7 @@ function Bill() {
         </div>
         <div className="flex justify-center">
           <Link
-            href=""
+            href="/checkout"
             className="text-black  rounded-lg p-4 bg-white text-[20px] text-center font-bold w-full"
           >
             Get started now
