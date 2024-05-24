@@ -139,7 +139,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
           width={55}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706587852/utilities/slider_nav_dbhadp.svg"
           alt="left"
-          className="fixed z-10 top-[50%] shadow-md rounded-full cursor-pointer"
+          className="fixed z-10 top-[50%] shadow-md rounded-full cursor-pointer w-12 sm:w-auto"
           onClick={handlePrevious}
         />
         {/* next button, to move to the next website detail */}
@@ -148,7 +148,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
           width={55}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706587852/utilities/slider_nav_1_ugfikx.svg"
           alt="right"
-          className="fixed z-10 top-[50%] right-20 shadow-md rounded-full cursor-pointer"
+          className="fixed z-10 top-[50%] right-2 sm:right-20 shadow-md rounded-full cursor-pointer w-12 sm:w-auto"
           onClick={handleNext}
         />
       </div>
@@ -215,7 +215,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
                 />
                 {/* Bookmark Popup */}
                 {showBookmarkPopup && (
-                  <div className="absolute right-40 sm:right-auto bottom-16 sm:bottom-auto md:top-72 sm:top-[350px] z-[999] sm:z-0  text-[14px] font-medium bg-white rounded-md shadow-md">
+                  <div className="absolute right-36 sm:right-auto bottom-16 sm:bottom-auto md:top-72 sm:top-[350px] z-[999] sm:z-0  text-[14px] font-medium bg-white rounded-md shadow-md">
                     {/* Content for bookmark popup */}
                     {/* Example options: */}
                     {/* <input type="text" placeholder="Search bookmark" /> */}

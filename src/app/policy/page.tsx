@@ -1,4 +1,4 @@
-import Navbar from "@/componet/nav/Navbar2";
+import Navbar from "@/componet/nav/Navbar";
 import { Header, Typography } from "@/componet/ui";
 import Image from "next/image";
 import React from "react";
@@ -7,7 +7,7 @@ const Policy = () => {
   return (
     <>
       <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <main className="mt-10 w-full mx-auto">
           <Header
             heading={
