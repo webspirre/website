@@ -12,7 +12,7 @@ const carterOne = Carter_One({
 function CheckoutVeiw() {
   return (
     <div>
-      <div className="relative w-full flex flex-col justify-center p-[37px] bg-black rounded-l-[40px]">
+      <div className="relative w-full flex flex-col justify-center p-[37px] bg-black rounded-l-[40px] ">
         <Image
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1716492077/utilities/webspirre/Vector_10_nnmifu.png"
           className="absolute top-[37px]"
@@ -67,7 +67,9 @@ function CheckoutVeiw() {
               <span className=" opacity-[70%]">Payment for</span> Monthly{" "}
               <span className=" opacity-[70%]">Subscription </span>{" "}
               <span>
-                <Link href="/" className="text-white border-b border-white">Change plan</Link>{" "}
+                <Link href="/" className="text-white border-b border-white">
+                  Change plan
+                </Link>{" "}
               </span>
             </p>
           </div>
