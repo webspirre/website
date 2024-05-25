@@ -78,22 +78,27 @@ const Form1: React.FC = () => {
   );
 
   return (
-    <form className="space-y-4">
+    <form className="space-y-4 mt-[50px]">
       <div className="flex gap-4">
-        <input
-          type="text"
-          placeholder="First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          className="w-1/2 p-2 border rounded"
-        />
-        <input
-          type="text"
-          placeholder="Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          className="w-1/2 p-2 border rounded"
-        />
+        <div className="w-1/2">
+          <label htmlFor="firstname">First Name</label>
+          <input
+            type="text"
+            placeholder="First Name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            className="w-full h-[60px] p-2 border rounded-[8px]"
+          />
+        </div>
+        <div className="">
+          <input
+            type="text"
+            placeholder="Last Name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            className="w-1/2 h-[60px] p-2 border rounded-[8px]"
+          />
+        </div>
       </div>
       <input
         type="email"
