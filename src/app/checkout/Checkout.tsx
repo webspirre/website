@@ -12,7 +12,7 @@ const carterOne = Carter_One({
 function CheckoutVeiw() {
   return (
     <div>
-      <div className="relative w-full flex flex-col justify-center p-[37px] bg-black rounded-l-[40px] ">
+      <div className="relative w-full flex flex-col justify-center p-[37px]  ">
         <Image
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1716492077/utilities/webspirre/Vector_10_nnmifu.png"
           className="absolute top-[37px]"

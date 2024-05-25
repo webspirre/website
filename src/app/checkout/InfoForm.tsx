@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Form1 from "./Form1";
+import Form2 from "./Form2";
 
 function InfoForm() {
   const [activeTab, setActiveTab] = useState(1);
@@ -17,32 +18,35 @@ function InfoForm() {
   return (
     <div className="">
       <div className="">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mb-8">
           <h1 className="font-semibold text-[16px]">Personal information</h1>
           {/* Continue button visible on Tab 1 and hidden on Tab 2 */}
-          {activeTab === 1 && (
-            <button
-              onClick={handleContinue}
-              className="py-[10px] px-[16px] bg-black text-white rounded-[14px]"
-            >
-              Continue
-            </button>
-          )}
 
-          {/* Back and Pay buttons visible on Tab 2 */}
-          {activeTab === 2 && (
-            <div className="flex gap-2">
+          <div className="sm:block hidden">
+            {activeTab === 1 && (
               <button
-                onClick={handleBack}
-                className="py-[10px] px-[16px] bg-black text-white rounded-[14px]"
+                onClick={handleContinue}
+                className="py-[10px] px-[16px] bg-black text-white rounded-[14px] "
               >
-                Back
+                Continue
               </button>
-              <button className="py-[10px] px-[16px] bg-black text-white rounded-[14px]">
-                Pay $12.00
-              </button>
-            </div>
-          )}
+            )}
+
+            {/* Back and Pay buttons visible on Tab 2 */}
+            {activeTab === 2 && (
+              <div className="flex gap-2">
+                <button
+                  onClick={handleBack}
+                  className="py-[10px] px-[16px] bg-black text-white rounded-[14px]"
+                >
+                  Back
+                </button>
+                <button className="py-[10px] px-[16px] bg-black text-white rounded-[14px]">
+                  Pay $12.00
+                </button>
+              </div>
+            )}
+          </div>
         </div>
         {/* Tab Bar */}
         <div className="flex gap-2 w-full">
@@ -69,10 +73,35 @@ function InfoForm() {
           {activeTab === 2 && (
             <div>
               {/* Tab 2 */}
-              detail form
+              <Form2 />
             </div>
           )}
         </div>
+      </div>
+      <div className="sm:hidden flex w-full mt-10 justify-center ">
+        {activeTab === 1 && (
+          <button
+            onClick={handleContinue}
+            className="py-[10px] px-[16px] bg-black text-white rounded-[14px] "
+          >
+            Continue
+          </button>
+        )}
+
+        {/* Back and Pay buttons visible on Tab 2 */}
+        {activeTab === 2 && (
+          <div className="flex gap-2">
+            <button
+              onClick={handleBack}
+              className="py-[10px] px-[16px] bg-black text-white rounded-[14px]"
+            >
+              Back
+            </button>
+            <button className="py-[10px] px-[16px] bg-black text-white rounded-[14px]">
+              Pay $12.00
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
