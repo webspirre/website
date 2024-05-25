@@ -5,8 +5,7 @@ import Link from "next/link";
 import Browse from "../componet/browse_designs/Browse";
 import VideoModal from "@/componet/modals/VideoModal";
 import { useState } from "react";
-import "flag-icon-css/css/flag-icon.min.css";
-
+// import "flag-icon-css/css/flag-icon.min.css";
 
 export default function Home() {
   const [toogleModal, setToogleModal] = useState<boolean>(false);
@@ -18,8 +17,7 @@ export default function Home() {
   return (
     <main>
       <VideoModal toogleModal={handleToggle} open={toogleModal} />
-      
-     
+
       <div
         style={{
           backgroundImage: `url(${backgroundImageUrl})`,
