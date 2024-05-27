@@ -9,7 +9,7 @@ function CheckOutPage() {
         <div className="col-span-1 bg-black">
           <CheckoutVeiw />
         </div>
-        <div className="col-span-2  text-[14px] bg-[#f5f9ff] p-[37px]">
+        <div className="col-span-2  text-[14px] bg-[#f5f9ff] p-4 sm:p-[37px]">
           <InfoForm />
         </div>
       </div>
