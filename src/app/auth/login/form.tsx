@@ -101,12 +101,12 @@ function Form() {
         </Link>
 
         {/* Sign Up Button */}
-        <Link
-          href="/in-app"
+        <button
+          type="submit"
           className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md"
         >
           Log in
-        </Link>
+        </button>
       </form>
 
       <p className="text-[13px] text-[#64748B]">

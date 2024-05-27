@@ -3,12 +3,15 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/componet/nav/Navbar";
 import { getURL } from "@/libs/helpers";
+import { createClient } from "@/libs/supabase/server";
+// import useAuth from "@/hooks/useAuth";
+import { AuthProvider } from "@/context/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const meta = {
-  title: "CoreReg Transaction Management Dashboard",
-  description: "This is a transaction management dashboard",
+  title: "Webspirre",
+  description: "Find Web design Inspiration Faster",
   cardImage: "/og.png",
   robots: "follow, index",
   favicon: "/favicon.ico",
@@ -46,18 +49,28 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const supabase = createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  // const { setAuth } = useAuth();
+  // setAuth(user);
+  console.log("USER", user);
   return (
     <html lang="en">
       <body>
-        <div className="bg-white">
-          <Navbar />
-          {children}
-        </div>
+        <AuthProvider>
+          <main className="bg-white">
+            <Navbar user={user} />
+            {children}
+          </main>
+        </AuthProvider>
       </body>
     </html>
   );

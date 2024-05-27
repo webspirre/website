@@ -1,5 +1,7 @@
-import {  UserMetadata } from "@/types/types";
-import { Session, User as SupabaseUser } from "@supabase/supabase-js";
+"use client";
+
+import { UserMetadata } from "@/types/types";
+import { Session, User } from "@supabase/supabase-js";
 import React, {
   createContext,
   useState,
@@ -10,8 +12,8 @@ import React, {
 } from "react";
 
 export interface AuthContextType {
-  auth: Session | null;
-  setAuth: Dispatch<SetStateAction<Session | null>>;
+  auth: User | null;
+  setAuth: Dispatch<SetStateAction<User | null>>;
   setAuthUser: Dispatch<SetStateAction<UserMetadata | null>>;
   authUser: UserMetadata | null;
 }
@@ -28,7 +30,7 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [auth, setAuth] = useState<Session | null>(null);
+  const [auth, setAuth] = useState<User | null>(null);
   const [authUser, setAuthUser] = useState<UserMetadata | null>(null);
 
   useEffect(() => {
@@ -41,7 +43,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       const parsedUserData = JSON.parse(storedUserDataString);
       console.log("parsedUserData", parsedUserData);
       // @ts-ignore
-      setAuth((prev: Session | null) => {
+      setAuth((prev: User | null) => {
         // console.log(JSON.stringify(prev));
         return {
           ...prev,

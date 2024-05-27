@@ -66,6 +66,7 @@ const Card = ({
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706045803/utilities/Frame_32_l7gjxl.svg"
               height={50}
               width={30}
+              alt="img"
             />
           </button>
 
@@ -75,6 +76,7 @@ const Card = ({
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706045803/utilities/Frame_34_ybkht7.svg"
               height={50}
               width={30}
+              alt="img"
             />
           </button>
         </div>

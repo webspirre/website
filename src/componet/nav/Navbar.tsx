@@ -17,7 +17,11 @@ export interface Project {
   description?: string;
 }
 
-export default function Navbar() {
+interface NavbarProps {
+  user?: any;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<Project[]>([]);
   const [showSearchResults, setShowSearchResults] = useState<boolean>(false);
@@ -94,6 +98,7 @@ export default function Navbar() {
             className="rounded-lg pt-2 sm:hidden"
           />
         </Link>
+        {user ? <h1>TRUE</h1> : <h1>FALSE</h1>}
         <div className="relative">
           <SearchInput
             value={searchQuery}
@@ -121,4 +126,6 @@ export default function Navbar() {
       </nav>
     </nav>
   );
-}
+};
+
+export default Navbar;

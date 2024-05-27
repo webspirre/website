@@ -1,9 +1,21 @@
+import { SupabaseResponse } from "@/types/supabase_res";
 import Image from "next/image";
 import React from "react";
 interface UserProp {
   handleToggle: () => void;
+  user?: any;
+  getUser?: () => Promise<SupabaseResponse>;
+  setAuth?: React.Dispatch<React.SetStateAction<any | null>>;
 }
-const user: React.FC<UserProp> = ({ handleToggle }) => {
+const user: React.FC<UserProp> = ({ handleToggle, user, getUser, setAuth }) => {
+  React.useEffect(() => {
+    const fetchUser = async () => {
+      const { user, error } = await getUser();
+      setAuth(user);
+    };
+
+    fetchUser();
+  }, []);
   return (
     <div className="flex items-center justify-center my-0 sm:my-20">
       <div className="w-full sm:w-[50%] border-2 shadow-lg rounded-lg">
@@ -49,13 +61,13 @@ const user: React.FC<UserProp> = ({ handleToggle }) => {
           />
 
           <label htmlFor="email" className="text-[14px] -mb-2 mt-4 font-bold">
-            Email Address{" "}
+            Email
           </label>
           <input
             type="name"
             placeholder="Enter Your Email"
             className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] "
-            value="joshuaogah321@gmail.com"
+            value={`${user?.email}`}
           />
 
           <button className="p-2 font-bold bg-black rounded-lg text-white w-full sm:w-fit px-4">
