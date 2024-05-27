@@ -1,9 +1,7 @@
-"use client"
+"use client";
 import React, { useState } from "react";
-import Select from "react-select";
 import countryList from "react-select-country-list";
-import { components } from "react-select";
-import FlagsSelect from "react-flags-select";
+import Image from "next/image";
 
 type CountryOption = {
   value: string;
@@ -26,112 +24,132 @@ const Form1: React.FC = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
-  const countryOptions = countryList()
-    .getData()
-    .map((country) => ({
-      ...country,
-      flag: country.value.toLowerCase(),
-    }));
+  const [checked, setChecked] = useState(false);
 
-  const handleCountryChange = (selectedCountry: CountryOption | null) => {
-    setCountry(selectedCountry);
-    setState(null);
-    if (selectedCountry) {
-      // Here you would fetch the states based on the selected country
-      // This is a placeholder example with hardcoded states
-      if (selectedCountry.value === "US") {
-        setStates([
-          { value: "CA", label: "California" },
-          { value: "TX", label: "Texas" },
-          // Add more states as needed
-        ]);
-      } else {
-        setStates([]);
-      }
-    } else {
-      setStates([]);
-    }
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
   };
-
-  const handleStateChange = (selectedState: StateOption | null) => {
-    setState(selectedState);
-  };
-
-  const CustomSingleValue = (props: any) => (
-    <components.SingleValue {...props}>
-      <span
-        className={`flag-icon flag-icon-${props.data.flag}`}
-        style={{ marginRight: 10 }}
-      />
-      {props.data.label}
-    </components.SingleValue>
-  );
-
-  const CustomOption = (props: any) => (
-    <components.Option {...props}>
-      <span
-        className={`flag-icon flag-icon-${props.data.flag}`}
-        style={{ marginRight: 10 }}
-      />
-      {props.data.label}
-    </components.Option>
-  );
 
   return (
-    <form className="space-y-4">
+    <form className="space-y-4 mt-[50px]">
       <div className="flex gap-4">
+        <div className="w-1/2">
+          <label htmlFor="firstname" className="">
+            First Name
+          </label>
+          <input
+            type="text"
+            placeholder="First Name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            className="w-full h-[60px] p-2 mt-2 border rounded-[8px]"
+          />
+        </div>
+        <div className="w-1/2">
+          <label htmlFor="lastname">Last Name</label>
+          <input
+            type="text"
+            placeholder="Last Name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            className="w-full h-[60px] p-2 mt-2 border rounded-[8px]"
+          />
+        </div>
+      </div>
+      <div className="w-full">
+        <label htmlFor="email">Email</label>
+
         <input
-          type="text"
-          placeholder="First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          className="w-1/2 p-2 border rounded"
-        />
-        <input
-          type="text"
-          placeholder="Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          className="w-1/2 p-2 border rounded"
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full h-[60px] p-2 mt-2 border rounded-[8px]"
         />
       </div>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="w-full p-2 border rounded"
-      />
-      <Select
-        options={countryOptions}
-        value={country}
-        onChange={handleCountryChange}
-        components={{ SingleValue: CustomSingleValue, Option: CustomOption }}
-        className="w-full"
-        placeholder="Select Country"
-      />
-      <Select
-        options={states}
-        value={state}
-        onChange={handleStateChange}
-        className="w-full mt-4"
-        placeholder="Select State"
-        isDisabled={!country}
-      />
-      <input
-        type="text"
-        placeholder="City"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        className="w-full p-2 border rounded mt-4"
-      />
-      <input
-        type="text"
-        placeholder="Address"
-        value={address}
-        onChange={(e) => setAddress(e.target.value)}
-        className="w-full p-2 border rounded mt-4"
-      />
+
+      <div>
+        <div className="flex items-center justify-between">
+          <h2 className="font-bold">Billing address</h2>
+
+          <div className="flex gap-2 items-center">
+            <input
+              type="checkbox"
+              id="checkbox1"
+              name="checkbox1"
+              checked={checked}
+              onChange={handleChange}
+              className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+            />
+            <label
+              htmlFor="checkbox1"
+              className="ml-2 block text-sm text-gray-900"
+            >
+              Same as residential address{" "}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="email">Country</label>
+        <div className=" bg-white flex justify-between items-center w-full h-[60px] p-2 mt-2 border rounded-[8px]">
+          <div className="flex gap-2">
+            <Image
+              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1716667666/utilities/webspirre/Rectangle_6_zy8nu2.svg"
+              height={2}
+              width={27}
+              alt="flags"
+            />
+            <input type="text" className="w-full outline-none" />
+          </div>
+          <Image
+            src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1716667695/utilities/webspirre/Arrow_-_Down_2_cphnlj.svg"
+            height={2}
+            width={20}
+            alt="flags"
+          />
+        </div>
+      </div>
+
+      <div className="">
+        <label htmlFor="address">Address</label>
+        <input
+          type="text"
+          placeholder="Address"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          className="w-full h-[60px] p-2 mt-2 border rounded-[8px]"
+        />
+      </div>
+
+      <div className="flex gap-4">
+        <div className="w-1/2 ">
+          <label htmlFor="state">State</label>
+          <div className=" bg-white flex justify-between items-center w-full h-[60px] p-2 mt-2 border rounded-[8px]">
+            <div className="flex gap-2">
+              <input type="text" className="w-full outline-none" />
+            </div>
+            <Image
+              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1716667695/utilities/webspirre/Arrow_-_Down_2_cphnlj.svg"
+              height={2}
+              width={20}
+              alt="dropdown"
+            />
+          </div>
+        </div>
+
+        <div className="w-1/2">
+          <label htmlFor="city"> City</label>
+          <input
+            type="text"
+            placeholder="City"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className="w-full p-2 border rounded mt-2 h-[60px]"
+          />
+        </div>
+      </div>
     </form>
   );
 };
