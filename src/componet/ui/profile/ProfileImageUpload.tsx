@@ -26,7 +26,7 @@ const ProfileImageUpload = ({ userId }: { userId: string }) => {
       reader.onload = async () => {
         const fileContent = reader.result as string;
 
-        const res = await fetch("/api/profile-upload", {
+        const res = await fetch("/api/upload", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

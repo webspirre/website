@@ -35,7 +35,7 @@ export async function SignOut(formData: FormData) {
 export async function signInWithEmail(formData: FormData) {
   const cookieStore = cookies();
   const callbackURL = getURL("/auth/callback");
-
+ 
   const email = String(formData.get("email")).trim();
   let redirectPath: string;
 

@@ -1,4 +1,5 @@
 import ProfileImageUpload from "@/componet/ui/profile/ProfileImageUpload";
+import NewProfileImageUpload from "@/componet/ui/profile/newProfileImageUpload";
 import { createClient } from "@/libs/supabase/client";
 import { SupabaseResponse } from "@/types/supabase_res";
 import Image from "next/image";
@@ -40,7 +41,9 @@ const user: React.FC<UserProp> = async ({ handleToggle }) => {
             alt="rice"
             className="w-32 sm:w-auto"
           />
-          <ProfileImageUpload userId={user?.id as string} />
+          {/* <ProfileImageUpload userId={user?.id as string} /> */}
+          <NewProfileImageUpload userId={user?.id as string} />
+
           <button className="p-2 border rounded-lg">Update</button>
           <button className="flex items-center gap-2">
             <Image
