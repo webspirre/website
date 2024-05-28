@@ -1,3 +1,5 @@
+import ProfileImageUpload from "@/componet/ui/profile/ProfileImageUpload";
+import { createClient } from "@/libs/supabase/client";
 import { SupabaseResponse } from "@/types/supabase_res";
 import Image from "next/image";
 import React from "react";
@@ -7,15 +9,16 @@ interface UserProp {
   getUser?: () => Promise<SupabaseResponse>;
   setAuth?: React.Dispatch<React.SetStateAction<any | null>>;
 }
-const user: React.FC<UserProp> = ({ handleToggle, user, getUser, setAuth }) => {
-  React.useEffect(() => {
-    const fetchUser = async () => {
-      const { user, error } = await getUser();
-      setAuth(user);
-    };
+const user: React.FC<UserProp> = async ({ handleToggle }) => {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  // log user to the console
+  console.log("User Detail", user);
 
-    fetchUser();
-  }, []);
+  // handleChange event for onchange method
+  const handleChange = (e: React.ChangeEvent) => {};
   return (
     <div className="flex items-center justify-center my-0 sm:my-20">
       <div className="w-full sm:w-[50%] border-2 shadow-lg rounded-lg">
@@ -29,6 +32,7 @@ const user: React.FC<UserProp> = ({ handleToggle, user, getUser, setAuth }) => {
         <p className="mx-6 sm:mx-[100px]">Manage your account details</p>
         <div className="w-full h-[1px] mt-4 mb-4 bg-[#C7C7C7]"></div>
         <div className="flex flex-row gap-4 mx-6 sm:mx-[100px] items-center justify-center sm:justify-start ">
+          {/* PROFILE IMAGE */}
           <Image
             height={20}
             width={100}
@@ -36,7 +40,7 @@ const user: React.FC<UserProp> = ({ handleToggle, user, getUser, setAuth }) => {
             alt="rice"
             className="w-32 sm:w-auto"
           />
-
+          <ProfileImageUpload userId={user?.id as string} />
           <button className="p-2 border rounded-lg">Update</button>
           <button className="flex items-center gap-2">
             <Image
@@ -58,6 +62,7 @@ const user: React.FC<UserProp> = ({ handleToggle, user, getUser, setAuth }) => {
             placeholder="Full Name"
             className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] "
             value="Joshua Ogah"
+            onChange={() => {}}
           />
 
           <label htmlFor="email" className="text-[14px] -mb-2 mt-4 font-bold">
@@ -68,6 +73,8 @@ const user: React.FC<UserProp> = ({ handleToggle, user, getUser, setAuth }) => {
             placeholder="Enter Your Email"
             className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] "
             value={`${user?.email}`}
+            // value={"wilsonibekason"}
+            onChange={() => {}}
           />
 
           <button className="p-2 font-bold bg-black rounded-lg text-white w-full sm:w-fit px-4">

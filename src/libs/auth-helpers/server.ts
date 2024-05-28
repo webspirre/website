@@ -334,3 +334,99 @@ export async function updateName(formData: FormData) {
     );
   }
 }
+
+export async function updateProfilePicture(userId: string, file: File) {
+  const supabase = createClient();
+
+  // Decode base64 file
+  const buffer = Buffer.from(await file.arrayBuffer());
+ 
+  // Upload to Supabase Storage
+  const { data, error } = await supabase.storage
+    .from('profile-images')
+    .upload(`${userId}/profile-image.png`, buffer, {
+      contentType: file.type,
+      upsert: true,
+    });
+
+  if (error) {
+    return getErrorRedirect(
+      "/account",
+      "Your profile picture could not be updated.",
+      error.message
+    );
+  }
+
+  // Get public URL of the uploaded image
+  const { data: DT } = supabase.storage
+    .from('profile-images')
+    .getPublicUrl(`${userId}/profile-image.png`);
+
+  // Update user profile with the new image URL
+  const { error: updateError } = await supabase
+    .from('users')
+    .update({ profile_image_url: DT?.publicUrl })
+    .eq('id', userId);
+
+  if (updateError) {
+    return getErrorRedirect(
+      "/account",
+      "Your profile picture could not be updated.",
+      updateError.message
+    );
+  }
+
+  return getStatusRedirect(
+    "/account",
+    "Success!",
+    "Your profile picture has been updated."
+  );
+}
+
+
+
+export async function getCurrentUser() {
+  const supabase = createClient();
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return user;
+}
+
+
+export async function deleteUserAccount(userId: string) {
+  const supabase = createClient();
+
+  // Delete user from Supabase Auth
+  const { error } = await supabase.auth.admin.deleteUser(userId);
+
+  if (error) {
+    return getErrorRedirect(
+      "/account",
+      "Your account could not be deleted.",
+      error.message
+    );
+  }
+
+  // Optionally, delete user data from your users table
+  const { error: userError } = await supabase
+    .from('users')
+    .delete()
+    .eq('id', userId);
+
+  if (userError) {
+    return getErrorRedirect(
+      "/account",
+      "Your account data could not be deleted.",
+      userError.message
+    );
+  }
+
+  return redirect("/goodbye");
+}
