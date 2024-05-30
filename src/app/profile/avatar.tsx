@@ -74,13 +74,23 @@ export default function Avatar({
   return (
     <div className="flex flex-row gap-4 mx-6 sm:mx-[100px] items-center justify-center sm:justify-start">
       {avatarUrl ? (
-        <Image
-          width={size}
-          height={size}
-          src={avatarUrl}
-          alt="Avatar"
-          className="w-32 sm:w-auto"
-        />
+        // <Image
+        //   width={size}
+        //   height={size}
+        //   src={avatarUrl}
+        //   alt="Avatar"
+        //   className="w-32 sm:w-auto"
+        // />
+        <div className="relative w-32 sm:w-auto max-w-full">
+          <Image
+            src={avatarUrl}
+            alt="Avatar"
+            layout="responsive"
+            width={1}
+            height={1}
+            className="object-cover rounded-full"
+          />
+        </div>
       ) : (
         // <div
         //   className="avatar no-image"
