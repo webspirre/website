@@ -47,7 +47,7 @@ function Form() {
       </div>
       <form onSubmit={(e) => handleOAuthSubmit(e)}>
         <input type="hidden" name="provider" value={"google"} />
-        <button>
+        <button type="submit">
           <Image
             height={20}
             width={430}

@@ -6,6 +6,7 @@ import { getURL } from "@/libs/helpers";
 import { createClient } from "@/libs/supabase/server";
 // import useAuth from "@/hooks/useAuth";
 import { AuthProvider } from "@/context/AuthProvider";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -66,6 +67,7 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <AuthProvider>
+          <Toaster />
           <main className="bg-white">
             <Navbar user={user} />
             {children}

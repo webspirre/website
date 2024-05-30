@@ -29,7 +29,7 @@ export async function SignOut(formData: FormData) {
     );
   }
 
-  return "/signin";
+  return "/auth/login";
 }
 
 export async function signInWithEmail(formData: FormData) {
@@ -141,7 +141,7 @@ export async function signInWithPassword(formData: FormData) {
   const { error, data } = await supabase.auth.signInWithPassword({
     email,
     password,
-  });
+  }); 
 
   if (error) {
     redirectPath = getErrorRedirect(
@@ -365,7 +365,7 @@ export async function updateProfilePicture(userId: string, file: File) {
   // Update user profile with the new image URL
   const { error: updateError } = await supabase
     .from('users')
-    .update({ profile_image_url: DT?.publicUrl })
+    .update({ avatar_url: DT?.publicUrl })
     .eq('id', userId);
 
   if (updateError) {

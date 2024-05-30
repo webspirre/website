@@ -2,16 +2,25 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { handleRequest } from "@/libs/auth-helpers/client";
+import { SignOut } from "@/libs/auth-helpers/server";
+import { getRedirectMethod } from "@/libs/auth-helpers/settings";
+import { usePathname, useRouter } from "next/navigation";
 
 interface MoreNavLinksProps {
   showMoreNavLinks: boolean;
   toggleMoreNavLinks: () => void; // Define the toggleMoreNavLinks function
+  user?: any;
 }
 
 const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
   showMoreNavLinks,
   toggleMoreNavLinks,
+  user,
 }) => {
+  const router = getRedirectMethod() === "client" ? useRouter() : null;
+
+  const pathname = usePathname();
   return (
     <div className="relative">
       <div className="hidden">
@@ -164,11 +173,29 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
                 />
               </div>
             </Link>
-            <Link href="#updates" className="block text-[black] hover:">
-              <div className="flex gap-2 border-t-2  py-2 px-4 mb-2">
-                <p className=" text-[14px] text-red-600 font-bold">Log Out</p>
-              </div>
-            </Link>
+            {user ? (
+              <Link href="/auth/login" className="block text-[black] hover:">
+                <div className="flex gap-2 border-t-2  py-2 px-4 mb-2">
+                  <p className=" text-[14px] text-red-600 font-bold">Log In</p>
+                </div>
+              </Link>
+            ) : (
+              <form onSubmit={(e) => handleRequest(e, SignOut, router)}>
+                <input
+                  type="hidden"
+                  name="pathName"
+                  // eslint-disable-next-line react-hooks/rules-of-hooks
+                  value={pathname}
+                />
+                <button className="block text-[black] hover:">
+                  <p className="flex gap-2 border-t-2  py-2 px-4 mb-2">
+                    <span className=" text-[14px] text-red-600 font-bold">
+                      Log Out
+                    </span>
+                  </p>
+                </button>
+              </form>
+            )}
           </div>
         </div>
       )}

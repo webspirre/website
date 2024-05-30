@@ -176,7 +176,7 @@ export interface Database {
           },
         ];
       };
-      users: {
+      usersdel: {
         Row: {
           avatar_url: string | null;
           billing_address: Json | null;
@@ -240,6 +240,64 @@ export interface Database {
           date?: string | null;
         };
         Relationships: [];
+      };
+      profiles: {
+        Row: {
+          id: string;
+          updated_at: string | null;
+          username: string | null;
+          full_name: string | null;
+          avatar_url: string | null;
+          website: string | null;
+        };
+        Insert: {
+          id: string;
+          updated_at?: string | null;
+          username?: string | null;
+          full_name?: string | null;
+          avatar_url?: string | null;
+          website?: string | null;
+        };
+        Update: {
+          id?: string;
+          updated_at?: string | null;
+          username?: string | null;
+          full_name?: string | null;
+          avatar_url?: string | null;
+          website?: string | null;
+        };
+        Delete: {
+          id: string;
+        };
+      };
+      users: {
+        Row: {
+          id: string;
+          updated_at: string | null;
+          // username: string | null;
+          full_name: string | null;
+          avatar_url: string | null;
+          website: string | null;
+        };
+        Insert: {
+          id: string;
+          updated_at?: string | null;
+          // username?: string | null;
+          full_name?: string | null;
+          avatar_url?: string | null;
+          website?: string | null;
+        };
+        Update: {
+          id?: string;
+          updated_at?: string | null;
+          // username?: string | null;
+          full_name?: string | null;
+          avatar_url?: string | null;
+          website?: string | null;
+        };
+        Delete: {
+          id: string;
+        };
       };
     };
     Views: {
