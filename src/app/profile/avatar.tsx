@@ -81,14 +81,14 @@ export default function Avatar({
         //   alt="Avatar"
         //   className="w-32 sm:w-auto"
         // />
-        <div className="relative w-32 sm:w-auto max-w-full">
+        <div className="relative w-20 sm:w-auto max-w-full">
           <Image
             src={avatarUrl}
             alt="Avatar"
             layout="responsive"
             width={1}
             height={1}
-            className="object-cover rounded-full"
+            className="object-contain rounded-full"
           />
         </div>
       ) : (

@@ -8,8 +8,16 @@ import {
 } from "@headlessui/react";
 import React, { Fragment, useState } from "react";
 import { ImCancelCircle } from "react-icons/im";
-
-const DeleteProfileModal: React.FC<ModalType> = ({ open, toogleModal }) => {
+interface DeleteProps extends ModalType {
+  isDeleting?: boolean;
+  handleDelete(): void;
+}
+const DeleteProfileModal: React.FC<DeleteProps> = ({
+  open,
+  toogleModal,
+  handleDelete,
+  isDeleting,
+}) => {
   return (
     <>
       <Transition appear show={open} as={Fragment}>
@@ -65,8 +73,12 @@ const DeleteProfileModal: React.FC<ModalType> = ({ open, toogleModal }) => {
                     >
                       Cancle
                     </button>
-                    <button className="bg-[#FF0000] rounded-lg px-4 w-56 flex justify-center items-center whitespace-nowrap py-3 font-bold  text-white ">
-                      Yes, Delete my account
+                    <button
+                      className="bg-[#FF0000] rounded-lg px-4 w-56 flex justify-center items-center whitespace-nowrap py-3 font-bold  text-white "
+                      onSubmit={handleDelete}
+                      disabled={isDeleting}
+                    >
+                      {isDeleting ? "Deleting..." : " Yes, Delete my account"}
                     </button>
                   </div>
                 </DialogPanel>

@@ -121,6 +121,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
           <MoreNavLinks
             showMoreNavLinks={showMoreNavLinks}
             toggleMoreNavLinks={toggleMoreNavLinks}
+            user={user}
           />
         </div>
       </nav>

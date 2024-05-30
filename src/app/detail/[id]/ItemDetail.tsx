@@ -214,39 +214,82 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
                   className=""
                 />
                 {/* Bookmark Popup */}
+                {/* {showBookmarkPopup && (
+                  <>
+                    <div className="absolute right-36 sm:right-auto bottom-16 sm:bottom-auto md:top-[350px] sm:top-[350px] z-[999] sm:z-10  text-[14px] font-medium bg-white rounded-md shadow-md">
+                      <div className="flex items-center my-2 w-[220px]  bg-[#EDEDED] mx-2 border-[#BBBBBB] rounded-lg py-2 px-[20px]">
+                        <Image
+                          height={15}
+                          width={15}
+                          src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/magnifier_vrq3zb.svg"
+                          alt="rice"
+                          className="rounded-lg"
+                        />
+                        <input
+                          type="text"
+                          placeholder="Search your bookmarks"
+                          className="focus:outline-none focus:border-black pl-2 w-full bg-[#EDEDED]"
+                        />
+                      </div>
+                      <div className="w-full h-[1px] bg-[#D2D2D2] mb-2"></div>
+                      <div className="flex px-2 flex-row justify-between items-center mb-2">
+                        <p> Create New</p>
+                        <Image
+                          height={25}
+                          width={25}
+                          src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706134118/utilities/Frame_50_ezbtot.svg"
+                          alt="rice"
+                          className="rounded-lg"
+                        />
+                      </div>
+                      <p className="mb-2 px-2">Bookmark 1</p>
+                      <p className="mb-2 px-2">Bookmark 2</p>
+                      <p className="mb-2 px-2">Bookmark 3</p>
+                    </div>
+                  </>
+                )} */}
                 {showBookmarkPopup && (
-                  <div className="absolute right-36 sm:right-auto bottom-16 sm:bottom-auto md:top-72 sm:top-[350px] z-[999] sm:z-0  text-[14px] font-medium bg-white rounded-md shadow-md">
-                    {/* Content for bookmark popup */}
-                    {/* Example options: */}
-                    {/* <input type="text" placeholder="Search bookmark" /> */}
-                    <div className="flex items-center my-2 w-[220px]  bg-[#EDEDED] mx-2 border-[#BBBBBB] rounded-lg py-2 px-[20px]">
-                      <Image
-                        height={15}
-                        width={15}
-                        src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/magnifier_vrq3zb.svg"
-                        alt="rice"
-                        className="rounded-lg"
-                      />
-                      <input
-                        type="text"
-                        placeholder="Search your bookmarks"
-                        className="focus:outline-none focus:border-black pl-2 w-full bg-[#EDEDED]"
-                      />
+                  <div className="fixed inset-0 z-50 flex items-center justify-center">
+                    <div
+                      className="absolute inset-0 bg-black opacity-50"
+                      onClick={() => setShowBookmarkPopup(false)}
+                    ></div>
+                    <div
+                      className="relative z-[999] sm:z-10 text-[14px] font-medium bg-white rounded-md shadow-md"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {/* Content for bookmark popup */}
+                      {/* Example options: */}
+                      {/* <input type="text" placeholder="Search bookmark" /> */}
+                      <div className="flex items-center my-2 w-[220px] bg-[#EDEDED] mx-2 border-[#BBBBBB] rounded-lg py-2 px-[20px]">
+                        <Image
+                          height={15}
+                          width={15}
+                          src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/magnifier_vrq3zb.svg"
+                          alt="rice"
+                          className="rounded-lg"
+                        />
+                        <input
+                          type="text"
+                          placeholder="Search your bookmarks"
+                          className="focus:outline-none focus:border-black pl-2 w-full bg-[#EDEDED]"
+                        />
+                      </div>
+                      <div className="w-full h-[1px] bg-[#D2D2D2] mb-2"></div>
+                      <div className="flex px-2 flex-row justify-between items-center mb-2">
+                        <p>Create New</p>
+                        <Image
+                          height={25}
+                          width={25}
+                          src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706134118/utilities/Frame_50_ezbtot.svg"
+                          alt="rice"
+                          className="rounded-lg"
+                        />
+                      </div>
+                      <p className="mb-2 px-2">Bookmark 1</p>
+                      <p className="mb-2 px-2">Bookmark 2</p>
+                      <p className="mb-2 px-2">Bookmark 3</p>
                     </div>
-                    <div className="w-full h-[1px] bg-[#D2D2D2] mb-2"></div>
-                    <div className="flex px-2 flex-row justify-between items-center mb-2">
-                      <p> Create New</p>
-                      <Image
-                        height={25}
-                        width={25}
-                        src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706134118/utilities/Frame_50_ezbtot.svg"
-                        alt="rice"
-                        className="rounded-lg"
-                      />
-                    </div>
-                    <p className="mb-2 px-2">Bookmark 1</p>
-                    <p className="mb-2 px-2">Bookmark 2</p>
-                    <p className="mb-2 px-2">Bookmark 3</p>
                   </div>
                 )}
               </div>
@@ -263,8 +306,8 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
                   className=""
                 />
                 {/* More Popup */}
-                {showMorePopup && (
-                  <div className="absolute right-32 sm:right-auto z-[999] sm:z-0 bottom-16 sm:bottom-auto md:top-72 sm:top-[350px] text-[14px] font-medium bg-white rounded-lg p-4 shadow-md">
+                {/* {showMorePopup && (
+                  <div className="absolute right-32 sm:right-auto z-[999] sm:z-0 bottom-16 sm:bottom-auto md:top-[350px] sm:top-[350px] text-[14px] font-medium bg-white rounded-lg p-4 shadow-md">
                     <div className="flex gap-2 mb-4">
                       <Image
                         height={15}
@@ -286,6 +329,41 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
                       <p>Download screenshot</p>
                     </div>
                   </div>
+                )} */}
+                {showMorePopup && (
+                  <>
+                    <div className="fixed inset-0 z-50 flex items-center justify-center">
+                      <div
+                        className="absolute inset-0 bg-black opacity-50"
+                        onClick={() => setShowBookmarkPopup(false)}
+                      ></div>
+                      <div
+                        className="relative z-[999] sm:z-10 text-[14px] font-medium bg-white rounded-md shadow-md p-4"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <div className="flex gap-2 mb-4">
+                          <Image
+                            height={15}
+                            width={15}
+                            src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706138678/utilities/Vector_2_eu5cas.svg"
+                            alt="rice"
+                            className="rounded-lg"
+                          />
+                          <p>Copy to paste in Figma</p>
+                        </div>
+                        <div className="flex gap-2">
+                          <Image
+                            height={15}
+                            width={15}
+                            src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706138678/utilities/download_icon_tsds6w.svg"
+                            alt="rice"
+                            className="rounded-lg"
+                          />
+                          <p>Download screenshot</p>
+                        </div>
+                      </div>
+                    </div>
+                  </>
                 )}
               </div>
               {/* Website Link */}
