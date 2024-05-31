@@ -136,12 +136,20 @@ const Form: React.FC = () => {
         </div>
 
         {/* Get code Button */}
+        {/*         
         <button
           type="submit"
           className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md"
         >
           Get code
-        </button>
+        </button> */}
+        <Link
+          href="/auth/forgotpassword/newpassword"
+          type="submit"
+          className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md"
+        >
+          Get code
+        </Link>
       </form>
     </div>
   );

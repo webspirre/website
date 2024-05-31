@@ -98,7 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             className="rounded-lg pt-2 sm:hidden"
           />
         </Link>
-        {user ? <h1>TRUE</h1> : <h1>FALSE</h1>}
+        {/* {user ? <h1>TRUE</h1> : <h1>FALSE</h1>} */}
         <div className="relative">
           <SearchInput
             value={searchQuery}
