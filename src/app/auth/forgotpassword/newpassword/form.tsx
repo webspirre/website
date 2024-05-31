@@ -34,7 +34,7 @@ const Form: React.FC = () => {
 
       <div className="w-[400px]">
         <div className="relative">
-          <Link href="/auth/login" className="flex absolute bottom-[20px]">
+          <Link href="/auth/login" className="flex absolute bottom-[30px]">
             <Image
               height={20}
               width={16}
@@ -91,14 +91,14 @@ const Form: React.FC = () => {
           type="submit"
           className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md"
         >
-          Get code
+          Save
         </button> */}
         <Link
           href="/auth/forgotpassword/newpassword"
           type="submit"
-          className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md"
+          className="bg-black text-center w-full text-white font-bold p-2 py-4 mt-2 rounded-md"
         >
-          Get code
+         Save
         </Link>
       </form>
     </div>
