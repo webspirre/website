@@ -17,6 +17,7 @@ interface UserProp {
   user: User | null;
   getUser?: () => Promise<SupabaseResponse>;
   setAuth?: React.Dispatch<React.SetStateAction<any | null>>;
+  isDeleting?: boolean;
 }
 const user: React.FC<UserProp> = ({ handleToggle, user }) => {
   const supabase = createClientComponentClient<Database>();

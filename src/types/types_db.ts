@@ -296,7 +296,7 @@ export interface Database {
           website?: string | null;
         };
         Delete: {
-          id: string;
+          id?: string;
         };
       };
     };

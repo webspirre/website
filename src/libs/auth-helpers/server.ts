@@ -6,15 +6,31 @@ import { redirect } from "next/navigation";
 import { getURL, getErrorRedirect, getStatusRedirect } from "../helpers";
 import { getAuthTypes } from "./settings";
 
+/**
+ * Validates an email address.
+ * @param {string} email - The email address to validate.
+ * @returns {boolean} - Returns true if the email address is valid, otherwise false.
+ */
+
 function isValidEmail(email: string) {
   var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   return regex.test(email);
 }
 
+/**
+ * Redirects to a specified path.
+ * @param {string} path - The path to redirect to.
+ * @returns {Promise<void>} - A promise that resolves to void.
+ */
 export async function redirectToPath(path: string) {
   return redirect(path);
 }
 
+/**
+ * Signs the user out.
+ * @param {FormData} formData - The form data containing the path name.
+ * @returns {Promise<string>} - A promise that resolves to a redirect path.
+ */
 export async function SignOut(formData: FormData) {
   const pathName = String(formData.get("pathName")).trim();
 
@@ -32,6 +48,11 @@ export async function SignOut(formData: FormData) {
   return "/auth/login";
 }
 
+/**
+ * Signs in the user with an email.
+ * @param {FormData} formData - The form data containing the email.
+ * @returns {Promise<string>} - A promise that resolves to a redirect path.
+ */
 export async function signInWithEmail(formData: FormData) {
   const cookieStore = cookies();
   const callbackURL = getURL("/auth/callback");
@@ -86,6 +107,11 @@ export async function signInWithEmail(formData: FormData) {
   return redirectPath;
 }
 
+/**
+ * Requests a password update for the user.
+ * @param {FormData} formData - The form data containing the email.
+ * @returns {Promise<string>} - A promise that resolves to a redirect path.
+ */
 export async function requestPasswordUpdate(formData: FormData) {
   const callbackURL = getURL("/auth/reset_password");
 
@@ -131,6 +157,11 @@ export async function requestPasswordUpdate(formData: FormData) {
   return redirectPath;
 }
 
+/**
+ * Signs in the user with a password.
+ * @param {FormData} formData - The form data containing the email and password.
+ * @returns {Promise<string>} - A promise that resolves to a redirect path.
+ */
 export async function signInWithPassword(formData: FormData) {
   const cookieStore = cookies();
   const email = String(formData.get("email")).trim();
@@ -163,6 +194,11 @@ export async function signInWithPassword(formData: FormData) {
   return redirectPath;
 }
 
+/**
+ * Signs up the user with an email and password.
+ * @param {FormData} formData - The form data containing the email and password.
+ * @returns {Promise<string>} - A promise that resolves to a redirect path.
+ */
 export async function signUp(formData: FormData) {
   const callbackURL = getURL("/auth/callback");
 
@@ -222,6 +258,11 @@ export async function signUp(formData: FormData) {
   return redirectPath;
 }
 
+/**
+ * Updates the user's password.
+ * @param {FormData} formData - The form data containing the new password and confirmation.
+ * @returns {Promise<string>} - A promise that resolves to a redirect path.
+ */
 export async function updatePassword(formData: FormData) {
   const password = String(formData.get("password")).trim();
   const passwordConfirm = String(formData.get("passwordConfirm")).trim();
@@ -264,6 +305,11 @@ export async function updatePassword(formData: FormData) {
   return redirectPath;
 }
 
+/**
+ * Updates the user's email.
+ * @param {FormData} formData - The form data containing the new email.
+ * @returns {Promise<string>} - A promise that resolves to a redirect path.
+ */
 export async function updateEmail(formData: FormData) {
   // Get form data
   const newEmail = String(formData.get("newEmail")).trim();
@@ -305,6 +351,11 @@ export async function updateEmail(formData: FormData) {
   }
 }
 
+/**
+ * Updates the user's name.
+ * @param {FormData} formData - The form data containing the new full name.
+ * @returns {Promise<string>} - A promise that resolves to a redirect path.
+ */
 export async function updateName(formData: FormData) {
   // Get form data
   const fullName = String(formData.get("fullName")).trim();
@@ -335,6 +386,12 @@ export async function updateName(formData: FormData) {
   }
 }
 
+/**
+ * Updates the user's profile picture.
+ * @param {string} userId - The user's ID.
+ * @param {File} file - The new profile picture file.
+ * @returns {Promise<string>} - A promise that resolves to a redirect path.
+ */
 export async function updateProfilePicture(userId: string, file: File) {
   const supabase = createClient();
 
@@ -384,7 +441,11 @@ export async function updateProfilePicture(userId: string, file: File) {
 }
 
 
-
+/**
+ * Retrieves the current user.
+ * @returns {Promise<Object>} - A promise that resolves to the current user.
+ * @throws {Error} - Throws an error if the user could not be retrieved.
+ */
 export async function getCurrentUser() {
   const supabase = createClient();
   const {
@@ -399,7 +460,11 @@ export async function getCurrentUser() {
   return user;
 }
 
-
+/**
+ * Deletes the user's account.
+ * @param {string} userId - The user's ID.
+ * @returns {Promise<string>} - A promise that resolves to a redirect path.
+ */
 export async function deleteUserAccount(userId: string) {
   const supabase = createClient();
 
