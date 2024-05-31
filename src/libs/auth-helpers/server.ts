@@ -113,7 +113,7 @@ export async function signInWithEmail(formData: FormData) {
  * @returns {Promise<string>} - A promise that resolves to a redirect path.
  */
 export async function requestPasswordUpdate(formData: FormData) {
-  const callbackURL = getURL("/auth/reset_password");
+  const callbackURL = getURL("/auth/forgotpassword");
 
   // Get form data
   const email = String(formData.get("email")).trim();
@@ -121,7 +121,7 @@ export async function requestPasswordUpdate(formData: FormData) {
 
   if (!isValidEmail(email)) {
     redirectPath = getErrorRedirect(
-      "/signin/forgot_password",
+      "/auth/forgotpassword",
       "Invalid email address.",
       "Please try again.",
     );
@@ -135,20 +135,20 @@ export async function requestPasswordUpdate(formData: FormData) {
 
   if (error) {
     redirectPath = getErrorRedirect(
-      "/signin/forgot_password",
+      "/auth/forgotpassword",
       error.message,
       "Please try again.",
     );
   } else if (data) {
     redirectPath = getStatusRedirect(
-      "/signin/forgot_password",
+      "/auth/forgotpassword/verify",
       "Success!",
       "Please check your email for a password reset link. You may now close this tab.",
       true,
     );
   } else {
     redirectPath = getErrorRedirect(
-      "/signin/forgot_password",
+      "/auth/forgotpassword",
       "Hmm... Something went wrong.",
       "Password reset email could not be sent.",
     );
@@ -176,16 +176,16 @@ export async function signInWithPassword(formData: FormData) {
 
   if (error) {
     redirectPath = getErrorRedirect(
-      "/signin/password_signin",
+      "/auth/forgotpassword/newpassword",
       "Sign in failed.",
       error.message,
     );
   } else if (data.user) {
-    cookieStore.set("preferredSignInView", "password_signin", { path: "/" });
+    cookieStore.set("preferredSignInView", "newpassword", { path: "/" });
     redirectPath = getStatusRedirect("/", "Success!", "You are now signed in.");
   } else {
     redirectPath = getErrorRedirect(
-      "/signin/password_signin",
+      "/auth/newpassword",
       "Hmm... Something went wrong.",
       "You could not be signed in.",
     );
@@ -257,6 +257,39 @@ export async function signUp(formData: FormData) {
 
   return redirectPath;
 }
+
+/**
+ * Verifies the OTP entered by the user.
+ * @param {FormData} formData - The form data containing the email and OTP.
+ * @returns {Promise<string>} - A promise that resolves to a redirect path.
+ */
+export async function verifyOtp(formData: FormData) {
+  const email = String(formData.get("email")).trim();
+  const otp = String(formData.get("otp")).trim();
+  let redirectPath;
+
+  const supabase = createClient();
+
+  // Call Supabase function to verify OTP
+  const { data, error } = await supabase.auth.verifyOtp({ email, token: otp, type: 'recovery' });
+
+  if (error) {
+    redirectPath = getErrorRedirect(
+      "/auth/forgotpassword/verifyotp",
+      "Invalid OTP.",
+      "Please try again.",
+    );
+  } else {
+    redirectPath = getStatusRedirect(
+      "/auth/forgotpassword/updatepassword",
+      "OTP Verified!",
+      "You can now update your password.",
+    );
+  }
+
+  return redirectPath;
+}
+
 
 /**
  * Updates the user's password.

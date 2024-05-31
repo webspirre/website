@@ -1,7 +1,7 @@
 "use client";
 
-import { handleRequest, signInWithOAuth } from "@/libs/auth-helpers/client";
-import { signInWithPassword } from "@/libs/auth-helpers/server";
+import { handleRequest } from "@/libs/auth-helpers/client";
+import { requestPasswordUpdate } from "@/libs/auth-helpers/server";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -14,7 +14,7 @@ function Form() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setIsSubmitting(true); // Disable the button while the request is being handled
-    await handleRequest(e, signInWithPassword, router);
+    await handleRequest(e, requestPasswordUpdate, router);
     setIsSubmitting(false);
   };
 
@@ -72,13 +72,14 @@ function Form() {
         />
 
         {/* Get code Button */}
-        <Link
-          href="/auth/forgotpassword/verify"
+        <button
+          // href="/auth/forgotpassword/verify"
+          // disabled={!isSubmitting}
           type="submit"
-          className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md"
+          className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md disabled:cursor-not-allowed "
         >
-          Get code
-        </Link>
+          {!isSubmitting ? "Get code" : "Getting Code..."}
+        </button>
       </form>
     </div>
   );
