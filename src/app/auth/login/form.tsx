@@ -96,7 +96,10 @@ function Form() {
           placeholder="**********"
           className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[350px] md:w-[430px]"
         />
-        <Link href="/password" className="text-end text-[14px] font-bold">
+        <Link
+          href="/auth/forgotpassword"
+          className="text-end text-[14px] font-bold"
+        >
           Forgot Password
         </Link>
 

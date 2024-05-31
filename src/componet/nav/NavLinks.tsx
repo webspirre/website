@@ -30,7 +30,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ status }) => {
           Upgrade now{" "}
         </Link>
       </li>
-      <li className="hidden">
+      <li className="hidde">
         {status === "authenticated" ? (
           <div className="hidden sm:flex">
             <Link
