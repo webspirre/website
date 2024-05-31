@@ -83,7 +83,7 @@ const Form: React.FC = () => {
           <Link href="/auth/login" className="flex absolute bottom-[20px]">
             <Image
               height={20}
-              width={30}
+              width={16}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717142604/utilities/webspirre/Vector_9_auopfm.svg"
               alt="left"
               className=""

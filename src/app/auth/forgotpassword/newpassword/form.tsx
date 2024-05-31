@@ -37,7 +37,7 @@ const Form: React.FC = () => {
           <Link href="/auth/login" className="flex absolute bottom-[20px]">
             <Image
               height={20}
-              width={30}
+              width={16}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717142604/utilities/webspirre/Vector_9_auopfm.svg"
               alt="left"
               className=""
@@ -62,7 +62,7 @@ const Form: React.FC = () => {
       >
         {/* Password Input */}
         <label htmlFor="password" className="text-[14px] -mb-2">
-          Password
+          New Password
         </label>
         <input
           id="password"
@@ -75,7 +75,7 @@ const Form: React.FC = () => {
 
         {/* Password Input */}
         <label htmlFor="password" className="text-[14px] -mb-2">
-          Password
+          Confirm new password{" "}
         </label>
         <input
           id="password"
