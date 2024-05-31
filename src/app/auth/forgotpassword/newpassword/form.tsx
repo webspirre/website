@@ -34,7 +34,7 @@ const Form: React.FC = () => {
 
       <div className="w-[400px]">
         <div className="relative">
-          <Link href="/auth/login" className="flex absolute bottom-[20px]">
+          <Link href="/auth/login" className="flex absolute bottom-[30px]">
             <Image
               height={20}
               width={16}

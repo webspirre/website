@@ -80,7 +80,7 @@ const Form: React.FC = () => {
 
       <div className="w-[400px]">
         <div className="relative">
-          <Link href="/auth/login" className="flex absolute bottom-[20px]">
+          <Link href="/auth/login" className="flex absolute bottom-[30px]">
             <Image
               height={20}
               width={16}
@@ -134,6 +134,12 @@ const Form: React.FC = () => {
             />
           ))}
         </div>
+        <div className="flex gap-2 w-full justify-center items-center text-[12px]">
+          <p>Not your email? </p>
+          <Link href="/auth/forgotpassword" className="font-bold">
+            Change email
+          </Link>
+        </div>
 
         {/* Get code Button */}
         {/*         
@@ -141,15 +147,28 @@ const Form: React.FC = () => {
           type="submit"
           className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md"
         >
-          Get code
+          Verify
         </button> */}
         <Link
           href="/auth/forgotpassword/newpassword"
           type="submit"
           className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md"
         >
-          Get code
+          Verify{" "}
         </Link>
+
+        <div className="mt-[20px] text-[12px] text-[#B5B5B5]">
+          <div className="flex gap-2 w-full justify-center items-center ">
+            <p>Didnt receive any code? </p>
+            <button className="font-bold text-black">Resend</button>
+          </div>
+          <div>
+            <p className="text-center mt-[20px]">
+              Ensure you also check your Spam/Promotions email sections before
+              resending your code.
+            </p>
+          </div>
+        </div>
       </form>
     </div>
   );
