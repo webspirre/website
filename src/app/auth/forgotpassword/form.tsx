@@ -9,13 +9,21 @@ import React, { useState } from "react";
 
 function Form() {
   let redirectMethod = "client";
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = redirectMethod === "client" ? useRouter() : null;
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [email, setEmail] = useState(localStorage.getItem("email") || "");
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setIsSubmitting(true); // Disable the button while the request is being handled
     await handleRequest(e, requestPasswordUpdate, router);
     setIsSubmitting(false);
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const email = e.target.value;
+    setEmail(email);
+    localStorage.setItem("email", email); // Store email in localStorage
   };
 
   return (
@@ -31,8 +39,8 @@ function Form() {
       </Link>
 
       <div className="w-[400px]">
-        <div className=" relative ">
-          <Link href="/auth/login " className="flex absolute bottom-[30px]">
+        <div className="relative">
+          <Link href="/auth/login" className="flex absolute bottom-[30px]">
             <Image
               height={20}
               width={16}
@@ -69,14 +77,15 @@ function Form() {
           autoCorrect="off"
           placeholder="example@mail.com"
           className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] w-[350px] sm:w-[430px]"
+          value={email}
+          onChange={handleEmailChange} // Handle change event
         />
 
         {/* Get code Button */}
         <button
-          // href="/auth/forgotpassword/verify"
-          // disabled={!isSubmitting}
           type="submit"
-          className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md disabled:cursor-not-allowed "
+          className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md disabled:cursor-not-allowed"
+          disabled={[!email].every(Boolean) as boolean}
         >
           {!isSubmitting ? "Get code" : "Getting Code..."}
         </button>

@@ -1,7 +1,7 @@
 "use client";
 
 import { handleRequest, signInWithOAuth } from "@/libs/auth-helpers/client";
-import { signInWithPassword } from "@/libs/auth-helpers/server";
+import { updatePassword } from "@/libs/auth-helpers/server";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -10,16 +10,27 @@ import React, { useState } from "react";
 const Form: React.FC = () => {
   const redirectMethod = "client";
   const router = redirectMethod === "client" ? useRouter() : null;
-  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [email, setEmail] = useState(localStorage.getItem("email") || "");
+
+  function maskEmail(email: string) {
+    const [localPart, domain] = email.split("@");
+    const localPartMasked = `${localPart.slice(0, 3)}****${localPart.slice(
+      -2
+    )}`;
+    const [domainName, domainExtension] = domain.split(".");
+    const domainMasked = `${domainName[0]}***${domainName.slice(-1)}`;
+    return `${localPartMasked}@${domainMasked}.${domainExtension}`;
+  }
+
+  const emailAddress = maskEmail(email);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    // submit logic
+    setIsSubmitting(true); // Disable the button while the request is being handled
+    await handleRequest(e, updatePassword, router);
+    setIsSubmitting(false);
   };
 
- 
-
- 
-
-  
   return (
     <div className="flex flex-col items-center justify-center gap-4">
       <Link href="/">
@@ -50,8 +61,8 @@ const Form: React.FC = () => {
 
         <p className="text-center text-[12px] mb-4">
           A 6 digit code has been sent to{" "}
-          <span className="font-bold">jos****ah@g***l.com,</span> enter the code
-          to verify.
+          <span className="font-bold">{emailAddress},</span> enter the code to
+          verify.
         </p>
       </div>
 
@@ -78,28 +89,20 @@ const Form: React.FC = () => {
           Confirm new password{" "}
         </label>
         <input
-          id="password"
+          id="passwordConfirm"
           type="password"
-          name="password"
+          name="passwordConfirm"
           autoComplete="current-password"
           placeholder="**********"
           className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[350px] md:w-[430px]"
         />
         {/* Get code Button */}
-        {/*         
         <button
-          type="submit"
-          className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md"
-        >
-          Save
-        </button> */}
-        <Link
-          href="/auth/forgotpassword/newpassword"
           type="submit"
           className="bg-black text-center w-full text-white font-bold p-2 py-4 mt-2 rounded-md"
         >
-         Save
-        </Link>
+          {!isSubmitting ? " Save" : "Saving password..."}
+        </button>
       </form>
     </div>
   );

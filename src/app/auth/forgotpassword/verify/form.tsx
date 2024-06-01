@@ -1,7 +1,11 @@
 "use client";
 
 import { handleRequest, signInWithOAuth } from "@/libs/auth-helpers/client";
-import { signInWithPassword } from "@/libs/auth-helpers/server";
+import {
+  resendOTP,
+  signInWithPassword,
+  verifyOtp,
+} from "@/libs/auth-helpers/server";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -12,12 +16,32 @@ const Form: React.FC = () => {
   const router = redirectMethod === "client" ? useRouter() : null;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [code, setCode] = useState<string[]>(["", "", "", "", "", ""]);
+  const [email, setEmail] = useState(localStorage.getItem("email") || "");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setIsSubmitting(true); // Disable the button while the request is being handled
-    await handleRequest(e, signInWithPassword, router);
+    await handleRequest(e, verifyOtp, router);
     setIsSubmitting(false);
   };
+
+  const handleResend = async (e: React.FormEvent<HTMLFormElement>) => {
+    setIsSubmitting(true); // Disable the button while the request is being handled
+    await handleRequest(e, resendOTP, router);
+    setIsSubmitting(false);
+  };
+
+  function maskEmail(email: string) {
+    const [localPart, domain] = email.split("@");
+    const localPartMasked = `${localPart.slice(0, 3)}****${localPart.slice(
+      -2
+    )}`;
+    const [domainName, domainExtension] = domain.split(".");
+    const domainMasked = `${domainName[0]}***${domainName.slice(-1)}`;
+    return `${localPartMasked}@${domainMasked}.${domainExtension}`;
+  }
+
+  const emailAddress = maskEmail(email);
+  // jos****ah@g***l.com
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -96,8 +120,8 @@ const Form: React.FC = () => {
 
         <p className="text-center text-[12px] mb-4">
           A 6 digit code has been sent to{" "}
-          <span className="font-bold">jos****ah@g***l.com,</span> enter the code
-          to verify.
+          <span className="font-bold">{emailAddress},</span> enter the code to
+          verify.
         </p>
       </div>
 
@@ -119,6 +143,8 @@ const Form: React.FC = () => {
             {/* this should only show the paste code button is hidden and it should be */}
           </div>
         </label>
+        {/*  */}
+        <input type="hidden" id="email" name="email" value={email} />
         {/* 6 boxes input for the user to paste the code */}
         <div className="flex w-[400px] justify-center space-x-2 mt-2">
           {code.map((digit, index) => (
@@ -126,6 +152,7 @@ const Form: React.FC = () => {
               key={index}
               id={`digit-${index}`}
               type="text"
+              name={`digit-${index}`}
               maxLength={1}
               value={digit}
               onChange={(e) => handleChange(e, index)}
@@ -142,25 +169,23 @@ const Form: React.FC = () => {
         </div>
 
         {/* Get code Button */}
-        {/*         
         <button
           type="submit"
           className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md"
         >
-          Verify
-        </button> */}
-        <Link
-          href="/auth/forgotpassword/newpassword"
-          type="submit"
-          className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md"
-        >
-          Verify{" "}
-        </Link>
+          {!isSubmitting ? "Verify" : "Verifying Otp..."}
+        </button>
 
         <div className="mt-[20px] text-[12px] text-[#B5B5B5]">
           <div className="flex gap-2 w-full justify-center items-center ">
             <p>Didnt receive any code? </p>
-            <button className="font-bold text-black">Resend</button>
+            <form noValidate={true} onSubmit={(e) => handleResend(e)}>
+              <input type="hidden" id="email" name="email" value={email} />
+              <button className="font-bold text-black">
+                {" "}
+                {!isSubmitting ? "Resend" : "Resending..."}
+              </button>
+            </form>
           </div>
           <div>
             <p className="text-center mt-[20px]">

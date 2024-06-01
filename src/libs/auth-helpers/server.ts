@@ -41,7 +41,7 @@ export async function SignOut(formData: FormData) {
     return getErrorRedirect(
       pathName,
       "Hmm... Something went wrong.",
-      "You could not be signed out.",
+      "You could not be signed out."
     );
   }
 
@@ -56,7 +56,7 @@ export async function SignOut(formData: FormData) {
 export async function signInWithEmail(formData: FormData) {
   const cookieStore = cookies();
   const callbackURL = getURL("/auth/callback");
- 
+
   const email = String(formData.get("email")).trim();
   let redirectPath: string;
 
@@ -64,7 +64,7 @@ export async function signInWithEmail(formData: FormData) {
     redirectPath = getErrorRedirect(
       "/signin/email_signin",
       "Invalid email address.",
-      "Please try again.",
+      "Please try again."
     );
   }
 
@@ -86,7 +86,7 @@ export async function signInWithEmail(formData: FormData) {
     redirectPath = getErrorRedirect(
       "/signin/email_signin",
       "You could not be signed in.",
-      error.message,
+      error.message
     );
   } else if (data) {
     cookieStore.set("preferredSignInView", "email_signin", { path: "/" });
@@ -94,13 +94,13 @@ export async function signInWithEmail(formData: FormData) {
       "/signin/email_signin",
       "Success!",
       "Please check your email for a magic link. You may now close this tab.",
-      true,
+      true
     );
   } else {
     redirectPath = getErrorRedirect(
       "/signin/email_signin",
       "Hmm... Something went wrong.",
-      "You could not be signed in.",
+      "You could not be signed in."
     );
   }
 
@@ -117,14 +117,68 @@ export async function requestPasswordUpdate(formData: FormData) {
 
   // Get form data
   const email = String(formData.get("email")).trim();
+  let redirectPath;
+
+  if (!isValidEmail(email as string)) {
+    redirectPath = getErrorRedirect(
+      "/auth/forgotpassword",
+      "Invalid email address.",
+      "Please try again."
+    );
+  }
+
+  const supabase = createClient();
+
+  const { data, error } = await supabase.auth.resetPasswordForEmail(
+    email as string,
+    {
+      redirectTo: callbackURL,
+    }
+  );
+
+  if (error) {
+    redirectPath = getErrorRedirect(
+      "/auth/forgotpassword",
+      error.message,
+      "Please try again."
+    );
+  } else if (data) {
+    redirectPath = getStatusRedirect(
+      "/auth/forgotpassword/verify",
+      "Success!",
+      "Please check your email for a password reset link. You may now close this tab.",
+      true
+    );
+  } else {
+    redirectPath = getErrorRedirect(
+      "/auth/forgotpassword",
+      "Hmm... Something went wrong.",
+      "Password reset email could not be sent."
+    );
+  }
+
+  return redirectPath;
+}
+
+/**
+ * Requests a password update for the user.
+ * @param {FormData} formData - The form data containing the email.
+ * @returns {Promise<string>} - A promise that resolves to a redirect path.
+ */
+export async function resendOTP(formData: FormData) {
+  const callbackURL = getURL("/auth/forgotpassword/verify");
+
+  //Get form data
+  const email = String(formData.get("email")).trim();
   let redirectPath: string;
 
   if (!isValidEmail(email)) {
     redirectPath = getErrorRedirect(
-      "/auth/forgotpassword",
+      "/auth/forgotpassword/verify",
       "Invalid email address.",
-      "Please try again.",
+      "Please try again."
     );
+    return redirectPath;
   }
 
   const supabase = createClient();
@@ -135,22 +189,22 @@ export async function requestPasswordUpdate(formData: FormData) {
 
   if (error) {
     redirectPath = getErrorRedirect(
-      "/auth/forgotpassword",
+      "/auth/forgotpassword/verify",
       error.message,
-      "Please try again.",
+      "Please try again."
     );
   } else if (data) {
     redirectPath = getStatusRedirect(
       "/auth/forgotpassword/verify",
       "Success!",
-      "Please check your email for a password reset link. You may now close this tab.",
-      true,
+      "A new OTP has been sent to your email. Please check your email.",
+      true
     );
   } else {
     redirectPath = getErrorRedirect(
-      "/auth/forgotpassword",
+      "/auth/forgotpassword/verify",
       "Hmm... Something went wrong.",
-      "Password reset email could not be sent.",
+      "OTP could not be sent."
     );
   }
 
@@ -172,13 +226,13 @@ export async function signInWithPassword(formData: FormData) {
   const { error, data } = await supabase.auth.signInWithPassword({
     email,
     password,
-  }); 
+  });
 
   if (error) {
     redirectPath = getErrorRedirect(
       "/auth/forgotpassword/newpassword",
       "Sign in failed.",
-      error.message,
+      error.message
     );
   } else if (data.user) {
     cookieStore.set("preferredSignInView", "newpassword", { path: "/" });
@@ -187,7 +241,7 @@ export async function signInWithPassword(formData: FormData) {
     redirectPath = getErrorRedirect(
       "/auth/newpassword",
       "Hmm... Something went wrong.",
-      "You could not be signed in.",
+      "You could not be signed in."
     );
   }
 
@@ -210,7 +264,7 @@ export async function signUp(formData: FormData) {
     redirectPath = getErrorRedirect(
       "/auth/register",
       "Invalid email address.",
-      "Please try again.",
+      "Please try again."
     );
   }
 
@@ -227,7 +281,7 @@ export async function signUp(formData: FormData) {
     redirectPath = getErrorRedirect(
       "/auth/register",
       "Sign up failed.",
-      error.message,
+      error.message
     );
   } else if (data.session) {
     redirectPath = getStatusRedirect("/", "Success!", "You are now signed in.");
@@ -239,19 +293,19 @@ export async function signUp(formData: FormData) {
     redirectPath = getErrorRedirect(
       "/auth/register",
       "Sign up failed.",
-      "There is already an account associated with this email address. Try resetting your password.",
+      "There is already an account associated with this email address. Try resetting your password."
     );
   } else if (data.user) {
     redirectPath = getStatusRedirect(
       "/",
       "Success!",
-      "Please check your email for a confirmation link. You may now close this tab.",
+      "Please check your email for a confirmation link. You may now close this tab."
     );
   } else {
     redirectPath = getErrorRedirect(
       "/auth/register",
       "Hmm... Something went wrong.",
-      "You could not be signed up.",
+      "You could not be signed up."
     );
   }
 
@@ -265,31 +319,45 @@ export async function signUp(formData: FormData) {
  */
 export async function verifyOtp(formData: FormData) {
   const email = String(formData.get("email")).trim();
-  const otp = String(formData.get("otp")).trim();
+  const otp1 = String(formData.get("digit-0")).trim();
+  const otp2 = String(formData.get("digit-1")).trim();
+  const otp3 = String(formData.get("digit-2")).trim();
+  const otp4 = String(formData.get("digit-3")).trim();
+  const otp5 = String(formData.get("digit-4")).trim();
+  const otp6 = String(formData.get("digit-5")).trim();
+
+  const otp = otp1 + otp2 + otp3 + otp4 + otp5 + otp6;
+
+  console.log("otp", otp);
+  console.log("email", email);
+
   let redirectPath;
 
   const supabase = createClient();
 
   // Call Supabase function to verify OTP
-  const { data, error } = await supabase.auth.verifyOtp({ email, token: otp, type: 'recovery' });
+  const { data, error } = await supabase.auth.verifyOtp({
+    email,
+    token: otp,
+    type: "recovery",
+  });
 
   if (error) {
     redirectPath = getErrorRedirect(
-      "/auth/forgotpassword/verifyotp",
+      "/auth/forgotpassword/verify",
       "Invalid OTP.",
-      "Please try again.",
+      "Please try again."
     );
   } else {
     redirectPath = getStatusRedirect(
-      "/auth/forgotpassword/updatepassword",
+      "/auth/forgotpassword/newpassword",
       "OTP Verified!",
-      "You can now update your password.",
+      "You can now update your password."
     );
   }
 
   return redirectPath;
 }
-
 
 /**
  * Updates the user's password.
@@ -304,9 +372,9 @@ export async function updatePassword(formData: FormData) {
   // Check that the password and confirmation match
   if (password !== passwordConfirm) {
     redirectPath = getErrorRedirect(
-      "/signin/update_password",
+      "/auth/forgotpassword/newpassword",
       "Your password could not be updated.",
-      "Passwords do not match.",
+      "Passwords do not match."
     );
   }
 
@@ -317,21 +385,21 @@ export async function updatePassword(formData: FormData) {
 
   if (error) {
     redirectPath = getErrorRedirect(
-      "/signin/update_password",
+      "/auth/forgotpassword/newpassword",
       "Your password could not be updated.",
-      error.message,
+      error.message
     );
   } else if (data.user) {
     redirectPath = getStatusRedirect(
-      "/",
+      "/auth/login",
       "Success!",
-      "Your password has been updated.",
+      "Your password has been updated."
     );
   } else {
     redirectPath = getErrorRedirect(
-      "/signin/update_password",
+      "/auth/forgotpassword/newpassword",
       "Hmm... Something went wrong.",
-      "Your password could not be updated.",
+      "Your password could not be updated."
     );
   }
 
@@ -352,34 +420,34 @@ export async function updateEmail(formData: FormData) {
     return getErrorRedirect(
       "/account",
       "Your email could not be updated.",
-      "Invalid email address.",
+      "Invalid email address."
     );
   }
 
   const supabase = createClient();
 
   const callbackUrl = getURL(
-    getStatusRedirect("/account", "Success!", `Your email has been updated.`),
+    getStatusRedirect("/account", "Success!", `Your email has been updated.`)
   );
 
   const { error } = await supabase.auth.updateUser(
     { email: newEmail },
     {
       emailRedirectTo: callbackUrl,
-    },
+    }
   );
 
   if (error) {
     return getErrorRedirect(
       "/account",
       "Your email could not be updated.",
-      error.message,
+      error.message
     );
   } else {
     return getStatusRedirect(
       "/account",
       "Confirmation emails sent.",
-      `You will need to confirm the update by clicking the links sent to both the old and new email addresses.`,
+      `You will need to confirm the update by clicking the links sent to both the old and new email addresses.`
     );
   }
 }
@@ -402,19 +470,19 @@ export async function updateName(formData: FormData) {
     return getErrorRedirect(
       "/account",
       "Your name could not be updated.",
-      error.message,
+      error.message
     );
   } else if (data.user) {
     return getStatusRedirect(
       "/account",
       "Success!",
-      "Your name has been updated.",
+      "Your name has been updated."
     );
   } else {
     return getErrorRedirect(
       "/account",
       "Hmm... Something went wrong.",
-      "Your name could not be updated.",
+      "Your name could not be updated."
     );
   }
 }
@@ -430,10 +498,10 @@ export async function updateProfilePicture(userId: string, file: File) {
 
   // Decode base64 file
   const buffer = Buffer.from(await file.arrayBuffer());
- 
+
   // Upload to Supabase Storage
   const { data, error } = await supabase.storage
-    .from('profile-images')
+    .from("profile-images")
     .upload(`${userId}/profile-image.png`, buffer, {
       contentType: file.type,
       upsert: true,
@@ -449,14 +517,14 @@ export async function updateProfilePicture(userId: string, file: File) {
 
   // Get public URL of the uploaded image
   const { data: DT } = supabase.storage
-    .from('profile-images')
+    .from("profile-images")
     .getPublicUrl(`${userId}/profile-image.png`);
 
   // Update user profile with the new image URL
   const { error: updateError } = await supabase
-    .from('users')
+    .from("users")
     .update({ avatar_url: DT?.publicUrl })
-    .eq('id', userId);
+    .eq("id", userId);
 
   if (updateError) {
     return getErrorRedirect(
@@ -472,7 +540,6 @@ export async function updateProfilePicture(userId: string, file: File) {
     "Your profile picture has been updated."
   );
 }
-
 
 /**
  * Retrieves the current user.
@@ -514,9 +581,9 @@ export async function deleteUserAccount(userId: string) {
 
   // Optionally, delete user data from your users table
   const { error: userError } = await supabase
-    .from('users')
+    .from("users")
     .delete()
-    .eq('id', userId);
+    .eq("id", userId);
 
   if (userError) {
     return getErrorRedirect(

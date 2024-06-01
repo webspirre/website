@@ -7,6 +7,7 @@ import { createClient } from "@/libs/supabase/server";
 // import useAuth from "@/hooks/useAuth";
 import { AuthProvider } from "@/context/AuthProvider";
 import { Toaster } from "react-hot-toast";
+import AlertHandler from "@/componet/ui/alerthandler/AlertHandler";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -69,6 +70,7 @@ export default async function RootLayout({
         <AuthProvider>
           <Toaster />
           <main className="bg-white">
+            <AlertHandler />
             <Navbar user={user} />
             {children}
           </main>
