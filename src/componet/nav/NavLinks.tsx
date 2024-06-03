@@ -9,7 +9,7 @@ interface NavLinksProps {
 
 const NavLinks: React.FC<NavLinksProps> = ({ status }) => {
   return (
-    <ul className="flex pt-2 sm:space-x-8 items-center">
+    <ul className="flex text-[14px] pt-2 sm:space-x-8 items-center">
       <li>
         <Link href="/price" className="hidden sm:flex text-[black] font-medium">
           Pricing
@@ -18,11 +18,11 @@ const NavLinks: React.FC<NavLinksProps> = ({ status }) => {
       <li className="hidden sm:block">
         <Link
           href="/auth/register"
-          className=" bg-black p-3 px-4 text-white text-[12px] rounded-[10px] border flex items-center gap-2 border-[#BBBBBB] "
+          className=" bg-black p-2 px-4 text-white text-[12px] rounded-[10px] border flex items-center gap-2 border-[#BBBBBB] "
         >
           <Image
             height={20}
-            width={20}
+            width={15}
             src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707387992/utilities/Vector_3_drikcp.svg"
             alt="rice"
             className=""

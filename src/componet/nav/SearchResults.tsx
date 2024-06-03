@@ -128,8 +128,9 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
           <img
             src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717446793/utilities/webspirre/Search_duotone_mjoudo.svg"
             alt="search"
+            className="w-[204px]"
           />
-          <p className="text-[#959595] text-[12px] sm:text-[24px]">
+          <p className="text-[#959595] text-[12px] sm:text-[14px]">
             Start searching...
           </p>
         </div>

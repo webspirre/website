@@ -49,10 +49,10 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
       <a href="#" className="hover:underline hidde">
         <Image
           height={20}
-          width={44}
+          width={36}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705727048/utilities/menu_rdtahr.svg"
           alt="Menu Icon"
-          className=" pt-2"
+          className=" pt-3"
           onClick={toggleMoreNavLinks}
         />
       </a>

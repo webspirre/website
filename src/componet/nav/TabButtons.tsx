@@ -42,18 +42,18 @@ const TabButtons: React.FC<TabButtonsProps> = ({
             <div className="flex items-center gap-2 min-w-fit px-4 py-1 sm:py-2 bg-[#F1F0EE] rounded-full">
               <Image
                 src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705965289/utilities/Vector_dlval9.svg"
-                width={20}
+                width={15}
                 height={50}
                 alt="design"
               />
-              <p className="font-bold text-center">Filter</p>
+              <p className="font-bold text-center text-[12px]">Filter</p>
             </div>
-            <div className="h-[40px] mr-4 min-w-[1px] bg-[#BDBDBD]"></div>
+            <div className="h-[30px] mr-4 min-w-[1px] bg-[#BDBDBD]"></div>
           </div>
         </button>
 
         {showFilterOptions && (
-          <div className="absolute top-8 w-[150px] text-[14px] font-medium bg-white border border-gray-300 p-2 mt-4 rounded-md shadow-md">
+          <div className="absolute top-8 w-[150px] text-[12px]  bg-white border border-gray-300 p-2 mt-4 rounded-md shadow-md">
             {filterOptions.map((option, index) => (
               <div key={index} className="flex items-center mb-1">
                 <input
@@ -81,10 +81,10 @@ const TabButtons: React.FC<TabButtonsProps> = ({
             <button
               key={index}
               onClick={() => onTabClick(index)}
-              className={`px-4 py-1 sm:py-2 border-b-2 mr-2 w-fit ${
+              className={`px-4 py-1 sm:py-2 border-b-2 mr-2 w-fit text-[12px] ${
                 activeTab === index
                   ? "border-2 rounded-full bg-black text-white font-medium"
-                  : "border-2 rounded-full text-black hover:text-gray-700 font-medium hover:border-gray-500"
+                  : "border-2 rounded-full text-black  hover:text-gray-700 hover:border-gray-500"
               }`}
             >
               {(categoryCounts.find((c) => c.label === tab.label)?.count ?? 0) >

@@ -46,14 +46,14 @@ const Card = ({
                 <img
                   src={logoUrl}
                   alt={`${name} Logo`}
-                  className="sm:h-[24px] sm:w-[25px]"
+                  className="sm:h-[24px] sm:w-[30px]"
                 />
               </div>
             )}
           </Link>
 
           <div className="pr-[40px]">
-            <p className="text-[12px] mb-2 font-bold">{name}</p>
+            <p className="text-[12px] mb- font-bold">{name}</p>
             {description && (
               <p className="text-gray-700 text-[11px] ">{description}</p>
             )}
@@ -84,7 +84,7 @@ const Card = ({
 
       {/* More Popup */}
       {showMorePopup && (
-        <div className="absolute right-0 bottom-20 text-[14px] font-medium bg-white rounded-lg p-4 shadow-md">
+        <div className="absolute right-0 bottom-20 text-[12px]  bg-white rounded-lg p-4 shadow-md">
           <div className="flex gap-2 mb-4">
             <Image
               height={15}
@@ -110,7 +110,7 @@ const Card = ({
 
       {/* Bookmark Popup */}
       {showBookmarkPopup && (
-        <div className="absolute right-10 bottom-20 text-[14px] font-medium bg-white rounded-md shadow-md">
+        <div className="absolute right-10 bottom-20 text-[12px]  bg-white rounded-md shadow-md">
           {/* Content for bookmark popup */}
           {/* Example options: */}
           {/* <input type="text" placeholder="Search bookmark" /> */}

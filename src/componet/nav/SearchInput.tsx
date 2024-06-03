@@ -24,7 +24,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
   return (
     <div>
       <div
-        className={` relative sm:flex hidden  justify-center pt-[20px] w-[600px] ${
+        className={` relative sm:flex hidden  justify-center pt-[8px] w-[600px] ${
           isFocused
             ? "bg-white border-l border-r border-t rounded-t-md border-[#BBBBBB]"
             : "bg-[#F8F7F4]"
@@ -33,19 +33,19 @@ const SearchInput: React.FC<SearchInputProps> = ({
         <div
           className={`flex items-center w-[500px] ${
             isFocused ? "bg-[#EDEDED]" : "bg-white"
-          } border border-[#BBBBBB] rounded-full py-3 pl-[50px] pr-[20px]`}
+          } border border-[#BBBBBB] rounded-full py-2 pl-[30px] pr-[20px]`}
         >
           <Image
             height={20}
-            width={20}
+            width={14}
             src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/magnifier_vrq3zb.svg"
             alt="Search Icon"
-            className="rounded-lg"
+            className=""
           />
           <input
             type="text"
             placeholder="Search for a website or category..."
-            className="focus:outline-none focus:bg-[#EDEDED] pl-2 w-full"
+            className="focus:outline-none focus:bg-[#EDEDED] text-[14px] pl-2 w-full"
             value={value}
             onChange={onChange}
             onFocus={onFocus}
