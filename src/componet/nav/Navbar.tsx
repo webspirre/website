@@ -15,6 +15,7 @@ export interface Project {
   category: string;
   logoUrl: string;
   description?: string;
+  pageType: string;
 }
 
 interface NavbarProps {
@@ -80,8 +81,8 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   }, []);
 
   return (
-    <nav className="bg-[#F8F7F4] relative px-4 pb-4 border-b border-[#BBBBBB] items-center">
-      <nav className="max-w-screen mx-2 flex justify-between items-center">
+    <nav className="bg-[#F8F7F4] relative px-4 pb-4 border-b  flex justify-center border-[#BBBBBB] items-center">
+      <nav className=" w-full  max-w-[1350px] mx-2 flex justify-between items-center">
         <Link href="/">
           <Image
             height={60}

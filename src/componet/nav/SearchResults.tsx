@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Project } from "./Navbar"; // Import the Project type from Navbar.tsx
 import TabButtons from "./TabButtons";
+import Link from "next/link";
 
 interface SearchResultsProps {
   searchResults: Project[];
@@ -16,7 +17,12 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
   const tabs = [
     { label: "All" },
     { label: "Software & SaaS" },
-    { label: "E-commerce" },
+    { label: "AI" },
+    { label: "Fintech" },
+    { label: "Agency & Corporate" },
+    { label: "E-Commerce" },
+    { label: "Crypto & Web3" },
+    { label: "Travel & Hospitality" },
     // Add other tabs as needed
   ];
 
@@ -35,6 +41,27 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
     } else {
       setSelectedFilters([...selectedFilters, option]);
     }
+  };
+
+  const filterResults = () => {
+    let filteredResults = searchResults;
+
+    // Filter by active tab
+    if (activeTab !== 0) {
+      const activeCategory = tabs[activeTab].label;
+      filteredResults = filteredResults.filter(
+        (result) => result.category === activeCategory
+      );
+    }
+
+    // Filter by selected filters
+    if (selectedFilters.length > 0) {
+      filteredResults = filteredResults.filter((result) =>
+        selectedFilters.includes(result.pageType)
+      );
+    }
+
+    return filteredResults;
   };
 
   useEffect(() => {
@@ -57,7 +84,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
   return (
     <div
       ref={searchResultRef}
-      className="absolute items-center justify-center p-4 sm:px-[50px] z-10 w-[330px] sm:w-[600px] bg-white border-l border-r border-b border-[#BBBBBB] rounded-b-md shadow-md"
+      className="absolute overflow-y-auto scrollbar-hide items-center justify-center p-4 sm:px-[50px] z-10 w-[330px] sm:h-[450px] sm:w-[600px] bg-white border-l border-r border-b border-[#BBBBBB] rounded-b-md shadow-md"
     >
       {/* Filter bar option section */}
       <TabButtons
@@ -70,10 +97,15 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
         showFilterOptions={showFilterOptions}
         setShowFilterOptions={setShowFilterOptions}
       />
-      
+
       {/* Display search results */}
-      {searchResults.map((result) => (
-        <div key={result.id} className="mb-8 flex items-center">
+      {filterResults().map((result) => (
+        <Link
+          onClick={() => (window.location.href = `/detail/${result.id}`)}
+          href={`/detail/${result.id}`}
+          key={result.id}
+          className="mb-8 flex items-center"
+        >
           <div className="border-2 border-gray rounded-[10px] p-2">
             <Image
               height={14}
@@ -89,12 +121,18 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
               <p className="text-gray-700">{result.description}</p>
             )}
           </div>
-        </div>
+        </Link>
       ))}
-      {searchResults.length === 0 && (
-        <p className="text-gray-500 text-[12px] sm:text-[14px]">
-          No matching results found.
-        </p>
+      {filterResults().length === 0 && (
+        <div className="flex justify-center flex-col items-center fade-in-out">
+          <img
+            src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717446793/utilities/webspirre/Search_duotone_mjoudo.svg"
+            alt="search"
+          />
+          <p className="text-[#959595] text-[12px] sm:text-[24px]">
+            Start searching...
+          </p>
+        </div>
       )}
     </div>
   );

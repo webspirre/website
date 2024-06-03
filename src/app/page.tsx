@@ -23,38 +23,38 @@ export default function Home() {
           backgroundImage: `url(${backgroundImageUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: "490px", // Set the desired height
+          height: "400px", // Set the desired height
           position: "relative", // Position relative to allow absolute positioning of child elements
         }}
         className="flex flex-col items-center justify-center w-full "
       >
         <Image
-          height={650}
-          width={650}
+          height={453}
+          width={560}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705952595/utilities/hero_H1_and_vector_sy4fzl.svg"
           alt="rice"
           className="px-4"
         />
 
-        <h1 className="sm:text-[24px] px-4 sm:w-[600px] pt-4 text-center">
+        <h1 className="sm:text-[20px] px-4 sm:w-[600px] pt-4 text-center">
           Skip the stressful part. Get real and practical web design inspiration
           from the internet&#39;s best designed and highest-converting websites.
         </h1>
-        <div className="flex items-center justify-center gap-4 px-4 pt-6">
+        <div className="flex items-center justify-center gap-4 px-4 pt-6 sm:text-16px">
           <Link
             href="/"
-            className="bg-black py-4 px-4 sm:py-4 sm:px-8 text-white rounded-[20px] border border-[#BBBBBB] font-medium text-[14px] sm:text-[18px]"
+            className="bg-black py-4 px-4 sm:py-4 sm:px-8 text-white rounded-[20px] border border-[#BBBBBB] font-medium text-[14px]"
           >
             Get started now
           </Link>
           <div
             // href="/"
             onClick={handleToggle}
-            className="bg-white flex items-center gap-2 py-4 px-4 sm:py-4 sm:px-8 text-black rounded-[20px] border border-[#BBBBBB] font-medium text-[14px] sm:text-[18px] cursor-pointer"
+            className="bg-white flex items-center gap-2 py-4 px-4 sm:py-4 sm:px-8 text-black rounded-[20px] border border-[#BBBBBB] font-medium text-[14px] cursor-pointer"
           >
             <Image
-              height={40}
-              width={20}
+              height={21}
+              width={19}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715212239/utilities/play_icon_1_zueuon.svg"
               alt="rice"
               className=""

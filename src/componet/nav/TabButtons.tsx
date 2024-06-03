@@ -39,7 +39,7 @@ const TabButtons: React.FC<TabButtonsProps> = ({
           className=""
         >
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 min-w-fit px-2 py-1 sm:py-2 bg-[#F1F0EE] rounded-full">
+            <div className="flex items-center gap-2 min-w-fit px-4 py-1 sm:py-2 bg-[#F1F0EE] rounded-full">
               <Image
                 src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705965289/utilities/Vector_dlval9.svg"
                 width={20}
