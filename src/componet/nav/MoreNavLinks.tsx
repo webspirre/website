@@ -1,4 +1,3 @@
-// MoreNavLinks.tsx
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,9 +17,14 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
   toggleMoreNavLinks,
   user,
 }) => {
-  const router = getRedirectMethod() === "client" ? useRouter() : null;
-
+  const router = useRouter();
   const pathname = usePathname();
+  const redirectMethod = getRedirectMethod();
+
+  const handleSignOut = async (e: React.FormEvent<HTMLFormElement>) => {
+    await handleRequest(e, SignOut, router);
+  };
+
   return (
     <div className="relative text-[12px]">
       <div className="hidden">
@@ -88,23 +92,8 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
                 <p className="font-bold ">Profile</p>
               </div>
             </Link>
-            {/* <Link
-                  href="/settings"
-                  className="block text-[black] mb-4 hover:"
-                >
-                  <div className="flex gap-2 px-4 items-center pt-2">
-                    <Image
-                      height={20}
-                      width={25}
-                      src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707388441/utilities/Vector_5_izymzc.svg"
-                      alt="rice"
-                      className=""
-                    />
-                    <p className="font-bold text-[14px]">Settings</p>
-                  </div>
-                </Link> */}
             <Link
-              href="/notifications  "
+              href="/notifications"
               className="block text-[black] mb-4 hover:"
             >
               <div className="flex gap-2 px-4 items-center pt-2">
@@ -133,7 +122,6 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
                 <p className="font-bold text-[14px]">Updates</p>
               </div>
             </Link>
-
             <Link
               href="/terms"
               className="block text-[black] border-t mb-4 hover:"
@@ -180,18 +168,11 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
                 </div>
               </Link>
             ) : (
-              <form onSubmit={(e) => handleRequest(e, SignOut, router)}>
-                <input
-                  type="hidden"
-                  name="pathName"
-                  // eslint-disable-next-line react-hooks/rules-of-hooks
-                  value={pathname}
-                />
+              <form onSubmit={handleSignOut}>
+                <input type="hidden" name="pathName" value={pathname} />
                 <button className="block text-[black] hover:">
                   <p className="flex gap-2 border-t-2  py-2 px-4 mb-2">
-                    <span className=" text-red-600 font-bold">
-                      Log Out
-                    </span>
+                    <span className=" text-red-600 font-bold">Log Out</span>
                   </p>
                 </button>
               </form>
