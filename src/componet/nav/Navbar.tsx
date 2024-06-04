@@ -15,6 +15,7 @@ export interface Project {
   category: string;
   logoUrl: string;
   description?: string;
+  pageType: string;
 }
 
 interface NavbarProps {
@@ -80,15 +81,15 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   }, []);
 
   return (
-    <nav className="bg-[#F8F7F4] relative px-4 pb-4 border-b border-[#BBBBBB] items-center">
-      <nav className="max-w-screen mx-2 flex justify-between items-center">
+    <nav className="bg-[#F8F7F4] relative px-4 pb-3 border-b  flex justify-center border-[#BBBBBB] items-center">
+      <nav className=" w-full  max-w-[1350px] mx-2 flex justify-between items-center">
         <Link href="/">
           <Image
             height={60}
-            width={150}
+            width={120}
             src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/logo_e8rxwj.svg"
             alt="Logo"
-            className="rounded-lg hidden sm:flex"
+            className="rounded-lg hidden sm:flex pt-4 "
           />
           <Image
             height={43}
@@ -115,7 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             </div>
           )}
         </div>
-        <div className="flex gap-8">
+        <div className="flex gap-6">
           <NavLinks status={"authenticated"} />
 
           <MoreNavLinks

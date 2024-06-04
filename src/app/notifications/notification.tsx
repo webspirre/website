@@ -58,20 +58,20 @@ function Notification() {
       <div className="w-full md:w-full px-4 sm:px-0 sm:w-[60%] rounded-lg border-2 shadow-lg">
         <div className="flex mx-0 sm:mx-[50px] mt-[50px] mb-[20px] justify-between items-center">
           <div className={carterOne.className}>
-            <p className="text-lg sm:text-[32px]">
+            <p className="text-lg sm:text-[24px]">
               Notifications - {notifications.length} New
             </p>
           </div>
           <div>
             <Image
               height={20}
-              width={30}
+              width={15}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707507709/utilities/fi-rr-menu-dots_milpoo.svg"
               alt="Message"
               onClick={toggleDeleteAll}
             />
             {deleteAll && (
-              <div className="absolute right-8 bg-white rounded-lg border border-gray-200 shadow-md p-4 px-8 z-10">
+              <div className="absolute right-8 bg-white rounded-lg border-2 p-4 px-8 z-10">
                 <button
                   className="flex items-center gap-2"
                   onClick={() => alert("Mark as read")}
@@ -94,7 +94,7 @@ function Notification() {
         {notifications.map((notification, index) => (
           <div
             key={notification.id}
-            className=" border-t-2 border-[#94A3B8] flex justify-between py-4 sm:py-8 relative"
+            className=" border-t-2  flex justify-between py-4 sm:py-8 relative"
           >
             <div className="flex gap-2 mx-0 sm:mx-[50px]">
               <div>
@@ -118,7 +118,7 @@ function Notification() {
             <div className="mx-0 sm:mx-[50px]">
               <Image
                 height={20}
-                width={30}
+                width={15}
                 src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707507709/utilities/fi-rr-menu-dots_milpoo.svg"
                 alt="Menu"
                 onClick={() => toggleDropdown(index)}

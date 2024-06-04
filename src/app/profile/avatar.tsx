@@ -88,7 +88,7 @@ export default function Avatar({
             layout="responsive"
             width={1}
             height={1}
-            className="object-contain rounded-full"
+            className="object-contairounded-full"
           />
         </div>
       ) : (
@@ -101,7 +101,7 @@ export default function Avatar({
           width={size}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707432454/utilities/profile_image_b4sbia.svg"
           alt="rice"
-          className="w-32 sm:w-auto"
+          className="w-32 sm:w-"
         />
       )}
       <div>

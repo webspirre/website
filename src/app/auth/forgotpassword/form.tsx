@@ -7,9 +7,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-function Form() {
-  let redirectMethod = "client";
-  const router = redirectMethod === "client" ? useRouter() : null;
+const Form = () => {
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [email, setEmail] = useState(localStorage.getItem("email") || "");
 
@@ -92,6 +91,6 @@ function Form() {
       </form>
     </div>
   );
-}
+};
 
 export default Form;

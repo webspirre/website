@@ -13,13 +13,13 @@ const carterOne = Carter_One({
 function Bookmarks() {
   return (
     <div className="px-4 mt-10 sm:mt-20">
-      <div className="mb-[24px] flex justify-between items-center">
-        <h1 className={` ${carterOne.className} text-[17px] sm:text-[24px]`}>
+      <div className="mb-[14px] flex justify-between items-center">
+        <h1 className={` ${carterOne.className} text-[14px] sm:text-[20px]`}>
           Bookmarks
         </h1>
 
         <div className="sm:hidden ">
-          <div className=" text-[13px]  bg-black p-3 px-4 text-white rounded-full border flex items-center gap-2 border-[#BBBBBB] ">
+          <div className=" text-[12px]  bg-black p-3 px-4 text-white rounded-full border flex items-center gap-2 border-[#BBBBBB] ">
             <Image
               height={20}
               width={20}
@@ -33,13 +33,13 @@ function Bookmarks() {
       </div>
 
       <div className="flex items-center ">
-        <div className="flex items-center w-full h-[58px] sm:w-[83%] bg-white border border-[#BBBBBB] rounded-full py-3 px-[50px]">
+        <div className=" text-[14px] flex items-center w-full h-[38px] sm:w-[83%] bg-white border border-[#BBBBBB] rounded-full py-3 px-[50px]">
           <Image
             height={20}
-            width={20}
+            width={15}
             src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/magnifier_vrq3zb.svg"
             alt="rice"
-            className="rounded-lg"
+            className=""
           />
           <input
             type="text"
@@ -50,10 +50,10 @@ function Bookmarks() {
 
         <div className="h-10 sm:block hidden w-[1px] bg-[#989898] mx-6"></div>
         <div className="sm:block hidden">
-          <div className="  bg-black p-3 px-4 text-white rounded-full border flex items-center gap-2 border-[#BBBBBB] ">
+          <div className="  bg-black p-3 px-4 text-white text-[12px] rounded-full border flex items-center gap-2 border-[#BBBBBB] ">
             <Image
               height={20}
-              width={30}
+              width={15}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707435189/utilities/Frame_50_1_qpoaav.svg"
               alt="rice"
               className=""

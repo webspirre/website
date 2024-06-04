@@ -23,6 +23,7 @@
     "flag-icon-css": "^4.1.7",
     "framer-motion": "^11.0.3",
     "moment": "^2.30.1",
+    "moment": "^2.30.1",
     "next": "14.1.0",
     "next-video": "^1.0.6",
     "react": "^18",
@@ -35,11 +36,14 @@
     "react-select-country-list": "^2.2.3",
     "supabase": "^1.151.1",
     "tailwind-merge": "^2.3.0"
+    "supabase": "^1.151.1",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
+    "@types/moment": "^2.13.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

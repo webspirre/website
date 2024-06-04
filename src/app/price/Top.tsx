@@ -9,7 +9,7 @@ const carterOne = Carter_One({
 
 function Top() {
   return (
-    <div className="w-full flex items-center justify-center flex-col mt-10">
+    <div className="w-full flex items-center justify-center flex-col mt-10 text-[12px]">
       <h1 className={` ${carterOne.className} text-[17px] sm:text-[24px]`}>
         Unlimited web design inspiration
       </h1>

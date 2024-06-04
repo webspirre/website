@@ -8,8 +8,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Form: React.FC = () => {
-  const redirectMethod = "client";
-  const router = redirectMethod === "client" ? useRouter() : null;
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [email, setEmail] = useState(localStorage.getItem("email") || "");
 

@@ -19,7 +19,7 @@ interface UserProp {
   setAuth?: React.Dispatch<React.SetStateAction<any | null>>;
   isDeleting?: boolean;
 }
-const user: React.FC<UserProp> = ({ handleToggle, user }) => {
+const Users: React.FC<UserProp> = ({ handleToggle, user }) => {
   const supabase = createClientComponentClient<Database>();
 
   const [loading, setLoading] = useState(true);
@@ -88,11 +88,11 @@ const user: React.FC<UserProp> = ({ handleToggle, user }) => {
   // handleChange event for onchange method
   const handleChange = (e: React.ChangeEvent) => {};
   return (
-    <div className="flex items-center justify-center my-0 sm:my-20">
+    <div className="flex text-[12px] items-center justify-center my-0 sm:my-20">
       <div className="w-full sm:w-[50%] border-2 shadow-lg rounded-lg">
         <Image
           height={20}
-          width={200}
+          width={150}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707478972/utilities/Your_profile_jwvzud.svg"
           alt="rice"
           className="mx-6 sm:mx-[100px] mt-10"
@@ -103,7 +103,7 @@ const user: React.FC<UserProp> = ({ handleToggle, user }) => {
         <Avatar
           uid={user?.id}
           url={avatar_url}
-          size={20}
+          size={40}
           onUpload={(url) => {
             setAvatarUrl(url);
             updateProfile({ fullname, avatar_url: url });
@@ -152,11 +152,11 @@ const user: React.FC<UserProp> = ({ handleToggle, user }) => {
             className=""
           />
 
-          <p className="text-[#6E6E6E] text-xs sm:text-base">
+          <p className="text-[#6E6E6E] text-xs sm:text-">
             Permanently delete your account and all your content
           </p>
           <button
-            className="bg-[#FF0000] rounded-lg px-[100px] w-[70%] sm:w-full flex justify-center items-center whitespace-nowrap py-4 font-bold  text-white "
+            className="bg-[#FF0000] rounded-lg px-[100px] w-[70%] sm:w-full flex justify-center items-center whitespace-nowrap py-2 font-bold  text-white "
             onClick={handleToggle}
           >
             Delete your account
@@ -167,4 +167,4 @@ const user: React.FC<UserProp> = ({ handleToggle, user }) => {
   );
 };
 
-export default user;
+export default Users;

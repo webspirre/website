@@ -22,43 +22,43 @@ const SearchInput: React.FC<SearchInputProps> = ({
 }) => {
 
   return (
-    <div>
+    <div className="">
       <div
-        className={` relative sm:flex hidden  justify-center pt-[20px] w-[600px] ${
+        className={` relative sm:flex hidden  justify-center pt-[14px] w-[550px] ${
           isFocused
-            ? "bg-white border-l border-r border-t rounded-t-md border-[#BBBBBB]"
+            ? "bg-[#F8F7F4] border-l border-r border-t rounded-t-full py-4 mt-2 border-[#BBBBBB]"
             : "bg-[#F8F7F4]"
         } `}
       >
         <div
-          className={`flex items-center w-[500px] ${
-            isFocused ? "bg-[#EDEDED]" : "bg-white"
-          } border border-[#BBBBBB] rounded-full py-3 pl-[50px] pr-[20px]`}
+          className={`flex items-center gap-2 w-[500px] ${
+            isFocused ? "bg-[#F8F7F4]" : "bg-white border border-[#BBBBBB]"
+          }  rounded-full py-1 pl-[30px] pr-[20px]`}
         >
           <Image
             height={20}
-            width={20}
+            width={14}
             src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/magnifier_vrq3zb.svg"
             alt="Search Icon"
-            className="rounded-lg"
+            className=""
           />
           <input
             type="text"
             placeholder="Search for a website or category..."
-            className="focus:outline-none focus:bg-[#EDEDED] pl-2 w-full"
+            className="focus:outline-none focus:bg-[#F8F7F4] text-[14px] pl-2 w-full"
             value={value}
             onChange={onChange}
             onFocus={onFocus}
             ref={searchInputRef}
           />
-          <button
+          {/* <button
             className={`bg-white rounded-full border px-2 border-stroke ${
               isFocused ? "block" : "hidden"
             } `}
             // onClick={onClear}
           >
             x
-          </button>
+          </button> */}
         </div>
       </div>
 
