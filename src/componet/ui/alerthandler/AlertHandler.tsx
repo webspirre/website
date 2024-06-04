@@ -11,11 +11,11 @@ const AlertHandler: React.FC = () => {
       getQueryParams();
 
     if (status && statusDescription) {
-      toast.success(`Status: ${status}\nDescription: ${statusDescription}`);
+      toast.success(` ${statusDescription}`, { duration: 2500 });
     }
 
     if (error && errorDescription) {
-      toast.error(`Error: ${error}\nDescription: ${errorDescription}`);
+      toast.error(` ${errorDescription}`, { duration: 2500 });
     }
   }, []);
 

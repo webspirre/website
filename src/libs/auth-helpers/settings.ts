@@ -21,7 +21,7 @@ export const getViewTypes = () => {
   if (allowEmail) {
     viewTypes = [...viewTypes, 'email_signin'];
   }
-  if (allowPassword) {
+  if (allowPassword) { 
     viewTypes = [
       ...viewTypes,
       'password_signin',
