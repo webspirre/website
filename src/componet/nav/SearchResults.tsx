@@ -84,7 +84,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
   return (
     <div
       ref={searchResultRef}
-      className="absolute overflow-y-auto scrollbar-hide items-center justify-center p-4 sm:px-[50px] z-10 w-[330px] sm:h-[450px] sm:w-[600px] bg-white border-l border-r border-b border-[#BBBBBB] rounded-b-md shadow-md"
+      className="absolute overflow-y-auto scrollbar-hide items-center justify-center p-4 sm:px-[50px] z-10 w-[330px] sm:h-[450px] sm:w-[550px] bg-white border-l border-r border-t border-b border-[#BBBBBB] rounded-b-md shadow-md"
     >
       {/* Filter bar option section */}
       <TabButtons
