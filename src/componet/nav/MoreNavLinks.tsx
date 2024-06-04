@@ -22,7 +22,7 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
 
   const pathname = usePathname();
   return (
-    <div className="relative">
+    <div className="relative text-[12px]">
       <div className="hidden">
         <a
           href="#"
@@ -67,12 +67,12 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
                 <div className="flex items-center gap-2 px-4">
                   <Image
                     height={20}
-                    width={25}
+                    width={15}
                     src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707388441/utilities/Intersect_1_zn8u9a.svg"
                     alt="rice"
                     className=""
                   />
-                  <p className="font-bold text-[14px]">Bookmark</p>
+                  <p className="font-bold">Bookmark</p>
                 </div>
               </div>
             </Link>
@@ -80,12 +80,12 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
               <div className="flex gap-2 px-4 items-center pt-2">
                 <Image
                   height={20}
-                  width={25}
+                  width={15}
                   src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707388442/utilities/Vector_4_orgh9u.svg"
                   alt="rice"
                   className=""
                 />
-                <p className="font-bold text-[14px]">Profile</p>
+                <p className="font-bold ">Profile</p>
               </div>
             </Link>
             {/* <Link
@@ -110,12 +110,12 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
               <div className="flex gap-2 px-4 items-center pt-2">
                 <Image
                   height={20}
-                  width={25}
+                  width={15}
                   src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707389050/utilities/bell_icon_e0cutg.svg"
                   alt="rice"
                   className=""
                 />
-                <p className="font-bold text-[14px]">Notifications</p>
+                <p className="font-bold ">Notifications</p>
               </div>
             </Link>
             <Link
@@ -125,7 +125,7 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
               <div className="flex items-center gap-2 px-4 pt-2">
                 <Image
                   height={20}
-                  width={25}
+                  width={15}
                   src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706058912/utilities/updates_icon_l9larw.svg"
                   alt="rice"
                   className=""
@@ -139,7 +139,7 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
               className="block text-[black] border-t mb-4 hover:"
             >
               <div className="flex justify-between px-4 pt-4">
-                <p className=" text-[14px]">Terms</p>
+                <p className="">Terms</p>
                 <Image
                   height={20}
                   width={10}
@@ -151,7 +151,7 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
             </Link>
             <Link href="/policy" className="block mb-4 text-[black] hover:">
               <div className="flex justify-between px-4">
-                <p className=" text-[14px]"> Privacy Policy</p>
+                <p className=""> Privacy Policy</p>
                 <Image
                   height={20}
                   width={10}
@@ -163,7 +163,7 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
             </Link>
             <Link href="/support" className="block text-[black] mb-4 hover:">
               <div className="flex justify-between px-4">
-                <p className=" text-[14px]">Support</p>
+                <p className="">Support</p>
                 <Image
                   height={20}
                   width={10}
@@ -176,7 +176,7 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
             {!user ? (
               <Link href="/auth/login" className="block text-[black] hover:">
                 <div className="flex gap-2 border-t-2  py-2 px-4 mb-2">
-                  <p className=" text-[14px] text-red-600 font-bold">Log In</p>
+                  <p className="  text-red-600 font-bold">Log In</p>
                 </div>
               </Link>
             ) : (
@@ -189,7 +189,7 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
                 />
                 <button className="block text-[black] hover:">
                   <p className="flex gap-2 border-t-2  py-2 px-4 mb-2">
-                    <span className=" text-[14px] text-red-600 font-bold">
+                    <span className=" text-red-600 font-bold">
                       Log Out
                     </span>
                   </p>

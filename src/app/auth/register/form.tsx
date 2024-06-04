@@ -25,7 +25,7 @@ function Form() {
     setIsSubmitting(false);
   };
   return (
-    <div className="flex flex-col items-center justify-center gap-4">
+    <div className="flex flex-col text-[12px] items-center justify-center gap-4">
       <Link href="/">
         <Image
           height={20}
@@ -37,10 +37,10 @@ function Form() {
       </Link>
 
       <div className="w-[400px]">
-        <h1 className="text-center text-[22px] py-4 font-bold">
+        <h1 className="text-center text-[20px] py-4 font-bold">
           Join Webspirre
         </h1>
-        <p className="text-center text-[13px] mb-4">
+        <p className="text-center mb-4">
           Skip the hard part. Get inspiration from the internet&apos;s <br />{" "}
           best designed and highest-converting websites{" "}
         </p>

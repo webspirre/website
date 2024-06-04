@@ -25,7 +25,7 @@ function Form() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4">
+    <div className="flex flex-col text-[12px] mt-[23px]  items-center justify-center gap-4">
       <Link href="/">
         <Image
           height={20}
@@ -37,10 +37,10 @@ function Form() {
       </Link>
 
       <div className="w-[400px]">
-        <h1 className="text-center text-[22px] py-4 font-bold">
+        <h1 className="text-center text-[20px] py-4 font-bold">
           Join Webspirre
         </h1>
-        <p className="text-center text-[13px] mb-4">
+        <p className="text-center mb-4">
           Skip the hard part. Get inspiration from the internet&apos;s <br />
           best designed and highest-converting websites
         </p>
@@ -50,7 +50,7 @@ function Form() {
         <button type="submit">
           <Image
             height={20}
-            width={430}
+            width={330}
             src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707163747/utilities/Frame_49_ucklyh.svg"
             alt="google button"
             className=""
@@ -59,54 +59,59 @@ function Form() {
       </form>
 
       <div className="flex gap-2 items-center">
-        <div className="w-[150px] sm:w-[200px] h-[1px] sm:h-[2px] bg-[#C7C7C7]"></div>
+        <div className="w-[150px] sm:w-[150px] h-[1px] sm:h-[2px] bg-[#C7C7C7]"></div>
         <p>or</p>
-        <div className="w-[150px] sm:w-[200px] h-[1px] sm:h-[2px] bg-[#C7C7C7]"></div>
+        <div className="w-[150px] sm:w-[150px] h-[1px] sm:h-[2px] bg-[#C7C7C7]"></div>
       </div>
 
       <form
-        className="flex flex-col mx-auto md:mx-0 gap-4"
+        className="flex flex-col justify-center items-center mx-auto md:mx-0 gap-4"
         noValidate={true}
         onSubmit={(e) => handleSubmit(e)}
       >
         {/* Email Input */}
-        <label htmlFor="email" className="text-[14px] -mb-2">
-          Email address
-        </label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          autoCapitalize="none"
-          autoComplete="email"
-          autoCorrect="off"
-          placeholder="example@mail.com"
-          className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] w-[350px] sm:w-[430px]"
-        />
+        <div className="flex flex-col gap-2">
+          <label htmlFor="email" className="text-[14px] -mb-2">
+            Email address
+          </label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            autoCapitalize="none"
+            autoComplete="email"
+            autoCorrect="off"
+            placeholder="example@mail.com"
+            className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[50px] w-[350px] sm:w-[350px]"
+          />
+        </div>
 
         {/* Password Input */}
-        <label htmlFor="password" className="text-[14px] -mb-2">
-          Password
-        </label>
-        <input
-          id="password"
-          type="password"
-          name="password"
-          autoComplete="current-password"
-          placeholder="**********"
-          className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[350px] md:w-[430px]"
-        />
-        <Link
-          href="/auth/forgotpassword"
-          className="text-end text-[14px] font-bold"
-        >
-          Forgot Password
-        </Link>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="password" className="text-[14px] -mb-2">
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            autoComplete="current-password"
+            placeholder="**********"
+            className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[50px] w-[350px] md:w-[350px]"
+          />
+
+          <Link
+            href="/auth/forgotpassword"
+            className="text-end text-[14px] font-bold"
+          >
+            Forgot Password
+          </Link>
+        </div>
 
         {/* Sign Up Button */}
         <button
           type="submit"
-          className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md"
+          className="bg-black text-center w-[350px] text-white font-bold p-2 py-4 mt-2 rounded-md"
         >
           Log in
         </button>
