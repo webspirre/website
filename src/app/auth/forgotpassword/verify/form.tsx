@@ -12,83 +12,69 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Form: React.FC = () => {
-  const redirectMethod = "client";
-  const router = redirectMethod === "client" ? useRouter() : null;
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [code, setCode] = useState<string[]>(["", "", "", "", "", ""]);
   const [email, setEmail] = useState(localStorage.getItem("email") || "");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    setIsSubmitting(true); // Disable the button while the request is being handled
+    e.preventDefault();
+    setIsSubmitting(true);
     await handleRequest(e, verifyOtp, router);
     setIsSubmitting(false);
   };
 
-  const handleResend = async (e: React.FormEvent<HTMLFormElement>) => {
-    setIsSubmitting(true); // Disable the button while the request is being handled
-    await handleRequest(e, resendOTP, router);
+  const handleResend = async () => {
+    setIsSubmitting(true);
+    const formData = new FormData();
+    formData.append("email", email);
+    await resendOTP(formData);
     setIsSubmitting(false);
   };
 
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    const value = e.target.value;
+    if (/^\d$/.test(value)) {
+      const newCode = [...code];
+      newCode[index] = value;
+      setCode(newCode);
+      if (index < code.length - 1) {
+        (e.target.nextSibling as HTMLInputElement)?.focus();
+      }
+    } else if (value === "") {
+      const newCode = [...code];
+      newCode[index] = "";
+      setCode(newCode);
+      if (index > 0) {
+        (e.target.previousSibling as HTMLInputElement)?.focus();
+      }
+    }
+  };
+
+  const isSubmitDisabled = code.some((digit) => digit === "");
+
   function maskEmail(email: string) {
     const [localPart, domain] = email.split("@");
+
+    if (!domain) {
+      return email;
+    }
     const localPartMasked = `${localPart.slice(0, 3)}****${localPart.slice(
       -2
     )}`;
     const [domainName, domainExtension] = domain.split(".");
+    if (!domainName || !domainExtension) {
+      return email;
+    }
+
     const domainMasked = `${domainName[0]}***${domainName.slice(-1)}`;
     return `${localPartMasked}@${domainMasked}.${domainExtension}`;
   }
 
   const emailAddress = maskEmail(email);
-  // jos****ah@g***l.com
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    index: number
-  ) => {
-    const value = e.target.value;
-    if (/^[0-9]$/.test(value)) {
-      const newCode = [...code];
-      newCode[index] = value;
-      setCode(newCode);
-      if (index < 5) {
-        const nextInput = document.getElementById(`digit-${index + 1}`);
-        if (nextInput) (nextInput as HTMLInputElement).focus();
-      }
-    }
-  };
-
-  const handleKeyDown = (
-    e: React.KeyboardEvent<HTMLInputElement>,
-    index: number
-  ) => {
-    if (e.key === "Backspace") {
-      const newCode = [...code];
-      if (newCode[index] === "") {
-        if (index > 0) {
-          const prevInput = document.getElementById(`digit-${index - 1}`);
-          if (prevInput) (prevInput as HTMLInputElement).focus();
-        }
-      } else {
-        newCode[index] = "";
-        setCode(newCode);
-      }
-    }
-  };
-
-  const handlePaste = async () => {
-    try {
-      const text = await navigator.clipboard.readText();
-      if (/^\d{6}$/.test(text)) {
-        setCode(text.split(""));
-      } else {
-        alert("Clipboard does not contain a valid 6-digit code.");
-      }
-    } catch (err) {
-      alert("Failed to read from clipboard.");
-    }
-  };
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
@@ -130,70 +116,33 @@ const Form: React.FC = () => {
         noValidate={true}
         onSubmit={handleSubmit}
       >
-        {/* verification code Input */}
-        <label htmlFor="email" className="text-[14px] -mb-2">
-          <div className="flex w-full justify-between">
-            <p className="text-[14px]">6 Digit code</p>
-
-            {/* the button that paste codes from the clipboard  */}
-            <button type="button" className="font-bold" onClick={handlePaste}>
-              Paste code
-            </button>
-
-            {/* this should only show the paste code button is hidden and it should be */}
-          </div>
-        </label>
-        {/*  */}
-        <input type="hidden" id="email" name="email" value={email} />
-        {/* 6 boxes input for the user to paste the code */}
-        <div className="flex w-[400px] justify-center space-x-2 mt-2">
+        <div className="flex justify-center gap-2">
           {code.map((digit, index) => (
             <input
               key={index}
-              id={`digit-${index}`}
               type="text"
-              name={`digit-${index}`}
               maxLength={1}
               value={digit}
-              onChange={(e) => handleChange(e, index)}
-              onKeyDown={(e) => handleKeyDown(e, index)}
-              className="border p-2 w-14 rounded-lg text-center text-lg"
+              onChange={(e) => handleInputChange(e, index)}
+              className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[50px] text-center text-2xl"
             />
           ))}
         </div>
-        <div className="flex gap-2 w-full justify-center items-center text-[12px]">
-          <p>Not your email? </p>
-          <Link href="/auth/forgotpassword" className="font-bold">
-            Change email
-          </Link>
-        </div>
 
-        {/* Get code Button */}
         <button
           type="submit"
-          className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md"
+          className="bg-black text-center w-full text-white font-bold p-2 py-4 mt-2 rounded-md"
+          disabled={isSubmitDisabled}
         >
-          {!isSubmitting ? "Verify" : "Verifying Otp..."}
+          {!isSubmitting ? "Verify code" : "Verifying code..."}
         </button>
-
-        <div className="mt-[20px] text-[12px] text-[#B5B5B5]">
-          <div className="flex gap-2 w-full justify-center items-center ">
-            <p>Didnt receive any code? </p>
-            <form noValidate={true} onSubmit={(e) => handleResend(e)}>
-              <input type="hidden" id="email" name="email" value={email} />
-              <button className="font-bold text-black">
-                {" "}
-                {!isSubmitting ? "Resend" : "Resending..."}
-              </button>
-            </form>
-          </div>
-          <div>
-            <p className="text-center mt-[20px]">
-              Ensure you also check your Spam/Promotions email sections before
-              resending your code.
-            </p>
-          </div>
-        </div>
+        <button
+          type="button"
+          onClick={handleResend}
+          className="text-center w-full text-black font-bold p-2 py-4 mt-2 rounded-md"
+        >
+          {!isSubmitting ? "Resend code" : "Resending code..."}
+        </button>
       </form>
     </div>
   );

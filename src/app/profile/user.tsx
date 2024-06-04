@@ -19,7 +19,7 @@ interface UserProp {
   setAuth?: React.Dispatch<React.SetStateAction<any | null>>;
   isDeleting?: boolean;
 }
-const user: React.FC<UserProp> = ({ handleToggle, user }) => {
+const Users: React.FC<UserProp> = ({ handleToggle, user }) => {
   const supabase = createClientComponentClient<Database>();
 
   const [loading, setLoading] = useState(true);
@@ -167,4 +167,4 @@ const user: React.FC<UserProp> = ({ handleToggle, user }) => {
   );
 };
 
-export default user;
+export default Users;
