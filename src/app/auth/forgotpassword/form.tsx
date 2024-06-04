@@ -1,30 +1,71 @@
 "use client";
 
-import { handleRequest } from "@/libs/auth-helpers/client";
-import { requestPasswordUpdate } from "@/libs/auth-helpers/server";
+import { handleRequest, signInWithOAuth } from "@/libs/auth-helpers/client";
+import {
+  resendOTP,
+  signInWithPassword,
+  verifyOtp,
+} from "@/libs/auth-helpers/server";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-function Form() {
-  let redirectMethod = "client";
-  const router = redirectMethod === "client" ? useRouter() : null;
+const Form: React.FC = () => {
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [code, setCode] = useState<string[]>(["", "", "", "", "", ""]);
   const [email, setEmail] = useState(localStorage.getItem("email") || "");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
     setIsSubmitting(true); // Disable the button while the request is being handled
-    await handleRequest(e, requestPasswordUpdate, router);
+    await handleRequest(e, verifyOtp, router);
     setIsSubmitting(false);
   };
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const email = e.target.value;
-    setEmail(email);
-    localStorage.setItem("email", email); // Store email in localStorage
+  const handleResend = async (e: React.FormEvent<HTMLFormElement>) => {
+    setIsSubmitting(true); // Disable the button while the request is being handled
+    await handleRequest(e, resendOTP, router);
+    setIsSubmitting(false);
   };
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    const value = e.target.value;
+    if (/^\d$/.test(value)) {
+      const newCode = [...code];
+      newCode[index] = value;
+      setCode(newCode);
+      // Focus on the next input field if it exists
+      if (index < code.length - 1) {
+        (e.target.nextSibling as HTMLInputElement)?.focus();
+      }
+    } else if (value === "") {
+      const newCode = [...code];
+      newCode[index] = "";
+      setCode(newCode);
+      // Focus on the previous input field if it exists
+      if (index > 0) {
+        (e.target.previousSibling as HTMLInputElement)?.focus();
+      }
+    }
+  };
+
+  const isSubmitDisabled = code.some((digit) => digit === "");
+
+  function maskEmail(email: string) {
+    const [localPart, domain] = email.split("@");
+    const localPartMasked = `${localPart.slice(0, 3)}****${localPart.slice(
+      -2
+    )}`;
+    const [domainName, domainExtension] = domain.split(".");
+    const domainMasked = `${domainName[0]}***${domainName.slice(-1)}`;
+    return `${localPartMasked}@${domainMasked}.${domainExtension}`;
+  }
+
+  const emailAddress = maskEmail(email);
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
@@ -46,7 +87,7 @@ function Form() {
               width={16}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717142604/utilities/webspirre/Vector_9_auopfm.svg"
               alt="left"
-              className=" "
+              className=""
             />
           </Link>
           <h1 className="text-center text-[24px] py-4 font-bold">
@@ -55,43 +96,48 @@ function Form() {
         </div>
 
         <p className="text-center text-[12px] mb-4">
-          Enter your email address to recover your password.
+          A 6 digit code has been sent to{" "}
+          <span className="font-bold">{emailAddress},</span> enter the code to
+          verify.
         </p>
       </div>
 
       <form
-        className="flex flex-col mx-auto md:mx-0 gap-4"
+        className="flex sm:w-[400px] flex-col mx-auto md:mx-0 gap-4"
         noValidate={true}
-        onSubmit={(e) => handleSubmit(e)}
+        onSubmit={handleSubmit}
       >
-        {/* Email Input */}
-        <label htmlFor="email" className="text-[14px] -mb-2">
-          Email address
-        </label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          autoCapitalize="none"
-          autoComplete="email"
-          autoCorrect="off"
-          placeholder="example@mail.com"
-          className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] w-[350px] sm:w-[430px]"
-          value={email}
-          onChange={handleEmailChange} // Handle change event
-        />
+        {/* Verification Code Input */}
+        <div className="flex justify-center gap-2">
+          {code.map((digit, index) => (
+            <input
+              key={index}
+              type="text"
+              maxLength={1}
+              value={digit}
+              onChange={(e) => handleInputChange(e, index)}
+              className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[50px] text-center text-2xl"
+            />
+          ))}
+        </div>
 
-        {/* Get code Button */}
+        {/* Verify Code Button */}
         <button
           type="submit"
-          className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md disabled:cursor-not-allowed"
-          disabled={[!email].every(Boolean) as boolean}
+          className="bg-black text-center w-full text-white font-bold p-2 py-4 mt-2 rounded-md"
+          disabled={isSubmitDisabled}
         >
-          {!isSubmitting ? "Get code" : "Getting Code..."}
+          {!isSubmitting ? "Verify code" : "Verifying code..."}
+        </button>
+        <button
+          // onClick={handleResend}
+          className="text-center w-full text-black font-bold p-2 py-4 mt-2 rounded-md"
+        >
+          {!isSubmitting ? "Resend code" : "Resending code..."}
         </button>
       </form>
     </div>
   );
-}
+};
 
 export default Form;
