@@ -29,7 +29,8 @@
     "react-modal": "^3.16.1",
     "react-select": "^5.8.0",
     "react-select-country-list": "^2.2.3",
-    "supabase": "^1.151.1"
+    "supabase": "^1.151.1",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/moment": "^2.13.0",
