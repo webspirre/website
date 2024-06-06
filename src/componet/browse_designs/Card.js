@@ -11,25 +11,52 @@ const Card = ({
   logoUrl,
   description,
   deviceFilter,
+  showMorePopupId,
+  setShowMorePopupId,
+  showBookmarkPopupId,
+  setShowBookmarkPopupId,
 }) => {
-  const [showMorePopup, setShowMorePopup] = useState(false);
-  const [showBookmarkPopup, setShowBookmarkPopup] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const handleMoreButtonClick = () => {
-    setShowMorePopup(!showMorePopup);
-    // Close the bookmark popup if open
-    setShowBookmarkPopup(false);
+  const handleMoreButtonClick = (e) => {
+    e.stopPropagation();
+    setShowMorePopupId((prev) => (prev === id ? null : id));
+    setShowBookmarkPopupId(null);
   };
 
-  const handleBookmarkButtonClick = () => {
-    setShowBookmarkPopup(!showBookmarkPopup);
-    // Close the more popup if open
-    setShowMorePopup(false);
+  const handleBookmarkButtonClick = (e) => {
+    e.stopPropagation();
+    setShowBookmarkPopupId((prev) => (prev === id ? null : id));
+    setShowMorePopupId(null);
+  };
+
+  const handleCopyToClipboard = async () => {
+    try {
+      const response = await fetch(
+        deviceFilter === "Mobile" ? mobileImageUrlss : imageUrl
+      );
+      const blob = await response.blob();
+      const item = new ClipboardItem({ [blob.type]: blob });
+      await navigator.clipboard.write([item]);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 4000);
+    } catch (err) {
+      console.error("Failed to copy image: ", err);
+    }
+  };
+
+  const handleDownloadImage = () => {
+    const link = document.createElement("a");
+    link.href = deviceFilter === "Mobile" ? mobileImageUrlss : imageUrl;
+    link.download = name;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
     <div className="bg-white rounded-md relative">
-      <Link href={`/detail/${id}`} passHref className="bg-white rounded-md ">
+      <Link href={`/detail/${id}`} passHref className="bg-white rounded-md">
         <div className=" bg-[#F0F0F0] p-4 rounded-md ">
           <img
             src={deviceFilter === "Mobile" ? mobileImageUrlss : imageUrl}
@@ -38,15 +65,15 @@ const Card = ({
           />
         </div>
       </Link>
-      <div className="flex py-8 justify-between items-start">
-        <div className="flex items-start mt-2 gap-2">
+      <div className="flex pt-6 pb-4 justify-between items-start">
+        <div className="flex items-start mt- gap-2">
           <Link href={`/detail/${id}`} passHref className="bg-white rounded-md">
             {logoUrl && (
               <div className="">
                 <img
                   src={logoUrl}
                   alt={`${name} Logo`}
-                  className="sm:h-[24px] sm:w-[30px]"
+                  className="sm:h-[30px] sm:w-[30px]"
                 />
               </div>
             )}
@@ -61,17 +88,20 @@ const Card = ({
         </div>
         <div className="flex gap-2">
           {/* save to bookmark button */}
-          <button onClick={handleBookmarkButtonClick}>
+          {/* <button
+            className="bookmark-button"
+            onClick={handleBookmarkButtonClick}
+          >
             <Image
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706045803/utilities/Frame_32_l7gjxl.svg"
               height={50}
               width={30}
               alt="img"
             />
-          </button>
+          </button> */}
 
           {/* more button */}
-          <button onClick={handleMoreButtonClick}>
+          <button className="more-button" onClick={handleMoreButtonClick}>
             <Image
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706045803/utilities/Frame_34_ybkht7.svg"
               height={50}
@@ -82,44 +112,42 @@ const Card = ({
         </div>
       </div>
 
-      {/* More Popup */}
-      {showMorePopup && (
-        <div className="absolute right-0 bottom-20 text-[12px]  bg-white rounded-lg p-4 shadow-md">
-          <div className="flex gap-2 mb-4">
+      {/* MENU Popup */}
+      {showMorePopupId === id && (
+        <div className="absolute right-0 bottom-14 text-[12px] bg-white rounded-lg p-4 shadow-md popup">
+          <button className="flex gap-2 mb-4" onClick={handleCopyToClipboard}>
             <Image
               height={15}
               width={15}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706138678/utilities/Vector_2_eu5cas.svg"
-              alt="rice"
-              className="rounded-lg"
+              alt="copy"
+              className=""
             />
-            <p>Copy to paste in Figma</p>
-          </div>
-          <div className="flex gap-2">
+            <p>{copied ? "Copied to clipboard" : "Copy to clipboard"}</p>
+          </button>
+          <button className="flex gap-2" onClick={handleDownloadImage}>
             <Image
               height={15}
               width={15}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706138678/utilities/download_icon_tsds6w.svg"
-              alt="rice"
-              className="rounded-lg"
+              alt="download"
+              className=""
             />
             <p>Download screenshot</p>
-          </div>
+          </button>
         </div>
       )}
 
       {/* Bookmark Popup */}
-      {showBookmarkPopup && (
-        <div className="absolute right-10 bottom-20 text-[12px]  bg-white rounded-md shadow-md">
-          {/* Content for bookmark popup */}
-          {/* Example options: */}
-          {/* <input type="text" placeholder="Search bookmark" /> */}
-          <div className="flex items-center my-2 w-[220px]  bg-[#EDEDED] mx-2 border-[#BBBBBB] rounded-lg py-2 px-[20px]">
+      {/* {showBookmarkPopupId === id && (
+        <div className="absolute right-10 bottom-20 text-[12px] bg-white rounded-md shadow-md popup">
+  
+          <div className="flex items-center my-2 w-[220px] bg-[#EDEDED] mx-2 border-[#BBBBBB] rounded-lg py-2 px-[20px]">
             <Image
               height={15}
               width={15}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/magnifier_vrq3zb.svg"
-              alt="rice"
+              alt="search"
               className="rounded-lg"
             />
             <input
@@ -130,12 +158,12 @@ const Card = ({
           </div>
           <div className="w-full h-[1px] bg-[#D2D2D2] mb-2"></div>
           <div className="flex px-2 flex-row justify-between items-center mb-2">
-            <p> Create New</p>
+            <p>Create New</p>
             <Image
               height={25}
               width={25}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706134118/utilities/Frame_50_ezbtot.svg"
-              alt="rice"
+              alt="create new"
               className="rounded-lg"
             />
           </div>
@@ -143,7 +171,7 @@ const Card = ({
           <p className="mb-2 px-2">Bookmark 2</p>
           <p className="mb-2 px-2">Bookmark 3</p>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

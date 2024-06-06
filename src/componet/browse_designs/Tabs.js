@@ -1,4 +1,3 @@
-// HorizontalTabs.js
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import Image from "next/image";
@@ -8,6 +7,8 @@ const HorizontalTabs = ({ tabs, data }) => {
   const [showFilterOptions, setShowFilterOptions] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [deviceFilter, setDeviceFilter] = useState("");
+  const [showMorePopupId, setShowMorePopupId] = useState(null);
+  const [showBookmarkPopupId, setShowBookmarkPopupId] = useState(null);
 
   const filterOptions = [
     "Landing Page",
@@ -49,9 +50,27 @@ const HorizontalTabs = ({ tabs, data }) => {
     setShowFilterOptions(false);
   }, [selectedFilters]);
 
+  const handleClickOutside = (event) => {
+    if (
+      !event.target.closest(".popup") &&
+      !event.target.closest(".more-button") &&
+      !event.target.closest(".bookmark-button")
+    ) {
+      setShowMorePopupId(null);
+      setShowBookmarkPopupId(null);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="mb-4">
-      {/* Device Filters  sm:max-w-[1320px] mx-auto w-full */}
+      {/* Device Filters */}
       {deviceFilters.map((device, index) => (
         <button
           key={index}
@@ -71,7 +90,7 @@ const HorizontalTabs = ({ tabs, data }) => {
             onClick={() => setShowFilterOptions(!showFilterOptions)}
             className=""
           >
-            <div className="flex  items-center gap-4">
+            <div className="flex items-center gap-4">
               <div className="flex items-center gap-2 min-w-fit p-4 py-2 bg-[#F1F0EE] rounded-full">
                 <Image
                   src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705965289/utilities/Vector_dlval9.svg"
@@ -81,7 +100,7 @@ const HorizontalTabs = ({ tabs, data }) => {
                 />
                 <p className="font-bold text-center text-[14px]">Filter</p>
               </div>
-              <div className="h-[30px] mr-4 min-w-[1px] bg-[#BDBDBD]"> </div>
+              <div className="h-[30px] mr-4 min-w-[1px] bg-[#BDBDBD]"></div>
             </div>
           </button>
 
@@ -114,8 +133,6 @@ const HorizontalTabs = ({ tabs, data }) => {
               scrollbarWidth: "none", // Hide the scrollbar for Firefox
             }}
           >
-            {/* Dropdown Button */}
-
             {/* Tabs */}
             {tabs.map((tab, index) => (
               <button
@@ -158,10 +175,18 @@ const HorizontalTabs = ({ tabs, data }) => {
 
       {/* Tab Content */}
       <div className="flex justify-center">
-        <div className="  mt-4 w-full sm:px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div className="mt-6 w-full sm:px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {filteredData.map((item) => (
-              <Card key={item.id} {...item} deviceFilter={deviceFilter} />
+              <Card
+                key={item.id}
+                {...item}
+                deviceFilter={deviceFilter}
+                showMorePopupId={showMorePopupId}
+                setShowMorePopupId={setShowMorePopupId}
+                showBookmarkPopupId={showBookmarkPopupId}
+                setShowBookmarkPopupId={setShowBookmarkPopupId}
+              />
             ))}
           </div>
         </div>
