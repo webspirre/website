@@ -5,12 +5,22 @@ import { requestPasswordUpdate } from "@/libs/auth-helpers/server";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Form = () => {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [email, setEmail] = useState(localStorage.getItem("email") || "");
+  // const [email, setEmail] = useState(localStorage.getItem("email") || "");
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedEmail = localStorage.getItem("email");
+      if (storedEmail) {
+        setEmail(storedEmail);
+      }
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
