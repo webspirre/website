@@ -18,6 +18,8 @@ const Card = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isHoveredBack, setIsHoveredBack] = useState(false);
+    const [copied, setCopied] = useState(false);
+
 
   const handleMoreButtonClick = (e) => {
     e.stopPropagation();

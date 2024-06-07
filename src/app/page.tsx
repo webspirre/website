@@ -43,7 +43,7 @@ export default function Home() {
         <div className="flex items-center justify-center gap-2 px-4 pt-6 sm:text-10px">
           <Link
             href="/"
-            className="bg-black py-4 px-4 overflow-hidden hover:scale-110 transition-transform duration-300  sm:py-2 sm:px-8 text-white rounded-[20px] border border-[#BBBBBB] font-medium text-[12px]"
+            className="bg-black py-4 px-4 overflow-hidden hover:scale-105 transition-transform duration-300  sm:py-2 sm:px-8 text-white rounded-[20px]  font-medium text-[12px]"
           >
             Get started now
           </Link>
