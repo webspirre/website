@@ -116,7 +116,10 @@ const Card = ({
           </button> */}
 
           {/* more button */}
-          <button className="more-button" onClick={handleMoreButtonClick}>
+          <button
+            className="more-button hover:scale-105 transition-transform duration-300"
+            onClick={handleMoreButtonClick}
+          >
             <Image
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706045803/utilities/Frame_34_ybkht7.svg"
               height={50}
@@ -130,7 +133,10 @@ const Card = ({
       {/* MENU Popup */}
       {showMorePopupId === id && (
         <div className="absolute right-0 bottom-14 text-[12px] bg-white rounded-lg p-4 shadow-md popup">
-          <button className="flex gap-2 mb-4" onClick={handleCopyToClipboard}>
+          <button
+            className="flex gap-2 mb-4 hover:scale-105 transition-transform duration-300"
+            onClick={handleCopyToClipboard}
+          >
             <Image
               height={15}
               width={15}
@@ -140,7 +146,10 @@ const Card = ({
             />
             <p>{copied ? "Copied to clipboard" : "Copy to clipboard"}</p>
           </button>
-          <button className="flex gap-2" onClick={handleDownloadImage}>
+          <button
+            className="flex gap-2 hover:scale-105 transition-transform duration-300"
+            onClick={handleDownloadImage}
+          >
             <Image
               height={15}
               width={15}
