@@ -117,7 +117,7 @@ const Card = ({
 
           {/* more button */}
           <button
-            className="more-button hover:scale-105 transition-transform duration-300"
+            className="more-button hover:scale-110 transition-transform duration-300"
             onClick={handleMoreButtonClick}
           >
             <Image
