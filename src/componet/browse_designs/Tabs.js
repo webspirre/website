@@ -178,7 +178,9 @@ const HorizontalTabs = ({ tabs, data }) => {
         <div className="mt-6 w-full sm:px-4">
           <div
             className={`grid grid-cols-1 gap-4 ${
-              deviceFilter === "Mobile" ? "grid-cols-5" : "sm:grid-cols-4"
+              deviceFilter === "Mobile"
+                ? "sm:grid-cols-5 grid-cols-2"
+                : "sm:grid-cols-4"
             }`}
           >
             {filteredData.map((item) => (

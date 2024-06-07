@@ -34,16 +34,23 @@ const Card = ({
 
   const handleCopyToClipboard = async () => {
     try {
-      const response = await fetch(
-        deviceFilter === "Mobile" ? mobileImageUrl : deskstopImageUrl
-      );
+      const imageUrl =
+        deviceFilter === "Mobile" ? mobileImageUrl : deskstopImageUrl;
+      console.log("Fetching image from URL:", imageUrl);
+
+      const response = await fetch(imageUrl);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
       const blob = await response.blob();
       const item = new ClipboardItem({ [blob.type]: blob });
       await navigator.clipboard.write([item]);
       setCopied(true);
+      console.log("Image copied to clipboard");
+
       setTimeout(() => setCopied(false), 4000);
     } catch (err) {
-      console.error("Failed to copy image: ", err);
+      console.error("Failed to copy image:", err);
     }
   };
 

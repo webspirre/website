@@ -11,7 +11,7 @@ const data = [
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "The future of tech and the coming of the best",
     mobileImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717786945/utilities/webspirre/screencapture-discord-2024-06-07-19_59_56_iyqxc3.png",
     deskstopImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757757/utilities/webspirre/screencapture-discord-2024-06-07-11_46_04_mwfcb6.png",
     longDescription:
@@ -30,7 +30,7 @@ const data = [
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 2",
     mobileImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717786945/utilities/webspirre/screencapture-discord-2024-06-07-19_59_56_iyqxc3.png",
     deskstopImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757659/utilities/webspirre/screencapture-builtbybuffalo-2024-06-07-11_51_15_quq72a.png",
     longDescription:
