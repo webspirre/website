@@ -6,8 +6,8 @@ const Card = ({
   id,
   name,
   category,
-  imageUrl,
-  mobileImageUrlss,
+  deskstopImageUrl,
+  mobileImageUrl,
   logoUrl,
   description,
   deviceFilter,
@@ -16,7 +16,8 @@ const Card = ({
   showBookmarkPopupId,
   setShowBookmarkPopupId,
 }) => {
-  const [copied, setCopied] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isHoveredBack, setIsHoveredBack] = useState(false);
 
   const handleMoreButtonClick = (e) => {
     e.stopPropagation();
@@ -33,7 +34,7 @@ const Card = ({
   const handleCopyToClipboard = async () => {
     try {
       const response = await fetch(
-        deviceFilter === "Mobile" ? mobileImageUrlss : imageUrl
+        deviceFilter === "Mobile" ? mobileImageUrl : deskstopImageUrl
       );
       const blob = await response.blob();
       const item = new ClipboardItem({ [blob.type]: blob });
@@ -47,7 +48,7 @@ const Card = ({
 
   const handleDownloadImage = () => {
     const link = document.createElement("a");
-    link.href = deviceFilter === "Mobile" ? mobileImageUrlss : imageUrl;
+    link.href = deviceFilter === "Mobile" ? mobileImageUrl : deskstopImageUrl;
     link.download = name;
     document.body.appendChild(link);
     link.click();
@@ -57,11 +58,23 @@ const Card = ({
   return (
     <div className="bg-white rounded-md relative">
       <Link href={`/detail/${id}`} passHref className="bg-white rounded-md">
-        <div className=" bg-[#F0F0F0] p-4 rounded-md ">
+        <div
+          className={`h-[400px] hover:shadow-xl hover-bounce overflow-hidden bg-[#F0F0F0] p-2 rounded-[20px] ${
+            isHovered ? "scrollable" : isHoveredBack ? "scrollable-leave" : ""
+          }`}
+          onMouseEnter={() => {
+            setIsHovered(true);
+            setIsHoveredBack(false);
+          }}
+          onMouseLeave={() => {
+            setIsHovered(false);
+            setIsHoveredBack(true);
+          }}
+        >
           <img
-            src={deviceFilter === "Mobile" ? mobileImageUrlss : imageUrl}
+            src={deviceFilter === "Mobile" ? mobileImageUrl : deskstopImageUrl}
             alt={name}
-            className="mb-2 rounded-md"
+            className="mb-2 rounded-[20px]"
           />
         </div>
       </Link>

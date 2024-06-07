@@ -43,14 +43,14 @@ export default function Home() {
         <div className="flex items-center justify-center gap-2 px-4 pt-6 sm:text-10px">
           <Link
             href="/"
-            className="bg-black py-4 px-4 sm:py-2 sm:px-8 text-white rounded-[20px] border border-[#BBBBBB] font-medium text-[12px]"
+            className="bg-black py-4 px-4 overflow-hidden hover:scale-110 transition-transform duration-300  sm:py-2 sm:px-8 text-white rounded-[20px] border border-[#BBBBBB] font-medium text-[12px]"
           >
             Get started now
           </Link>
           <div
             // href="/"
             onClick={handleToggle}
-            className="bg-white flex items-center gap-1 py-4 px-4 sm:py-2 sm:px-4 text-black rounded-[20px] border border-[#BBBBBB] font-medium text-[12px] cursor-pointer"
+            className="bg-white hover-black overflow-hidden hover:scale-100 transition-transform duration-300 flex items-center gap-1 py-4 px-4 sm:py-2 sm:px-4 text-black rounded-[20px] border border-[#BBBBBB] font-medium text-[12px] cursor-pointer"
           >
             <Image
               height={21}

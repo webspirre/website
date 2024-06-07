@@ -66,7 +66,7 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
         <div className="absolute top-4 text-[12px] -right-[10px] mt-6  bg-white  z-[999] w-[150px] rounded-md shadow-md">
           {/* Your additional navigation links here */}
           <div className="absolute text-[12px] -right-[10px] mt-6  bg-white border z-10 w-[200px] rounded-md shadow-md">
-            <Link href="/bookmark" className="block text-[black] mb-2 ">
+            <Link href="/bookmark" className="hidden text-[black] mb-2 ">
               <div className=" border-b pb-4 items-center pt-4">
                 <div className="flex items-center gap-2 px-4">
                   <Image
@@ -109,7 +109,7 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
             </Link>
             <Link
               href="/notifications"
-              className="block text-[black] mb-4 hover:"
+              className=" hidden text-[black] mb-4 hover:"
             >
               <div className="flex items-center gap-2 px-4 pt-2">
                 <Image

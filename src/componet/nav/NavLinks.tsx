@@ -10,12 +10,12 @@ interface NavLinksProps {
 const NavLinks: React.FC<NavLinksProps> = ({ status }) => {
   return (
     <ul className="flex text-[14px] pt-2 sm:space-x-8 items-center">
-      <li>
+      <li className="hidden">
         <Link href="/price" className="hidden sm:flex text-[black] font-medium">
           Pricing
         </Link>
       </li>
-      <li className="hidden sm:block">
+      <li className="hidden ">
         <Link
           href="/auth/register"
           className=" bg-black p-2 px-4 text-white text-[12px] rounded-[10px] border flex items-center gap-2 border-[#BBBBBB] "
@@ -30,9 +30,9 @@ const NavLinks: React.FC<NavLinksProps> = ({ status }) => {
           Upgrade now{" "}
         </Link>
       </li>
-      <li className="hidden">
+      <li className="">
         {status === "authenticated" ? (
-          <div className="hidden sm:flex">
+          <div className=" sm:flex">
             <Link
               href="/auth/login"
               className="hover: text-[black]  font-medium"
@@ -43,7 +43,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ status }) => {
         ) : (
           <Link
             href="/auth/login"
-            className="hidden sm:flex text-[black]  font-medium"
+            className=" sm:flex text-[black]  font-medium"
           >
             Log in
           </Link>
