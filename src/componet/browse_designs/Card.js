@@ -90,7 +90,7 @@ const Card = ({
         </div>
       </Link>
       <div className="flex pt-6 pb-4 justify-between items-start">
-        <div className="flex items-start mt- gap-2">
+        <div className="flex  items-start mt- gap-2">
           <Link href={`/detail/${id}`} passHref className="bg-white rounded-md">
             {logoUrl && (
               <div className="">
