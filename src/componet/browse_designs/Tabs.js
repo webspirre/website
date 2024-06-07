@@ -176,7 +176,11 @@ const HorizontalTabs = ({ tabs, data }) => {
       {/* Tab Content */}
       <div className="flex justify-center">
         <div className="mt-6 w-full sm:px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+          <div
+            className={`grid grid-cols-1 gap-4 ${
+              deviceFilter === "Mobile" ? "grid-cols-5" : "sm:grid-cols-4"
+            }`}
+          >
             {filteredData.map((item) => (
               <Card
                 key={item.id}

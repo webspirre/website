@@ -126,18 +126,18 @@ body {
 /* Transition when image is hovered */
 .scrollable img {
   display: block;
-  transition: transform 10s ease-in-out, scale 0.5s ease-in-out;
+  transition: transform 5s ease-in-out, ;
   transform: translateY(0) scale(1);
 }
 
 /* Transition when mouse leaves */
 .scrollable-leave img {
-  transition: transform 5s ease-in-out, scale 0.5s ease-in-out;
+  transition: transform 5s ease-in-out, ;
   transform: translateY(0) scale(1);
 }
 
 .scrollable:hover img {
-  transform: translateY(-50%) scale(2.05);
+  transform: translateY(-50%) ;
 }
 
 

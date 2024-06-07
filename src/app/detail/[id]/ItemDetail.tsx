@@ -146,16 +146,25 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
     }
   };
 
-  const handleDownloadImage = () => {
-    const link = document.createElement("a");
-    link.href = isMobileView
-      ? websiteData.mobileImageUrl
-      : websiteData.deskstopImageUrl;
-    link.download = websiteData.name;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+ const handleDownloadImage = async () => {
+   try {
+     const imageUrl = isMobileView
+       ? websiteData.mobileImageUrl
+       : websiteData.deskstopImageUrl;
+     const response = await fetch(imageUrl);
+     const blob = await response.blob();
+     const url = window.URL.createObjectURL(blob);
+     const link = document.createElement("a");
+     link.href = url;
+     link.download = websiteData.name;
+     document.body.appendChild(link);
+     link.click();
+     document.body.removeChild(link);
+     window.URL.revokeObjectURL(url);
+   } catch (err) {
+     console.error("Failed to download image: ", err);
+   }
+ };
 
   return (
     <div className="">
