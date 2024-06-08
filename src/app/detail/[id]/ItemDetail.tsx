@@ -24,7 +24,7 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
           isTop
             ? "block md:hidden mb-10 p-3"
             : "hidden md:block sm:w-[350px]  p-4 border-[#F3F4F6] border-2 shadow-lg rounded-lg",
-          "mt-0 xl:mt-8"
+          "sm:mt-8 mt-1"
         )}
       >
         <div className="flex gap-4 mb-4 items-center">
@@ -190,7 +190,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
       </div>
       {/* Detail Item Content */}
       <ItemDetailContent websiteData={websiteData} isTop={true} />{" "}
-      <div className="w-fit bg-[#F1F0EE] p-1 md:p-2 sm:mx-[40px] mb-8 shadow-md rounded-full">
+      <div className="w-fit bg-[#F1F0EE]  p-1 md:p-2 sm:mx-[40px] mb-8 shadow-md rounded-full">
         {/* Desktop and Mobile switch, to show the desktop or mobile image on the website image space*/}
         <div className="flex text-[12px] items-center ustify-center space-x-4 ">
           <div
