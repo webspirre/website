@@ -117,3 +117,59 @@ body {
 .fade-in-out {
   animation: fadeInOut 3s infinite;
 }
+/* Styles for scrolling the image */
+.scrollable {
+  overflow-y: hidden;
+  max-height: 100%;
+}
+
+/* Transition when image is hovered */
+.scrollable img {
+  display: block;
+  transition: transform 5s ease-in-out, ;
+  transform: translateY(0) scale(1);
+}
+
+/* Transition when mouse leaves */
+.scrollable-leave img {
+  transition: transform 5s ease-in-out, ;
+  transform: translateY(0) scale(1);
+}
+
+.scrollable:hover img {
+  transform: translateY(-50%) ;
+}
+
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hover-bounce {
+  transition: transform 0.3s;
+}
+
+.hover-bounce:hover {
+  animation: bounce 0.6s ;
+}
+
+.hover-black::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #f3bf66;
+  z-index: -1;
+  transition: left 0.3s ease;
+}
+
+.hover-black:hover::before {
+  left: 0;
+}

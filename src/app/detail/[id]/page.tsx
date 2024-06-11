@@ -25,7 +25,6 @@ function Page() {
 
   return (
     <>
-      {/* <Navbar /> */}
       <div className="justify-center px-2 xl:px-20 mt-5 xl:mt-[100px]">
         <ItemDetail
           id={currentProjectId}

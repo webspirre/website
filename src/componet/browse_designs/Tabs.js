@@ -75,7 +75,7 @@ const HorizontalTabs = ({ tabs, data }) => {
         <button
           key={index}
           onClick={() => setDeviceFilter(device)}
-          className={`pr-4 py-2 mb-4 border-b-2 text-[14px] ${
+          className={`mr-4 px-2 py-2 mb-4 border-b-2 text-[14px] ${
             deviceFilter === device
               ? "border-gray-500 text-gray-700"
               : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-500"
@@ -176,7 +176,13 @@ const HorizontalTabs = ({ tabs, data }) => {
       {/* Tab Content */}
       <div className="flex justify-center">
         <div className="mt-6 w-full sm:px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div
+            className={`grid grid-cols-1 gap-4 ${
+              deviceFilter === "Mobile"
+                ? "sm:grid-cols-5 grid-cols-2"
+                : "sm:grid-cols-4"
+            }`}
+          >
             {filteredData.map((item) => (
               <Card
                 key={item.id}

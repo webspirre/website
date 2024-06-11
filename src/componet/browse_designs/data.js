@@ -4,19 +4,16 @@ const data = [
     id: 1,
     name: "Project 1",
     category: "Software & SaaS",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
+
     pageType: "Landing Page",
     deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "The future of tech and the coming of the best",
     mobileImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717786945/utilities/webspirre/screencapture-discord-2024-06-07-19_59_56_iyqxc3.png",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757757/utilities/webspirre/screencapture-discord-2024-06-07-11_46_04_mwfcb6.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -26,19 +23,16 @@ const data = [
     id: 2,
     name: "Project 2",
     category: "Software & SaaS",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
+
     pageType: "Pricing Page",
     deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 2",
     mobileImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717786945/utilities/webspirre/screencapture-discord-2024-06-07-19_59_56_iyqxc3.png",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757659/utilities/webspirre/screencapture-builtbybuffalo-2024-06-07-11_51_15_quq72a.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -49,10 +43,6 @@ const data = [
     name: "Project 3",
     category: "Software & SaaS",
 
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
     deviceType: "Desktop",
     logoUrl:
@@ -61,7 +51,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757668/utilities/webspirre/screencapture-stripe-2024-06-07-11_46_43_rgeejn.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -71,10 +61,7 @@ const data = [
     id: 4,
     name: "Project 4",
     category: "AI",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
+
     pageType: "Landing Page",
     deviceType: "Mobile",
     logoUrl:
@@ -83,7 +70,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757668/utilities/webspirre/screencapture-khanacademy-org-2024-06-07-11_50_40_nnnvvr.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -93,10 +80,7 @@ const data = [
     id: 5,
     name: "Project 5",
     category: "AI",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
+
     pageType: "Pricing Page",
     deviceType: "Desktop",
     logoUrl:
@@ -105,7 +89,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757670/utilities/webspirre/screencapture-etch-co-2024-06-07-11_49_28_dnqwff.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -115,10 +99,7 @@ const data = [
     id: 6,
     name: "Project 6",
     category: "AI",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
+
     pageType: "About Page",
     deviceType: "Mobile",
     logoUrl:
@@ -127,7 +108,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757665/utilities/webspirre/screencapture-skai-io-2024-06-07-11_41_06_ev7d4o.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -137,10 +118,7 @@ const data = [
     id: 7,
     name: "Project 7",
     category: "Fintech",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
+
     pageType: "Landing Page",
     deviceType: "Desktop",
     logoUrl:
@@ -149,7 +127,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757743/utilities/webspirre/screencapture-swiss-magazine-en-2024-06-07-11_47_42_u7knuh.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -159,10 +137,7 @@ const data = [
     id: 8,
     name: "Project 8",
     category: "Fintech",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
+
     pageType: "Pricing Page",
     deviceType: "Mobile",
     logoUrl:
@@ -171,7 +146,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757757/utilities/webspirre/screencapture-discord-2024-06-07-11_46_04_mwfcb6.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -181,10 +156,6 @@ const data = [
     id: 9,
     name: "Project 9",
     category: "Fintech",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
     deviceType: "Desktop",
     logoUrl:
@@ -193,7 +164,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757668/utilities/webspirre/screencapture-stripe-2024-06-07-11_46_43_rgeejn.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -203,10 +174,6 @@ const data = [
     id: 10,
     name: "Project 10",
     category: "Agency & Corporate",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
     deviceType: "Mobile",
     logoUrl:
@@ -215,7 +182,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757659/utilities/webspirre/screencapture-builtbybuffalo-2024-06-07-11_51_15_quq72a.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -237,7 +204,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757668/utilities/webspirre/screencapture-khanacademy-org-2024-06-07-11_50_40_nnnvvr.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -247,10 +214,6 @@ const data = [
     id: 12,
     name: "Project 12",
     category: "Agency & Corporate",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
     deviceType: "Mobile",
     logoUrl:
@@ -259,7 +222,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757670/utilities/webspirre/screencapture-etch-co-2024-06-07-11_49_28_dnqwff.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -269,10 +232,6 @@ const data = [
     id: 13,
     name: "Project 13",
     category: "E-Commerce",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
     deviceType: "Desktop",
     logoUrl:
@@ -281,7 +240,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757665/utilities/webspirre/screencapture-skai-io-2024-06-07-11_41_06_ev7d4o.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -291,10 +250,6 @@ const data = [
     id: 14,
     name: "Project 14",
     category: "E-Commerce",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
     deviceType: "Mobile",
     logoUrl:
@@ -303,7 +258,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757743/utilities/webspirre/screencapture-swiss-magazine-en-2024-06-07-11_47_42_u7knuh.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -313,10 +268,6 @@ const data = [
     id: 15,
     name: "Project 15",
     category: "E-Commerce",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
     deviceType: "Desktop",
     logoUrl:
@@ -325,7 +276,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757757/utilities/webspirre/screencapture-discord-2024-06-07-11_46_04_mwfcb6.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -335,10 +286,6 @@ const data = [
     id: 16,
     name: "Project 16",
     category: "Crypto & Web3",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
     deviceType: "Mobile",
     logoUrl:
@@ -347,7 +294,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757659/utilities/webspirre/screencapture-builtbybuffalo-2024-06-07-11_51_15_quq72a.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -357,10 +304,6 @@ const data = [
     id: 17,
     name: "Project 17",
     category: "Crypto & Web3",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
     deviceType: "Desktop",
     logoUrl:
@@ -369,7 +312,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757668/utilities/webspirre/screencapture-stripe-2024-06-07-11_46_43_rgeejn.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -379,10 +322,6 @@ const data = [
     id: 18,
     name: "Project 18",
     category: "Crypto & Web3",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
     deviceType: "Mobile",
     logoUrl:
@@ -391,7 +330,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757668/utilities/webspirre/screencapture-khanacademy-org-2024-06-07-11_50_40_nnnvvr.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -401,10 +340,6 @@ const data = [
     id: 19,
     name: "Project 19",
     category: "Travel & Hospitality",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
     deviceType: "Desktop",
     logoUrl:
@@ -413,7 +348,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757670/utilities/webspirre/screencapture-etch-co-2024-06-07-11_49_28_dnqwff.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -423,10 +358,6 @@ const data = [
     id: 20,
     name: "Project 20",
     category: "Travel & Hospitality",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
     deviceType: "Mobile",
     logoUrl:
@@ -435,7 +366,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757665/utilities/webspirre/screencapture-skai-io-2024-06-07-11_41_06_ev7d4o.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -445,10 +376,6 @@ const data = [
     id: 21,
     name: "Project 21",
     category: "Travel & Hospitality",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
     deviceType: "Desktop",
     logoUrl:
@@ -457,7 +384,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757743/utilities/webspirre/screencapture-swiss-magazine-en-2024-06-07-11_47_42_u7knuh.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -467,10 +394,6 @@ const data = [
     id: 22,
     name: "Project 22",
     category: "Software & SaaS",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
     deviceType: "Mobile",
     logoUrl:
@@ -479,7 +402,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757757/utilities/webspirre/screencapture-discord-2024-06-07-11_46_04_mwfcb6.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -489,10 +412,6 @@ const data = [
     id: 23,
     name: "Project 23",
     category: "Software & SaaS",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
     deviceType: "Desktop",
     logoUrl:
@@ -501,7 +420,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757659/utilities/webspirre/screencapture-builtbybuffalo-2024-06-07-11_51_15_quq72a.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -511,10 +430,6 @@ const data = [
     id: 24,
     name: "Project 24",
     category: "Software & SaaS",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
     deviceType: "Mobile",
     logoUrl:
@@ -523,7 +438,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757668/utilities/webspirre/screencapture-stripe-2024-06-07-11_46_43_rgeejn.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -533,10 +448,6 @@ const data = [
     id: 25,
     name: "Project 25",
     category: "AI",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Landing Page",
     deviceType: "Desktop",
     logoUrl:
@@ -545,7 +456,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757668/utilities/webspirre/screencapture-khanacademy-org-2024-06-07-11_50_40_nnnvvr.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -555,10 +466,6 @@ const data = [
     id: 26,
     name: "Project 26",
     category: "AI",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
     deviceType: "Mobile",
     logoUrl:
@@ -567,7 +474,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757670/utilities/webspirre/screencapture-etch-co-2024-06-07-11_49_28_dnqwff.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -577,10 +484,6 @@ const data = [
     id: 27,
     name: "Project 27",
     category: "AI",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "About Page",
     deviceType: "Desktop",
     logoUrl:
@@ -589,7 +492,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757665/utilities/webspirre/screencapture-skai-io-2024-06-07-11_41_06_ev7d4o.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -599,10 +502,6 @@ const data = [
     id: 28,
     name: "Project 28",
     category: "Travel & Hospitality",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "404 Page",
     deviceType: "Mobile",
     logoUrl:
@@ -611,7 +510,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757743/utilities/webspirre/screencapture-swiss-magazine-en-2024-06-07-11_47_42_u7knuh.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -621,10 +520,6 @@ const data = [
     id: 29,
     name: "Project 29",
     category: "Travel & Hospitality",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Login Page",
     deviceType: "Desktop",
     logoUrl:
@@ -633,7 +528,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757757/utilities/webspirre/screencapture-discord-2024-06-07-11_46_04_mwfcb6.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
@@ -643,10 +538,6 @@ const data = [
     id: 30,
     name: "Project 30",
     category: "Travel & Hospitality",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
     pageType: "Pricing Page",
     deviceType: "Mobile",
     logoUrl:
@@ -655,7 +546,7 @@ const data = [
     mobileImageUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706307510/utilities/image_21_jumesq.jpg",
     deskstopImageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706306772/utilities/image_2_i9vodn.svg",
+      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717757659/utilities/webspirre/screencapture-builtbybuffalo-2024-06-07-11_51_15_quq72a.png",
     longDescription:
       "Puck is an employer branding & candidate engagement platform that streamlines the content creation process to provide high-quality insights into any company or culture.",
     views: "20000",
