@@ -167,10 +167,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node)
-      ) {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
         setShowMorePopup(false);
         setShowBookmarkPopup(false);
       }
@@ -184,7 +181,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
   }, []);
 
   return (
-    <div className="">
+    <div className="  max-w-[1350px] ">
       <div className="sm:mr-[]">
         {/* previous button, to move to the previous website detail */}
         <Image
@@ -207,33 +204,33 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
       </div>
       {/* Detail Item Content */}
       <ItemDetailContent websiteData={websiteData} isTop={true} />{" "}
-      <div className="w-fit  bg-[#F1F0EE]  p-1 md:p-2 sm:mx-[40px] mb-8 shadow-md rounded-full">
-        {/* Desktop and Mobile switch, to show the desktop or mobile image on the website image space*/}
-        <div className="flex  text-[12px] items-center ustify-center space-x-4 ">
-          <div
-            className={`cursor-pointer ${
-              !isMobileView
-                ? "bg-white rounded-full shadow-lg p-2 px-6 transition- transform duration-300 ease-in-out"
-                : "p-2 pl-6"
-            }`}
-            onClick={() => setIsMobileView(false)}
-          >
-            Desktop
-          </div>
-          <div
-            className={`cursor-pointer ${
-              isMobileView
-                ? "bg-white rounded-full shadow-md p-2 px-6 transition- transform duration-300 ease-in-out"
-                : "p-2 pr-6"
-            }`}
-            onClick={() => setIsMobileView(true)}
-          >
-            Mobile
+      <div className="">
+        <div className="w-fit  bg-[#F1F0EE]  p-1 md:p-2 sm:mx-[40px mb-8 shadow-md rounded-full">
+          {/* Desktop and Mobile switch, to show the desktop or mobile image on the website image space*/}
+          <div className="flex  text-[12px] items-center ustify-center space-x-4 ">
+            <div
+              className={`cursor-pointer ${
+                !isMobileView
+                  ? "bg-white rounded-full shadow-lg p-2 px-6 transition- transform duration-300 ease-in-out"
+                  : "p-2 pl-6"
+              }`}
+              onClick={() => setIsMobileView(false)}
+            >
+              Desktop
+            </div>
+            <div
+              className={`cursor-pointer ${
+                isMobileView
+                  ? "bg-white rounded-full shadow-md p-2 px-6 transition- transform duration-300 ease-in-out"
+                  : "p-2 pr-6"
+              }`}
+              onClick={() => setIsMobileView(true)}
+            >
+              Mobile
+            </div>
           </div>
         </div>
-      </div>
-      <div className="">
-        <div className="w-full sm:px-[] flex item-center">
+        <div className=" flex w-full">
           <div className="grid grid-cols-1 sm:grid-cols-6  gap-4">
             {/* First Column */}
             <div
@@ -256,8 +253,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
             </div>
 
             {/* Second Column */}
-            {/* Second Column */}
-            <div className={`col-span-1 sm:col-span-2 px-4`}>
+            <div className={`col-span-1 sm:col-span-2  px-4`}>
               {/* Your content for the second column */}
               <div className="flex w-full relative  gap-4">
                 <div className=" relative" ref={modalRef}>

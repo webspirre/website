@@ -25,7 +25,7 @@ function Page() {
 
   return (
     <>
-      <div className="justify-center px-2 xl:px-20 mt-5 xl:mt-[100px]">
+      <div className="justify-center px-2 xl:px-20 mt-5 xl:mt-[100px]  flex w-full items-center  ">
         <ItemDetail
           id={currentProjectId}
           onNext={handleNext}
