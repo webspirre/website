@@ -85,9 +85,9 @@ const Card = ({
     <div className="bg-white rounded-md relative">
       <Link href={`/detail/${id}`} passHref className="bg-white rounded-md">
         <div
-          className={`h-[400px] hover:shadow-xl hover-bounce overflow-hidden bg-[#F0F0F0] p-2 rounded-[20px] ${
+          className={`hover:shadow-xl hover-bounce overflow-hidden bg-[#F0F0F0] p-2 rounded-[20px] ${
             isHovered ? "scrollable" : isHoveredBack ? "scrollable-leave" : ""
-          }`}
+          } ${deviceFilter === "Mobile" ? "h-[500px]" : "h-[400px]"}`}
           onMouseEnter={() => {
             setIsHovered(true);
             setIsHoveredBack(false);
@@ -105,10 +105,10 @@ const Card = ({
         </div>
       </Link>
       <div className="flex pt-6 pb-4 justify-between items-start">
-        <div className="flex  items-start mt- gap-2">
+        <div className="flex items-start gap-2">
           <Link href={`/detail/${id}`} passHref className="bg-white rounded-md">
             {logoUrl && (
-              <div className="">
+              <div>
                 <img
                   src={logoUrl}
                   alt={`${name} Logo`}
