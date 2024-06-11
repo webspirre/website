@@ -12,7 +12,7 @@ const carterOne = Carter_One({
   display: "swap",
 });
 
-const Browse = ({ user }) => {
+const Browse = ({ user, handleAuthModal }) => {
   const tabs = [
     { label: "All" },
     { label: "Software & SaaS" },
@@ -33,7 +33,12 @@ const Browse = ({ user }) => {
 
         <div className="mt-[0px]">
           <div>
-            <Tabs tabs={tabs} data={data} user={user} />
+            <Tabs
+              tabs={tabs}
+              data={data}
+              user={user}
+              handleAuthModal={handleAuthModal}
+            />
           </div>
         </div>
       </div>

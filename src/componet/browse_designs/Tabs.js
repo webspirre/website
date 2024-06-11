@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import Image from "next/image";
 
-const HorizontalTabs = ({ tabs, data, user }) => {
+const HorizontalTabs = ({ tabs, data, user, handleAuthModal }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [showFilterOptions, setShowFilterOptions] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -193,6 +193,7 @@ const HorizontalTabs = ({ tabs, data, user }) => {
                 showBookmarkPopupId={showBookmarkPopupId}
                 setShowBookmarkPopupId={setShowBookmarkPopupId}
                 user={user}
+                handleAuthModal={handleAuthModal}
               />
             ))}
           </div>

@@ -6,6 +6,7 @@ import Browse from "./Browse";
 import VideoModal from "../modals/VideoModal";
 import React, { useState } from "react";
 import type { User } from "@supabase/auth-helpers-nextjs";
+import AuthModal from "../modals/AuthModal";
 
 // import "flag-icon-css/css/flag-icon.min.css";
 interface HomeLayoutProps {
@@ -14,6 +15,8 @@ interface HomeLayoutProps {
 const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
   const [toogleModal, setToogleModal] = useState<boolean>(false);
   const handleToggle = () => setToogleModal((prev) => !prev);
+  const [authModal, setAuthModal] = useState(false);
+  const handleAuthModal = () => setAuthModal((prev) => !prev);
   console.log("User", user);
 
   const backgroundImageUrl =
@@ -22,7 +25,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
   return (
     <main>
       <VideoModal toogleModal={handleToggle} open={toogleModal} />
-
+      <AuthModal open={authModal} toogleModal={handleAuthModal} />
       <div
         style={{
           backgroundImage: `url(${backgroundImageUrl})`,
@@ -69,7 +72,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
         </div>
       </div>
       <div className="">
-        <Browse user={user} />
+        <Browse user={user} handleAuthModal={handleAuthModal} />
       </div>
     </main>
   );

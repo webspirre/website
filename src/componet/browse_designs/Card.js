@@ -17,6 +17,7 @@ const Card = ({
   showBookmarkPopupId,
   setShowBookmarkPopupId,
   user,
+  handleAuthModal,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isHoveredBack, setIsHoveredBack] = useState(false);
@@ -144,7 +145,7 @@ const Card = ({
         <div className="absolute right-0 bottom-14 text-[12px] bg-white rounded-lg p-4 shadow-md popup">
           <button
             className="flex gap-2 mb-4 hover:scale-105 transition-transform duration-300"
-            onClick={user ? handleCopyToClipboard : handleLoginNavigate}
+            onClick={user ? handleCopyToClipboard : handleAuthModal}
           >
             <Image
               height={15}
@@ -157,7 +158,7 @@ const Card = ({
           </button>
           <button
             className="flex gap-2 hover:scale-105 transition-transform duration-300"
-            onClick={user ? handleDownloadImage : handleLoginNavigate}
+            onClick={user ? handleDownloadImage : handleAuthModal}
           >
             <Image
               height={15}

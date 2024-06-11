@@ -6,14 +6,18 @@ var link_1 = require("next/link");
 var Browse_1 = require("./Browse");
 var VideoModal_1 = require("../modals/VideoModal");
 var react_1 = require("react");
+var AuthModal_1 = require("../modals/AuthModal");
 var HomeLayout = function (_a) {
     var user = _a.user;
     var _b = react_1.useState(false), toogleModal = _b[0], setToogleModal = _b[1];
     var handleToggle = function () { return setToogleModal(function (prev) { return !prev; }); };
+    var _c = react_1.useState(false), authModal = _c[0], setAuthModal = _c[1];
+    var handleAuthModal = function () { return setAuthModal(function (prev) { return !prev; }); };
     console.log("User", user);
     var backgroundImageUrl = "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705724835/utilities/background_illustration_lcdskr.svg";
     return (react_1["default"].createElement("main", null,
         react_1["default"].createElement(VideoModal_1["default"], { toogleModal: handleToggle, open: toogleModal }),
+        react_1["default"].createElement(AuthModal_1["default"], { open: authModal, toogleModal: handleAuthModal }),
         react_1["default"].createElement("div", { style: {
                 backgroundImage: "url(" + backgroundImageUrl + ")",
                 backgroundSize: "cover",
@@ -31,6 +35,6 @@ var HomeLayout = function (_a) {
                     react_1["default"].createElement(image_1["default"], { height: 21, width: 10, src: "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715212239/utilities/play_icon_1_zueuon.svg", alt: "rice", className: "" }),
                     "See how it works"))),
         react_1["default"].createElement("div", { className: "" },
-            react_1["default"].createElement(Browse_1["default"], { user: user }))));
+            react_1["default"].createElement(Browse_1["default"], { user: user, handleAuthModal: handleAuthModal }))));
 };
 exports["default"] = HomeLayout;
