@@ -126,7 +126,7 @@ body {
 /* Transition when image is hovered */
 .scrollable img {
   display: block;
-  transition: transform 5s ease-in-out, ;
+  transition: transform 7s ease-in-out, ;
   transform: translateY(0) scale(1);
 }
 
