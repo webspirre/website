@@ -9,13 +9,24 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Form: React.FC = () => {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmittingR, setIsSubmittingR] = useState(false);
+
   const [code, setCode] = useState<string[]>(["", "", "", "", "", ""]);
-  const [email, setEmail] = useState(localStorage.getItem("email") || "");
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedEmail = localStorage.getItem("email");
+      if (storedEmail) {
+        setEmail(storedEmail);
+      }
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,11 +36,11 @@ const Form: React.FC = () => {
   };
 
   const handleResend = async () => {
-    setIsSubmitting(true);
+    setIsSubmittingR(true);
     const formData = new FormData();
     formData.append("email", email);
     await resendOTP(formData);
-    setIsSubmitting(false);
+    setIsSubmittingR(false);
   };
 
   const handleInputChange = (
@@ -116,6 +127,7 @@ const Form: React.FC = () => {
         noValidate={true}
         onSubmit={handleSubmit}
       >
+        <input type="hidden" value={email} name="email" />
         <div className="flex justify-center gap-2">
           {code.map((digit, index) => (
             <input
@@ -123,6 +135,7 @@ const Form: React.FC = () => {
               type="text"
               maxLength={1}
               value={digit}
+              name={"digit-" + index}
               onChange={(e) => handleInputChange(e, index)}
               className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[50px] text-center text-2xl"
             />
@@ -136,12 +149,14 @@ const Form: React.FC = () => {
         >
           {!isSubmitting ? "Verify code" : "Verifying code..."}
         </button>
+      </form>
+      <form onSubmit={handleResend}>
+        <input type="hidden" value={email} name="email" />
         <button
           type="button"
-          onClick={handleResend}
           className="text-center w-full text-black font-bold p-2 py-4 mt-2 rounded-md"
         >
-          {!isSubmitting ? "Resend code" : "Resending code..."}
+          {!isSubmittingR ? "Resend code" : "Resending code..."}
         </button>
       </form>
     </div>

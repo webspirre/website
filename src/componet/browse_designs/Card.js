@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Card = ({
   id,
@@ -15,10 +16,18 @@ const Card = ({
   setShowMorePopupId,
   showBookmarkPopupId,
   setShowBookmarkPopupId,
+  user,
+  handleAuthModal,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isHoveredBack, setIsHoveredBack] = useState(false);
   const [copied, setCopied] = useState(false);
+  const router = useRouter();
+
+  const handleLoginNavigate = () => {
+    // Navigate to the /about page
+    router.push("/auth/login");
+  };
 
   const handleMoreButtonClick = (e) => {
     e.stopPropagation();
@@ -136,7 +145,7 @@ const Card = ({
         <div className="absolute right-0 bottom-14 text-[12px] bg-white rounded-lg p-4 shadow-md popup">
           <button
             className="flex gap-2 mb-4 hover:scale-105 transition-transform duration-300"
-            onClick={handleCopyToClipboard}
+            onClick={user ? handleCopyToClipboard : handleAuthModal}
           >
             <Image
               height={15}
@@ -149,7 +158,7 @@ const Card = ({
           </button>
           <button
             className="flex gap-2 hover:scale-105 transition-transform duration-300"
-            onClick={handleDownloadImage}
+            onClick={user ? handleDownloadImage : handleAuthModal}
           >
             <Image
               height={15}

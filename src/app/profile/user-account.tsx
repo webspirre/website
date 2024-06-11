@@ -25,7 +25,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ user }) => {
 
       if (error) throw error;
 
-      toast.success("Profile deleted!");
+      toast.success("Your Profile has been successfully deleted!");
     } catch (error) {
       toast.error("Error deleting the profile!");
     } finally {
