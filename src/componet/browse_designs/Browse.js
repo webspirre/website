@@ -12,7 +12,7 @@ const carterOne = Carter_One({
   display: "swap",
 });
 
-const Browse = () => {
+const Browse = ({ user }) => {
   const tabs = [
     { label: "All" },
     { label: "Software & SaaS" },
@@ -33,7 +33,7 @@ const Browse = () => {
 
         <div className="mt-[0px]">
           <div>
-            <Tabs tabs={tabs} data={data} />
+            <Tabs tabs={tabs} data={data} user={user} />
           </div>
         </div>
       </div>

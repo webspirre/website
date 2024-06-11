@@ -33,32 +33,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [auth, setAuth] = useState<User | null>(null);
   const [authUser, setAuthUser] = useState<UserMetadata | null>(null);
 
-  useEffect(() => {
-    const storedUserDataString =
-      typeof window !== "undefined"
-        ? localStorage.getItem("sb-nawqzhetlcutvfqhyjsv-auth-token")
-        : null;
-
-    if (storedUserDataString) {
-      const parsedUserData = JSON.parse(storedUserDataString);
-      console.log("parsedUserData", parsedUserData);
-      // @ts-ignore
-      setAuth((prev: User | null) => {
-        // console.log(JSON.stringify(prev));
-        return {
-          ...prev,
-          ...parsedUserData,
-        };
-      });
-
-      // Set authUser state
-      setAuthUser(parsedUserData.user);
-    }
-
-    console.log("storedUser Auth", auth);
-    console.log("storedUser AuthUser", authUser);
-  }, []);
-
   return (
     <AuthContext.Provider value={{ auth, setAuth, authUser, setAuthUser }}>
       {children}
