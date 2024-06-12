@@ -247,7 +247,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
                       : data[id].deskstopImageUrl
                   }
                   alt={data[id].name}
-                  className="shadow-lg  border-2 rounded-md"
+                  className="shadow-lg transition- transform duration-500 ease-in-out border-2 rounded-md"
                 />
               </div>
             </div>
@@ -299,7 +299,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
                     </div>
                   )}
                   <div
-                    className="p-4  flex items-center bg-[#F1F0EE] border border-[#94A3B8] rounded-lg cursor-pointer"
+                    className="p-4  flex items-center bg-[#F1F0EE] border border-[#94A3B8] rounded-lg cursor-pointer hover:scale-105 transition-transform duration-300"
                     onClick={handleMoreButtonClick}
                   >
                     {/* More Option button */}
@@ -314,7 +314,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
                 </div>
                 {/* Website Link */}
                 <Link href="/">
-                  <div className="py-2 px-4 gap-2 bg-[black] text-white flex items-center rounded-lg">
+                  <div className="py-2 px-4 gap-2 bg-[black] text-white flex items-center rounded-lg hover:scale-105 transition-transform duration-300">
                     <p className="font-bold text-[12px]">Visit Site</p>
                     <Image
                       height={20}
