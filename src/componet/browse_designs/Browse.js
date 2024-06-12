@@ -5,6 +5,8 @@ import Tabs from "./Tabs";
 import data from "./data";
 import { Carter_One } from "next/font/google";
 import Image from "next/image";
+import { fetchDesigns } from "@/utils/designs/server";
+import useDesign from "@/hooks/useDesign";
 
 const carterOne = Carter_One({
   weight: "400",
@@ -12,7 +14,9 @@ const carterOne = Carter_One({
   display: "swap",
 });
 
-const Browse = ({ user, handleAuthModal }) => {
+const Browse = ({ user, handleAuthModal, designs }) => {
+  const { design } = useDesign();
+
   const tabs = [
     { label: "All" },
     { label: "Software & SaaS" },
@@ -38,6 +42,7 @@ const Browse = ({ user, handleAuthModal }) => {
               data={data}
               user={user}
               handleAuthModal={handleAuthModal}
+              designs={designs}
             />
           </div>
         </div>

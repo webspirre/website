@@ -8,7 +8,7 @@ function page() {
   return (
     <div>
       <div className="mt-20">
-        <Browse />
+        <Browse user={null} handleAuthModal={() => {}} />
       </div>
     </div>
   );

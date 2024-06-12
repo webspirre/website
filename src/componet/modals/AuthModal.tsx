@@ -81,14 +81,14 @@ const AuthModal: React.FC<DeleteProps> = ({
                     </p>
                     <div className="flex flex-col justify-center items-center sm:flex-row gap-3 w-full max-w-[70%] mx-auto p-4">
                       <button
-                        className="w-full sm:w-auto p-2.5 bg-white text-black text-xs font-medium border border-black rounded-lg hover:bg-gray-200 transition duration-300 ease-in-out"
+                        className="w-full sm:w-auto p-2.5 bg-white text-black text-xs font-medium border border-black rounded-lg hover:bg-gray-200 transition duration-300 ease-in-out text-center"
                         onClick={toogleModal}
                       >
                         Cancel
                       </button>
                       <Link
                         href="/auth/register"
-                        className="w-full sm:w-auto p-2.5 bg-black text-white text-xs font-medium border border-black rounded-lg hover:bg-gray-800 transition duration-300 ease-in-out"
+                        className="w-full sm:w-auto p-2.5 bg-black text-white text-xs font-medium border border-black rounded-lg hover:bg-gray-800 transition duration-300 ease-in-out text-center"
                       >
                         Sign up
                       </Link>

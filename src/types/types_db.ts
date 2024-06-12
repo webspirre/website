@@ -284,6 +284,7 @@ export interface Database {
           mobileFpURL: string | null;
           categories: string[] | null;
           date: string | null;
+          views: string | null;
         };
         Insert: {
           name?: string | null;
@@ -298,6 +299,7 @@ export interface Database {
           mobileFpURL?: string | null;
           categories?: string[] | null;
           date?: string | null;
+          view?: string | null;
         };
         Update: {
           name?: string | null;
@@ -312,6 +314,7 @@ export interface Database {
           mobileFpURL?: string | null;
           categories?: string[] | null;
           date?: string | null;
+          view?: string | null;
         };
         Relationships: [];
       };

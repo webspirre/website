@@ -4,19 +4,41 @@ import Image from "next/image";
 import Link from "next/link";
 import Browse from "./Browse";
 import VideoModal from "../modals/VideoModal";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { User } from "@supabase/auth-helpers-nextjs";
 import AuthModal from "../modals/AuthModal";
+import useDesign from "@/hooks/useDesign";
+import { fetchDesigns } from "@/utils/designs/server";
+import { Database } from "@/types/types_db";
 
 // import "flag-icon-css/css/flag-icon.min.css";
 interface HomeLayoutProps {
   user: User | null;
 }
+type Designs = Database["public"]["Tables"]["website"]["Row"];
+
 const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
   const [toogleModal, setToogleModal] = useState<boolean>(false);
   const handleToggle = () => setToogleModal((prev) => !prev);
   const [authModal, setAuthModal] = useState(false);
   const handleAuthModal = () => setAuthModal((prev) => !prev);
+  const { setDesign, design } = useDesign();
+  const [designs, setDesigns] = useState<Designs[]>([]);
+  const displayDesigns = async () => {
+    const designs = await fetchDesigns();
+
+    console.log("Data Response", designs);
+
+    if (designs) {
+      setDesigns(designs);
+      // setDesign(designs);
+    }
+  };
+
+  useEffect(() => {
+    displayDesigns();
+  }, []);
+
   console.log("User", user);
 
   const backgroundImageUrl =
@@ -72,7 +94,11 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
         </div>
       </div>
       <div className="">
-        <Browse user={user} handleAuthModal={handleAuthModal} />
+        <Browse
+          user={user}
+          handleAuthModal={handleAuthModal}
+          designs={designs}
+        />
       </div>
     </main>
   );

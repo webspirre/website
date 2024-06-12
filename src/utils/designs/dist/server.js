@@ -38,12 +38,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.fetchDesigns = void 0;
 var client_1 = require("../../libs/supbasedesign/client");
-// const [designs, setDesigns] = useState([]);
-// const [title, setTitle] = useState('');
-// const [content, setContent] = useState('');
-// useEffect(() => {
-//   fetchDesigns();
-// }, []);
 exports.fetchDesigns = function () { return __awaiter(void 0, void 0, void 0, function () {
     var supabase, _a, data, error;
     return __generator(this, function (_b) {
@@ -61,15 +55,3 @@ exports.fetchDesigns = function () { return __awaiter(void 0, void 0, void 0, fu
         }
     });
 }); };
-// const handleCreateDesign = async () => {
-//   const user = supabase.auth.user();
-//   const { data, error } = await supabase.from('designs').insert([
-//     {
-//       user_id: user.id,
-//       title,
-//       content,
-//     },
-//   ]);
-//   if (error) console.error('Error creating design:', error);
-//   else fetchDesigns();
-// };

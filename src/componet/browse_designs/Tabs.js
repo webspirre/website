@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import Image from "next/image";
 
-const HorizontalTabs = ({ tabs, data, user, handleAuthModal }) => {
+const HorizontalTabs = ({ tabs, data, user, handleAuthModal, designs }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [showFilterOptions, setShowFilterOptions] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -67,6 +67,8 @@ const HorizontalTabs = ({ tabs, data, user, handleAuthModal }) => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+  // console.log("DESIGNS", designs);
 
   return (
     <div className="mb-4">
