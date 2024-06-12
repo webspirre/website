@@ -90,8 +90,8 @@ const Card = ({
             isHovered ? "scrollable" : isHoveredBack ? "scrollable-leave" : ""
           } ${
             deviceFilter === "Mobile"
-              ? "h-[500px]  transform duration-500 ease-in-out"
-              : "h-[400px]  transform duration-500 ease-in-out"
+              ? "h-[500px] transition transform duration-500 ease-in-out"
+              : "h-[400px] transition transform duration-500 ease-in-out"
           }`}
           onMouseEnter={() => {
             setIsHovered(true);
