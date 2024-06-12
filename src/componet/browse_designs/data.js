@@ -6,7 +6,6 @@ const data = [
     category: "Software & SaaS",
 
     pageType: "Landing Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "The future of tech and the coming of the best",
@@ -25,7 +24,6 @@ const data = [
     category: "Software & SaaS",
 
     pageType: "Pricing Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 2",
@@ -44,7 +42,6 @@ const data = [
     category: "Software & SaaS",
 
     pageType: "About Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 3",
@@ -63,7 +60,6 @@ const data = [
     category: "AI",
 
     pageType: "Landing Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 3",
@@ -82,7 +78,6 @@ const data = [
     category: "AI",
 
     pageType: "Pricing Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 5",
@@ -101,7 +96,6 @@ const data = [
     category: "AI",
 
     pageType: "About Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 6",
@@ -120,7 +114,6 @@ const data = [
     category: "Fintech",
 
     pageType: "Landing Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 7",
@@ -139,7 +132,6 @@ const data = [
     category: "Fintech",
 
     pageType: "Pricing Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 8",
@@ -157,7 +149,6 @@ const data = [
     name: "Project 9",
     category: "Fintech",
     pageType: "About Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 9",
@@ -175,7 +166,6 @@ const data = [
     name: "Project 10",
     category: "Agency & Corporate",
     pageType: "Landing Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 10",
@@ -192,12 +182,8 @@ const data = [
     id: 11,
     name: "Project 11",
     category: "Agency & Corporate",
-    mobileImageUrlss:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715289549/utilities/Component_2_xniopw.svg",
-    imageUrl:
-      "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706040356/utilities/image_1_wzvqcv.svg",
+   
     pageType: "Pricing Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 11",
@@ -215,7 +201,6 @@ const data = [
     name: "Project 12",
     category: "Agency & Corporate",
     pageType: "About Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 12",
@@ -233,7 +218,6 @@ const data = [
     name: "Project 13",
     category: "E-Commerce",
     pageType: "Landing Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 13",
@@ -251,7 +235,6 @@ const data = [
     name: "Project 14",
     category: "E-Commerce",
     pageType: "Pricing Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 14",
@@ -269,7 +252,6 @@ const data = [
     name: "Project 15",
     category: "E-Commerce",
     pageType: "About Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 15",
@@ -287,7 +269,6 @@ const data = [
     name: "Project 16",
     category: "Crypto & Web3",
     pageType: "Landing Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 16",
@@ -305,7 +286,6 @@ const data = [
     name: "Project 17",
     category: "Crypto & Web3",
     pageType: "Pricing Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 2",
@@ -323,7 +303,6 @@ const data = [
     name: "Project 18",
     category: "Crypto & Web3",
     pageType: "About Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 18",
@@ -341,7 +320,6 @@ const data = [
     name: "Project 19",
     category: "Travel & Hospitality",
     pageType: "Landing Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 19",
@@ -359,7 +337,6 @@ const data = [
     name: "Project 20",
     category: "Travel & Hospitality",
     pageType: "Pricing Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 20",
@@ -377,7 +354,6 @@ const data = [
     name: "Project 21",
     category: "Travel & Hospitality",
     pageType: "About Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 21",
@@ -395,7 +371,6 @@ const data = [
     name: "Project 22",
     category: "Software & SaaS",
     pageType: "Landing Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 22",
@@ -413,7 +388,6 @@ const data = [
     name: "Project 23",
     category: "Software & SaaS",
     pageType: "Pricing Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 23",
@@ -431,7 +405,6 @@ const data = [
     name: "Project 24",
     category: "Software & SaaS",
     pageType: "About Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 24",
@@ -449,7 +422,6 @@ const data = [
     name: "Project 25",
     category: "AI",
     pageType: "Landing Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 25",
@@ -467,7 +439,6 @@ const data = [
     name: "Project 26",
     category: "AI",
     pageType: "Pricing Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 26",
@@ -485,7 +456,6 @@ const data = [
     name: "Project 27",
     category: "AI",
     pageType: "About Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 27",
@@ -503,7 +473,6 @@ const data = [
     name: "Project 28",
     category: "Travel & Hospitality",
     pageType: "404 Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 28",
@@ -521,7 +490,6 @@ const data = [
     name: "Project 29",
     category: "Travel & Hospitality",
     pageType: "Login Page",
-    deviceType: "Desktop",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 29",
@@ -539,7 +507,6 @@ const data = [
     name: "Project 30",
     category: "Travel & Hospitality",
     pageType: "Pricing Page",
-    deviceType: "Mobile",
     logoUrl:
       "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706043907/utilities/logo_ipsum_nfbkzl.svg",
     description: "Description for Project 30",

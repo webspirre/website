@@ -6,7 +6,7 @@ const HorizontalTabs = ({ tabs, data, user, handleAuthModal }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [showFilterOptions, setShowFilterOptions] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
-  const [deviceFilter, setDeviceFilter] = useState("");
+  const [deviceFilter, setDeviceFilter] = useState(""); // Updated
   const [showMorePopupId, setShowMorePopupId] = useState(null);
   const [showBookmarkPopupId, setShowBookmarkPopupId] = useState(null);
 
@@ -21,7 +21,6 @@ const HorizontalTabs = ({ tabs, data, user, handleAuthModal }) => {
 
   const deviceFilters = ["Desktop", "Mobile"];
 
-  // Calculate the count for each category
   const categoryCounts = tabs.map(({ label }) => ({
     label,
     count: data.filter((item) => item.category === label).length,
@@ -34,8 +33,7 @@ const HorizontalTabs = ({ tabs, data, user, handleAuthModal }) => {
     .filter(
       (item) =>
         selectedFilters.length === 0 || selectedFilters.includes(item.category)
-    )
-    .filter((item) => deviceFilter === "" || item.deviceType === deviceFilter);
+    );
 
   const handleFilterClick = (option) => {
     if (selectedFilters.includes(option)) {
@@ -46,7 +44,6 @@ const HorizontalTabs = ({ tabs, data, user, handleAuthModal }) => {
   };
 
   useEffect(() => {
-    // Close filter options when a filter is selected
     setShowFilterOptions(false);
   }, [selectedFilters]);
 
@@ -86,10 +83,7 @@ const HorizontalTabs = ({ tabs, data, user, handleAuthModal }) => {
       ))}
       <div className="flex">
         <div className="mr-2 relative z-10">
-          <button
-            onClick={() => setShowFilterOptions(!showFilterOptions)}
-            className=""
-          >
+          <button onClick={() => setShowFilterOptions(!showFilterOptions)}>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2 min-w-fit p-4 py-2 bg-[#F1F0EE] rounded-full">
                 <Image
@@ -104,9 +98,8 @@ const HorizontalTabs = ({ tabs, data, user, handleAuthModal }) => {
             </div>
           </button>
 
-          {/* Filter Options */}
           {showFilterOptions && (
-            <div className="absolute top-8 w-[150px] text-[12px]  bg-white border border-gray-300 p-2 mt-4 rounded-md shadow-md">
+            <div className="absolute top-8 w-[150px] text-[12px] bg-white border border-gray-300 p-2 mt-4 rounded-md shadow-md">
               {filterOptions.map((option, index) => (
                 <div key={index} className="flex items-center mb-1">
                   <input
@@ -114,7 +107,7 @@ const HorizontalTabs = ({ tabs, data, user, handleAuthModal }) => {
                     id={option}
                     checked={selectedFilters.includes(option)}
                     onChange={() => handleFilterClick(option)}
-                    className="mr-2 "
+                    className="mr-2"
                   />
                   <label htmlFor={option}>{option}</label>
                 </div>
@@ -130,31 +123,29 @@ const HorizontalTabs = ({ tabs, data, user, handleAuthModal }) => {
             className="flex gap-2 custom-scrollbar w-[500pc]"
             style={{
               overflowX: "auto",
-              scrollbarWidth: "none", // Hide the scrollbar for Firefox
+              scrollbarWidth: "none",
             }}
           >
-            {/* Tabs */}
             {tabs.map((tab, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`px-4 py-1 border-b-2 mr-2 w-fit  ${
+                className={`px-4 py-1 border-b-2 mr-2 w-fit ${
                   activeTab === index
-                    ? "border-2 rounded-full bg-black font-medium text-white text-[12px] "
-                    : "border-2 text-[12px] rounded-full  text-black hover:text-gray-700  hover:border-gray-500"
+                    ? "border-2 rounded-full bg-black font-medium text-white text-[12px]"
+                    : "border-2 text-[12px] rounded-full text-black hover:text-gray-700 hover:border-gray-500"
                 }`}
               >
                 {categoryCounts.find((c) => c.label === tab.label)?.count >
                 0 ? (
                   <>
-                    <div className="flex gap-2 items-center ">
+                    <div className="flex gap-2 items-center">
                       <div>{tab.label}</div>
-
                       <div
                         className={`bg-[#F3F4F6] rounded-full p-1 text-[12px] ${
                           activeTab === index
                             ? "rounded-full bg-[#F3F4F6] text-black"
-                            : "rounded-full  text-black hover:text-gray-700  hover:border-gray-500"
+                            : "rounded-full text-black hover:text-gray-700 hover:border-gray-500"
                         }`}
                       >
                         {
@@ -173,13 +164,12 @@ const HorizontalTabs = ({ tabs, data, user, handleAuthModal }) => {
         </div>
       </div>
 
-      {/* Tab Content */}
       <div className="flex justify-center">
         <div className="mt-6 w-full sm:px-4">
           <div
-            className={`grid grid-cols-1 gap-4 ${
+            className={`grid grid-cols-1 gap-4  ${
               deviceFilter === "Mobile"
-                ? "sm:grid-cols-5 grid-cols-1 "
+                ? "sm:grid-cols-5 grid-cols-1"
                 : "sm:grid-cols-4"
             }`}
           >

@@ -86,9 +86,13 @@ const Card = ({
     <div className="bg-white rounded-md relative">
       <Link href={`/detail/${id}`} passHref className="bg-white rounded-md">
         <div
-          className={`hover:shadow-xl hover-bounce overflow-hidden bg-[#F0F0F0] p-2 rounded-[20px] ${
+          className={`hover:shadow-xl hover-bounce overflow-hidden bg-[#F0F0F0]   p-2 rounded-[20px] ${
             isHovered ? "scrollable" : isHoveredBack ? "scrollable-leave" : ""
-          } ${deviceFilter === "Mobile" ? "h-[500px]" : "h-[400px]"}`}
+          } ${
+            deviceFilter === "Mobile"
+              ? "h-[500px]  transform duration-500 ease-in-out"
+              : "h-[400px]  transform duration-500 ease-in-out"
+          }`}
           onMouseEnter={() => {
             setIsHovered(true);
             setIsHoveredBack(false);
