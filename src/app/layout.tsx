@@ -76,7 +76,9 @@ export default async function RootLayout({
             <Toaster />
             <main className="bg-white">
               <AlertHandler />
-              <Navbar user={user} />
+              <div className="fixed w-full opacity-[100%] z-50">
+                <Navbar user={user} />
+              </div>
               {children}
             </main>
           </DesignProvider>

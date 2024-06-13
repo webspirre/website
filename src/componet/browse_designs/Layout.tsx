@@ -57,7 +57,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
           height: "360px", // Set the desired height
           position: "relative", // Position relative to allow absolute positioning of child elements
         }}
-        className="flex flex-col items-center justify-center w-full "
+        className="flex flex-col pt-[100px] items-center justify-center w-full "
       >
         <Image
           height={453}
