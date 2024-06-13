@@ -12,6 +12,11 @@ const Card = ({
   logoUrl,
   description,
   deviceFilter,
+  uid,
+  desktopFpURL,
+  mobileFpURL,
+  shortDescription,
+  logoImageURL,
   showMorePopupId,
   setShowMorePopupId,
   showBookmarkPopupId,
@@ -84,7 +89,7 @@ const Card = ({
 
   return (
     <div className="bg-white rounded-md relative">
-      <Link href={`/detail/${id}`} passHref className="bg-white rounded-md">
+      <Link href={`/detail/${uid}`} passHref className="bg-white rounded-md">
         <div
           className={`hover:shadow-xl hover-bounce overflow-hidden bg-[#F0F0F0]   p-2 rounded-[20px] ${
             isHovered ? "scrollable" : isHoveredBack ? "scrollable-leave" : ""
@@ -103,7 +108,9 @@ const Card = ({
           }}
         >
           <img
-            src={deviceFilter === "Mobile" ? mobileImageUrl : deskstopImageUrl}
+            // src={deviceFilter === "Mobile" ? mobileImageUrl : deskstopImageUrl}
+
+            src={deviceFilter === "Mobile" ? mobileFpURL : desktopFpURL}
             alt={name}
             className="mb-2 rounded-[20px]"
           />
@@ -111,11 +118,15 @@ const Card = ({
       </Link>
       <div className="flex pt-6 pb-4 justify-between items-start">
         <div className="flex items-start gap-2">
-          <Link href={`/detail/${id}`} passHref className="bg-white rounded-md">
-            {logoUrl && (
+          <Link
+            href={`/detail/${uid}`}
+            passHref
+            className="bg-white rounded-md"
+          >
+            {logoImageURL && (
               <div>
                 <img
-                  src={logoUrl}
+                  src={logoImageURL}
                   alt={`${name} Logo`}
                   className="sm:h-[30px] sm:w-[25px]"
                 />
@@ -125,8 +136,8 @@ const Card = ({
 
           <div className="pr-[40px] w-[200px]">
             <p className="text-[12px] mb- font-bold">{name}</p>
-            {description && (
-              <p className="text-gray-700 text-[11px] ">{description}</p>
+            {shortDescription && (
+              <p className="text-gray-700 text-[11px] ">{shortDescription}</p>
             )}
           </div>
         </div>

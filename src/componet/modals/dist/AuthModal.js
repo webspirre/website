@@ -16,7 +16,7 @@ var AuthModal = function (_a) {
                 react_2["default"].createElement("div", { className: "fixed inset-0 overflow-y-auto" },
                     react_2["default"].createElement("div", { className: "flex min-h-full items-end sm:items-center justify-center p-0 sm:p-4 text-center" },
                         react_2["default"].createElement(react_1.TransitionChild, { as: react_2.Fragment, enter: "ease-out duration-300", enterFrom: "opacity-0 scale-95", enterTo: "opacity-100 scale-100", leave: "ease-in duration-200", leaveFrom: "opacity-100 scale-100", leaveTo: "opacity-0 scale-95" },
-                            react_2["default"].createElement(react_1.DialogPanel, { className: "w-full max-w-full md:max-w-xl transform overflow-hidden rounded-none sm:rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all" },
+                            react_2["default"].createElement(react_1.DialogPanel, { className: "w-full max-w-full md:max-w-xl transform overflow-hidden rounded-none sm:rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all z-50" },
                                 react_2["default"].createElement("div", { className: "flex justify-between items-center p-3 border-b mb-5 w-full" },
                                     react_2["default"].createElement(react_1.DialogTitle, { as: "h3", className: "text-xs font-medium leading-6 text-gray-900" }, "Sign up/Login"),
                                     react_2["default"].createElement(image_1["default"], { height: 10, width: 10, onClick: toogleModal, alt: "img", src: "https://res.cloudinary.com/dwqantex4/image/upload/v1718104910/x_as7ir4.png", className: "cursor-pointer" })),

@@ -273,7 +273,7 @@ export interface Database {
       website: {
         Row: {
           name: string | null;
-          webUrl: string | null;
+          webURL: string | null;
           pageType: string | null;
           shortDescription: string | null;
           longDescription: string | null;
@@ -285,10 +285,11 @@ export interface Database {
           categories: string[] | null;
           date: string | null;
           views: string | null;
+          uid: string | null;
         };
         Insert: {
           name?: string | null;
-          webUrl?: string | null;
+          webURL?: string | null;
           pageType?: string | null;
           shortDescription?: string | null;
           longDescription?: string | null;
@@ -300,10 +301,11 @@ export interface Database {
           categories?: string[] | null;
           date?: string | null;
           view?: string | null;
+          uid?: string | null;
         };
         Update: {
           name?: string | null;
-          webUrl?: string | null;
+          webURL?: string | null;
           pageType?: string | null;
           shortDescription?: string | null;
           longDescription?: string | null;
@@ -315,6 +317,7 @@ export interface Database {
           categories?: string[] | null;
           date?: string | null;
           view?: string | null;
+          uid?: string | null;
         };
         Relationships: [];
       };

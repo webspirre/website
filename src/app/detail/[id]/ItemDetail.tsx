@@ -4,12 +4,18 @@ import Link from "next/link";
 import data from "../../../componet/browse_designs/data";
 import cx from "classnames";
 import BottomBar from "./BottomBar";
+import { Database } from "@/types/types_db";
+import { fetchDesigns, fetchDesignByID } from "@/utils/designs/server";
 
 interface ItemDetailProps {
-  id: number;
+  id: string;
   onNext: () => void;
   onPrevious: () => void;
+  user: any;
+  toogleModal: () => void;
 }
+
+type Designs = Database["public"]["Tables"]["website"]["Row"];
 
 const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
   websiteData,
@@ -31,7 +37,7 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
           <Image
             height={20}
             width={44}
-            src={websiteData.logoUrl}
+            src={websiteData.logoImageURL}
             alt="rice"
             className="p-2 rounded-lg border border-[#F1F0EE]"
           />
@@ -51,17 +57,19 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
                 <tr className="text-[12px] text-[#6E6E6E]">
                   <td className="p-2 ">Category</td>
                   {/* website category */}
-                  <td className="p-2">{websiteData.category}</td>
+                  <td className="p-2">{websiteData.categories[0]}</td>
                 </tr>
                 <tr className="text-[12px] text-[#6E6E6E]">
                   <td className="p-2">Views</td>
                   {/* number of views */}
-                  <td className="p-2">{websiteData.views}</td>
+                  <td className="p-2">
+                    {websiteData.views ? websiteData.views : "0"}
+                  </td>
                 </tr>
                 <tr className="text-[12px] text-[#6E6E6E]">
                   <td className="p-2">Last updated</td>
                   {/* last updated */}
-                  <td className="p-2">{websiteData.lastUpdated}</td>
+                  <td className="p-2">{websiteData.date}</td>
                 </tr>
               </tbody>
             ) : (
@@ -102,10 +110,31 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
   );
 };
 
-function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
+function ItemDetail({
+  id,
+  onNext,
+  onPrevious,
+  user,
+  toogleModal,
+}: ItemDetailProps) {
   const [isMobileView, setIsMobileView] = useState(false);
   const [copied, setCopied] = useState(false);
-  const websiteData = data[id];
+
+  const [websiteData, setDesignData] = useState<Designs>();
+
+  const displayDesign = async () => {
+    const design = await fetchDesignByID(id);
+
+    console.log("Data Response", design);
+
+    if (design) {
+      setDesignData(design);
+    }
+  };
+
+  useEffect(() => {
+    displayDesign();
+  }, [id]);
 
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -130,11 +159,52 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
     setShowMorePopup(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        setShowMorePopup(false);
+        setShowBookmarkPopup(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  if (!websiteData) {
+    return <div>Loading...</div>;
+  }
+
+  const webImgUrl = isMobileView
+    ? websiteData?.mobileFpURL
+    : websiteData?.desktopFpURL;
+  if (!webImgUrl) {
+    throw new Error("URL is not defined");
+  }
+  let webImgAlt = websiteData?.name;
+  if (!webImgAlt) {
+    throw new Error("URL is not defined");
+  }
+  let webUrl = websiteData?.webURL;
+  if (!webUrl) {
+    throw new Error("webURL is not defined");
+  }
   const handleCopyToClipboard = async () => {
+    const url = isMobileView
+      ? websiteData?.mobileFpURL
+      : websiteData?.desktopFpURL;
+
+    if (!url) {
+      throw new Error("URL is not defined");
+    }
     try {
-      const response = await fetch(
-        isMobileView ? websiteData.mobileImageUrl : websiteData.deskstopImageUrl
-      );
+      const response = await fetch(url);
       const blob = await response.blob();
       const item = new ClipboardItem({ [blob.type]: blob });
       await navigator.clipboard.write([item]);
@@ -148,14 +218,18 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
   const handleDownloadImage = async () => {
     try {
       const imageUrl = isMobileView
-        ? websiteData.mobileImageUrl
-        : websiteData.deskstopImageUrl;
-      const response = await fetch(imageUrl);
+        ? websiteData?.mobileFpURL
+        : websiteData?.desktopFpURL;
+      const urlL = imageUrl;
+      if (!urlL) {
+        throw new Error("URL is not defined");
+      }
+      const response = await fetch(urlL);
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = websiteData.name;
+      link.download = websiteData?.name ?? "default-filename";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -164,21 +238,6 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
       console.error("Failed to download image: ", err);
     }
   };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-        setShowMorePopup(false);
-        setShowBookmarkPopup(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <div className="  max-w-[1350px] ">
@@ -241,12 +300,8 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
                 <Image
                   height={isMobileView ? 50 : 20}
                   width={isMobileView ? 300 : 700}
-                  src={
-                    isMobileView
-                      ? data[id].mobileImageUrl
-                      : data[id].deskstopImageUrl
-                  }
-                  alt={data[id].name}
+                  src={webImgUrl}
+                  alt={webImgAlt}
                   className="shadow-lg transition- transform duration-500 ease-in-out border-2 rounded-md"
                 />
               </div>
@@ -258,7 +313,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
               <div className="flex w-full relative  gap-4">
                 <div className=" relative" ref={modalRef}>
                   {showMorePopup && (
-                    <div className="flex z-50 w-[400px] absolute left-0 top-12 ">
+                    <div className="flex z-20 w-[400px] absolute left-0 top-12 ">
                       <div className=" flex items-center justify-center">
                         <div
                           className=" z-[999] sm:z-10 text-[14px] font-medium border bg-white rounded-md shadow-md p-4"
@@ -266,7 +321,8 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
                         >
                           <div
                             className="flex gap-2 text-[12px] mb-4 cursor-pointer hover:scale-105 transition-transform duration-300"
-                            onClick={handleCopyToClipboard}
+                            // onClick={handleCopyToClipboard}
+                            onClick={user ? handleCopyToClipboard : toogleModal}
                           >
                             <Image
                               height={15}
@@ -283,7 +339,8 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
                           </div>
                           <div
                             className="flex gap-2 text-[12px] cursor-pointer hover:scale-105 transition-transform duration-300"
-                            onClick={handleDownloadImage}
+                            // onClick={handleDownloadImage}
+                            onClick={user ? handleDownloadImage : toogleModal}
                           >
                             <Image
                               height={15}
@@ -313,7 +370,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
                   </div>
                 </div>
                 {/* Website Link */}
-                <Link href="/">
+                <a href={`https://${webUrl}`} target="_blank" rel="noopener noreferrer">
                   <div className="py-2 px-4 gap-2 bg-[black] text-white flex items-center rounded-lg hover:scale-105 transition-transform duration-300">
                     <p className="font-bold text-[12px]">Visit Site</p>
                     <Image
@@ -324,7 +381,7 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
                       className=""
                     />
                   </div>
-                </Link>
+                </a>
               </div>
 
               {/* <BottomBar
@@ -344,4 +401,3 @@ function ItemDetail({ id, onNext, onPrevious }: ItemDetailProps) {
 }
 
 export default ItemDetail;
-

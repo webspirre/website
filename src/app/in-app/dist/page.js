@@ -7,6 +7,6 @@ var react_1 = require("react");
 function page() {
     return (react_1["default"].createElement("div", null,
         react_1["default"].createElement("div", { className: "mt-20" },
-            react_1["default"].createElement(Browse_1["default"], { user: null, handleAuthModal: function () { } }))));
+            react_1["default"].createElement(Browse_1["default"], { user: null, handleAuthModal: function () { }, designs: undefined }))));
 }
 exports["default"] = page;

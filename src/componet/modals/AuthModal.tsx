@@ -49,7 +49,7 @@ const AuthModal: React.FC<DeleteProps> = ({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <DialogPanel className="w-full max-w-full md:max-w-xl transform overflow-hidden rounded-none sm:rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <DialogPanel className="w-full max-w-full md:max-w-xl transform overflow-hidden rounded-none sm:rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all z-50">
                   <div className="flex justify-between items-center p-3 border-b mb-5 w-full">
                     <DialogTitle
                       as="h3"

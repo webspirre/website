@@ -18,14 +18,14 @@ const Browse = ({ user, handleAuthModal, designs }) => {
   const { design } = useDesign();
 
   const tabs = [
-    { label: "All" },
-    { label: "Software & SaaS" },
-    { label: "AI" },
-    { label: "Fintech" },
-    { label: "Agency & Corporate" },
-    { label: "E-Commerce" },
-    { label: "Crypto & Web3" },
-    { label: "Travel & Hospitality" },
+    { value: "ai", label: "AI" },
+    { value: "fintech", label: "Fintech" },
+    { value: "marketplace", label: "Marketplace" },
+    { value: "e-commerce", label: "E-commerce" },
+    { value: "crypto-web3", label: "Crypto & Web 3" },
+    { value: "software-saas", label: "Software & SaaS" },
+    { value: "travel-hospitality", label: "Travel & Hospitality" },
+    { value: "agency-corporate", label: "Agency & Corporate" },
   ];
 
   return (

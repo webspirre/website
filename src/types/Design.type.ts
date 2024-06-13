@@ -12,4 +12,5 @@ export interface DesignT {
   categories: string[];
   date: string;
   views: string;
+  uid: string;
 }

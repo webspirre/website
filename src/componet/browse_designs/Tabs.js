@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import Image from "next/image";
 
-const HorizontalTabs = ({ tabs, data, user, handleAuthModal, designs }) => {
+const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [showFilterOptions, setShowFilterOptions] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -21,18 +21,18 @@ const HorizontalTabs = ({ tabs, data, user, handleAuthModal, designs }) => {
 
   const deviceFilters = ["Desktop", "Mobile"];
 
-  const categoryCounts = tabs.map(({ label }) => ({
-    label,
-    count: data.filter((item) => item.category === label).length,
+  const categoryCounts = tabs.map(({ value }) => ({
+    value,
+    count: data.filter((item) => item.categories[0] === value).length,
   }));
 
   const filteredData = data
     .filter(
-      (item) => activeTab === 0 || item.category === tabs[activeTab].label
+      (item) => activeTab === 0 || item.categories[0] === tabs[activeTab].value
     )
     .filter(
       (item) =>
-        selectedFilters.length === 0 || selectedFilters.includes(item.category)
+        selectedFilters.length === 0 || selectedFilters.includes(item.categories[0])
     );
 
   const handleFilterClick = (option) => {
@@ -168,6 +168,8 @@ const HorizontalTabs = ({ tabs, data, user, handleAuthModal, designs }) => {
 
       <div className="flex justify-center">
         <div className="mt-6 w-full sm:px-4">
+          {!filteredData && <p>Loading Designs...</p>}
+          {filteredData.length === 0 && <p>Loading Designs...</p>}
           <div
             className={`grid grid-cols-1 gap-4  ${
               deviceFilter === "Mobile"

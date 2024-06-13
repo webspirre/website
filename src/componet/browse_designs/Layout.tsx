@@ -26,12 +26,9 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
   const [designs, setDesigns] = useState<Designs[]>([]);
   const displayDesigns = async () => {
     const designs = await fetchDesigns();
-
     console.log("Data Response", designs);
-
     if (designs) {
       setDesigns(designs);
-      // setDesign(designs);
     }
   };
 
