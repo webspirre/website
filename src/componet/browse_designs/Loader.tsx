@@ -21,7 +21,7 @@ function Loader() {
             <p>Mobile</p>
           </div>
 
-          <div className="flex gap-4 items-center h-[44px] w-full overflow-auto mt-[16px]">
+          <div className="flex gap-4 items-center h-[44px] w-full overflow-auto mt-[16px] animate-pulse">
             <div className="bg-[#F0F0F0] rounded-[32px] h-full w-[95px]"></div>
             <div className="bg-[#F0F0F0] rounded-[32px] h-full w-[48px]"></div>
             <div className="bg-[#F0F0F0] rounded-[32px] h-full w-[164px]"></div>
@@ -35,7 +35,7 @@ function Loader() {
           </div>
 
           <div className="mt-[34px]">
-            <div className="grid sm:grid-cols-4 grid-cols-1 gap-4">
+            <div className="grid sm:grid-cols-4 grid-cols-1 gap-4 animate-pulse">
               {cards.map((_, index) => (
                 <div key={index} className="w-full">
                   {/* Card */}
