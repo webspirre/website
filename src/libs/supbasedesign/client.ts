@@ -6,5 +6,5 @@ export const createClient = () =>
   createBrowserClient<Database>(
     // Pass Supabase URL and anonymous key from the environment to the client
     process.env.NEXT_PUBLIC_SUPABASE_URL2!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY2!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY2!
   );
