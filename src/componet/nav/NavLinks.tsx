@@ -44,7 +44,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ user }) => {
           <div className=" sm:flex">
             <Link
               href="/auth/login"
-              className="hover: bg-black text-[white] font-bold px-4 py-1 rounded-lg text-[12px] "
+              className=" text-[black]  font-medium"
             >
               Log in
             </Link>

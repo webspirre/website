@@ -18,6 +18,7 @@ const Browse = ({ user, handleAuthModal, designs }) => {
   const { design } = useDesign();
 
   const tabs = [
+    { value: "all", label: "All" },
     { value: "ai", label: "AI" },
     { value: "fintech", label: "Fintech" },
     { value: "marketplace", label: "Marketplace" },
