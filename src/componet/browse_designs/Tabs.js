@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import Image from "next/image";
+import Loader from "./Loader";
 
 const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -168,8 +169,8 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
 
       <div className="flex justify-center">
         <div className="mt-6 w-full sm:px-4">
-          {!filteredData && <p>Loading Designs...</p>}
-          {filteredData.length === 0 && <p>Loading Designs...</p>}
+          {!filteredData && <div> <Loader/> Loading Designs...</div>}
+          {filteredData.length === 0 && <div>Loading Designs...</div>}
           <div
             className={`grid grid-cols-1 gap-4  ${
               deviceFilter === "Mobile"

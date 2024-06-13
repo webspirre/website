@@ -121,14 +121,14 @@ const Card = ({
           <Link
             href={`/detail/${uid}`}
             passHref
-            className="bg-white rounded-md"
+            className="bg-white rounded-md border p-1 h-[30px] w-[30px] flex items-center"
           >
             {logoImageURL && (
               <div>
                 <img
                   src={logoImageURL}
                   alt={`${name} Logo`}
-                  className="sm:h-[30px] sm:w-[25px]"
+                  className="sm:h-[25px] sm:w-[25px] "
                 />
               </div>
             )}

@@ -10,8 +10,8 @@ import AuthModal from "../modals/AuthModal";
 import useDesign from "@/hooks/useDesign";
 import { fetchDesigns } from "@/utils/designs/server";
 import { Database } from "@/types/types_db";
+import Loader from "./Loader";
 
-// import "flag-icon-css/css/flag-icon.min.css";
 interface HomeLayoutProps {
   user: User | null;
 }
@@ -24,12 +24,16 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
   const handleAuthModal = () => setAuthModal((prev) => !prev);
   const { setDesign, design } = useDesign();
   const [designs, setDesigns] = useState<Designs[]>([]);
+  const [loading, setLoading] = useState<boolean>(true); // Add loading state
+
   const displayDesigns = async () => {
+    setLoading(true); // Set loading to true when starting to fetch designs
     const designs = await fetchDesigns();
     console.log("Data Response", designs);
     if (designs) {
       setDesigns(designs);
     }
+    setLoading(false); // Set loading to false when designs are fetched
   };
 
   useEffect(() => {
@@ -75,7 +79,6 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
             Get started now
           </Link>
           <div
-            // href="/"
             onClick={handleToggle}
             className="bg-white hover-black overflow-hidden hover:scale-100 transition-transform duration-300 flex items-center gap-1 py-4 px-4 sm:py-2 sm:px-4 text-black rounded-[20px] border border-[#BBBBBB] font-medium text-[12px] cursor-pointer"
           >
@@ -91,11 +94,15 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
         </div>
       </div>
       <div className="">
-        <Browse
-          user={user}
-          handleAuthModal={handleAuthModal}
-          designs={designs}
-        />
+        {loading ? (
+          <Loader />
+        ) : (
+          <Browse
+            user={user}
+            handleAuthModal={handleAuthModal}
+            designs={designs}
+          />
+        )}
       </div>
     </main>
   );
