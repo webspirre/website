@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "clean": "rimraf dist .next",
+    "build": "npm run clean && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
@@ -53,6 +54,7 @@
     "eslint-config-prettier": "^9.1.0",
     "jsdom": "^24.1.0",
     "postcss": "^8",
+    "rimraf": "^5.0.7",
     "tailwindcss": "^3.3.0",
     "typescript": "^5",
     "vitest": "^1.6.0"

@@ -67,15 +67,18 @@ export default async function RootLayout({
   console.log("USER", user);
   return (
     <html lang="en">
+      <head>
+        <script src="//code.jivosite.com/widget/MO06Xt0i4A" async></script>
+      </head>
       <body>
         <AuthProvider>
           <DesignProvider>
-          <Toaster />
-          <main className="bg-white">
-            <AlertHandler />
-            <Navbar user={user} />
-            {children}
-          </main>
+            <Toaster />
+            <main className="bg-white">
+              <AlertHandler />
+              <Navbar user={user} />
+              {children}
+            </main>
           </DesignProvider>
         </AuthProvider>
       </body>
