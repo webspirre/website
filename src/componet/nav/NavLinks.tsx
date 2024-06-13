@@ -2,12 +2,21 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { handleRequest } from "@/libs/auth-helpers/client";
+import { getRedirectMethod } from "@/libs/auth-helpers/settings";
+
+import { usePathname, useRouter } from "next/navigation";
+
 
 interface NavLinksProps {
   status: string;
+  user?: any;
 }
 
-const NavLinks: React.FC<NavLinksProps> = ({ status }) => {
+const NavLinks: React.FC<NavLinksProps> = ({ user }) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const redirectMethod = getRedirectMethod();
   return (
     <ul className="flex text-[14px] pt-2 sm:space-x-8 items-center">
       <li className="hidden">
@@ -30,23 +39,21 @@ const NavLinks: React.FC<NavLinksProps> = ({ status }) => {
           Upgrade now{" "}
         </Link>
       </li>
-      <li className="hidden">
-        {status === "authenticated" ? (
+      <li className="hidde">
+        {!user ? (
           <div className=" sm:flex">
             <Link
               href="/auth/login"
-              className="hover: text-[black]  font-medium"
+              className="hover: bg-black text-[white] font-bold px-4 py-1 rounded-lg text-[12px] "
             >
-              Log out
+              Log in
             </Link>
           </div>
         ) : (
           <Link
             href="/auth/login"
             className=" sm:flex text-[black]  font-medium"
-          >
-            Log in
-          </Link>
+          ></Link>
         )}
       </li>
 

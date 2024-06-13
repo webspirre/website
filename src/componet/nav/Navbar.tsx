@@ -116,7 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             </div>
           )}
         </div>
-        <div className="flex gap-6">
+        <div className="flex gap-[40px]">
           <NavLinks status={"authenticated"} />
 
           <MoreNavLinks

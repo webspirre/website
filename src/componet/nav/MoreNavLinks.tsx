@@ -164,7 +164,7 @@ const MoreNavLinks: React.FC<MoreNavLinksProps> = ({
             {!user ? (
               <Link href="/auth/login" className="block text-[black] hover:">
                 <div className="flex gap-2 border-t-2  py-2 px-4 mb-2">
-                  <p className="  text-red-600 font-bold">Log In</p>
+                  {/* <p className="  text-red-600 font-bold">Log In</p> */}
                 </div>
               </Link>
             ) : (
