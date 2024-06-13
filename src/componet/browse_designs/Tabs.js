@@ -33,7 +33,8 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
     )
     .filter(
       (item) =>
-        selectedFilters.length === 0 || selectedFilters.includes(item.categories[0])
+        selectedFilters.length === 0 ||
+        selectedFilters.includes(item.categories[0])
     );
 
   const handleFilterClick = (option) => {
@@ -169,8 +170,12 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
 
       <div className="flex justify-center">
         <div className="mt-6 w-full sm:px-4">
-          {!filteredData && <div> <Loader/> Loading Designs...</div>}
-          {filteredData.length === 0 && <div>Loading Designs...</div>}
+          {!filteredData && (
+            <div>
+              <Loader />
+            </div>
+          )}
+          {filteredData.length === 0 && <div>No Designs Found</div>}
           <div
             className={`grid grid-cols-1 gap-4  ${
               deviceFilter === "Mobile"
