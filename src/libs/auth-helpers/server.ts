@@ -236,7 +236,7 @@ export async function signInWithPassword(formData: FormData) {
     );
   } else if (data.user) {
     cookieStore.set("preferredSignInView", "newpassword", { path: "/" });
-    redirectPath = getStatusRedirect("/", "Success!", "You are now signed in.");
+    redirectPath = getStatusRedirect("/in-app", "Success!", "You are now signed in.");
   } else {
     redirectPath = getErrorRedirect(
       "/auth/newpassword",

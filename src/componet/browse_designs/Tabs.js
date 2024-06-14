@@ -66,6 +66,7 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+  const reloadPage = () => windows.location.reload();
 
   // console.log("DESIGNS", designs);
 
@@ -175,7 +176,12 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
               <Loader />
             </div>
           )}
-          {filteredData.length === 0 && <div>No Designs Found</div>}
+          {filteredData.length === 0 && (
+            <div>
+              Failed to fetch blogs. Please check your network connection.{" "}
+              <span onClick={reloadPage}>reload</span>{" "}
+            </div>
+          )}
           <div
             className={`grid grid-cols-1 gap-4  ${
               deviceFilter === "Mobile"

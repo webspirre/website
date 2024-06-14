@@ -313,7 +313,7 @@ function ItemDetail({
               <div className="flex w-full relative  gap-4">
                 <div className=" relative" ref={modalRef}>
                   {showMorePopup && (
-                    <div className="flex z-20 w-[400px] absolute left-0 top-12 ">
+                    <div className="flex z-10 w-[400px] absolute left-0 top-12 ">
                       <div className=" flex items-center justify-center">
                         <div
                           className=" z-[999] sm:z-10 text-[14px] font-medium border bg-white rounded-md shadow-md p-4"
@@ -370,7 +370,11 @@ function ItemDetail({
                   </div>
                 </div>
                 {/* Website Link */}
-                <a href={`https://${webUrl}`} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={`https://${webUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <div className="py-2 px-4 gap-2 bg-[black] text-white flex items-center rounded-lg hover:scale-105 transition-transform duration-300">
                     <p className="font-bold text-[12px]">Visit Site</p>
                     <Image

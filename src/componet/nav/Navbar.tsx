@@ -8,6 +8,7 @@ import SearchInput from "./SearchInput";
 import SearchResults from "./SearchResults";
 import NavLinks from "./NavLinks";
 import MoreNavLinks from "./MoreNavLinks";
+import { fetchDesigns } from "@/utils/designs/server";
 
 export interface Project {
   id: number;
@@ -21,6 +22,7 @@ export interface Project {
 interface NavbarProps {
   user?: any;
 }
+type Designs = Database["public"]["Tables"]["website"]["Row"];
 
 const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -30,11 +32,30 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchResultsRef = useRef<HTMLDivElement>(null);
 
+  //// SUPABASE
+  const [designs, setDesigns] = useState<Designs[]>([]);
+  const [loading, setLoading] = useState<boolean>(true); // Add loading state
+
+  const displayDesigns = async () => {
+    setLoading(true); // Set loading to true when starting to fetch designs
+    const designs = await fetchDesigns();
+    console.log("Data Response", designs);
+    if (designs) {
+      setDesigns(designs);
+    }
+    setLoading(false); // Set loading to false when designs are fetched
+  };
+
+  useEffect(() => {
+    displayDesigns();
+  }, []);
+// SUPABASE
+
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
     setSearchQuery(query);
 
-    const results = data.filter(
+    const results = designs.filter(
       (item) =>
         item.name.toLowerCase().includes(query.toLowerCase()) ||
         item.category.toLowerCase().includes(query.toLowerCase()) ||
@@ -83,7 +104,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   return (
     <nav className="bg-[#F8F7F4] relative px-4 pb-3 border-b  flex justify-center border-[#BBBBBB] items-center">
       <nav className=" w-full  max-w-[1350px] mx-2 flex justify-between items-center">
-        <Link href="/">
+        <Link href={user ? "/in-app" : "/"}>
           <Image
             height={60}
             width={120}

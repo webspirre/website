@@ -8,7 +8,7 @@ const Policy = () => {
     <>
       <div>
         {/* <Navbar /> */}
-        <main className="mt-10 w-full mx-auto">
+        <main className="mt-32 sm:mt-40 w-full mx-auto">
           <Header
             heading={
               <Image
