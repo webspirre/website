@@ -3,8 +3,8 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div className="bg-black text-white font-medium text-[14px] mt-[50px]">
-      <div className="px-4 sm:px-[100px] py-[50px]">
+    <div className="bg-black text-white font-medium flex justify-center w-full text-[14px] mt-[50px]">
+      <div className="px-4 sm:px-[50px] max-w-[1350px] w-full py-[50px]">
         <div className="sm:grid grid-cols-1 sm:grid-cols-6 mb-[50px]">
           <div className="tex col-span-2">
             <Link href="/" className="py-4">
