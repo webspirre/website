@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import Image from "next/image";
 import Loader from "./Loader";
+import LoadingDesigns from "./LoadingDesign";
+
 
 const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
   const [activeTab, setActiveTab] = useState(0);

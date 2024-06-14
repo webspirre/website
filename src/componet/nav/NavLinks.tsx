@@ -39,7 +39,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ user }) => {
           Upgrade now{" "}
         </Link>
       </li>
-      <li className="hidde">
+      <li className="hidden sm:block">
         {!user ? (
           <div className=" sm:flex">
             <Link
