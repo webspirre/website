@@ -68,6 +68,7 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+  const reloadPage = () => windows.location.reload();
 
   // console.log("DESIGNS", designs);
 
@@ -177,9 +178,12 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
               <Loader />
             </div>
           )}
-          {filteredData.length === 0 && <div>No Designs Found
-          <LoadingDesigns />
-          </div>}
+          {filteredData.length === 0 && (
+            <div className="text-sm text-slate-800">
+              Failed to fetch designs. Please check your network connection.{" "}
+              <span className={"cursor-pointer italic hover:opacity-60 transition duration-500 delay-100"} onClick={reloadPage}>reload</span>{" "}
+            </div>
+          )}
           <div
             className={`grid grid-cols-1 gap-4  ${
               deviceFilter === "Mobile"

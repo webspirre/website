@@ -3,11 +3,13 @@ import Image from "next/image";
 import { Project } from "./Navbar"; // Import the Project type from Navbar.tsx
 import TabButtons from "./TabButtons";
 import Link from "next/link";
+import { DesignT } from "@/types/Design.type";
+import { Database } from "@/types/types_db";
 
+type Designs = Database["public"]["Tables"]["website"]["Row"];
 interface SearchResultsProps {
-  searchResults: Project[];
+  searchResults: Designs[];
 }
-
 const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [showFilterOptions, setShowFilterOptions] = useState(false);
@@ -15,15 +17,15 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
   const searchResultRef = useRef<HTMLDivElement>(null);
 
   const tabs = [
-    { label: "All" },
-    { label: "Software & SaaS" },
-    { label: "AI" },
-    { label: "Fintech" },
-    { label: "Agency & Corporate" },
-    { label: "E-Commerce" },
-    { label: "Crypto & Web3" },
-    { label: "Travel & Hospitality" },
-    // Add other tabs as needed
+    { value: "all", label: "All" },
+    { value: "ai", label: "AI" },
+    { value: "fintech", label: "Fintech" },
+    { value: "marketplace", label: "Marketplace" },
+    { value: "e-commerce", label: "E-commerce" },
+    { value: "crypto-web3", label: "Crypto & Web 3" },
+    { value: "software-saas", label: "Software & SaaS" },
+    { value: "travel-hospitality", label: "Travel & Hospitality" },
+    { value: "agency-corporate", label: "Agency & Corporate" },
   ];
 
   const filterOptions = [
@@ -48,16 +50,17 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
 
     // Filter by active tab
     if (activeTab !== 0) {
-      const activeCategory = tabs[activeTab].label;
+      const activeCategory = tabs[activeTab].value;
       filteredResults = filteredResults.filter(
-        (result) => result.category === activeCategory
+        (result) =>
+          (result.categories && result.categories[0]) === activeCategory
       );
     }
 
     // Filter by selected filters
     if (selectedFilters.length > 0) {
       filteredResults = filteredResults.filter((result) =>
-        selectedFilters.includes(result.pageType)
+        selectedFilters.includes(result?.pageType as string)
       );
     }
 
@@ -101,24 +104,24 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
       {/* Display search results */}
       {filterResults().map((result) => (
         <Link
-          onClick={() => (window.location.href = `/detail/${result.id}`)}
-          href={`/detail/${result.id}`}
-          key={result.id}
+          onClick={() => (window.location.href = `/detail/${result.uid}`)}
+          href={`/detail/${result.uid}`}
+          key={result.uid}
           className="mb-8 flex items-center"
         >
           <div className="border-2 border-gray rounded-[10px] p-2">
             <Image
               height={14}
               width={14}
-              src={result.logoUrl}
-              alt={result.name}
+              src={result?.logoImageURL as string}
+              alt={result?.name as string}
               className="rounded-lg"
             />
           </div>
           <div className="ml-3 text-[12px] sm:text-[14px]">
             <p className="text-black mb-1 font-bold">{result.name}</p>
-            {result.description && (
-              <p className="text-gray-700">{result.description}</p>
+            {result.shortDescription && (
+              <p className="text-gray-700">{result.shortDescription}</p>
             )}
           </div>
         </Link>

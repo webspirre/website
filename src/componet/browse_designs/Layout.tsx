@@ -22,7 +22,6 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
   const handleToggle = () => setToogleModal((prev) => !prev);
   const [authModal, setAuthModal] = useState(false);
   const handleAuthModal = () => setAuthModal((prev) => !prev);
-  const { setDesign, design } = useDesign();
   const [designs, setDesigns] = useState<Designs[]>([]);
   const [loading, setLoading] = useState<boolean>(true); // Add loading state
 
@@ -73,7 +72,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
         </h1>
         <div className="flex items-center justify-center gap-2 px-4 pt-6 sm:text-10px">
           <Link
-            href="/"
+            href="/auth/register"
             className="bg-black py-4 px-4 overflow-hidden hover:scale-105 transition-transform duration-300  sm:py-2 sm:px-8 text-white rounded-[20px]  font-medium text-[12px]"
           >
             Get started now

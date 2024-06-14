@@ -9,6 +9,9 @@ import SearchResults from "./SearchResults";
 import NavLinks from "./NavLinks";
 import MoreNavLinks from "./MoreNavLinks";
 import LoadingIndicator from "./LoadingIndicator";
+import { fetchDesigns } from "@/utils/designs/server";
+import { Database } from "@/types/types_db";
+import { DesignT } from "@/types/Design.type";
 
 export interface Project {
   id: number;
@@ -22,10 +25,11 @@ export interface Project {
 interface NavbarProps {
   user?: any;
 }
+type Designs = Database["public"]["Tables"]["website"]["Row"];
 
 const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [searchResults, setSearchResults] = useState<Project[]>([]);
+  const [searchResults, setSearchResults] = useState<Designs[]>([]);
   const [showSearchResults, setShowSearchResults] = useState<boolean>(false);
   const [showMoreNavLinks, setShowMoreNavLinks] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false); // New state for loading
@@ -33,16 +37,35 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const searchResultsRef = useRef<HTMLDivElement>(null);
   const moreNavLinksRef = useRef<HTMLDivElement>(null);
 
+  //// SUPABASE
+  const [designs, setDesigns] = useState<Designs[]>([]);
+  const [loading, setLoading] = useState<boolean>(true); // Add loading state
+
+  const displayDesigns = async () => {
+    setLoading(true); // Set loading to true when starting to fetch designs
+    const designs = await fetchDesigns();
+    console.log("Data Response", designs);
+    if (designs) {
+      setDesigns(designs);
+    }
+    setLoading(false); // Set loading to false when designs are fetched
+  };
+
+  useEffect(() => {
+    displayDesigns();
+  }, []);
+  // SUPABASE
+
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
     setSearchQuery(query);
 
-    const results = data.filter(
+    const results = designs.filter(
       (item) =>
-        item.name.toLowerCase().includes(query.toLowerCase()) ||
-        item.category.toLowerCase().includes(query.toLowerCase()) ||
-        (item.description &&
-          item.description.toLowerCase().includes(query.toLowerCase()))
+       (item.name && item.name.toLowerCase().includes(query.toLowerCase()) )||
+      ( item?.categories && item.categories[0].toLowerCase().includes(query.toLowerCase())) ||
+        (item.shortDescription &&
+          item.shortDescription.toLowerCase().includes(query.toLowerCase()))
     );
 
     setSearchResults(results);
