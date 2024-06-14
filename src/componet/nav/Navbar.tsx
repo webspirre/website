@@ -8,6 +8,7 @@ import SearchInput from "./SearchInput";
 import SearchResults from "./SearchResults";
 import NavLinks from "./NavLinks";
 import MoreNavLinks from "./MoreNavLinks";
+import LoadingIndicator from "./LoadingIndicator";
 
 export interface Project {
   id: number;
@@ -27,6 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const [searchResults, setSearchResults] = useState<Project[]>([]);
   const [showSearchResults, setShowSearchResults] = useState<boolean>(false);
   const [showMoreNavLinks, setShowMoreNavLinks] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false); // New state for loading
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchResultsRef = useRef<HTMLDivElement>(null);
   const moreNavLinksRef = useRef<HTMLDivElement>(null);
@@ -88,53 +90,74 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
     };
   }, []);
 
+  // Use effect to manage loading state
+  useEffect(() => {
+    const handleStart = () => setIsLoading(true);
+    const handleStop = () => setIsLoading(false);
+
+    window.addEventListener("load", handleStop);
+    window.addEventListener("beforeunload", handleStart);
+    window.addEventListener("DOMContentLoaded", handleStart);
+    window.addEventListener("load", handleStop);
+
+    return () => {
+      window.removeEventListener("load", handleStop);
+      window.removeEventListener("beforeunload", handleStart);
+      window.removeEventListener("DOMContentLoaded", handleStart);
+      window.removeEventListener("load", handleStop);
+    };
+  }, []);
+
   return (
-    <nav className="bg-[#F8F7F4] relative px-4 pb-3 border-b  flex justify-center border-[#BBBBBB] items-center">
-      <nav className=" w-full  max-w-[1350px] mx-2 flex justify-between items-center">
-        <Link href="/">
-          <Image
-            height={60}
-            width={120}
-            src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/logo_e8rxwj.svg"
-            alt="Logo"
-            className="rounded-lg hidden sm:flex pt-4 "
-          />
-          <Image
-            height={43}
-            width={57}
-            src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715204582/utilities/WhatsApp_Image_2024-05-07_at_15.43.18_a30adac2-removebg-preview_w6vuzw.png"
-            alt="Logo"
-            className="rounded-lg pt-2 sm:hidden"
-          />
-        </Link>
-        <div className="relative">
-          <SearchInput
-            value={searchQuery}
-            onChange={handleSearchChange}
-            onFocus={handleInputFocus}
-            onClear={handleInputClear}
-            searchInputRef={searchInputRef}
-            isFocused={showSearchResults}
-          />
+    <div>
+      <nav className="bg-[#F8F7F4] relative px-4 pb-3 border-b flex justify-center border-[#BBBBBB] items-center">
+        <nav className="w-full max-w-[1350px] mx-2 flex justify-between items-center">
+          <Link href="/">
+            <Image
+              height={60}
+              width={120}
+              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/logo_e8rxwj.svg"
+              alt="Logo"
+              className="rounded-lg hidden sm:flex pt-4 "
+            />
+            <Image
+              height={43}
+              width={57}
+              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715204582/utilities/WhatsApp_Image_2024-05-07_at_15.43.18_a30adac2-removebg-preview_w6vuzw.png"
+              alt="Logo"
+              className="rounded-lg pt-2 sm:hidden"
+            />
+          </Link>
+          <div className="relative">
+            <SearchInput
+              value={searchQuery}
+              onChange={handleSearchChange}
+              onFocus={handleInputFocus}
+              onClear={handleInputClear}
+              searchInputRef={searchInputRef}
+              isFocused={showSearchResults}
+            />
 
-          {showSearchResults && (
-            <div ref={searchResultsRef}>
-              <SearchResults searchResults={searchResults} />
-            </div>
-          )}
-        </div>
-        <div className="flex gap-[40px]">
-          <NavLinks status={"authenticated"} />
+            {showSearchResults && (
+              <div ref={searchResultsRef}>
+                <SearchResults searchResults={searchResults} />
+              </div>
+            )}
+          </div>
+          <div className="flex gap-[40px]">
+            <NavLinks status={"authenticated"} />
 
-          <MoreNavLinks
-            ref={moreNavLinksRef}
-            showMoreNavLinks={showMoreNavLinks}
-            toggleMoreNavLinks={toggleMoreNavLinks}
-            user={user}
-          />
-        </div>
+            <MoreNavLinks
+              ref={moreNavLinksRef}
+              showMoreNavLinks={showMoreNavLinks}
+              toggleMoreNavLinks={toggleMoreNavLinks}
+              user={user}
+            />
+          </div>
+        </nav>
       </nav>
-    </nav>
+      <LoadingIndicator isLoading={isLoading} />
+    </div>
   );
 };
 
