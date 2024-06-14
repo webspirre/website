@@ -47,7 +47,7 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
           </a>
         </div>
 
-        <a href="#" className="hover:underline hidde">
+      {  user && <a href="#" className="hover:underline hidde">
           <Image
             height={20}
             width={36}
@@ -56,7 +56,7 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
             className=" pt-3"
             onClick={toggleMoreNavLinks}
           />
-        </a>
+        </a> }
 
         {/* More nav links pop-up */}
         {showMoreNavLinks && (
