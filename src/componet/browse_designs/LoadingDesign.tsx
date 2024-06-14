@@ -14,23 +14,10 @@ function LoadingDesign() {
    <div className="flex justify-center w-full items-center max-w-[1000p]">
      <div className=" p-4 pt-8 sm:mx-2 mb-[0px] sm:max-w-[1320px] mx-auto w-full ">
 
-       <div className="mt-[10px]">
+       <div className="mt-[px]">
          
 
-         <div className="flex gap-4 items-center h-[44px] w-full overflow-auto mt-[16px] animate-pulse">
-           <div className="bg-[#F0F0F0] rounded-[32px] h-full w-[95px]"></div>
-           <div className="bg-[#F0F0F0] rounded-[32px] h-full w-[48px]"></div>
-           <div className="bg-[#F0F0F0] rounded-[32px] h-full w-[164px]"></div>
-           <div className="bg-[#F0F0F0] rounded-[32px] h-full w-[74px]"></div>
-           <div className="bg-[#F0F0F0] rounded-[32px] h-full w-[109px]"></div>
-           <div className="bg-[#F0F0F0] rounded-[32px] h-full w-[138px]"></div>
-           <div className="bg-[#F0F0F0] rounded-[32px] h-full w-[185px]"></div>
-           <div className="bg-[#F0F0F0] rounded-[32px] h-full w-[144px]"></div>
-           <div className="bg-[#F0F0F0] rounded-[32px] h-full w-[154px]"></div>
-           <div className="bg-[#F0F0F0] rounded-[32px] h-full w-[181px]"></div>
-         </div>
-
-         <div className="mt-[34px]">
+         <div className="mt-[14px]">
            <div className="grid sm:grid-cols-4 grid-cols-1 gap-4 animate-pulse">
              {cards.map((_, index) => (
                <div key={index} className="w-full">
