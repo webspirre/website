@@ -3,11 +3,13 @@ import Image from "next/image";
 import { Project } from "./Navbar"; // Import the Project type from Navbar.tsx
 import TabButtons from "./TabButtons";
 import Link from "next/link";
+import { DesignT } from "@/types/Design.type";
+import { Database } from "@/types/types_db";
 
+type Designs = Database["public"]["Tables"]["website"]["Row"];
 interface SearchResultsProps {
-  searchResults: Project[];
+  searchResults: Designs[];
 }
-
 const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [showFilterOptions, setShowFilterOptions] = useState(false);
@@ -50,14 +52,15 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
     if (activeTab !== 0) {
       const activeCategory = tabs[activeTab].value;
       filteredResults = filteredResults.filter(
-        (result) => result.categories[0] === activeCategory
+        (result) =>
+          (result.categories && result.categories[0]) === activeCategory
       );
     }
 
     // Filter by selected filters
     if (selectedFilters.length > 0) {
       filteredResults = filteredResults.filter((result) =>
-        selectedFilters.includes(result.pageType)
+        selectedFilters.includes(result?.pageType as string)
       );
     }
 
@@ -103,15 +106,15 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
         <Link
           onClick={() => (window.location.href = `/detail/${result.uid}`)}
           href={`/detail/${result.uid}`}
-          key={result.id}
+          key={result.uid}
           className="mb-8 flex items-center"
         >
           <div className="border-2 border-gray rounded-[10px] p-2">
             <Image
               height={14}
               width={14}
-              src={result.logoImageURL}
-              alt={result.name}
+              src={result?.logoImageURL as string}
+              alt={result?.name as string}
               className="rounded-lg"
             />
           </div>

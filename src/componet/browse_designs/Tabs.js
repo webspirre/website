@@ -177,9 +177,9 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
             </div>
           )}
           {filteredData.length === 0 && (
-            <div>
-              Failed to fetch blogs. Please check your network connection.{" "}
-              <span onClick={reloadPage}>reload</span>{" "}
+            <div className="text-sm text-slate-800">
+              Failed to fetch designs. Please check your network connection.{" "}
+              <span className={"cursor-pointer italic hover:opacity-60 transition duration-500 delay-100"} onClick={reloadPage}>reload</span>{" "}
             </div>
           )}
           <div

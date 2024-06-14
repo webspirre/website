@@ -9,6 +9,8 @@ import SearchResults from "./SearchResults";
 import NavLinks from "./NavLinks";
 import MoreNavLinks from "./MoreNavLinks";
 import { fetchDesigns } from "@/utils/designs/server";
+import { Database } from "@/types/types_db";
+import { DesignT } from "@/types/Design.type";
 
 export interface Project {
   id: number;
@@ -26,7 +28,7 @@ type Designs = Database["public"]["Tables"]["website"]["Row"];
 
 const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [searchResults, setSearchResults] = useState<Project[]>([]);
+  const [searchResults, setSearchResults] = useState<Designs[]>([]);
   const [showSearchResults, setShowSearchResults] = useState<boolean>(false);
   const [showMoreNavLinks, setShowMoreNavLinks] = useState<boolean>(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -49,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   useEffect(() => {
     displayDesigns();
   }, []);
-// SUPABASE
+  // SUPABASE
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
@@ -57,10 +59,10 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
 
     const results = designs.filter(
       (item) =>
-        item.name.toLowerCase().includes(query.toLowerCase()) ||
-        item.category.toLowerCase().includes(query.toLowerCase()) ||
-        (item.description &&
-          item.description.toLowerCase().includes(query.toLowerCase()))
+       (item.name && item.name.toLowerCase().includes(query.toLowerCase()) )||
+      ( item?.categories && item.categories[0].toLowerCase().includes(query.toLowerCase())) ||
+        (item.shortDescription &&
+          item.shortDescription.toLowerCase().includes(query.toLowerCase()))
     );
 
     setSearchResults(results);
