@@ -9,6 +9,7 @@ import { AuthProvider } from "@/context/AuthProvider";
 import { Toaster } from "react-hot-toast";
 import AlertHandler from "@/componet/ui/alerthandler/AlertHandler";
 import { DesignProvider } from "@/context/DesignProvider";
+import Footer from "@/componet/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -80,6 +81,9 @@ export default async function RootLayout({
                 <Navbar user={user} />
               </div>
               {children}
+              <div>
+                <Footer />
+              </div>
             </main>
           </DesignProvider>
         </AuthProvider>

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import Image from "next/image";
 import Loader from "./Loader";
+import LoadingDesigns from "./LoadingDesign";
+
 
 const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -175,7 +177,9 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
               <Loader />
             </div>
           )}
-          {filteredData.length === 0 && <div>No Designs Found</div>}
+          {filteredData.length === 0 && <div>No Designs Found
+          <LoadingDesigns />
+          </div>}
           <div
             className={`grid grid-cols-1 gap-4  ${
               deviceFilter === "Mobile"

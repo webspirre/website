@@ -29,6 +29,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const [showMoreNavLinks, setShowMoreNavLinks] = useState<boolean>(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchResultsRef = useRef<HTMLDivElement>(null);
+  const moreNavLinksRef = useRef<HTMLDivElement>(null);
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
@@ -71,6 +72,13 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
       ) {
         setShowSearchResults(false);
       }
+
+      if (
+        moreNavLinksRef.current &&
+        !moreNavLinksRef.current.contains(e.target as Node)
+      ) {
+        setShowMoreNavLinks(false);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -99,7 +107,6 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             className="rounded-lg pt-2 sm:hidden"
           />
         </Link>
-        {/* {user ? <h1>TRUE</h1> : <h1>FALSE</h1>} */}
         <div className="relative">
           <SearchInput
             value={searchQuery}
@@ -120,6 +127,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
           <NavLinks status={"authenticated"} />
 
           <MoreNavLinks
+            ref={moreNavLinksRef}
             showMoreNavLinks={showMoreNavLinks}
             toggleMoreNavLinks={toggleMoreNavLinks}
             user={user}
