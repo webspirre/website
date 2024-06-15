@@ -12,6 +12,9 @@ import LoadingIndicator from "./LoadingIndicator";
 import { fetchDesigns } from "@/utils/designs/server";
 import { Database } from "@/types/types_db";
 import { DesignT } from "@/types/Design.type";
+import { usePathname, useRouter } from "next/navigation";
+import { getRedirectMethod } from "@/libs/auth-helpers/settings";
+
 
 export interface Project {
   id: number;
@@ -36,6 +39,9 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchResultsRef = useRef<HTMLDivElement>(null);
   const moreNavLinksRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const pathname = usePathname();
+  const redirectMethod = getRedirectMethod();
 
   //// SUPABASE
   const [designs, setDesigns] = useState<Designs[]>([]);
@@ -62,8 +68,9 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
 
     const results = designs.filter(
       (item) =>
-       (item.name && item.name.toLowerCase().includes(query.toLowerCase()) )||
-      ( item?.categories && item.categories[0].toLowerCase().includes(query.toLowerCase())) ||
+        (item.name && item.name.toLowerCase().includes(query.toLowerCase())) ||
+        (item?.categories &&
+          item.categories[0].toLowerCase().includes(query.toLowerCase())) ||
         (item.shortDescription &&
           item.shortDescription.toLowerCase().includes(query.toLowerCase()))
     );
@@ -112,6 +119,18 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  // Check if the current route matches the ones where the navbar should be hidden
+  const hideNavbarRoutes = [
+    "/auth/login",
+    "/auth/register",
+    "/auth/forgotpassword",
+  ];
+  const shouldHideNavbar = hideNavbarRoutes.includes(pathname);
+
+  if (shouldHideNavbar) {
+    return null; // Do not render the navbar on these routes
+  }
 
   // Use effect to manage loading state
   useEffect(() => {

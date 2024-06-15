@@ -24,39 +24,45 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
 
     return (
       <div className="relative text-[12px]" ref={ref}>
-        <div className="hidden">
+        <div className="hidde pt-2">
           <a
             href="#"
-            className="p-2 border flex flex-row gap-2 rounded-full"
-            onClick={toggleMoreNavLinks}
+            className="p-2 border flex flex-row gap-2 rounded-lg"
+            // onClick={toggleMoreNavLinks}
           >
+            {user && (
+              <Image
+                height={20}
+                width={20}
+                src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707432454/utilities/profile_image_b4sbia.svg"
+                alt="rice"
+                className="z-10"
+              />
+            )}
+
             <Image
               height={20}
-              width={40}
-              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707432454/utilities/profile_image_b4sbia.svg"
-              alt="rice"
-              className="z-10"
-            />
-            <Image
-              height={20}
-              width={35}
+              width={15}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707432726/utilities/hamburger_icon_mlednc.svg"
               alt="rice"
               className=""
+              onClick={toggleMoreNavLinks}
             />
           </a>
         </div>
 
-      {  user && <a href="#" className="hover:underline hidde">
-          <Image
-            height={20}
-            width={36}
-            src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705727048/utilities/menu_rdtahr.svg"
-            alt="Menu Icon"
-            className=" pt-3"
-            onClick={toggleMoreNavLinks}
-          />
-        </a> }
+        {/* {user && (
+          <a href="#" className="hover:underline hidde">
+            <Image
+              height={20}
+              width={36}
+              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705727048/utilities/menu_rdtahr.svg"
+              alt="Menu Icon"
+              className=" pt-3"
+              onClick={toggleMoreNavLinks}
+            />
+          </a>
+        )} */}
 
         {/* More nav links pop-up */}
         {showMoreNavLinks && (
