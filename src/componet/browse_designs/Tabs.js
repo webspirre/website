@@ -4,7 +4,14 @@ import Image from "next/image";
 import Loader from "./Loader";
 import LoadingDesigns from "./LoadingDesign";
 
-
+const pageTypes = [
+  { value: "landing", label: "Landing page" },
+  { value: "pricing", label: "Pricing page" },
+  { value: "about", label: "About page" },
+  { value: "login", label: "Login page" },
+  { value: "signup", label: "Sign up page" },
+  { value: "404", label: "404 page" },
+];
 const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [showFilterOptions, setShowFilterOptions] = useState(false);
@@ -181,7 +188,14 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
           {filteredData.length === 0 && (
             <div className="text-sm text-slate-800">
               Failed to fetch designs. Please check your network connection.{" "}
-              <span className={"cursor-pointer italic hover:opacity-60 transition duration-500 delay-100"} onClick={reloadPage}>reload</span>{" "}
+              <span
+                className={
+                  "cursor-pointer italic hover:opacity-60 transition duration-500 delay-100"
+                }
+                onClick={reloadPage}
+              >
+                reload
+              </span>{" "}
             </div>
           )}
           <div

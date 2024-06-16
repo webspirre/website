@@ -149,7 +149,7 @@ const Card = ({
             <Image
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706045803/utilities/Frame_34_ybkht7.svg"
               height={50}
-              width={25}
+              width={30}
               alt="img"
             />
           </button>

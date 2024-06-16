@@ -83,48 +83,57 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
                   </div>
                 </div>
               </Link>
-              <Link href="/profile" className="block text-[black] mb-4 ">
-                <div className="flex gap-2 px-4 items-center pt-2">
-                  <Image
-                    height={20}
-                    width={15}
-                    src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707388442/utilities/Vector_4_orgh9u.svg"
-                    alt="rice"
-                    className=""
-                  />
-                  <p className="font-bold ">Profile</p>
-                </div>
-              </Link>
-              <Link
-                href="/notifications"
-                className="block text-[black] mb-4 hover:"
-              >
-                <div className="flex gap-2 px-4 items-center pt-2">
-                  <Image
-                    height={20}
-                    width={15}
-                    src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707389050/utilities/bell_icon_e0cutg.svg"
-                    alt="rice"
-                    className=""
-                  />
-                  <p className="font-bold ">Notifications</p>
-                </div>
-              </Link>
-              <Link
-                href="/notifications"
-                className=" hidden text-[black] mb-4 hover:"
-              >
-                <div className="flex items-center gap-2 px-4 pt-2">
-                  <Image
-                    height={20}
-                    width={15}
-                    src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706058912/utilities/updates_icon_l9larw.svg"
-                    alt="rice"
-                    className=""
-                  />
-                  <p className="font-bold text-[14px]">Updates</p>
-                </div>
-              </Link>
+              {user && (
+                <Link href="/profile" className="block text-[black] mb-4 ">
+                  <div className="flex gap-2 px-4 items-center pt-2">
+                    <Image
+                      height={20}
+                      width={15}
+                      src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707388442/utilities/Vector_4_orgh9u.svg"
+                      alt="rice"
+                      className=""
+                    />
+                    <p className="font-bold ">Profile</p>
+                  </div>
+                </Link>
+              )}
+
+              {user && (
+                <Link
+                  href="/notifications"
+                  className="block text-[black] mb-4 hover:"
+                >
+                  <div className="flex gap-2 px-4 items-center pt-2">
+                    <Image
+                      height={20}
+                      width={15}
+                      src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707389050/utilities/bell_icon_e0cutg.svg"
+                      alt="rice"
+                      className=""
+                    />
+                    <p className="font-bold ">Notifications</p>
+                  </div>
+                </Link>
+              )}
+
+              {user && (
+                <Link
+                  href="/notifications"
+                  className=" hidden text-[black] mb-4 hover:"
+                >
+                  <div className="flex items-center gap-2 px-4 pt-2">
+                    <Image
+                      height={20}
+                      width={15}
+                      src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706058912/utilities/updates_icon_l9larw.svg"
+                      alt="rice"
+                      className=""
+                    />
+                    <p className="font-bold text-[14px]">Updates</p>
+                  </div>
+                </Link>
+              )}
+
               <Link
                 href="/terms"
                 className="block text-[black] border-t mb-4 hover:"
@@ -164,6 +173,7 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
                   />
                 </div>
               </Link>
+              
               {!user ? (
                 <Link href="/auth/login" className="block text-[black] hover:">
                   <div className="flex gap-2 border-t-2  py-2 px-4 mb-2">

@@ -133,6 +133,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   }
 
   // Use effect to manage loading state
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     const handleStart = () => setIsLoading(true);
     const handleStop = () => setIsLoading(false);
