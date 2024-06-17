@@ -36,7 +36,7 @@ function Footer() {
             /> */}
             <div className="sm:grid grid-cols-1 sm:grid-cols-5 mb-[50px]">
               <div className="flex flex-col gap-6 col-span-1">
-                <Link href="/" className="py-4">
+                <Link href="/terms" className="py-4">
                   Terms
                 </Link>
                 <Link href="/" className="hidden">
@@ -44,7 +44,7 @@ function Footer() {
                 </Link>
               </div>
               <div className="flex flex-col gap-6 col-span-1">
-                <Link href="/" className="py-4">
+                <Link href="/support" className="py-4">
                   Support
                 </Link>
                 <Link href="/" className="hidden">
@@ -52,7 +52,7 @@ function Footer() {
                 </Link>
               </div>
               <div className="flex flex-col gap-6 col-span-1">
-                <Link href="/" className="py-4">
+                <Link href="/policy" className="py-4">
                   Privacy Policy
                 </Link>
                 {/* <Link href="mailto:webspirre@gmail.com" className="">

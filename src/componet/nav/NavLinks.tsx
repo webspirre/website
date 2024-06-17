@@ -18,6 +18,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ user }) => {
   const redirectMethod = getRedirectMethod();
   return (
     <ul className="flex text-[14px] pt-2 sm:space-x-8 items-center">
+      
       <li className="">
         <Link
           href="mailto:webspirre@gmail.com"
@@ -60,7 +61,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ user }) => {
         <li className="">
           <Link
             href="/auth/register"
-            className=" bg-black p-2 px-4 text-white text-[12px] rounded-[10px] border flex items-center gap-2 border-[#BBBBBB] "
+            className=" hidden bg-black p-2 px-4 text-white text-[12px] rounded-[10px] border fle items-center gap-2 border-[#BBBBBB] "
           >
             Sign up
           </Link>{" "}

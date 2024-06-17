@@ -160,7 +160,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
               width={120}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/logo_e8rxwj.svg"
               alt="Logo"
-              className="rounded-lg hidden sm:flex pt-4 "
+              className="rounded-l img hidden sm:flex pt-4 "
             />
             <Image
               height={43}
@@ -186,7 +186,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
               </div>
             )}
           </div>
-          <div className="flex gap-[40px]">
+          <div className="flex gap-[20px]">
             <NavLinks status={"authenticated"} />
 
             <MoreNavLinks
@@ -198,7 +198,9 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
           </div>
         </nav>
       </nav>
-      <LoadingIndicator isLoading={isLoading} />
+      <div className="hidden">
+        <LoadingIndicator isLoading={isLoading} />
+      </div>
     </div>
   );
 };
