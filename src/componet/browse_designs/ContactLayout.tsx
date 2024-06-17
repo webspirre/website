@@ -117,7 +117,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
 
       const { data, error } = await supabase
         .from("cta")
-        .insert([{ subject,  department, enquiry, email }])
+        .insert([{ subject, department, enquiry, email }])
         .select();
 
       // Handle errors
@@ -144,23 +144,23 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
 
   return (
     <>
-      <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-32 pt-5 sm:pt-20">
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-          <div className="order-2 md:order-1 p-4">
+      <div className="container mx-auto px-4 sm:px-8 md:px-8 lg:px-8 pt-5 sm:pt-20">
+        <section className="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-4  gap-6 md:gap-10">
+          <div className="col-span-2 order-2 md:order-1 p-4">
             <Image
               src={
                 "https://res.cloudinary.com/dwqantex4/image/upload/v1718540486/Group_45_g7ckdx.png"
               }
               alt="logo"
-              width={400}
+              width={565}
               height={400}
               className=""
             />
-            <p className="pl-5 text-sm mt-1">
+            <p className="sm:pl-5 text-[20px] mt-1">
               We want to hear your concerns and suggestions.
             </p>
-            <div className="bg-black text-white text-xs p-3 rounded-xl w-full sm:w-[300px] flex flex-col gap-y-3 mt-5 sm:mt-8 ml-5">
-              <div className="flex flex-row space-x-2 items-center">
+            <div className="bg-black text-white text-xs p-4 w rounded-xl w-full sm:w-[400px] flex flex-col gap-y-3 mt-5 sm:mt-8 sm:ml-5">
+              <div className="flex flex-row space-x-2 items-start">
                 <Image
                   src={
                     "https://res.cloudinary.com/dwqantex4/image/upload/v1718634345/fi_mail_zmwmx7.png"
@@ -171,14 +171,17 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
                   className=""
                 />
                 <div className="flex flex-col">
-                  <p className="font-bold">Email</p>
-                  <Link href="mailto:webspirre@gmail.com">
+                  <p className="font-bold text-[16px] mb-2">Email</p>
+                  <Link
+                    className="text-[13px]"
+                    href="mailto:webspirre@gmail.com"
+                  >
                     webspirre@gmail.com
                   </Link>
                 </div>
               </div>
 
-              <div className="flex flex-row space-x-2 items-center">
+              <div className="flex flex-row space-x-2 mt-6 items-start">
                 <Image
                   src={
                     "https://res.cloudinary.com/dwqantex4/image/upload/v1718634343/Phone_light_uzvsqo.png"
@@ -188,20 +191,20 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
                   height={20}
                   className=""
                 />
-                <div className="flex flex-col">
-                  <p className="font-bold">Mobile</p>
-                  <p>+234 8057284454</p>
+                <div className="flex flex-col ">
+                  <p className="font-bold text-[16px] mb-2">Mobile</p>
+                  <p className="text-[13px]">+234 8057284454</p>
                 </div>
               </div>
 
-              <div className="flex space-x-2 mt-5 sm:mt-10">
+              <div className="flex space-x-2 mt-5 sm:mt-10 ">
                 {socialData.map((item, index) => (
                   <Link href={item.link} key={index}>
                     <Image
                       src={item.icon}
                       alt="logo"
-                      width={20}
-                      height={20}
+                      width={24}
+                      height={24}
                       className=""
                     />
                   </Link>
@@ -209,7 +212,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
               </div>
             </div>
           </div>
-          <div className="order-1 md:order-2 p-8 border-2 border-slate-300 rounded-xl shadow-md">
+          <div className="order-1 mt-[100px] sm:mt-[1px] md:order-2 col-span-2 p-8 border-2 border-slate-300 rounded-xl shadow-md">
             <h1 className="text-[24px] font-black">Contact Form</h1>
             <p className="text-xs">
               Complete the form with your enquiry and we will respond shortly.
@@ -221,7 +224,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
             >
               {/* Department Field */}
               <div>
-                <h2 className="text-xs mb-1.5">Department</h2>
+                <h2 className="text-[14px] mb-1.5">Department</h2>
                 <Select
                   name="department"
                   value={selectedOption}
@@ -232,8 +235,8 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
                     control: (provided) => ({
                       ...provided,
                       border: "1px solid #ccc",
-                      borderRadius: "4px",
-                      height: "40px",
+                      borderRadius: "8px",
+                      height: "60px",
                       width: "100%",
                       fontSize: "12px",
                     }),
@@ -247,8 +250,8 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
                 />
               </div>
               {/* Email Input */}
-              <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-xs mb-1.5">
+              <div className="flex flex-col mt-4 gap-2">
+                <label htmlFor="email" className="text-[14px] mb-1.5">
                   Email address
                 </label>
                 <input
@@ -259,14 +262,14 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
                   autoComplete="email"
                   autoCorrect="off"
                   placeholder="Your email address"
-                  className="border border-[#C7C7C7] placeholder:text-sm text-sm bg-white p-2 rounded-md h-[50px]"
+                  className="border border-[#C7C7C7] placeholder:text-sm text-sm bg-white p-2 rounded-[8px] h-[60px]"
                   value={formData.email as string}
                   onChange={handleChange}
                 />
               </div>
               {/* Subject Input */}
-              <div className="flex flex-col gap-2">
-                <label htmlFor="text" className="text-xs mb-1.5">
+              <div className="flex flex-col mt-4 gap-2">
+                <label htmlFor="text" className="text-[14px] mb-1.5">
                   Subject
                 </label>
                 <input
@@ -275,14 +278,14 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
                   name="subject"
                   autoComplete="current-password"
                   placeholder="Your subject"
-                  className="border border-[#C7C7C7] placeholder:text-sm text-sm bg-white p-2 rounded-md h-[50px]"
+                  className="border border-[#C7C7C7] placeholder:text-sm text-sm bg-white p-2 rounded-[8px] h-[60px]"
                   value={formData.subject as string}
                   onChange={handleChange}
                 />
               </div>
               {/* Enquires Input */}
-              <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-xs mb-1.5">
+              <div className="flex flex-col mt-4 gap-2">
+                <label htmlFor="message" className="text-[14px] mb-1.5">
                   Your enquiry
                 </label>
                 <textarea
