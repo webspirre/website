@@ -29,12 +29,12 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
   ];
 
   const filterOptions = [
-    "Landing Page",
-    "Pricing Page",
-    "About Page",
-    "Login Page",
-    "Sign Up Page",
-    "404 Page",
+    "landing",
+    "pricing",
+    "about",
+    "login",
+    "signup",
+    "404",
   ];
 
   const handleFilterClick = (option: string) => {
@@ -51,16 +51,15 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
     // Filter by active tab
     if (activeTab !== 0) {
       const activeCategory = tabs[activeTab].value;
-      filteredResults = filteredResults.filter(
-        (result) =>
-          (result.categories && result.categories[0]) === activeCategory
+      filteredResults = filteredResults.filter((result) =>
+        result.categories?.includes(activeCategory)
       );
     }
 
     // Filter by selected filters
     if (selectedFilters.length > 0) {
       filteredResults = filteredResults.filter((result) =>
-        selectedFilters.includes(result?.pageType as string)
+        selectedFilters.includes(result.pageType as string)
       );
     }
 

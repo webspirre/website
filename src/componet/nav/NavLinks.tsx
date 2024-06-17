@@ -19,7 +19,10 @@ const NavLinks: React.FC<NavLinksProps> = ({ user }) => {
   return (
     <ul className="flex text-[14px] pt-2 sm:space-x-8 items-center">
       <li className="">
-        <Link href="mailto:webspirre@gmail.com" className=" sm:flex text-[black] font-medium">
+        <Link
+          href="mailto:webspirre@gmail.com"
+          className=" sm:flex text-[black] font-medium"
+        >
           Advertise
         </Link>
       </li>
@@ -59,7 +62,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ user }) => {
             href="/auth/register"
             className=" bg-black p-2 px-4 text-white text-[12px] rounded-[10px] border flex items-center gap-2 border-[#BBBBBB] "
           >
-            Signup
+            Sign up
           </Link>{" "}
         </li>
       )}

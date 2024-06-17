@@ -15,7 +15,6 @@ import { DesignT } from "@/types/Design.type";
 import { usePathname, useRouter } from "next/navigation";
 import { getRedirectMethod } from "@/libs/auth-helpers/settings";
 
-
 export interface Project {
   id: number;
   name: string;
@@ -138,18 +137,18 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
     const handleStart = () => setIsLoading(true);
     const handleStop = () => setIsLoading(false);
 
-    window.addEventListener("load", handleStop);
+    // Add event listeners
     window.addEventListener("beforeunload", handleStart);
     window.addEventListener("DOMContentLoaded", handleStart);
     window.addEventListener("load", handleStop);
 
+    // Clean up event listeners
     return () => {
-      window.removeEventListener("load", handleStop);
       window.removeEventListener("beforeunload", handleStart);
       window.removeEventListener("DOMContentLoaded", handleStart);
       window.removeEventListener("load", handleStop);
     };
-  }, []);
+  }, []); // Empty dependency array to run effect only once on mount
 
   return (
     <div>

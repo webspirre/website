@@ -5,6 +5,11 @@ export type Json =
   | null
   | { [key: string]: Json | undefined }
   | Json[];
+interface Option {
+  value: string;
+  label: string;
+}
+export type Map = string | string[] | null | Option | Option[];
 
 export interface Database {
   public: {
@@ -269,6 +274,30 @@ export interface Database {
         Delete: {
           id: string;
         };
+      };
+      cta: {
+        Row: {
+          subject: Map | null;
+          department: Map | null;
+          enquiry: Map | null;
+          email: Map | null;
+        };
+        Insert: {
+          subject?: Map | null;
+          department?: Map | null;
+          enquiry?: Map | null;
+          email?: Map | null;
+        };
+        Update: {
+          subject?: Map | null;
+          department?: Map | null;
+          enquiry?: Map | null;
+          email?: Map | null;
+        };
+        Delete: {
+          id: string;
+        };
+        Relationships: [];
       };
       website: {
         Row: {

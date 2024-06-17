@@ -21,29 +21,29 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
   const [showBookmarkPopupId, setShowBookmarkPopupId] = useState(null);
 
   const filterOptions = [
-    "Landing Page",
-    "Pricing Page",
-    "About Page",
-    "Login Page",
-    "Sign Up Page",
-    "404 Page",
+    "landing",
+    "pricing",
+    "about",
+    "login",
+    "signup",
+    "404",
   ];
 
   const deviceFilters = ["Desktop", "Mobile"];
-
   const categoryCounts = tabs.map(({ value }) => ({
     value,
-    count: data.filter((item) => item.categories[0] === value).length,
+    count: data.filter((item) => item.categories.includes(value)).length,
   }));
 
   const filteredData = data
     .filter(
-      (item) => activeTab === 0 || item.categories[0] === tabs[activeTab].value
+      (item) =>
+        activeTab === 0 || item.categories.includes(tabs[activeTab].value)
     )
     .filter(
       (item) =>
         selectedFilters.length === 0 ||
-        selectedFilters.includes(item.categories[0])
+        selectedFilters.some((filter) => item.categories.includes(filter))
     );
 
   const handleFilterClick = (option) => {
@@ -186,17 +186,7 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
             </div>
           )}
           {filteredData.length === 0 && (
-            <div className="text-sm text-slate-800">
-              Failed to fetch designs. Please check your network connection.{" "}
-              <span
-                className={
-                  "cursor-pointer italic hover:opacity-60 transition duration-500 delay-100"
-                }
-                onClick={reloadPage}
-              >
-                reload
-              </span>{" "}
-            </div>
+            <div className="text-sm text-slate-800">No designs found...</div>
           )}
           <div
             className={`grid grid-cols-1 gap-4  ${
