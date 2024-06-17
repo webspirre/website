@@ -63,7 +63,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
           width={420}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705952595/utilities/hero_H1_and_vector_sy4fzl.svg"
           alt="rice"
-          className="px-4"
+          className="px-4 "
         />
 
         <h1 className="sm:text-[14px] px-4 sm:w-[400px] pt-4 text-center">

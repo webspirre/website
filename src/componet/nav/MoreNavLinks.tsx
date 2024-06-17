@@ -173,7 +173,24 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
                   />
                 </div>
               </Link>
-              
+
+              <Link
+                href="mailto:webspirre@gmail.com"
+                className="block text-[black] mb-4 hover:"
+              >
+                <div className="flex justify-between px-4">
+                  <p className="">Advertise</p>
+                  <Image
+                    height={20}
+                    width={10}
+                    src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706058587/utilities/arrow_up_wwf67d.svg"
+                    alt="rice"
+                    className=""
+                  />
+                </div>
+              </Link>
+             
+
               {!user ? (
                 <Link href="/auth/login" className="block text-[black] hover:">
                   <div className="flex gap-2 border-t-2  py-2 px-4 mb-2">

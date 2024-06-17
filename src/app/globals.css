@@ -186,3 +186,10 @@ body {
 .pulse-light-dark {
   animation: pulse-light-dark 5s infinite;
 }
+
+/* img {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+} */
+

@@ -9,13 +9,15 @@ const Terms = () => {
         <main className="mt-32 sm:mt-40 w-full mx-auto">
           <Header
             heading={
+              
               <Image
                 height={20}
-                width={300}
+                width={312}
                 alt={"heading-logo"}
                 src="https://res.cloudinary.com/dwqantex4/image/upload/v1716468507/Webspirre_Terms_of_Service_c1c95r.png"
-                // className="w-80"
+                className="mb-[20px]"
               />
+              
             }
             paragraph={<span>Last Modified: March 21, 2024</span>}
           />
