@@ -108,17 +108,19 @@ const SearchResults: React.FC<SearchResultsProps> = ({ searchResults }) => {
           key={result.uid}
           className="mb-8 flex items-center"
         >
-          <div className="border-2 border-gray rounded-[10px] p-2">
-            <Image
-              height={14}
-              width={14}
-              src={result?.logoImageURL as string}
-              alt={result?.name as string}
-              className="rounded-lg"
-            />
+          <div className="borde border-gray rounded-[10px] h-[36px] w-[36px] overflow-hidden ">
+            <div className="flex h-[36px] w-[36px]">
+              <Image
+                height={14}
+                width={56}
+                src={result?.logoImageURL as string}
+                alt={result?.name as string}
+                className="rounded-lg"
+              />
+            </div>
           </div>
           <div className="ml-3 text-[12px] sm:text-[14px]">
-            <p className="text-black mb-1 font-bold">{result.name}</p>
+            <p className="text-black mb- font-bold">{result.name}</p>
             {result.shortDescription && (
               <p className="text-gray-700">{result.shortDescription}</p>
             )}
