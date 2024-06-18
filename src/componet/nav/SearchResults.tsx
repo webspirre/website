@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Project } from "./Navbar"; // Import the Project type from Navbar.tsx
+// import { Project } from "./Navbar"; // Import the Project type from Navbar.tsx
 import TabButtons from "./TabButtons";
 import Link from "next/link";
 import { DesignT } from "@/types/Design.type";
