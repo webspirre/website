@@ -128,7 +128,7 @@ const Card = ({
                 <img
                   src={logoImageURL}
                   alt={`${name} Logo`}
-                  className="sm:h-[32px sm:w-[32px]"
+                  className="sm:h-[34px] sm:w-[34px] rounded-[12px]"
                 />
               </div>
             )}
