@@ -99,14 +99,14 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
 
               <div className="px-2 py-4 sm:hidden">
                 <Link
-                  href=""
+                  href="/auth/register"
                   className="flex w-full py-2 bg-black text-white justify-center items-center rounded-[10px]"
                 >
                   Sign up
                 </Link>
                 <br />
                 <Link
-                  href=""
+                  href="/auth/login"
                   className="flex -mt-2 w-full py-2 bg-[#F8F7F4] text-black justify-center items-center rounded-[10px]"
                 >
                   Login
