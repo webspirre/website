@@ -134,10 +134,12 @@ const Card = ({
             )}
           </Link>
 
-          <div className="pr-[40px] h-2 w-[200px]">
+          <div className="pr-[40px]  w-[200px]">
             <p className="text-[12px] mb- font-bold">{name}</p>
             {shortDescription && (
-              <p className="text-gray-700 text-[11px] ">{shortDescription}</p>
+              <p className="text-gray-700 text-[11px] overflow-hidden whitespace-nowrap text-ellipsis">
+                {shortDescription}
+              </p>
             )}
           </div>
         </div>

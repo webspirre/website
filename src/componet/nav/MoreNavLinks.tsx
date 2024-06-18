@@ -24,9 +24,9 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
 
     return (
       <div className="relative text-[12px]" ref={ref}>
-        <div className="hidde pt-3">
+        <div className="hidde pt-[10px] sm:pt-[12px]">
           <div
-            className="p-2 border flex flex-row gap-2 rounded-lg cursor-pointer"
+            className="p-0 sm:p-1/2 hover:scale-110 transition-transform duration-300 border flex flex-row gap-2 rounded-lg cursor-pointer"
             onClick={toggleMoreNavLinks}
           >
             {user && (
@@ -41,7 +41,7 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
 
             <Image
               height={20}
-              width={15}
+              width={29}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707432726/utilities/hamburger_icon_mlednc.svg"
               alt="rice"
               className=""
@@ -167,9 +167,9 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
 
               <Link
                 href="/terms"
-                className="block text-[black] border-t mb-4 hover:"
+                className="block text-[black] hover:scale-105 transition-transform duration-300 border-t mb-4 hover:"
               >
-                <div className="flex justify-between px-4 pt-4">
+                <div className="flex justify-between px-4  pt-4">
                   <p className="">Terms</p>
                   <Image
                     height={20}
@@ -180,7 +180,10 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
                   />
                 </div>
               </Link>
-              <Link href="/policy" className="block mb-4 text-[black] hover:">
+              <Link
+                href="/policy"
+                className="block mb-4 hover:scale-105 transition-transform duration-300 text-[black] hover:"
+              >
                 <div className="flex justify-between px-4">
                   <p className=""> Privacy Policy</p>
                   <Image
@@ -192,7 +195,10 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
                   />
                 </div>
               </Link>
-              <Link href="/support" className="block text-[black] mb-4 hover:">
+              <Link
+                href="/support"
+                className="block text-[black] hover:scale-105 transition-transform duration-300 mb-4 hover:"
+              >
                 <div className="flex justify-between px-4">
                   <p className="">Support</p>
                   <Image

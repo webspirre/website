@@ -31,7 +31,7 @@ const Browse = ({ user, handleAuthModal, designs }) => {
 
   return (
     <div className="flex justify-center w-full items-center ">
-      <div className=" p-4 pt-8 sm:mx-2 mb-[0px] sm:max-w-[1320px] mx-auto w-full ">
+      <div className=" p-4 pt- sm:mx-2 mb-[0px] sm:max-w-[1320px] mx-auto w-full ">
         <div className={carterOne.className}>
           <p className="text-lg sm:text-[24px]">Browse design</p>
         </div>

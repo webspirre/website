@@ -53,13 +53,13 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
           backgroundImage: `url(${backgroundImageUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: "360px", // Set the desired height
+          height: "430px", // Set the desired height
           position: "relative", // Position relative to allow absolute positioning of child elements
         }}
-        className="flex flex-col pt-[100px] items-center justify-center w-full "
+        className="flex flex-col pt-[60px] items-center justify-center w-full "
       >
         <Image
-          height={453}
+          height={53}
           width={420}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705952595/utilities/hero_H1_and_vector_sy4fzl.svg"
           alt="rice"

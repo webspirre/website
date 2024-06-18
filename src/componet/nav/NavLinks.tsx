@@ -21,7 +21,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ user }) => {
       <li>
         <Link
           href="mailto:webspirre@gmail.com"
-          className=" text-[black] hidden sm:block font-medium"
+          className=" text-[black] hidden sm:block hover:scale-105 transition-transform duration-300 font-medium"
         >
           Advertise
         </Link>
@@ -45,7 +45,10 @@ const NavLinks: React.FC<NavLinksProps> = ({ user }) => {
       <li className="hidden sm:block">
         {!user ? (
           <div className=" sm:flex">
-            <Link href="/auth/login" className=" text-[black]  font-medium">
+            <Link
+              href="/auth/login"
+              className=" text-[black] hover:scale-105 transition-transform duration-300  font-medium"
+            >
               Log in
             </Link>
           </div>
@@ -61,7 +64,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ user }) => {
         <li className="">
           <Link
             href="/auth/register"
-            className=" hidden sm:block font-bold bg-black p-2 px-4 text-white text-[12px] rounded-[20px] border fle items-center gap-2 border-[#BBBBBB] "
+            className=" hidden hover:scale-105 transition-transform duration-300 sm:block font-bold bg-black p-2 px-4 text-white text-[12px] rounded-[12px] border fle items-center gap-2 border-[#BBBBBB] "
           >
             Sign up
           </Link>{" "}
