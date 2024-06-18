@@ -24,7 +24,7 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
 
     return (
       <div className="relative text-[12px]" ref={ref}>
-        <div className="hidde pt-2">
+        <div className="hidde pt-3">
           <div
             className="p-2 border flex flex-row gap-2 rounded-lg cursor-pointer"
             onClick={toggleMoreNavLinks}
@@ -65,7 +65,7 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
 
         {/* More nav links pop-up */}
         {showMoreNavLinks && (
-          <div className="absolute top-4 text-[12px] -right-[10px] mt-6 bg-white z-[999] w-[150px] rounded-md shadow-md">
+          <div className="absolute top-6 text-[12px] -right-[10px] mt-6 bg-white z-[999] w-[150px] rounded-md shadow-md">
             {/* Your additional navigation links here */}
             <div className="absolute text-[12px] -right-[10px] mt-6 bg-white border z-10 w-[200px] rounded-md shadow-md">
               <Link href="/bookmark" className="hidden text-[black] mb-2 ">
@@ -96,6 +96,22 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
                   </div>
                 </Link>
               )}
+
+              <div className="px-2 py-4 sm:hidden">
+                <Link
+                  href=""
+                  className="flex w-full py-2 bg-black text-white justify-center items-center rounded-[10px]"
+                >
+                  Sign up
+                </Link>
+                <br />
+                <Link
+                  href=""
+                  className="flex -mt-2 w-full py-2 bg-[#F8F7F4] text-black justify-center items-center rounded-[10px]"
+                >
+                  Login
+                </Link>
+              </div>
 
               {user && (
                 <Link
@@ -132,6 +148,22 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
                   </div>
                 </Link>
               )}
+
+              <Link
+                href="mailto:webspirre@gmail.com"
+                className="block sm:hidden text-[black] mb-4 hover:"
+              >
+                <div className="flex justify-between px-4">
+                  <p className="">Advertise</p>
+                  <Image
+                    height={20}
+                    width={10}
+                    src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706058587/utilities/arrow_up_wwf67d.svg"
+                    alt="rice"
+                    className=""
+                  />
+                </div>
+              </Link>
 
               <Link
                 href="/terms"
@@ -173,27 +205,10 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
                 </div>
               </Link>
 
-              <Link
-                href="mailto:webspirre@gmail.com"
-                className="block text-[black] mb-4 hover:"
-              >
-                <div className="flex justify-between px-4">
-                  <p className="">Advertise</p>
-                  <Image
-                    height={20}
-                    width={10}
-                    src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706058587/utilities/arrow_up_wwf67d.svg"
-                    alt="rice"
-                    className=""
-                  />
-                </div>
-              </Link>
-             
-
               {!user ? (
                 <Link href="/auth/login" className="block text-[black] hover:">
                   <div className="flex gap-2 border-t-2  py-2 px-4 mb-2">
-                    <p className="  text-black font-bold sm:hidden">Log In</p>
+                    <p className="  text-black font-bold hidden">Log In</p>
                   </div>
                 </Link>
               ) : (

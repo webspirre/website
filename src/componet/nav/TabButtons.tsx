@@ -39,7 +39,7 @@ const TabButtons: React.FC<TabButtonsProps> = ({
           className=""
         >
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 min-w-fit px-4 py-1 sm:py-2 bg-[#F1F0EE] rounded-full">
+            <div className="flex items-center gap-2 min-w-fit px-4 py-1 sm:py-1 bg-[#F1F0EE] rounded-full">
               <Image
                 src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705965289/utilities/Vector_dlval9.svg"
                 width={15}
@@ -55,7 +55,7 @@ const TabButtons: React.FC<TabButtonsProps> = ({
         {showFilterOptions && (
           <div className="absolute top-8 w-[150px] text-[12px]  bg-white border border-gray-300 p-2 mt-4 rounded-md shadow-md">
             {filterOptions.map((option, index) => (
-              <div key={index} className="flex items-center mb-1">
+              <div key={index} className="flex items-center ">
                 <input
                   type="checkbox"
                   id={option}
@@ -81,7 +81,7 @@ const TabButtons: React.FC<TabButtonsProps> = ({
             <button
               key={index}
               onClick={() => onTabClick(index)}
-              className={`px-4 py-1 sm:py-2 border-b-2 mr-2 w-fit text-[12px] ${
+              className={`px-4 py-1 sm:py-1 border-b-2 mr-2 w-fit text-[12px] ${
                 activeTab === index
                   ? "border-2 rounded-full bg-black text-white font-medium"
                   : "border-2 rounded-full text-black  hover:text-gray-700 hover:border-gray-500"

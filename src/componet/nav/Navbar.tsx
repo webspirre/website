@@ -153,7 +153,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   return (
     <div>
       <nav className="bg-[#F8F7F4] relative px-4 pb-3 border-b flex justify-center border-[#BBBBBB] items-center">
-        <nav className="w-full max-w-[1350px] mx-2 flex justify-between items-center">
+        <nav className="w-full  max-w-[1350px] mx-2 flex justify-between items-center">
           <Link href="/">
             <Image
               height={60}
@@ -164,10 +164,10 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             />
             <Image
               height={43}
-              width={57}
+              width={68}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1715204582/utilities/WhatsApp_Image_2024-05-07_at_15.43.18_a30adac2-removebg-preview_w6vuzw.png"
               alt="Logo"
-              className="rounded-lg pt-2 sm:hidden"
+              className="rounded-lg -ml-3 pt-3 sm:hidden"
             />
           </Link>
           <div className="relative">
@@ -198,9 +198,9 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
           </div>
         </nav>
       </nav>
-      <div className="hidden">
+      {/* <div className="hidden">
         <LoadingIndicator isLoading={isLoading} />
-      </div>
+      </div> */}
     </div>
   );
 };

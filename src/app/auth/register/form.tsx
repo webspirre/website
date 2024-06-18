@@ -106,14 +106,14 @@ function Form() {
       </form>
 
       <p className="text-[13px] text-[#64748B]">
-        Already have an account?
+        Already have an account?{" "}
         <span className="font-bold text-black">
           <Link href="/auth/login">Log in instead</Link>
         </span>
       </p>
       <p className="text-[13px] text-[#64748B]">
         By continuing to sign up, you confirm that you agree <br /> to
-        Webspirre&apos;s Terms & Conditions and Privacy Policy.
+        Webspirre&apos;s <span className=" border-b-2 w-fit"> <Link href="/terms">Terms & Conditions</Link> </span> and{" "} <span className=" border-b-2 w-fit"> <Link href="/policy">Privacy Policy</Link></span> .
       </p>
     </div>
   );

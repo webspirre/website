@@ -39,7 +39,7 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
             width={44}
             src={websiteData.logoImageURL}
             alt="rice"
-            className="p-2 rounded-lg border border-[#F1F0EE]"
+            className="p- rounded-lg  border-[#F1F0EE]"
           />
           {/* website name */}
           <h1 className="font-bold ">{websiteData.name}</h1>

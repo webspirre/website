@@ -91,7 +91,7 @@ const Card = ({
     <div className="bg-white rounded-md relative">
       <Link href={`/detail/${uid}`} passHref className="bg-white rounded-md">
         <div
-          className={`hover:shadow-xl hover-bounce overflow-hidden bg-[#F0F0F0]   p-2 rounded-[20px] ${
+          className={`hover:shadow-xl hover-bounce overflow-hidden bg-[#F0F0F0]   p-1 rounded-[20px] ${
             isHovered ? "scrollable" : isHoveredBack ? "scrollable-leave" : ""
           } ${
             deviceFilter === "Mobile"
@@ -121,14 +121,14 @@ const Card = ({
           <Link
             href={`/detail/${uid}`}
             passHref
-            className="bg-white rounded-md border p-1 h-[30px] w-[30px] flex items-center"
+            className="bg-white rounded-md border-[0.5px]p-1  h-[34px] w-[34px] flex justify-center items-center"
           >
             {logoImageURL && (
               <div>
                 <img
                   src={logoImageURL}
                   alt={`${name} Logo`}
-                  className="sm:h-[25px] sm:w-[25px] "
+                  className="sm:h-[32px sm:w-[32px]"
                 />
               </div>
             )}
@@ -149,7 +149,7 @@ const Card = ({
             <Image
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706045803/utilities/Frame_34_ybkht7.svg"
               height={50}
-              width={30}
+              width={34}
               alt="img"
             />
           </button>

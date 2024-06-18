@@ -73,13 +73,13 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
         <div className="flex items-center justify-center gap-2 px-4 pt-6 sm:text-10px">
           <Link
             href="/auth/register"
-            className="bg-black py-4 px-4 overflow-hidden hover:scale-105 transition-transform duration-300  sm:py-2 sm:px-8 text-white rounded-[20px]  font-medium text-[12px]"
+            className="bg-black py-2 px-4 overflow-hidden hover:scale-105 transition-transform duration-300  sm:py-2 sm:px-8 text-white rounded-[20px]  font-medium text-[12px]"
           >
             Get started now
           </Link>
           <div
             onClick={handleToggle}
-            className="bg-white hover-black overflow-hidden hover:scale-100 transition-transform duration-300 flex items-center gap-1 py-4 px-4 sm:py-2 sm:px-4 text-black rounded-[20px] border border-[#BBBBBB] font-medium text-[12px] cursor-pointer"
+            className="bg-white hover-black overflow-hidden hover:scale-100 transition-transform duration-300 flex items-center gap-1 py-2 px-4 sm:py-2 sm:px-4 text-black rounded-[20px] border border-[#BBBBBB] font-medium text-[12px] cursor-pointer"
           >
             <Image
               height={21}

@@ -21,12 +21,12 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
   const [showBookmarkPopupId, setShowBookmarkPopupId] = useState(null);
 
   const filterOptions = [
-    "landing",
-    "pricing",
-    "about",
-    "login",
-    "signup",
-    "404",
+    "Landing pages",
+    "Pricing pages",
+    "About page",
+    "Login pages",
+    "Signup pages",
+    "404 pages",
   ];
 
   const deviceFilters = ["Desktop", "Mobile"];
