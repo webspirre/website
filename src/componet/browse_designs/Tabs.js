@@ -116,13 +116,17 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
             <div className="absolute top-8 w-[150px] text-[12px] bg-white border border-gray-300 p-2 mt-4 rounded-md shadow-md">
               {filterOptions.map((option, index) => (
                 <div key={index} className="flex items-center mb-1">
-                  <input
-                    type="checkbox"
-                    id={option}
-                    checked={selectedFilters.includes(option)}
-                    onChange={() => handleFilterClick(option)}
-                    className="mr-2"
-                  />
+                  <div className="custom-checkbox flex">
+                    <input
+                      type="checkbox"
+                      id={option}
+                      checked={selectedFilters.includes(option)}
+                      onChange={() => handleFilterClick(option)}
+                      className="mr-2 hidden"
+                    />
+                    <label htmlFor={option} className="checkbox-label mr-2"></label>
+                  </div>
+
                   <label htmlFor={option}>{option}</label>
                 </div>
               ))}

@@ -25,19 +25,19 @@ function Form() {
     setIsSubmitting(false);
   };
   return (
-    <div className="flex flex-col text-[12px] items-center justify-center gap-4">
+    <div className="flex flex-col text-[12px]  items-center justify-center gap-4">
       <Link href="/">
         <Image
           height={20}
           width={100}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/logo_e8rxwj.svg"
           alt="left"
-          className="hidden sm:block"
+          className="hidden sm:block "
         />{" "}
       </Link>
 
       <div className="w-[400px]">
-        <h1 className="text-center text-[20px] py-4 font-bold">
+        <h1 className="text-center text-[20px] py-2 font-bold">
           Join Webspirre
         </h1>
         <p className="text-center mb-4">
@@ -113,7 +113,17 @@ function Form() {
       </p>
       <p className="text-[13px] text-[#64748B]">
         By continuing to sign up, you confirm that you agree <br /> to
-        Webspirre&apos;s <span className=" border-b-2 w-fit"> <Link href="/terms">Terms & Conditions</Link> </span> and{" "} <span className=" border-b-2 w-fit"> <Link href="/policy">Privacy Policy</Link></span> .
+        Webspirre&apos;s{" "}
+        <span className=" border-b-2 w-fit">
+          {" "}
+          <Link href="/terms">Terms & Conditions</Link>{" "}
+        </span>{" "}
+        and{" "}
+        <span className=" border-b-2 w-fit">
+          {" "}
+          <Link href="/policy">Privacy Policy</Link>
+        </span>{" "}
+        .
       </p>
     </div>
   );
