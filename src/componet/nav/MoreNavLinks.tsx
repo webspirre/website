@@ -25,10 +25,9 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
     return (
       <div className="relative text-[12px]" ref={ref}>
         <div className="hidde pt-2">
-          <a
-            href="#"
-            className="p-2 border flex flex-row gap-2 rounded-lg"
-            // onClick={toggleMoreNavLinks}
+          <div
+            className="p-2 border flex flex-row gap-2 rounded-lg cursor-pointer"
+            onClick={toggleMoreNavLinks}
           >
             {user && (
               <Image
@@ -48,7 +47,7 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
               className=""
               onClick={toggleMoreNavLinks}
             />
-          </a>
+          </div>
         </div>
 
         {/* {user && (

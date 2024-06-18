@@ -26,7 +26,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
       <div
         className={` relative sm:flex hidden  justify-center pt-[14px] w-[550px] ${
           isFocused
-            ? "bg-[#F8F7F4] border-l border-r border-t rounded-t-full py-4 mt-2 border-[#BBBBBB]"
+            ? "bg-[#F8F7F4] border-l border-r border-t rounded-t-[20px] py-2 mt-2 border-[#BBBBBB]"
             : "bg-[#F8F7F4]"
         } `}
       >
