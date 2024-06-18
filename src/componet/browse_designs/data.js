@@ -108,6 +108,7 @@ const data = [
     views: "20000",
     lastUpdated: "January 2024",
   },
+  
   {
     id: 7,
     name: "Project 7",
@@ -126,6 +127,7 @@ const data = [
     views: "20000",
     lastUpdated: "January 2024",
   },
+
   {
     id: 8,
     name: "Project 8",

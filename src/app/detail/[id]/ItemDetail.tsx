@@ -91,7 +91,7 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
                   </td>
                 </tr>
                 <tr className="">
-                  <td className="p-2">Views</td>
+                    <td className="p-2">Views</td>                  
                   {/* number of views */}
                 </tr>
                 <tr className="">
