@@ -19,6 +19,7 @@
     "@next/font": "^14.1.0",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/ssr": "^0.3.0",
+    "@supabase/supabase-js": "^2.43.5",
     "@vitest/ui": "^1.6.0",
     "classnames": "^2.5.1",
     "country-list": "^2.3.0",

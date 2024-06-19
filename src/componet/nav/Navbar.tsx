@@ -1,40 +1,31 @@
-"use client";
+"use client"
 
-import React, { useState, ChangeEvent, useRef, useEffect } from "react";
-import Image from "next/image";
-import data from "../browse_designs/data";
-import Link from "next/link";
-import SearchInput from "./SearchInput";
-import SearchResults from "./SearchResults";
-import NavLinks from "./NavLinks";
-import MoreNavLinks from "./MoreNavLinks";
-import LoadingIndicator from "./LoadingIndicator";
-import { fetchDesigns } from "@/utils/designs/server";
-import { Database } from "@/types/types_db";
-import { DesignT } from "@/types/Design.type";
-import { usePathname, useRouter } from "next/navigation";
-import { getRedirectMethod } from "@/libs/auth-helpers/settings";
-
-export interface Project {
-  id: number;
-  name: string;
-  category: string;
-  logoUrl: string;
-  description?: string;
-  pageType: string;
-}
+import React, { useState, useEffect, useRef, ChangeEvent } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import SearchInput from './SearchInput';
+import SearchResults from './SearchResults';
+import NavLinks from './NavLinks';
+import MoreNavLinks from './MoreNavLinks';
+import { fetchDesigns } from '@/utils/designs/server';
+import { usePathname, useRouter } from 'next/navigation';
+import { getRedirectMethod } from '@/libs/auth-helpers/settings';
+import { Database } from '@/types/types_db';
 
 interface NavbarProps {
   user?: any;
 }
+
 type Designs = Database["public"]["Tables"]["website"]["Row"];
 
 const Navbar: React.FC<NavbarProps> = ({ user }) => {
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [searchResults, setSearchResults] = useState<Designs[]>([]);
   const [showSearchResults, setShowSearchResults] = useState<boolean>(false);
   const [showMoreNavLinks, setShowMoreNavLinks] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false); // New state for loading
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [designs, setDesigns] = useState<Designs[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchResultsRef = useRef<HTMLDivElement>(null);
   const moreNavLinksRef = useRef<HTMLDivElement>(null);
@@ -42,56 +33,18 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const pathname = usePathname();
   const redirectMethod = getRedirectMethod();
 
-  //// SUPABASE
-  const [designs, setDesigns] = useState<Designs[]>([]);
-  const [loading, setLoading] = useState<boolean>(true); // Add loading state
-
   const displayDesigns = async () => {
-    setLoading(true); // Set loading to true when starting to fetch designs
+    setLoading(true);
     const designs = await fetchDesigns();
-    console.log("Data Response", designs);
     if (designs) {
       setDesigns(designs);
     }
-    setLoading(false); // Set loading to false when designs are fetched
+    setLoading(false);
   };
 
   useEffect(() => {
     displayDesigns();
   }, []);
-  // SUPABASE
-
-  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const query = e.target.value;
-    setSearchQuery(query);
-
-    const results = designs.filter(
-      (item) =>
-        (item.name && item.name.toLowerCase().includes(query.toLowerCase())) ||
-        (item?.categories &&
-          item.categories[0].toLowerCase().includes(query.toLowerCase())) ||
-        (item.shortDescription &&
-          item.shortDescription.toLowerCase().includes(query.toLowerCase()))
-    );
-
-    setSearchResults(results);
-    setShowSearchResults(true);
-  };
-
-  const handleInputFocus = () => {
-    setShowSearchResults(true);
-  };
-
-  const handleInputClear = () => {
-    setSearchQuery("");
-    if (searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  };
-
-  const toggleMoreNavLinks = () => {
-    setShowMoreNavLinks(!showMoreNavLinks);
-  };
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -112,43 +65,75 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    const results = designs.filter(
+      (item) =>
+        (item.name &&
+          item.name.toLowerCase().includes(query.toLowerCase())) ||
+        (item?.categories &&
+          item.categories[0].toLowerCase().includes(query.toLowerCase())) ||
+        (item.shortDescription &&
+          item.shortDescription
+            .toLowerCase()
+            .includes(query.toLowerCase()))
+    );
+
+    setSearchResults(results);
+    setShowSearchResults(true);
+  };
+
+  const handleInputFocus = () => {
+    setShowSearchResults(true);
+  };
+
+  const handleInputClear = () => {
+    setSearchQuery('');
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  };
+
+  const toggleMoreNavLinks = () => {
+    setShowMoreNavLinks(!showMoreNavLinks);
+  };
+
+ 
   // Check if the current route matches the ones where the navbar should be hidden
-  const hideNavbarRoutes = [
-    "/auth/login",
-    "/auth/register",
-    "/auth/forgotpassword",
-  ];
-  const shouldHideNavbar = hideNavbarRoutes.includes(pathname);
+  // const hideNavbarRoutes = [
+  //   "/auth/login",
+  //   "/auth/register",
+  //   "/auth/forgotpassword",
+  // ];
+  // const shouldHideNavbar = hideNavbarRoutes.includes(pathname);
 
-  if (shouldHideNavbar) {
-    return null; // Do not render the navbar on these routes
-  }
+  // if (shouldHideNavbar) {
+  //   return null; // Do not render the navbar on these routes
+  // }
 
-  // Use effect to manage loading state
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     const handleStart = () => setIsLoading(true);
     const handleStop = () => setIsLoading(false);
 
-    // Add event listeners
-    window.addEventListener("beforeunload", handleStart);
-    window.addEventListener("DOMContentLoaded", handleStart);
-    window.addEventListener("load", handleStop);
+    window.addEventListener('beforeunload', handleStart);
+    window.addEventListener('DOMContentLoaded', handleStart);
+    window.addEventListener('load', handleStop);
 
-    // Clean up event listeners
     return () => {
-      window.removeEventListener("beforeunload", handleStart);
-      window.removeEventListener("DOMContentLoaded", handleStart);
-      window.removeEventListener("load", handleStop);
+      window.removeEventListener('beforeunload', handleStart);
+      window.removeEventListener('DOMContentLoaded', handleStart);
+      window.removeEventListener('load', handleStop);
     };
-  }, []); // Empty dependency array to run effect only once on mount
+  }, []);
 
   return (
     <div>
@@ -187,7 +172,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             )}
           </div>
           <div className="flex gap-[20px]">
-            <NavLinks status={"authenticated"} />
+            <NavLinks status={'authenticated'} />
 
             <MoreNavLinks
               ref={moreNavLinksRef}
