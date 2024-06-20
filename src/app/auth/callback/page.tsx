@@ -31,11 +31,18 @@ const AuthCallbackPage: React.FC = () => {
   return (
     <>
       {!errorDescription && (
-        <main className="h-screen w-full flex justify-center items-center">
+        <main className="h-screen w-full flex justify-center items-center flex-col">
           <div className="text-2xl font-medium pr-2">
             You have successfully verified your email
           </div>
-          <Link href="/auth/login">Login to continue</Link>
+          <li className="">
+          <Link
+            href="/auth/login"
+            className="hover:scale-105 transition-transform duration-300 sm:block font-bold bg-black p-2 px-4 text-white text-[12px] rounded-[12px] border fle items-center gap-2 border-[#BBBBBB] "
+          >
+            Login
+          </Link>{" "}
+        </li>
         </main>
       )}
 

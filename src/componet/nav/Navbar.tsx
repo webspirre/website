@@ -108,17 +108,17 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   };
 
  
-  // Check if the current route matches the ones where the navbar should be hidden
-  const hideNavbarRoutes = [
-    "/auth/login",
-    "/auth/register",
-    "/auth/forgotpassword",
-  ];
-  const shouldHideNavbar = hideNavbarRoutes.includes(pathname);
+   // Check if the current route matches the ones where the navbar should be hidden
+  // const hideNavbarRoutes = [
+  //   "/auth/login",
+  //   "/auth/register",
+  //   "/auth/forgotpassword",
+  // ];
+  // const shouldHideNavbar = hideNavbarRoutes.includes(pathname);
 
-  if (shouldHideNavbar) {
-    return null; // Do not render the navbar on these routes
-  }
+  // if (shouldHideNavbar) {
+  //   return null; // Do not render the navbar on these routes
+  // }
 
   useEffect(() => {
     const handleStart = () => setIsLoading(true);
@@ -172,7 +172,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             )}
           </div>
           <div className="flex gap-[20px]">
-            <NavLinks status={'authenticated'} />
+            <NavLinks status={'authenticated'} user={user} />
 
             <MoreNavLinks
               ref={moreNavLinksRef}

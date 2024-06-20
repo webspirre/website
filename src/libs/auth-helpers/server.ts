@@ -236,7 +236,11 @@ export async function signInWithPassword(formData: FormData) {
     );
   } else if (data.user) {
     cookieStore.set("preferredSignInView", "newpassword", { path: "/" });
-    redirectPath = getStatusRedirect("/in-app", "Success!", "You are now signed in.");
+    redirectPath = getStatusRedirect(
+      "/in-app",
+      "Success!",
+      "You are now signed in."
+    );
   } else {
     redirectPath = getErrorRedirect(
       "/auth/newpassword",
@@ -297,7 +301,7 @@ export async function signUp(formData: FormData) {
     );
   } else if (data.user) {
     redirectPath = getStatusRedirect(
-      "/",
+      "/auth/login",
       "Success!",
       "Please check your email for a confirmation link. You may now close this tab."
     );
