@@ -299,6 +299,36 @@ export interface Database {
         };
         Relationships: [];
       };
+      notifications: {
+        Row: {
+          id: string | null;
+          uid: string | null;
+          title: string | null;
+          description: string | null;
+          timestamp: string | null;
+          isRead: boolean | null;
+        };
+        Insert: {
+          id?: string | null;
+          uid?: string | null;
+          title?: string | null;
+          description?: string | null;
+          timestamp?: string | null;
+          isRead?: boolean | null;
+        };
+        Update: {
+          id?: string | null;
+          uid?: string | null;
+          title?: string | null;
+          description?: string | null;
+          timestamp?: string | null;
+          isRead?: boolean | null;
+        };
+        Delete: {
+          id: string;
+        };
+        Relationships: [];
+      };
       website: {
         Row: {
           name: string | null;

@@ -125,7 +125,17 @@ function Form() {
       </p>
       <p className="text-[13px] text-[#64748B]">
         By continuing to sign up, you confirm that you agree <br /> to
-        Webspirre&apos;s <span className=" border-b-2 w-fit"> <Link href="/terms">Terms & Conditions</Link> </span> and{" "} <span className=" border-b-2 w-fit"> <Link href="/policy">Privacy Policy</Link></span> .
+        Webspirre&apos;s{" "}
+        <span className=" border-b-2 w-fit">
+          {" "}
+          <Link href="/terms">Terms & Conditions</Link>{" "}
+        </span>{" "}
+        and{" "}
+        <span className=" border-b-2 w-fit">
+          {" "}
+          <Link href="/policy">Privacy Policy</Link>
+        </span>{" "}
+        .
       </p>
     </div>
   );
