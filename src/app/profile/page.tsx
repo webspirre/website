@@ -10,7 +10,7 @@ async function page() {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) {
-    return redirect("/login");
+    return redirect("/auth/login");
   }
 
   return (
