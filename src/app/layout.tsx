@@ -10,13 +10,15 @@ import { Toaster } from "react-hot-toast";
 import AlertHandler from "@/componet/ui/alerthandler/AlertHandler";
 import { DesignProvider } from "@/context/DesignProvider";
 import Footer from "@/componet/footer/Footer";
+import { ErrorBoundary } from "react-error-boundary";
+import Fallback from "@/componet/common/ErrorBoundary";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const meta = {
   title: "Webspirre",
   description: "Find Web design Inspiration Faster",
-  cardImage: "/og.png",
+  cardImage: "/webspirrelogo.png",
   robots: "follow, index",
   favicon: "/favicon.ico",
   url: getURL(),
@@ -75,16 +77,18 @@ export default async function RootLayout({
         <AuthProvider>
           <DesignProvider>
             <Toaster />
-            <main className="bg-white">
-              {/* <AlertHandler /> */}
-              <div className="fixed w-full top-0 opacity-[100%] z-50">
-                <Navbar user={user} />
-              </div>
-              {children}
-              <div>
-                <Footer />
-              </div>
-            </main>
+            <ErrorBoundary FallbackComponent={Fallback}>
+              <main className="bg-white">
+                {/* <AlertHandler /> */}
+                <div className="fixed w-full top-0 opacity-[100%] z-50">
+                  <Navbar user={user} />
+                </div>
+                {children}
+                <div>
+                  <Footer />
+                </div>
+              </main>
+            </ErrorBoundary>
           </DesignProvider>
         </AuthProvider>
       </body>
