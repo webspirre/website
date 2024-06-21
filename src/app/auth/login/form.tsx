@@ -131,12 +131,20 @@ function Form() {
           </Link>
         </div>
 
-        {/* Sign Up Button */}
+        {/*  Login Button */}
         <button
           type="submit"
-          className="bg-black text-center w-[350px] text-white font-bold p-2 py-4 mt-2 rounded-md"
+          className="bg-black text-center w-[350px] text-white font-bold p-2 py-4 mt-2 rounded-md disabled:bg-opacity-35 disabled:cursor-not-allowed"
+          disabled={isSubmitting}
         >
-          Log in
+          {isSubmitting ? (
+            <div className="flex items-center justify-center">
+              <div className="loader"></div> {/* Add a loader here */}
+              <span className="ml-2">Logging in...</span> {/* Loading text */}
+            </div>
+          ) : (
+            "Log in"
+          )}
         </button>
       </form>
 

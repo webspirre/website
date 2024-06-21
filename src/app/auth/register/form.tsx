@@ -100,8 +100,19 @@ function Form() {
         />
 
         {/* Sign Up Button */}
-        <button className="bg-black text-white font-bold p-2 py-4 mt-2 rounded-md">
-          Sign Up
+        <button
+          type="submit"
+          className="bg-black text-center w-[350px] text-white font-bold p-2 py-4 mt-2 rounded-md disabled:bg-opacity-35 disabled:cursor-not-allowed"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? (
+            <div className="flex items-center justify-center">
+              <div className="loader"></div> {/* Add a loader here */}
+              <span className="ml-2">Signing in...</span> {/* Loading text */}
+            </div>
+          ) : (
+            "Sign in"
+          )}
         </button>
       </form>
 
