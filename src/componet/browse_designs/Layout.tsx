@@ -11,6 +11,7 @@ import useDesign from "@/hooks/useDesign";
 import { fetchDesigns } from "@/utils/designs/server";
 import { Database } from "@/types/types_db";
 import Loader from "./Loader";
+import AOS from "aos";
 
 interface HomeLayoutProps {
   user: User | null;
@@ -37,6 +38,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
 
   useEffect(() => {
     displayDesigns();
+    AOS.init();
   }, []);
 
   console.log("User", user);
