@@ -7,6 +7,7 @@ import { fetchDesigns } from "@/utils/designs/server";
 import { Database } from "@/types/types_db";
 import useDesign from "@/hooks/useDesign";
 import Loader from "./Loader";
+import ScrollToTop from "react-scroll-to-top";
 
 interface HomeLayoutProps {
   user: User | null;
@@ -45,6 +46,10 @@ const InAppLayout: React.FC<HomeLayoutProps> = ({ user }) => {
           />
         )}
       </div>
+      <ScrollToTop
+        smooth
+        className="flex justify-center items-center z-[999]"
+      />
     </div>
   );
 };
