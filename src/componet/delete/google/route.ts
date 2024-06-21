@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { createClient } from "@/libs/supabase/server"; // Adjust the import based on your directory structure
+import { createClient } from "../../../libs/supabase/server"; // Adjust the import based on your directory structure
 
 export default async function handler(
   req: NextApiRequest,
