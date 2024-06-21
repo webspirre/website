@@ -2,6 +2,7 @@
 
 import { handleRequest, signInWithOAuth } from "@/libs/auth-helpers/client";
 import { signInWithPassword } from "@/libs/auth-helpers/server";
+import { supabaseBrowser } from "@/libs/supabase/browser";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -22,6 +23,16 @@ function Form() {
     setIsSubmitting(true); // Disable the button while the request is being handled
     await signInWithOAuth(e);
     setIsSubmitting(false);
+  };
+
+  const handleLoginWithOAuth = (provider: "google") => {
+    const supabase = supabaseBrowser();
+    supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: location.origin + "/auth/callback",
+      },
+    });
   };
 
   return (
@@ -45,9 +56,21 @@ function Form() {
           best designed and highest-converting websites
         </p>
       </div>
+      <button
+        // onClick={() => handleLoginWithOAuth("google")}
+        className="hidden"
+      >
+        <Image
+          height={20}
+          width={330}
+          src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707163747/utilities/Frame_49_ucklyh.svg"
+          alt="google button"
+          className=""
+        />
+      </button>
       <form onSubmit={(e) => handleOAuthSubmit(e)}>
         <input type="hidden" name="provider" value={"google"} />
-        <button type="submit">
+        <button type="submit" className="hidden">
           <Image
             height={20}
             width={330}
@@ -58,7 +81,7 @@ function Form() {
         </button>
       </form>
 
-      <div className="flex gap-2 items-center">
+      <div className="fle gap-2 items-center hidden">
         <div className="w-[150px] sm:w-[150px] h-[1px] sm:h-[2px] bg-[#C7C7C7]"></div>
         <p>or</p>
         <div className="w-[150px] sm:w-[150px] h-[1px] sm:h-[2px] bg-[#C7C7C7]"></div>

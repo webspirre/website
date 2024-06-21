@@ -48,7 +48,7 @@ function Form() {
 
       <form onSubmit={(e) => handleOAuthSubmit(e)}>
         <input type="hidden" name="provider" value={"google"} />
-        <button>
+        <button type="submit" className="hidden">
           <Image
             height={20}
             width={430}
@@ -59,7 +59,7 @@ function Form() {
         </button>
       </form>
 
-      <div className="flex gap-2 items-center">
+      <div className="fle gap-2 items-center hidden">
         <div className="w-[150px] sm:w-[200px] h-[1px] sm:h-[2px]  bg-[#C7C7C7]"></div>
         <p>or</p>
         <div className="w-[150px] sm:w-[200px] h-[1px] sm:h-[2px] bg-[#C7C7C7]"></div>
