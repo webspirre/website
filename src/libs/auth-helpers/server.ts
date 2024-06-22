@@ -5,6 +5,20 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { getURL, getErrorRedirect, getStatusRedirect } from "../helpers";
 import { getAuthTypes } from "./settings";
+import { type Provider } from "@supabase/supabase-js";
+
+export async function deleteMsg(
+  // e: React.FormEvent<HTMLFormElement>,
+  id: string
+) {
+  const supabase = createClient();
+  // e.preventDefault();
+  // const formData = new FormData(e.currentTarget);
+  // const provider = String(formData.get("provider")).trim() as Provider;
+  const response = await supabase.from("notifications").delete().eq("id", id);
+  console.log("DELRES", response);
+  return response;
+}
 
 /**
  * Validates an email address.

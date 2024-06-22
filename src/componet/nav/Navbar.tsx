@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect, useRef, ChangeEvent } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import SearchInput from './SearchInput';
-import SearchResults from './SearchResults';
-import NavLinks from './NavLinks';
-import MoreNavLinks from './MoreNavLinks';
-import { fetchDesigns } from '@/utils/designs/server';
-import { usePathname, useRouter } from 'next/navigation';
-import { getRedirectMethod } from '@/libs/auth-helpers/settings';
-import { Database } from '@/types/types_db';
+import React, { useState, useEffect, useRef, ChangeEvent } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import SearchInput from "./SearchInput";
+import SearchResults from "./SearchResults";
+import NavLinks from "./NavLinks";
+import MoreNavLinks from "./MoreNavLinks";
+import { fetchDesigns } from "@/utils/designs/server";
+import { usePathname, useRouter } from "next/navigation";
+import { getRedirectMethod } from "@/libs/auth-helpers/settings";
+import { Database } from "@/types/types_db";
 
 interface NavbarProps {
   user?: any;
@@ -19,7 +19,7 @@ interface NavbarProps {
 type Designs = Database["public"]["Tables"]["website"]["Row"];
 
 const Navbar: React.FC<NavbarProps> = ({ user }) => {
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<Designs[]>([]);
   const [showSearchResults, setShowSearchResults] = useState<boolean>(false);
   const [showMoreNavLinks, setShowMoreNavLinks] = useState<boolean>(false);
@@ -65,10 +65,10 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -78,14 +78,11 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
 
     const results = designs.filter(
       (item) =>
-        (item.name &&
-          item.name.toLowerCase().includes(query.toLowerCase())) ||
+        (item.name && item.name.toLowerCase().includes(query.toLowerCase())) ||
         (item?.categories &&
           item.categories[0].toLowerCase().includes(query.toLowerCase())) ||
         (item.shortDescription &&
-          item.shortDescription
-            .toLowerCase()
-            .includes(query.toLowerCase()))
+          item.shortDescription.toLowerCase().includes(query.toLowerCase()))
     );
 
     setSearchResults(results);
@@ -97,7 +94,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   };
 
   const handleInputClear = () => {
-    setSearchQuery('');
+    setSearchQuery("");
     if (searchInputRef.current) {
       searchInputRef.current.focus();
     }
@@ -107,8 +104,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
     setShowMoreNavLinks(!showMoreNavLinks);
   };
 
- 
-   // Check if the current route matches the ones where the navbar should be hidden
+  // Check if the current route matches the ones where the navbar should be hidden
   // const hideNavbarRoutes = [
   //   "/auth/login",
   //   "/auth/register",
@@ -124,14 +120,14 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
     const handleStart = () => setIsLoading(true);
     const handleStop = () => setIsLoading(false);
 
-    window.addEventListener('beforeunload', handleStart);
-    window.addEventListener('DOMContentLoaded', handleStart);
-    window.addEventListener('load', handleStop);
+    window.addEventListener("beforeunload", handleStart);
+    window.addEventListener("DOMContentLoaded", handleStart);
+    window.addEventListener("load", handleStop);
 
     return () => {
-      window.removeEventListener('beforeunload', handleStart);
-      window.removeEventListener('DOMContentLoaded', handleStart);
-      window.removeEventListener('load', handleStop);
+      window.removeEventListener("beforeunload", handleStart);
+      window.removeEventListener("DOMContentLoaded", handleStart);
+      window.removeEventListener("load", handleStop);
     };
   }, []);
 
@@ -139,7 +135,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
     <div>
       <nav className="bg-[#F8F7F4] relative px-4 pb-3 border-b flex justify-center border-[#BBBBBB] items-center">
         <nav className="w-full  max-w-[1350px] mx-2 flex justify-between items-center">
-          <Link href="/">
+          <Link href={user ? "/in-app" : "/"}>
             <Image
               height={60}
               width={120}
@@ -172,7 +168,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             )}
           </div>
           <div className="flex gap-[20px]">
-            <NavLinks status={'authenticated'} user={user} />
+            <NavLinks status={"authenticated"} user={user} />
 
             <MoreNavLinks
               ref={moreNavLinksRef}

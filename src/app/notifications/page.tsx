@@ -11,8 +11,20 @@ async function page() {
   if (!user) {
     return redirect("/auth/login");
   }
-  const { data: notifications } = await supabase.from("notifications").select();
+
+  // Fetch notifications where uid equals the user id
+  const { data: notifications, error } = await supabase
+    .from("notifications")
+    .select()
+    .eq("uid", user.id);
+
+  if (error) {
+    console.error("Error fetching notifications:", error);
+    // Handle the error appropriately here
+  }
+
   console.log("Notification Data", notifications);
+
   return (
     <div>
       <Notification notifications={notifications} />

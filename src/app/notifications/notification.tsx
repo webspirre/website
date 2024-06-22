@@ -4,6 +4,10 @@ import React, { useState } from "react";
 import { Carter_One } from "next/font/google";
 import Image from "next/image";
 import { Database } from "@/types/types_db";
+// import { createClient } from "@/libs/supabase/server";
+import { PostgrestSingleResponse } from "@supabase/supabase-js";
+import { deleteMsg } from "@/libs/auth-helpers/server";
+import toast from "react-hot-toast";
 
 const carterOne = Carter_One({
   weight: "400",
@@ -31,34 +35,27 @@ const Notification: React.FC<NotificationProps> = ({ notifications }) => {
     setDeleteAll((prev) => !prev);
   };
 
-  // Sample notification data
-  const notifications2 = [
-    {
-      id: 1,
-      title: "Manage your account details.",
-      message: "This is the full notification description.",
-      time: "Feb 01 at 3:11 p.m.",
-    },
-    {
-      id: 2,
-      title: "Another notification title",
-      message: "Another notification description.",
-      time: "Feb 02 at 4:00 p.m.",
-    },
-    {
-      id: 3,
-      title: "Another notification title",
-      message: "Another notification description.",
-      time: "Feb 02 at 4:00 p.m.",
-    },
-    {
-      id: 4,
-      title: "Another notification title",
-      message: "Another notification description.",
-      time: "Feb 02 at 4:00 p.m.",
-    },
-    // Add more notification objects as needed
-  ];
+  const handleDelMessage = async (id: string) => {
+    if (!notifications?.length) return toast.error("Nothing to delete");
+
+    try {
+      const { error } = await deleteMsg(id);
+      if (error) {
+        toast.error("Failed to delete the notification");
+        console.error("Delete error:", error);
+      } else {
+        toast.success("Notification deleted successfully");
+
+        // Update the local state to remove the deleted notification
+        // setNotifications((prevNotifications) =>
+        //   prevNotifications?.filter((notification) => notification.id !== id)
+        // );
+      }
+    } catch (err) {
+      toast.error("An error occurred during deletion");
+      console.error("Unexpected error:", err);
+    }
+  };
 
   return (
     <div className="my-0 sm:my-20 flex justify-center">
@@ -66,7 +63,8 @@ const Notification: React.FC<NotificationProps> = ({ notifications }) => {
         <div className="flex mx-0 sm:mx-[50px] mt-[70px] sm:mt-[50px] mb-[20px] justify-between items-center">
           <div className={carterOne.className}>
             <p className="text-lg sm:text-[24px]">
-              Notifications - {notifications && notifications.length} New
+              Notifications - {notifications && notifications.length}{" "}
+              <span className="text-xs ">Message / Messages</span>
             </p>
           </div>
           <div>
@@ -75,13 +73,15 @@ const Notification: React.FC<NotificationProps> = ({ notifications }) => {
               width={15}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707507709/utilities/fi-rr-menu-dots_milpoo.svg"
               alt="Message"
+              className="cursor-pointer"
               onClick={toggleDeleteAll}
             />
             {deleteAll && (
               <div className="absolute right-8 bg-white rounded-lg border-2 p-4 px-8 z-10">
                 <button
                   className="flex items-center gap-2"
-                  onClick={() => alert("Mark as read")}
+                  // onClick={() => alert("Mark as read")}
+                  onClick={() => handleDelMessage}
                 >
                   <Image
                     height={20}
@@ -100,7 +100,7 @@ const Notification: React.FC<NotificationProps> = ({ notifications }) => {
         {/* Notification cards */}
         {notifications && notifications.length <= 0 && (
           <>
-            <p className="text-sm font-semibold">No Notifications Found</p>
+            <p className="text-sm py-2 text-center">No Notifications Found</p>
           </>
         )}
         {notifications &&
