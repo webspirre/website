@@ -108,10 +108,10 @@ function Form() {
           {isSubmitting ? (
             <div className="flex items-center justify-center">
               <div className="loader"></div> {/* Add a loader here */}
-              <span className="ml-2">Signing in...</span> {/* Loading text */}
+              <span className="ml-2">Signing up...</span> {/* Loading text */}
             </div>
           ) : (
-            "Sign in"
+            "Sign up"
           )}
         </button>
       </form>
