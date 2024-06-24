@@ -5,7 +5,7 @@ import type { User } from "@supabase/auth-helpers-nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import Select, { ActionMeta, MultiValue } from "react-select";
-import { createPublicClient } from "../../libs/supabase/client";
+import { createClient } from "../../libs/supabase/client";
 import toast from "react-hot-toast";
 
 interface ContactLayoutProps {
@@ -64,7 +64,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [selectedOption, setSelectedOption] = useState<Option>();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const supabase = createPublicClient();
+  const supabase = createClient();
 
   // Load data from localStorage when the component mounts
   useEffect(() => {
