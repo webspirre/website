@@ -82,7 +82,7 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
                   </div>
                 </div>
               </Link>
-              {/* {user && ( */}
+              {user && (
                 <Link href="/profile" className="block text-[black] mb-4 ">
                   <div className="flex gap-2 px-4 items-center pt-2">
                     <Image
@@ -95,7 +95,7 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
                     <p className="font-bold ">Profile</p>
                   </div>
                 </Link>
-              {/* )} */}
+              )}
 
               <div className="px-2 py-4 sm:hidden">
                 <Link
