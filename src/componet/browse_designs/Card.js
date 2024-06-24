@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const Card = ({
   id,
@@ -60,11 +61,13 @@ const Card = ({
       const item = new ClipboardItem({ [blob.type]: blob });
       await navigator.clipboard.write([item]);
       setCopied(true);
+      toast.success("Copied Successfully")
       console.log("Image copied to clipboard");
 
       setTimeout(() => setCopied(false), 4000);
     } catch (err) {
       console.error("Failed to copy image:", err);
+      toast.error("error copying image")
     }
   };
 
@@ -82,8 +85,10 @@ const Card = ({
       link.click();
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
+      toast.success("screenshot downloaded successfully")
     } catch (err) {
       console.error("Failed to download image: ", err);
+      toast.error("Error downloading screenshot", {duration: 2500})
     }
   };
 

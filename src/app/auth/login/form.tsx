@@ -31,6 +31,10 @@ function Form() {
       provider,
       options: {
         redirectTo: location.origin + "/auth/callback",
+        queryParams: {
+          access_type: "offline",
+          prompt: "consent",
+        },
       },
     });
   };
@@ -56,10 +60,7 @@ function Form() {
           best designed and highest-converting websites
         </p>
       </div>
-      <button
-        // onClick={() => handleLoginWithOAuth("google")}
-        className="hidden"
-      >
+      <button onClick={() => handleLoginWithOAuth("google")} className="hidden">
         <Image
           height={20}
           width={330}
@@ -68,6 +69,7 @@ function Form() {
           className=""
         />
       </button>
+      {/* HIDDEN */}
       <form onSubmit={(e) => handleOAuthSubmit(e)}>
         <input type="hidden" name="provider" value={"google"} />
         <button type="submit" className="hidden">
