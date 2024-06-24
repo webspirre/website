@@ -15,7 +15,6 @@ const Form: React.FC = () => {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmittingR, setIsSubmittingR] = useState(false);
-
   const [code, setCode] = useState<string[]>(["", "", "", "", "", ""]);
   const [email, setEmail] = useState("");
 
@@ -48,6 +47,7 @@ const Form: React.FC = () => {
     index: number
   ) => {
     const value = e.target.value;
+    const inputEvent = e.nativeEvent as InputEvent;
     if (/^\d$/.test(value)) {
       const newCode = [...code];
       newCode[index] = value;
@@ -55,13 +55,23 @@ const Form: React.FC = () => {
       if (index < code.length - 1) {
         (e.target.nextSibling as HTMLInputElement)?.focus();
       }
-    } else if (value === "") {
+    } else if (
+      value === "" &&
+      inputEvent.inputType === "deleteContentBackward"
+    ) {
       const newCode = [...code];
       newCode[index] = "";
       setCode(newCode);
       if (index > 0) {
         (e.target.previousSibling as HTMLInputElement)?.focus();
       }
+    }
+  };
+
+  const handlePaste = async () => {
+    const clipboardText = await navigator.clipboard.readText();
+    if (/^\d{6}$/.test(clipboardText)) {
+      setCode(clipboardText.split(""));
     }
   };
 
@@ -123,12 +133,12 @@ const Form: React.FC = () => {
       </div>
 
       <form
-        className="flex sm:w-[400px] flex-col mx-auto md:mx-0 gap-4"
+        className="flex sm:w-[350px] flex-col mx-auto md:mx-0 gap-4"
         noValidate={true}
         onSubmit={handleSubmit}
       >
         <input type="hidden" value={email} name="email" />
-        <div className="flex justify-center gap-2">
+        <div className="flex relative mt-[40px] justify-between gap-2">
           {code.map((digit, index) => (
             <input
               key={index}
@@ -140,6 +150,19 @@ const Form: React.FC = () => {
               className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[50px] text-center text-2xl"
             />
           ))}
+          <button
+            type="button"
+            onClick={handlePaste}
+            className="border flex items-center gap-1 absolute border-[#C7C7C7] bg-black text-white px-2 py-1 rounded-md right-0 -top-[50px] text-center text-[14px]"
+          >
+            <Image
+              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1719239754/utilities/webspirre/paste_1_ubbhr6.png"
+              alt="paste"
+              height={18}
+              width={18}
+            />
+            Paste{" "}
+          </button>
         </div>
 
         <button

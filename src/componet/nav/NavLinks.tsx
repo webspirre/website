@@ -7,6 +7,10 @@ import { getRedirectMethod } from "@/libs/auth-helpers/settings";
 
 import { usePathname, useRouter } from "next/navigation";
 
+import { Database } from "@/types/types_db";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+
+
 interface NavLinksProps {
   status: string;
   user?: any;

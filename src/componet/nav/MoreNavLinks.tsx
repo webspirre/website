@@ -1,19 +1,30 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { handleRequest } from "@/libs/auth-helpers/client";
 import { SignOut } from "@/libs/auth-helpers/server";
 import { getRedirectMethod } from "@/libs/auth-helpers/settings";
 import { usePathname, useRouter } from "next/navigation";
+import { SupabaseResponse } from "@/types/supabase_res";
+import { Database } from "@/types/types_db";
+import {
+  Session,
+  User,
+  createClientComponentClient,
+} from "@supabase/auth-helpers-nextjs";
+import toast from "react-hot-toast";
+
+import Avatar from "./Avatar";
 
 interface MoreNavLinksProps {
   showMoreNavLinks: boolean;
   toggleMoreNavLinks: () => void;
   user?: any;
+  avatarUrl?: any; // avatarUrl prop
 }
 
 const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
-  ({ showMoreNavLinks, toggleMoreNavLinks, user }, ref) => {
+  ({ showMoreNavLinks, toggleMoreNavLinks, user, avatarUrl }, ref) => {
     const router = useRouter();
     const pathname = usePathname();
     const redirectMethod = getRedirectMethod();
@@ -21,30 +32,58 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
     const handleSignOut = async (e: React.FormEvent<HTMLFormElement>) => {
       await handleRequest(e, SignOut, router);
     };
+    const supabase = createClientComponentClient<Database>();
+    const [avatar_url, setAvatarUrl] = useState<string | null>(null);
+    const [loading, setLoading] = useState(true);
+
+    const getProfile = useCallback(async () => {
+      try {
+        setLoading(true);
+
+        let { data, error, status } = await supabase
+          .from("users")
+          .select(`full_name,  avatar_url`)
+          .eq("id", user?.id as string)
+          .single();
+
+        if (error && status !== 406) {
+          throw error;
+        }
+
+        if (data) {
+          setAvatarUrl(data.avatar_url);
+        }
+      } catch (error) {
+        toast.error("Error loading user data!", { duration: 20000 });
+      } finally {
+        setLoading(false);
+      }
+    }, [user, supabase]);
+
+    useEffect(() => {
+      getProfile();
+    }, [user, getProfile]);
 
     return (
       <div className="relative text-[12px]" ref={ref}>
         <div className="hidde pt-[10px] sm:pt-[14px]">
           <div
-            className="px-2 sm:p-1/2 hover:scale-110 transition-transform duration-300 border flex flex-row gap-2 rounded-lg items-center cursor-pointer"
+            className=" sm:p-[2px]  hover:scale-110 transition-transform duration-300 border flex flex-row gap-[2px] rounded-lg items-center cursor-pointer"
             onClick={toggleMoreNavLinks}
           >
             {user && (
-            <Image
-              height={20}
-              width={20}
-              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1719068006/utilities/webspirre/RMbSxVYDEcK0YAl8AOOO_8x_nt1alq.webp"
-              alt="rice"
-              className="z-10 w-6 h-6 rounded-full "
-            />
-           )} 
+              <div className="pl-[4px]">
+                <Avatar uid={user?.id} url={avatar_url} />
+
+              </div>
+            )}
 
             <Image
               height={20}
               width={29}
               src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707432726/utilities/hamburger_icon_mlednc.svg"
               alt="rice"
-              className=""
+              className="h-6 w-6"
               onClick={toggleMoreNavLinks}
             />
           </div>

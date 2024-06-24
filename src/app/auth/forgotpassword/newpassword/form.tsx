@@ -66,7 +66,7 @@ const Form: React.FC = () => {
       </div>
 
       <form
-        className="flex sm:w-[400px] flex-col mx-auto md:mx-0 gap-4"
+        className="flex sm:w-[350px] flex-col mx-auto md:mx-0 gap-4"
         noValidate={true}
         onSubmit={handleSubmit}
       >
@@ -80,7 +80,7 @@ const Form: React.FC = () => {
           name="password"
           autoComplete="current-password"
           placeholder="**********"
-          className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[350px] md:w-[430px]"
+          className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[350px] md:w-[350px]"
         />
 
         {/* Password Input */}
@@ -93,12 +93,12 @@ const Form: React.FC = () => {
           name="passwordConfirm"
           autoComplete="current-password"
           placeholder="**********"
-          className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[350px] md:w-[430px]"
+          className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[350px] md:w-[350px]"
         />
         {/* Get code Button */}
         <button
           type="submit"
-          className="bg-black text-center w-full text-white font-bold p-2 py-4 mt-2 rounded-md"
+          className="bg-black text-center w-[350px] text-white font-bold p-2 py-4 mt-2 rounded-md"
         >
           {!isSubmitting ? " Save" : "Saving password..."}
         </button>

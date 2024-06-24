@@ -11,12 +11,15 @@ import { fetchDesigns } from "@/utils/designs/server";
 import { usePathname, useRouter } from "next/navigation";
 import { getRedirectMethod } from "@/libs/auth-helpers/settings";
 import { Database } from "@/types/types_db";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 interface NavbarProps {
   user?: any;
 }
 
 type Designs = Database["public"]["Tables"]["website"]["Row"];
+type Profiles = Database["public"]["Tables"]["users"]["Row"];
+
 
 const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -26,12 +29,14 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [designs, setDesigns] = useState<Designs[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [avatarUrl, setAvatarUrl] = useState<Profiles["avatar_url"]>("");
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchResultsRef = useRef<HTMLDivElement>(null);
   const moreNavLinksRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const pathname = usePathname();
   const redirectMethod = getRedirectMethod();
+  const supabase = createClientComponentClient<Database>();
 
   const displayDesigns = async () => {
     setLoading(true);
@@ -104,8 +109,29 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
     setShowMoreNavLinks(!showMoreNavLinks);
   };
 
-  // Check if the current route matches the ones where the navbar should be hidden
-  // Check if the current route matches the ones where the div should be hidden
+  // Fetch avatar URL if user is present
+  useEffect(() => {
+    async function downloadImage(path: string) {
+      try {
+        const { data, error } = await supabase.storage
+          .from("avatars")
+          .download(path);
+        if (error) {
+          throw error;
+        }
+
+        const url = URL.createObjectURL(data);
+        setAvatarUrl(url);
+        console.log("Avatar URL: ", url); // Debug log
+      } catch (error) {
+        console.log("Error downloading image: ", error);
+      }
+    }
+
+    if (user?.avatar_url) downloadImage(user.avatar_url);
+  }, [user, supabase]);
+
+
   const hideDivRoutes = [
     "/auth/login",
     "/auth/register",

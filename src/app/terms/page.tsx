@@ -9,7 +9,6 @@ const Terms = () => {
         <main className="mt-32 sm:mt-40 w-full mx-auto">
           <Header
             heading={
-              
               <Image
                 height={20}
                 width={312}
@@ -17,7 +16,6 @@ const Terms = () => {
                 src="https://res.cloudinary.com/dwqantex4/image/upload/v1716468507/Webspirre_Terms_of_Service_c1c95r.png"
                 className="mb-[20px]"
               />
-              
             }
             paragraph={<span>Last Modified: March 21, 2024</span>}
           />
@@ -168,12 +166,12 @@ const Terms = () => {
                 <>
                   <span>
                     9.1 These Terms will be governed by and construed in
-                    accordance with the laws of [State/Country].
+                    accordance with the laws of The Federal Republic of Nigeria.
                   </span>
                   <span>
                     9.2 Any dispute arising out of or relating to these Terms
                     will be subject to the exclusive jurisdiction of the courts
-                    of [State/Country].
+                    of The Federal Republic of Nigeria.
                   </span>
                 </>
               }
@@ -184,7 +182,7 @@ const Terms = () => {
                 <>
                   <span>
                     10.1 If you have any questions about these Terms, please
-                    contact us at [Email Address].
+                    contact us at info@webspirre.com.
                   </span>
                 </>
               }

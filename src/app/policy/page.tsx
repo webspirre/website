@@ -26,138 +26,124 @@ const Policy = () => {
               heading="1. Introduction"
               paragraph={
                 <span>
-                  These Terms and Conditions ("Terms") govern your access and
-                  use of Webspirre ("Website"), a platform showcasing examples
-                  of high-converting websites for web design inspiration. By
-                  accessing or using the Website, you agree to be bound by these
-                  Terms.
+                  Webspirre ("We", "Us", or "Our") values your privacy and is
+                  committed to protecting your personal information. This
+                  Privacy Policy explains how we collect, use, and disclose
+                  information when you use our Website.
                 </span>
               }
             />
             <Typography
-              heading="2. User Acccounts"
+              heading="2. Information Collection"
               paragraph={
                 <>
                   <span>
-                    2.1 Creating an account is optional for browsing the
-                    Website.
+                    2.1 We collect information when you create an account,
+                    including your username and password.
                   </span>
                   <span>
-                    2.2 If you choose to create an account, you are responsible
-                    for maintaining the confidentiality of your account
-                    information, including your username and password.
+                    2.2 We also collect information about your interactions with
+                    the Website, such as the content you view and any searches
+                    you conduct.
                   </span>
-                  <span>
+                  {/* <span>
                     2.3 You are responsible for all activities that occur under
                     your account.
-                  </span>
+                  </span> */}
                 </>
               }
             />
             <Typography
-              heading="3. Content and Intellectual Property"
+              heading="3. Information Use"
               paragraph={
                 <>
                   <span>
-                    3.1 The Website contains content, including website
-                    screenshots, text, graphics, logos, and other materials
-                    ("Content"). This Content is protected by copyright,
-                    trademark, and other intellectual property laws.
+                    3.1 We use your information to provide and improve the
+                    Website, including to:
+                  </span>
+                  <span className="pl-4 mb-2">
+                    {" "}
+                    3.1.1 Operate and maintain your account. <br /> 3.1.2
+                    Respond to your inquiries and support requests. <br /> 3.1.3
+                    Personalize your experience on the Website.
                   </span>
                   <span>
-                    3.2 You may not modify, publish, distribute, copy, create
-                    derivative works from, or commercially exploit any Content
-                    without our express written permission.
-                  </span>
-                  <span>
-                    3.3 You may download and print Content for personal,
-                    non-commercial use only.
+                    3.2 We may also use your information to communicate with you
+                    about our services and features.
                   </span>
                 </>
               }
             />
             <Typography
-              heading="4. User Conduct"
+              heading="4. Information Disclosure"
               paragraph={
                 <>
                   <span>
-                    4.1 You agree to use the Website in a lawful and respectful
-                    manner.
+                    4.1 We do not share your personal information with third
+                    parties except:
                   </span>
-                  <span>4.2 You will not:</span>
-                  <span>
-                    • Upload or transmit any content that is illegal, harmful,
-                    threatening, abusive, defamatory, obscene, or violates any
-                    other party's rights.
-                  </span>
-                  <span>
-                    • Interfere with the Website's operation or servers.
-                  </span>
-                  <span>
-                    • Attempt to gain unauthorized access to the Website or any
-                    other accounts.
-                  </span>
-                  <span>
-                    • Use the Website for any commercial purposes without our
-                    express written permission.
+                  <span className="pl-4 mb-2">
+                    {" "}
+                    4.1.1 To comply with legal obligations, such as a subpoena
+                    or court order. <br />
+                    4.1.2 To protect the rights, property, or safety of
+                    Webspirre, our users, or the public. <br />
+                    4.1.3 In connection with a merger, acquisition, or sale of
+                    our assets.
                   </span>
                 </>
               }
             />
             <Typography
-              heading="5. Disclaimer of Warranties"
+              heading="5. Data Security"
               paragraph={
                 <>
                   <span>
-                    5.1 The Website and its Content are provided "as is" and
-                    without warranties of any kind, express or implied.
-                  </span>
-                  <span>
-                    5.2 We disclaim all warranties, including but not limited
-                    to, warranties of merchantability, fitness for a particular
-                    purpose, and non-infringement.
-                  </span>
-                  <span>
-                    5.3 We do not warrant that the Website will be
-                    uninterrupted, error-free, or secure.
+                    We take reasonable measures to protect your information from
+                    unauthorized access, use, or disclosure. Our measures
+                    include encrypting sensitive information and implementing
+                    appropriate physical, electronic, and procedural safeguards.
                   </span>
                 </>
               }
             />
             <Typography
-              heading="6. Limitation of Liability"
+              heading="6.  Data Retention"
               paragraph={
                 <span>
-                  6.1 We will not be liable for any damages arising from your
-                  use of the Website, including but not limited to, direct,
-                  indirect, incidental, consequential, or punitive damages.
+                  6.1 We retain your information for as long as your account is
+                  active or as needed to provide our services. <br /> 6.2 We may
+                  also retain your information for a reasonable period after
+                  your account is closed or your last interaction with us
                 </span>
               }
             />
             <Typography
-              heading="7. Termination"
+              heading="7. Your Rights"
               paragraph={
                 <>
                   <span>
-                    7.1 We may terminate your access to the Website at any time,
-                    for any reason, without notice.
+                    7.1 You have the right to access, correct, or delete your
+                    personal information. <br />
+                    7.2 You can also object to or restrict our processing of
+                    your information by contacting us directly at
+                    info@webspirre.com
                   </span>
                 </>
               }
             />
             <Typography
-              heading="8. Changes to Terms
-"
+              heading="8. Changes to Privacy Policy"
               paragraph={
                 <>
                   <span>
-                    8.1 We may revise these Terms at any time by posting the
-                    revised terms on the Website.
+                    8.1 We may revise this Privacy Policy at any time by posting
+                    the revised version on the Website.
                   </span>
                   <span>
                     8.2 Your continued use of the Website after the revised
-                    terms are posted constitutes your acceptance of the revised
-                    terms.
+                    Privacy Policy is posted constitutes your acceptance of the
+                    revised terms.
                   </span>
                 </>
               }
@@ -167,13 +153,14 @@ const Policy = () => {
               paragraph={
                 <>
                   <span>
-                    9.1 These Terms will be governed by and construed in
-                    accordance with the laws of [State/Country].
+                    9.1 These Privacy Policy will be governed by and construed
+                    in accordance with the laws of The Federal Republic of
+                    Nigeria.
                   </span>
                   <span>
                     9.2 Any dispute arising out of or relating to these Terms
                     will be subject to the exclusive jurisdiction of the courts
-                    of [State/Country].
+                    of The Federal Republic of Nigeria.
                   </span>
                 </>
               }
@@ -184,7 +171,7 @@ const Policy = () => {
                 <>
                   <span>
                     10.1 If you have any questions about these Terms, please
-                    contact us at [Email Address].
+                    contact us at info@webspirre.com.
                   </span>
                 </>
               }
@@ -195,12 +182,8 @@ const Policy = () => {
               paragraph={
                 <>
                   <span>
-                    11.1 We reserve the right to modify or discontinue the
-                    Website, or any part thereof, at any time without notice.
-                  </span>
-                  <span>
-                    11.2 These Terms constitute the entire agreement between you
-                    and us regarding your use of the Website.
+                    By using Webspirre, you acknowledge that you have read,
+                    understood, and agreed to this Privacy Policy.
                   </span>
                 </>
               }

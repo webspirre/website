@@ -103,7 +103,7 @@ function Form() {
           autoComplete="email"
           autoCorrect="off"
           placeholder="example@mail.com"
-          className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] w-[350px] md:w-[430px]"
+          className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] w-[350px] sm:w-[350px]"
         />
 
         {/* Password Input */}
@@ -117,13 +117,13 @@ function Form() {
           autoComplete="current-password"
           //  placeholder="6+ Characters, 1 Capital letter"
           placeholder="**********"
-          className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[350px] md:w-[430px]"
+          className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[350px] sm:w-[350px]"
         />
 
         {/* Sign Up Button */}
         <button
           type="submit"
-          className="bg-black text-center w-[350px] text-white font-bold p-2 py-4 mt-2 rounded-md disabled:bg-opacity-35 disabled:cursor-not-allowed"
+          className="bg-black text-center  text-white font-bold p-2 py-4 mt-2 rounded-md disabled:bg-opacity-35 disabled:cursor-not-allowed w-[350px] sm:w-[350px]"
           disabled={isSubmitting}
         >
           {isSubmitting ? (

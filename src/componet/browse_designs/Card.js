@@ -49,8 +49,7 @@ const Card = ({
 
   const handleCopyToClipboard = async () => {
     try {
-      const imageUrl =
-        deviceFilter === "Mobile" ? mobileImageUrl : deskstopImageUrl;
+      const imageUrl = deviceFilter === "Mobile" ? mobileFpURL : desktopFpURL;
       console.log("Fetching image from URL:", imageUrl);
 
       const response = await fetch(imageUrl);
@@ -73,8 +72,7 @@ const Card = ({
 
   const handleDownloadImage = async () => {
     try {
-      const imageUrl =
-        deviceFilter === "Mobile" ? mobileImageUrl : deskstopImageUrl;
+      const imageUrl = deviceFilter === "Mobile" ? mobileFpURL : desktopFpURL;
       const response = await fetch(imageUrl);
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
@@ -139,7 +137,7 @@ const Card = ({
             )}
           </Link>
 
-          <div className="pr-[40px]  w-[200px]">
+          <div className="pr-[40px]  w-[160px]">
             <p className="text-[12px] mb- font-bold">{name}</p>
             {shortDescription && (
               <p className="text-gray-700 text-[11px] overflow-hidden whitespace-nowrap text-ellipsis">
