@@ -244,7 +244,8 @@ export async function signInWithPassword(formData: FormData) {
 
   if (error) {
     redirectPath = getErrorRedirect(
-      "/auth/forgotpassword/newpassword",
+      // "/auth/forgotpassword/newpassword",
+      "/auth/login",
       "Sign in failed.",
       error.message
     );
@@ -257,7 +258,8 @@ export async function signInWithPassword(formData: FormData) {
     );
   } else {
     redirectPath = getErrorRedirect(
-      "/auth/newpassword",
+      // "/auth/newpassword",
+      "/auth/login",
       "Hmm... Something went wrong.",
       "You could not be signed in."
     );
