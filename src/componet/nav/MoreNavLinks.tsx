@@ -24,20 +24,20 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
 
     return (
       <div className="relative text-[12px]" ref={ref}>
-        <div className="hidde pt-[10px] sm:pt-[12px]">
+        <div className="hidde pt-[10px] sm:pt-[14px]">
           <div
-            className="p-0 sm:p-1/2 hover:scale-110 transition-transform duration-300 border flex flex-row gap-2 rounded-lg cursor-pointer"
+            className="px-2 sm:p-1/2 hover:scale-110 transition-transform duration-300 border flex flex-row gap-2 rounded-lg items-center cursor-pointer"
             onClick={toggleMoreNavLinks}
           >
             {user && (
-              <Image
-                height={20}
-                width={20}
-                src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707432454/utilities/profile_image_b4sbia.svg"
-                alt="rice"
-                className="z-10"
-              />
-            )}
+            <Image
+              height={20}
+              width={20}
+              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1719068006/utilities/webspirre/RMbSxVYDEcK0YAl8AOOO_8x_nt1alq.webp"
+              alt="rice"
+              className="z-10 w-6 h-6 rounded-full "
+            />
+           )} 
 
             <Image
               height={20}
@@ -82,7 +82,7 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
                   </div>
                 </div>
               </Link>
-              {user && (
+              {/* {user && ( */}
                 <Link href="/profile" className="block text-[black] mb-4 ">
                   <div className="flex gap-2 px-4 items-center pt-2">
                     <Image
@@ -95,7 +95,7 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
                     <p className="font-bold ">Profile</p>
                   </div>
                 </Link>
-              )}
+              {/* )} */}
 
               <div className="px-2 py-4 sm:hidden">
                 <Link

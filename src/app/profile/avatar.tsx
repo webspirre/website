@@ -81,27 +81,24 @@ export default function Avatar({
         //   alt="Avatar"
         //   className="w-32 sm:w-auto"
         // />
-        <div className="relative w-20 sm:w-auto max-w-full">
+        <div className="relative sm:w-auto max-w-full">
           <Image
             src={avatarUrl}
             alt="Avatar"
             layout="responsive"
-            width={1}
-            height={1}
-            className="object-contairounded-full"
+            width={130}
+            height={130}
+            className="w-[130px] h-[130px] object-contain rounded-full"
           />
         </div>
       ) : (
-        // <div
-        //   className="avatar no-image"
-        //   style={{ height: size, width: size }}
-        // />
+        
         <Image
           height={size}
           width={size}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707432454/utilities/profile_image_b4sbia.svg"
           alt="rice"
-          className="w-32 sm:w-"
+          className="w-[130px] h-[130px] rounded-full"
         />
       )}
       <div>
