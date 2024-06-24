@@ -1,6 +1,6 @@
 import ProfileImageUpload from "@/componet/ui/profile/ProfileImageUpload";
 import NewProfileImageUpload from "@/componet/ui/profile/newProfileImageUpload";
-import { createClient } from "@/libs/supabase/client";
+import { createPublicClient } from "@/libs/supabase/client";
 import { SupabaseResponse } from "@/types/supabase_res";
 import Image from "next/image";
 import React, { useCallback, useEffect, useState } from "react";
