@@ -13,3 +13,16 @@ export const createClient = () =>
       },
     }
   );
+
+
+  export const createPublicClient = () =>
+    createBrowserClient<Database>(
+      // Pass Supabase URL and anonymous key from the environment to the client
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        auth: {
+          storageKey: "public_supabase_auth_token", // Custom key for admin tokens
+        },
+      }
+    );
