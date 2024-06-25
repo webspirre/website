@@ -40,14 +40,14 @@ function Form() {
   };
 
   return (
-    <div className="flex flex-col text-[12px] mt-[23px]  items-center justify-center gap-4">
+    <div className="flex flex-col text-[12px] sm:mt-[50px] mt-[50px]   items-center justify-center gap-4">
       <Link href="/">
         <Image
           height={20}
           width={100}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/logo_e8rxwj.svg"
           alt="left"
-          className="hidden sm:block"
+          className="hidde sm:block"
         />
       </Link>
 
@@ -107,7 +107,7 @@ function Form() {
             autoComplete="email"
             autoCorrect="off"
             placeholder="example@mail.com"
-            className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[50px] w-[350px] sm:w-[350px]"
+            className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[50px] w-[320px] sm:w-[350px]"
           />
         </div>
 
@@ -122,7 +122,7 @@ function Form() {
             name="password"
             autoComplete="current-password"
             placeholder="**********"
-            className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[50px] w-[350px] md:w-[350px]"
+            className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[50px] w-[320px] md:w-[350px]"
           />
 
           <Link
@@ -136,7 +136,7 @@ function Form() {
         {/*  Login Button */}
         <button
           type="submit"
-          className="bg-black text-center w-[350px] text-white font-bold p-2 py-4 mt-2 rounded-md disabled:bg-opacity-35 disabled:cursor-not-allowed"
+          className="bg-black text-center w-[320px] sm:w-[350px] text-white font-bold p-2 py-4 mt-2 rounded-md disabled:bg-opacity-35 disabled:cursor-not-allowed"
           disabled={isSubmitting}
         >
           {isSubmitting ? (
@@ -156,9 +156,9 @@ function Form() {
           <Link href="/auth/register"> Create an account instead</Link>
         </span>
       </p>
-      <p className="text-[13px] text-[#64748B]">
-        By continuing to sign up, you confirm that you agree <br /> to
-        Webspirre&apos;s{" "}
+      <p className="text-[13px] sm:w-[350px] w-[320px] text-[#64748B]">
+        By continuing to sign up, you confirm that you agree{" "}
+        <br className="hidden sm:block" /> to Webspirre&apos;s{" "}
         <span className=" border-b-2 w-fit">
           {" "}
           <Link href="/terms">Terms & Conditions</Link>{" "}

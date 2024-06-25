@@ -47,7 +47,7 @@ const Form = () => {
         />
       </Link>
 
-      <div className="w-[400px]">
+      <div className=" w-[320px] sm:w-[350px]">
         <div className="relative">
           <Link href="/auth/login" className="flex absolute bottom-[30px]">
             <Image
@@ -85,7 +85,7 @@ const Form = () => {
           autoComplete="email"
           autoCorrect="off"
           placeholder="example@mail.com"
-          className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] w-[350px] sm:w-[430px]"
+          className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px]  w-[320px] sm:w-[350px]"
           value={email}
           onChange={handleEmailChange} // Handle change event
         />

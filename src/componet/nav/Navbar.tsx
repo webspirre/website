@@ -136,6 +136,8 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
     "/auth/login",
     "/auth/register",
     "/auth/forgotpassword",
+    "/auth/forgotpassword/newpassword",
+    "/auth/forgotpassword/verify",
   ];
   const shouldHideDiv = hideDivRoutes.includes(pathname);
 

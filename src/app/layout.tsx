@@ -78,15 +78,15 @@ export default async function RootLayout({
           <DesignProvider>
             <Toaster />
             {/* <ErrorBoundary FallbackComponent={Fallback}> */}
-            <main className="bg-white">
+            <main className="bg-white ">
               {/* <AlertHandler /> */}
               <div className="fixed w-full top-0 opacity-[100%] z-50">
                 <Navbar user={user} />
               </div>
               {children}
-              <div>
-                <Footer />
-              </div>
+                <div className=" ">
+                  <Footer />
+                </div>
             </main>
             {/* </ErrorBoundary> */}
           </DesignProvider>

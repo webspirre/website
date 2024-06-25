@@ -48,7 +48,7 @@ function Form() {
         />{" "}
       </Link>
 
-      <div className="w-[400px]">
+      <div className=" w-[320px] sm:w-[350px]">
         <h1 className="text-center text-[20px] py-2 font-bold">
           Join Webspirre
         </h1>
@@ -103,7 +103,7 @@ function Form() {
           autoComplete="email"
           autoCorrect="off"
           placeholder="example@mail.com"
-          className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] w-[350px] sm:w-[350px]"
+          className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] w-[320px] sm:w-[350px]"
         />
 
         {/* Password Input */}
@@ -117,13 +117,13 @@ function Form() {
           autoComplete="current-password"
           //  placeholder="6+ Characters, 1 Capital letter"
           placeholder="**********"
-          className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-[350px] sm:w-[350px]"
+          className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px]  w-[320px] sm:w-[350px]"
         />
 
         {/* Sign Up Button */}
         <button
           type="submit"
-          className="bg-black text-center  text-white font-bold p-2 py-4 mt-2 rounded-md disabled:bg-opacity-35 disabled:cursor-not-allowed w-[350px] sm:w-[350px]"
+          className="bg-black text-center  text-white font-bold p-2 py-4 mt-2 rounded-md disabled:bg-opacity-35 disabled:cursor-not-allowed  w-[320px] sm:w-[350px]"
           disabled={isSubmitting}
         >
           {isSubmitting ? (
@@ -137,14 +137,14 @@ function Form() {
         </button>
       </form>
 
-      <p className="text-[13px] text-[#64748B]">
+      <p className="text-[13px] text-[#64748B] ">
         Already have an account?{" "}
         <span className="font-bold text-black">
           <Link href="/auth/login">Log in instead</Link>
         </span>
       </p>
-      <p className="text-[13px] text-[#64748B]">
-        By continuing to sign up, you confirm that you agree <br /> to
+      <p className="text-[13px] text-[#64748B]  w-[320px] sm:w-[350px]">
+        By continuing to sign up, you confirm that you agree <br className="hidden sm:block" /> to
         Webspirre&apos;s{" "}
         <span className=" border-b-2 w-fit">
           {" "}

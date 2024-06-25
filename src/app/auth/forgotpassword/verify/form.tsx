@@ -133,7 +133,7 @@ const Form: React.FC = () => {
       </div>
 
       <form
-        className="flex sm:w-[350px] flex-col mx-auto md:mx-0 gap-4"
+        className="flex  w-[350px] sm:w-[350px] flex-col mx-auto md:mx-0 gap-4"
         noValidate={true}
         onSubmit={handleSubmit}
       >
