@@ -317,7 +317,7 @@ export async function signUp(formData: FormData) {
     );
   } else if (data.user) {
     redirectPath = getStatusRedirect(
-      "/auth/login",
+      "/auth/confirm",
       "Success!",
       "Please check your email for a confirmation link. You may now close this tab."
     );
