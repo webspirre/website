@@ -54,7 +54,8 @@ const MoreNavLinks = forwardRef<HTMLDivElement, MoreNavLinksProps>(
           setAvatarUrl(data.avatar_url);
         }
       } catch (error) {
-        toast.error("Error loading user data!", { duration: 20000 });
+        // toast.error("Error loading user data!", { duration: 20000 });
+        console.log("ERROR LOADING USER DATA")
       } finally {
         setLoading(false);
       }

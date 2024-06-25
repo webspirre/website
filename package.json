@@ -39,6 +39,7 @@
     "react-scroll-to-top": "^3.0.0",
     "react-select": "^5.8.0",
     "react-select-country-list": "^2.2.3",
+    "react-toastify": "^10.0.5",
     "supabase": "^1.151.1",
     "tailwind-merge": "^2.3.0"
   },

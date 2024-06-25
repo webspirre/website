@@ -12,6 +12,7 @@ import { DesignProvider } from "@/context/DesignProvider";
 import Footer from "@/componet/footer/Footer";
 import { ErrorBoundary } from "react-error-boundary";
 import Fallback from "@/componet/common/ErrorBoundary";
+import { toast, ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -77,16 +78,17 @@ export default async function RootLayout({
         <AuthProvider>
           <DesignProvider>
             <Toaster />
+            <ToastContainer />
             {/* <ErrorBoundary FallbackComponent={Fallback}> */}
             <main className="bg-white ">
-              {/* <AlertHandler /> */}
+              <AlertHandler />
               <div className="fixed w-full top-0 opacity-[100%] z-50">
                 <Navbar user={user} />
               </div>
               {children}
-                <div className=" ">
-                  <Footer />
-                </div>
+              <div className=" ">
+                <Footer />
+              </div>
             </main>
             {/* </ErrorBoundary> */}
           </DesignProvider>
