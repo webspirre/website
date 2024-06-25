@@ -126,7 +126,7 @@ const Form: React.FC = () => {
         </div>
 
         <p className="text-center text-[12px] mb-4">
-          A 6 digit code has been sent to{" "}
+          A 6 digit code has been sent to
           <span className="font-bold">{emailAddress},</span> enter the code to
           verify.
         </p>
