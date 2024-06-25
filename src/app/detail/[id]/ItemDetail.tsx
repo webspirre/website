@@ -6,6 +6,7 @@ import cx from "classnames";
 import BottomBar from "./BottomBar";
 import { Database } from "@/types/types_db";
 import { fetchDesigns, fetchDesignByID } from "@/utils/designs/server";
+import SpinLoader from "@/componet/common/spinloader";
 
 interface ItemDetailProps {
   id: string;
@@ -91,7 +92,7 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
                   </td>
                 </tr>
                 <tr className="">
-                    <td className="p-2">Views</td>                  
+                  <td className="p-2">Views</td>
                   {/* number of views */}
                 </tr>
                 <tr className="">
@@ -178,7 +179,8 @@ function ItemDetail({
   }, []);
 
   if (!websiteData) {
-    return <div>Loading...</div>;
+    // return <div>Loading...</div>;
+    return <SpinLoader />;
   }
 
   const webImgUrl = isMobileView

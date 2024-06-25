@@ -23,6 +23,7 @@ const meta = {
   robots: "follow, index",
   favicon: "/favicon.ico",
   url: getURL(),
+  webspirrelogo: "/webspirrelogo.png",
 };
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -35,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: "Vercel",
     publisher: "Vercel",
     robots: meta.robots,
-    icons: { icon: meta.favicon },
+    icons: { icon: meta.webspirrelogo },
     // metadataBase: new URL(meta.url),
     openGraph: {
       url: meta.url,

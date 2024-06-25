@@ -44,14 +44,16 @@ function Loader() {
                   </div>
                   <div className="mt-[20px] w-full mb-[30px] flex justify-between">
                     <div className="flex items-center gap-2">
+                      {/* LOGOIMGURL */}
                       <div className="bg-[#F0F0F0] rounded-[10px] h-[37px] w-[37px]"></div>
+                      {/* TITLE AND DESCRIPTION */}
                       <div className="bg-[#] rounded-[10px] h-[37px] w-[200px] flex flex-col gap-1">
                         <div className="bg-[#F0F0F0] rounded-[4px] h-full w-[80px]"></div>
                         <div className="bg-[#F0F0F0] rounded-[4px] h-full w-[167px]"></div>
                       </div>
                     </div>
+                    {/* SHOWMOREPOPUP */}
                     <div className="flex gap-1">
-                      {/* <div className="bg-[#F0F0F0] rounded-[10px] h-[37px] w-[37px]"></div> */}
                       <div className="bg-[#F0F0F0] rounded-[10px] h-[37px] w-[37px]"></div>
                     </div>
                   </div>

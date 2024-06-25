@@ -60,13 +60,13 @@ const Card = ({
       const item = new ClipboardItem({ [blob.type]: blob });
       await navigator.clipboard.write([item]);
       setCopied(true);
-      toast.success("Copied Successfully")
+      toast.success("Copied Successfully");
       console.log("Image copied to clipboard");
 
       setTimeout(() => setCopied(false), 4000);
     } catch (err) {
       console.error("Failed to copy image:", err);
-      toast.error("error copying image")
+      toast.error("error copying image");
     }
   };
 
@@ -83,10 +83,10 @@ const Card = ({
       link.click();
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
-      toast.success("screenshot downloaded successfully")
+      toast.success("screenshot downloaded successfully");
     } catch (err) {
       console.error("Failed to download image: ", err);
-      toast.error("Error downloading screenshot", {duration: 2500})
+      toast.error("Error downloading screenshot", { duration: 2500 });
     }
   };
 
@@ -110,13 +110,19 @@ const Card = ({
             setIsHoveredBack(true);
           }}
         >
-          <img
-            // src={deviceFilter === "Mobile" ? mobileImageUrl : deskstopImageUrl}
+          {mobileFpURL || desktopFpURL ? (
+            <img
+              // src={deviceFilter === "Mobile" ? mobileImageUrl : deskstopImageUrl}
 
-            src={deviceFilter === "Mobile" ? mobileFpURL : desktopFpURL}
-            alt={name}
-            className="mb-2 rounded-[20px]"
-          />
+              src={deviceFilter === "Mobile" ? mobileFpURL : desktopFpURL}
+              alt={name}
+              className="mb-2 rounded-[20px]"
+            />
+          ) : (
+            <div className="h-[507px] w-full bg-[#F5F5F5] p-2 rounded-[24px]">
+              <div className="h-full w-full bg-[#F0F0F0] rounded-[24px] pulse-light-dark"></div>
+            </div>
+          )}
         </div>
       </Link>
       <div className="flex pt-6 pb-4 justify-between items-start">
@@ -126,7 +132,7 @@ const Card = ({
             passHref
             className="bg-white rounded-md border-[0.5px]p-1  h-[34px] w-[34px] flex justify-center items-center"
           >
-            {logoImageURL && (
+            {logoImageURL ? (
               <div>
                 <img
                   src={logoImageURL}
@@ -134,15 +140,22 @@ const Card = ({
                   className="sm:h-[34px] sm:w-[34px] rounded-[12px]"
                 />
               </div>
+            ) : (
+              <div className="bg-[#F0F0F0] rounded-[10px] h-[37px] w-[37px]"></div>
             )}
           </Link>
 
           <div className="pr-[40px]  w-[160px]">
             <p className="text-[12px] mb- font-bold">{name}</p>
-            {shortDescription && (
+            {shortDescription ? (
               <p className="text-gray-700 text-[11px] overflow-hidden whitespace-nowrap text-ellipsis">
                 {shortDescription}
               </p>
+            ) : (
+              <div className="bg-[#] rounded-[10px] h-[37px] w-[200px] flex flex-col gap-1">
+                <div className="bg-[#F0F0F0] rounded-[4px] h-full w-[80px]"></div>
+                <div className="bg-[#F0F0F0] rounded-[4px] h-full w-[167px]"></div>
+              </div>
             )}
           </div>
         </div>
