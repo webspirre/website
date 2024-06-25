@@ -37,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
     publisher: "Vercel",
     robots: meta.robots,
     icons: { icon: meta.webspirrelogo },
-    // metadataBase: new URL(meta.url),
+    metadataBase: new URL(meta.url),
     openGraph: {
       url: meta.url,
       title: meta.title,
