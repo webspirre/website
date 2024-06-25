@@ -28,7 +28,7 @@ function Footer() {
   const shouldHideDiv = hideDivRoutes.includes(pathname);
 
   return (
-    <div className={`relative mt-[400px] ${shouldHideDiv ? "hidden" : ""}`}>
+    <div className={`relative mt-[600px] sm:mt-[400px] ${shouldHideDiv ? "hidden" : ""}`}>
       <div className="bg-black absolute bottom-0 text-white font-medium flex justify-center w-full text-[14px] mt-[50px]">
         <div className="px-4 sm:px-[50px] max-w-[1350px] w-full py-[50px]">
           <div className="grid grid-cols-1 sm:grid-cols-6">

@@ -145,8 +145,8 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
   return (
     <>
       <div className="container mx-auto px-4 sm:px-8 md:px-8 lg:px-8 pt-5 sm:pt-20">
-        <section className="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-4  gap-6 md:gap-10">
-          <div className="col-span-2 order-2 md:order-1 p-4">
+        <section className="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-4  gap-2 md:gap-10">
+          <div className="col-span-2 mt-[100px] sm:mt-1 order- md:order- p-">
             <Image
               src={
                 "https://res.cloudinary.com/dwqantex4/image/upload/v1718540486/Group_45_g7ckdx.png"
@@ -159,7 +159,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
             <p className="sm:pl-5 text-[20px] mt-1">
               We want to hear your concerns and suggestions.
             </p>
-            <div className="bg-black text-white text-xs p-4 w rounded-xl w-full sm:w-[400px] flex flex-col gap-y-3 mt-5 sm:mt-8 sm:ml-5">
+            <div className="bg-black text-white text-xs p-6 w rounded-xl w-full sm:w-[400px] flex flex-col gap-y-3 mt-5 sm:mt-8 sm:ml-5">
               <div className="flex flex-row space-x-2 items-start">
                 <Image
                   src={
@@ -212,7 +212,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = () => {
               </div>
             </div>
           </div>
-          <div className="order-1 mt-[100px] sm:mt-[1px] md:order-2 col-span-2 p-8 border-2 border-slate-300 rounded-xl shadow-md">
+          <div className="order-1  sm:mt-[1px] md:order-2 col-span-2 p-8 border-2 border-slate-300 rounded-xl shadow-md">
             <h1 className="text-[24px] font-black">Contact Form</h1>
             <p className="text-xs">
               Complete the form with your enquiry and we will respond shortly.
