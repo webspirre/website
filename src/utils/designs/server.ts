@@ -1,15 +1,15 @@
-import { createClient } from "../../libs/supbasedesign/client";
+import { createAdminClient } from "../../libs/supbasedesign/client";
 import { DesignT } from "@/types/Design.type";
 
 export const fetchDesigns = async () => {
-  const supabase = createClient();
+  const supabase = createAdminClient();
   const { data, error } = await supabase.from("website").select("*");
   if (error) console.error("Error fetching designs:", error);
   else return data;
 };
 
 export const fetchDesignByID = async (id: any) => {
-  const supabase = createClient();
+  const supabase = createAdminClient();
   const { data, error } = await supabase
     .from("website")
     .select()

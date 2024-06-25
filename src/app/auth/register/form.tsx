@@ -2,6 +2,8 @@
 
 import { handleRequest, signInWithOAuth } from "@/libs/auth-helpers/client";
 import { signUp } from "@/libs/auth-helpers/server";
+import { createPublicClient } from "@/libs/supabase/client";
+// import { supabaseBrowser } from "@/libs/supabase/browser";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -24,6 +26,16 @@ function Form() {
     await signInWithOAuth(e);
     setIsSubmitting(false);
   };
+
+  const handleLoginWithOAuth = (provider: "google") => {
+    const supabase = createPublicClient();
+    supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: location.origin + "/auth/callback",
+      },
+    });
+  };
   return (
     <div className="flex flex-col text-[12px]  items-center justify-center gap-4">
       <Link href="/">
@@ -45,7 +57,16 @@ function Form() {
           best designed and highest-converting websites{" "}
         </p>
       </div>
-
+      <button onClick={() => handleLoginWithOAuth("google")} className="hidden">
+        <Image
+          height={20}
+          width={330}
+          src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707163747/utilities/Frame_49_ucklyh.svg"
+          alt="google button"
+          className=""
+        />
+      </button>
+      {/* HIDDEN */}
       <form onSubmit={(e) => handleOAuthSubmit(e)}>
         <input type="hidden" name="provider" value={"google"} />
         <button type="submit" className="hidden">
