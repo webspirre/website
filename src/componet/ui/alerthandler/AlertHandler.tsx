@@ -17,12 +17,12 @@ const AlertHandler: React.FC = () => {
     if ((status && statusDescription) || (error && errorDescription)) {
       // Show success toast for status or error
       if (status && statusDescription) {
-        toast.success(statusDescription, { position: "top-left" });
+        toast.success(statusDescription, { position: "top-center" });
       }
 
       // Show error toast for error
       if (error && errorDescription) {
-        toast.error(errorDescription, { position: "top-left" });
+        toast.error(errorDescription, { position: "top-center" });
       }
 
       // Mark the alert as shown

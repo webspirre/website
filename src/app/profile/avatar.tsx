@@ -71,12 +71,40 @@ export default function Avatar({
     }
   };
 
+  const deleteAvatar = async () => {
+    try {
+      if (!uid || !url) {
+        throw new Error("No user ID or avatar URL provided.");
+      }
+
+      const { error: deleteError } = await supabase.storage
+        .from("avatars")
+        .remove([url]);
+
+      if (deleteError) {
+        throw deleteError;
+      }
+
+      const { error: updateError } = await supabase
+        .from("users")
+        .update({ avatar_url: null })
+        .eq("id", uid);
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      setAvatarUrl(null);
+      toast.success("Avatar deleted successfully!");
+    } catch (error) {
+      toast.error("Error deleting avatar!");
+    }
+  };
+
   return (
     <div className="flex flex-row gap-4 mx-6 sm:mx-[100px] items-center justify-center sm:justify-start">
       {avatarUrl ? (
-       
         <div className="relative sm:w-auto max-w-ful ">
-        
           <img
             src={avatarUrl}
             alt="avatar"
@@ -111,7 +139,7 @@ export default function Avatar({
           disabled={uploading}
         />
       </div>
-      <button className="flex items-center gap-2">
+      <button className="flex items-center gap-2" onClick={deleteAvatar}>
         <Image
           height={20}
           width={20}
