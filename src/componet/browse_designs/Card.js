@@ -191,6 +191,7 @@ const Card = ({
           </button>
         </div>
       )}
+      
     </div>
   );
 };
