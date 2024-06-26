@@ -9,8 +9,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
 function Form() {
-  let redirectMethod = "client";
-  const router = redirectMethod === "client" ? useRouter() : null;
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
