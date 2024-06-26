@@ -81,6 +81,7 @@ export default async function RootLayout({
             <Toaster />
             <ToastContainer />
             {/* <ErrorBoundary FallbackComponent={Fallback}> */}
+
             <main className="bg-white ">
               <AlertHandler />
               <div className="fixed w-full top-0 opacity-[100%] z-50">

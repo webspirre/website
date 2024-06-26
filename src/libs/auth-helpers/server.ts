@@ -137,7 +137,7 @@ export async function requestPasswordUpdate(formData: FormData) {
     redirectPath = getErrorRedirect(
       "/auth/forgotpassword",
       "Invalid email address.",
-      "Please try again."
+      "Invalid email address, Please try again."
     );
   }
 

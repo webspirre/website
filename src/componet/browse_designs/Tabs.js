@@ -3,6 +3,7 @@ import Card from "./Card";
 import Image from "next/image";
 import Loader from "./Loader";
 import LoadingDesigns from "./LoadingDesign";
+import { useDesigns } from "@/hooks/useDesigns";
 
 const pageTypes = [
   { value: "landing", label: "Landing page" },
@@ -19,6 +20,13 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
   const [deviceFilter, setDeviceFilter] = useState(""); // Updated
   const [showMorePopupId, setShowMorePopupId] = useState(null);
   const [showBookmarkPopupId, setShowBookmarkPopupId] = useState(null);
+  const { fetchNextPage, hasNextPage, isFetchingNextPage } = useDesigns();
+
+  const loadMore = () => {
+    if (hasNextPage) {
+      fetchNextPage();
+    }
+  };
 
   const filterOptions = [
     "Landing pages",
@@ -124,7 +132,10 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
                       onChange={() => handleFilterClick(option)}
                       className="mr-2 hidden"
                     />
-                    <label htmlFor={option} className="checkbox-label mr-2"></label>
+                    <label
+                      htmlFor={option}
+                      className="checkbox-label mr-2"
+                    ></label>
                   </div>
 
                   <label htmlFor={option}>{option}</label>
@@ -215,6 +226,15 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
           </div>
         </div>
       </div>
+      {isFetchingNextPage && <div>Loading...</div>}
+      <button
+        onClick={loadMore}
+        disabled={!hasNextPage || isFetchingNextPage}
+        className="text-xs italic disabled:text-slate-500 disabled:cursor-not-allowed cursor-pointer disabled:hidden block"
+      >
+        Load More
+      </button>
+      {/*  */}
     </div>
   );
 };

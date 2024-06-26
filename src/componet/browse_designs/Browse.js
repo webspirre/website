@@ -7,6 +7,7 @@ import { Carter_One } from "next/font/google";
 import Image from "next/image";
 import { fetchDesigns } from "@/utils/designs/server";
 import useDesign from "@/hooks/useDesign";
+import { useDesigns } from "@/hooks/useDesigns";
 
 const carterOne = Carter_One({
   weight: "400",
@@ -15,6 +16,7 @@ const carterOne = Carter_One({
 });
 
 const Browse = ({ user, handleAuthModal, designs }) => {
+  // const { data: designs} = useDesigns();
   const { design } = useDesign();
 
   const tabs = [

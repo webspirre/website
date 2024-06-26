@@ -19,3 +19,18 @@ export const fetchDesignByID = async (id: any) => {
   if (error) console.error("Error fetching designs:", error);
   else return data;
 };
+
+// FETCH DESIGNS BASED ON PAGE SIZE
+export const fetchDesignsPage = async (page: number, pageSize: number) => {
+  const supabase = createAdminClient();
+  const { data, error } = await supabase
+    .from("website")
+    .select("*")
+    .range((page - 1) * pageSize, page * pageSize - 1);
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
+};

@@ -1,0 +1,42 @@
+import { Image, Placeholder, Transformation } from "cloudinary-react";
+import React from "react";
+interface OptimizedImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+}
+const OptimizedImage: React.FC<OptimizedImageProps> = ({
+  src,
+  alt,
+  className,
+}) => (
+  <>
+    <Image
+      cloudName="dwqantex4"
+      loading="lazy"
+      publicId={src}
+      className={className}
+      alt={alt}
+    >
+      <Transformation width="200" height="300" gravity="auto" crop="fill" />
+    </Image>
+    {/* <Image
+    cloudName="dwqantex4"
+    publicId={src}
+    width="auto"
+    crop="scale"
+    quality="auto"
+    fetchFormat="auto"
+    alt={alt}
+    loading="lazy"
+    accessibility="darkmode"
+    height="auto"
+    className={className}
+  >
+    <Placeholder type="vectorize"></Placeholder>
+    <Transformation width="250" height="250" gravity="faces" crop="fill" />
+  </Image> */}
+  </>
+);
+
+export default OptimizedImage;

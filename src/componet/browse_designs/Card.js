@@ -1,8 +1,12 @@
+"use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { useDesigns } from "@/hooks/useDesigns";
+import LazyImage from "./LazyImage";
 
 const Card = ({
   id,
@@ -91,121 +95,141 @@ const Card = ({
   };
 
   return (
-    <div className="bg-white rounded-md relative">
-      <Link href={`/detail/${uid}`} passHref className="bg-white rounded-md">
-        <div
-          className={`hover:shadow-xl hover-bounce overflow-hidden bg-[#F0F0F0]   p-1 rounded-[20px] ${
-            isHovered ? "scrollable" : isHoveredBack ? "scrollable-leave" : ""
-          } ${
-            deviceFilter === "Mobile"
-              ? "h-[500px] transition transform duration-500 ease-in-out"
-              : "h-[400px] transition transform duration-500 ease-in-out"
-          }`}
-          onMouseEnter={() => {
-            setIsHovered(true);
-            setIsHoveredBack(false);
-          }}
-          onMouseLeave={() => {
-            setIsHovered(false);
-            setIsHoveredBack(true);
-          }}
-        >
-          {mobileFpURL || desktopFpURL ? (
-            <img
-              // src={deviceFilter === "Mobile" ? mobileImageUrl : deskstopImageUrl}
-
-              src={deviceFilter === "Mobile" ? mobileFpURL : desktopFpURL}
-              alt={name}
-              className="mb-2 rounded-[20px]"
-            />
-          ) : (
-            <div className="h-[507px] w-full bg-[#F5F5F5] p-2 rounded-[24px]">
-              <div className="h-full w-full bg-[#F0F0F0] rounded-[24px] pulse-light-dark"></div>
-            </div>
+    <>
+      {/* <div>
+        {data &&
+          data.pages.flatMap((page) =>
+            page.map((design) => (
+              <LazyImage
+                key={design.uid}
+                src={design.desktopFpURL}
+                alt={design.name}
+              />
+            ))
           )}
-        </div>
-      </Link>
-      <div className="flex pt-6 pb-4 justify-between items-start">
-        <div className="flex items-start gap-2">
-          <Link
-            href={`/detail/${uid}`}
-            passHref
-            className="bg-white rounded-md border-[0.5px]p-1  h-[34px] w-[34px] flex justify-center items-center"
+        <LazyImage key={uid} src={desktopFpURL} alt={name} />
+        {isFetchingNextPage && <div>Loading...</div>}
+        <button
+          onClick={loadMore}
+          disabled={!hasNextPage || isFetchingNextPage}
+        >
+          Load More
+        </button>
+      </div> */}
+      <div className="bg-white rounded-md relative">
+        <Link href={`/detail/${uid}`} passHref className="bg-white rounded-md">
+          {/* <LazyImage key={uid} src={desktopFpURL} alt={name} /> */}
+          <div
+            className={`hover:shadow-xl hover-bounce overflow-hidden bg-[#F0F0F0]   p-1 rounded-[20px] ${
+              isHovered ? "scrollable" : isHoveredBack ? "scrollable-leave" : ""
+            } ${
+              deviceFilter === "Mobile"
+                ? "h-[500px] transition transform duration-500 ease-in-out"
+                : "h-[400px] transition transform duration-500 ease-in-out"
+            }`}
+            onMouseEnter={() => {
+              setIsHovered(true);
+              setIsHoveredBack(false);
+            }}
+            onMouseLeave={() => {
+              setIsHovered(false);
+              setIsHoveredBack(true);
+            }}
           >
-            {logoImageURL ? (
-              <div>
-                <img
-                  src={logoImageURL}
-                  alt={`${name} Logo`}
-                  className="sm:h-[34px] sm:w-[34px] rounded-[12px]"
-                />
-              </div>
+            {desktopFpURL ? (
+              <LazyImage
+                key={uid}
+                src={deviceFilter === "Mobile" ? mobileFpURL : desktopFpURL}
+                alt={name}
+              />
             ) : (
-              <div className="bg-[#F0F0F0] rounded-[10px] h-[37px] w-[37px]"></div>
-            )}
-          </Link>
-
-          <div className="pr-[40px]  w-[160px]">
-            <p className="text-[12px] mb- font-bold">{name}</p>
-            {shortDescription ? (
-              <p className="text-gray-700 text-[11px] overflow-hidden whitespace-nowrap text-ellipsis">
-                {shortDescription}
-              </p>
-            ) : (
-              <div className="bg-[#] rounded-[10px] h-[37px] w-[200px] flex flex-col gap-1">
-                <div className="bg-[#F0F0F0] rounded-[4px] h-full w-[80px]"></div>
-                <div className="bg-[#F0F0F0] rounded-[4px] h-full w-[167px]"></div>
+              <div className="h-[507px] w-full bg-[#F5F5F5] p-2 rounded-[24px]">
+                <div className="h-full w-full bg-[#F0F0F0] rounded-[24px] pulse-light-dark"></div>
               </div>
             )}
           </div>
-        </div>
-        <div className="flex gap-2">
-          <button
-            className="more-button hover:scale-110 transition-transform duration-300"
-            onClick={handleMoreButtonClick}
-          >
-            <Image
-              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706045803/utilities/Frame_34_ybkht7.svg"
-              height={50}
-              width={34}
-              alt="img"
-            />
-          </button>
-        </div>
-      </div>
+        </Link>
+        <div className="flex pt-6 pb-4 justify-between items-start">
+          <div className="flex items-start gap-2">
+            <Link
+              href={`/detail/${uid}`}
+              passHref
+              className="bg-white rounded-md border-[0.5px]p-1  h-[34px] w-[34px] flex justify-center items-center"
+            >
+              {logoImageURL ? (
+                <div>
+                  <img
+                    src={logoImageURL}
+                    alt={`${name} Logo`}
+                    className="sm:h-[34px] sm:w-[34px] rounded-[12px]"
+                  />
+                </div>
+              ) : (
+                <div className="bg-[#F0F0F0] rounded-[10px] h-[37px] w-[37px]"></div>
+              )}
+            </Link>
 
-      {showMorePopupId === id && (
-        <div className="absolute right-0 bottom-14 text-[12px] bg-white rounded-lg p-4 shadow-md popup">
-          <button
-            className="flex gap-2 mb-4 hover:scale-105 transition-transform duration-300"
-            onClick={user ? handleCopyToClipboard : handleAuthModal}
-          >
-            <Image
-              height={15}
-              width={15}
-              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706138678/utilities/Vector_2_eu5cas.svg"
-              alt="copy"
-              className=""
-            />
-            <p>{copied ? "Copied to clipboard" : "Copy to clipboard"}</p>
-          </button>
-          <button
-            className="flex gap-2 hover:scale-105 transition-transform duration-300"
-            onClick={user ? handleDownloadImage : handleAuthModal}
-          >
-            <Image
-              height={15}
-              width={15}
-              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706138678/utilities/download_icon_tsds6w.svg"
-              alt="download"
-              className=""
-            />
-            <p>Download screenshot</p>
-          </button>
+            <div className="pr-[40px]  w-[160px]">
+              <p className="text-[12px] mb- font-bold">{name}</p>
+              {shortDescription ? (
+                <p className="text-gray-700 text-[11px] overflow-hidden whitespace-nowrap text-ellipsis">
+                  {shortDescription}
+                </p>
+              ) : (
+                <div className="bg-[#] rounded-[10px] h-[37px] w-[200px] flex flex-col gap-1">
+                  <div className="bg-[#F0F0F0] rounded-[4px] h-full w-[80px]"></div>
+                  <div className="bg-[#F0F0F0] rounded-[4px] h-full w-[167px]"></div>
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="flex gap-2">
+            <button
+              className="more-button hover:scale-110 transition-transform duration-300"
+              onClick={handleMoreButtonClick}
+            >
+              <Image
+                src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706045803/utilities/Frame_34_ybkht7.svg"
+                height={50}
+                width={34}
+                alt="img"
+              />
+            </button>
+          </div>
         </div>
-      )}
-      
-    </div>
+
+        {showMorePopupId === id && (
+          <div className="absolute right-0 bottom-14 text-[12px] bg-white rounded-lg p-4 shadow-md popup">
+            <button
+              className="flex gap-2 mb-4 hover:scale-105 transition-transform duration-300"
+              onClick={user ? handleCopyToClipboard : handleAuthModal}
+            >
+              <Image
+                height={15}
+                width={15}
+                src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706138678/utilities/Vector_2_eu5cas.svg"
+                alt="copy"
+                className=""
+              />
+              <p>{copied ? "Copied to clipboard" : "Copy to clipboard"}</p>
+            </button>
+            <button
+              className="flex gap-2 hover:scale-105 transition-transform duration-300"
+              onClick={user ? handleDownloadImage : handleAuthModal}
+            >
+              <Image
+                height={15}
+                width={15}
+                src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1706138678/utilities/download_icon_tsds6w.svg"
+                alt="download"
+                className=""
+              />
+              <p>Download screenshot</p>
+            </button>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
