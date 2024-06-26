@@ -126,8 +126,6 @@ function ItemDetail({
   const displayDesign = async () => {
     const design = await fetchDesignByID(id);
 
-    console.log("Data Response", design);
-
     if (design) {
       setDesignData(design);
     }

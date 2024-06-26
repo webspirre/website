@@ -36,7 +36,6 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
   const displayDesigns = async () => {
     setLoading(true); // Set loading to true when starting to fetch designs
     const designs = await fetchDesigns();
-    console.log("Data Response", designs);
     if (designs) {
       setDesigns(designs);
     }

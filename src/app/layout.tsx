@@ -69,7 +69,6 @@ export default async function RootLayout({
   } = await supabase.auth.getUser();
   // const { setAuth } = useAuth();
   // setAuth(user);
-  console.log("USER", user);
   return (
     <html lang="en">
       <head>

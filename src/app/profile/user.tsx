@@ -26,8 +26,6 @@ const Users: React.FC<UserProp> = ({ handleToggle, user }) => {
   const [fullname, setFullname] = useState<string | null>(null);
   const [username, setUsername] = useState<string | null>(null);
   const [avatar_url, setAvatarUrl] = useState<string | null>(null);
-  // log user to the console
-  console.log("User Detail", user);
 
   const getProfile = useCallback(async () => {
     try {

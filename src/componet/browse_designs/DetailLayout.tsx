@@ -22,7 +22,6 @@ const DetailLayout: React.FC<DetailLayoutProps> = ({ user, id }) => {
   const [designs, setDesigns] = useState<Designs[]>([]);
   const displayDesigns = async () => {
     const designs = await fetchDesigns();
-    console.log("Data Response", designs);
     if (designs) {
       setDesigns(designs);
     }
@@ -56,11 +55,9 @@ const DetailLayout: React.FC<DetailLayoutProps> = ({ user, id }) => {
     }
   };
 
-  console.log("djdd", id);
-
   return (
     <>
-          <AuthModal open={authModal} toogleModal={handleAuthModal} />
+      <AuthModal open={authModal} toogleModal={handleAuthModal} />
       <div className="justify-center px-2 xl:px-20 mt-5 xl:mt-[100px]  flex w-full items-center  ">
         <ItemDetail
           // id={id}
@@ -68,7 +65,7 @@ const DetailLayout: React.FC<DetailLayoutProps> = ({ user, id }) => {
           onNext={handleNext}
           onPrevious={handlePrevious}
           user={user}
-          toogleModal={handleAuthModal} 
+          toogleModal={handleAuthModal}
         />
       </div>
     </>
