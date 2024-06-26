@@ -53,14 +53,20 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
     .filter(
       (item) =>
         selectedFilters.length === 0 ||
-        selectedFilters.some((filter) => item.categories.includes(filter))
+        selectedFilters.some((filter) => item.pageType === filter)
     );
+  // .filter(
+  //   (item) =>
+  //     selectedFilters.length === 0 ||
+  //     selectedFilters.some((filter) => item.categories.includes(filter))
+  // );
 
   const handleFilterClick = (option) => {
     if (selectedFilters.includes(option.value)) {
       setSelectedFilters(
         selectedFilters.filter((filter) => filter !== option.value)
       );
+      console.log("OPTIOPN VALUES", option);
     } else {
       setSelectedFilters([...selectedFilters, option.value]);
     }
