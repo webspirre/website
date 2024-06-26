@@ -19,7 +19,7 @@ function NotFound() {
           height: "490px", // Set the desired height
           position: "relative", // Position relative to allow absolute positioning of child elements
         }}
-        className="flex flex-col items-center justify-center w-full"
+        className="flex flex-col items-center justify-center w-full mt-10 sm:mt-20"
       >
         <Image
           height={600}
