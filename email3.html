@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Template</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #e6e6e6;
+      }
+
+      p {
+        line-height: 25px;
+      }
+      .container {
+        padding: 40px;
+        justify-content: center;
+        background-color: #e6e6e6;
+      }
+      .content {
+        background-color: white;
+        padding-top: 50px;
+        padding-left: 100px;
+        padding-right: 100px;
+      }
+      .logo {
+        display: none;
+        padding-top: 4px;
+        margin-bottom: 47px;
+        border-radius: 8px;
+      }
+      .greeting {
+        font-size: 13px;
+        padding-bottom: 10px;
+      }
+      .title {
+        margin-bottom: 30px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .message {
+        font-size: 13px;
+        margin-bottom: 31px;
+      }
+      .link-container {
+        background-color: #f7f7f7;
+        border-radius: 20px;
+        padding: 6px;
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+      .link {
+        font-size: 14px;
+        color: #f1a34d;
+      }
+      .support {
+        font-size: 12px;
+        opacity: 0.6;
+        text-align: center;
+        padding-bottom: 47px;
+        margin-bottom: 47px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .support2 {
+        font-size: 12px;
+        opacity: 0.6;
+        text-align: center;
+        padding-bottom: 47px;
+      }
+      .support .bold {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      .footer {
+        background-color: black;
+        border-radius: 0 0 20px 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #7d7c83;
+        font-size: 12px;
+      }
+      .footer p {
+        margin-bottom: 16px;
+        text-align: center;
+      }
+      .footer .dark {
+        color: #414141;
+      }
+      .socials {
+        display: flex;
+        gap: 4px;
+        margin-top: 10px;
+      }
+      .socials a {
+        display: inline-block;
+      }
+      @media (min-width: 640px) {
+        .logo {
+          display: block;
+        }
+      }
+      @media (max-width: 640px) {
+        .content {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <img
+          src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/logo_e8rxwj.svg"
+          alt="Logo"
+          class="logo"
+          width="120"
+          height="60"
+        />
+        <!-- <h1 class="greeting">Hi</h1> -->
+        <!-- <h2 class="title">Recover Password - OTP</h2> -->
+        <p class="message">
+          Thank you for signing up for Webspirre! We're thrilled to help you
+          find the best design inspiration from the internet's top websites.
+
+          <br /><br />
+          Please confirm your email address to complete your registration and
+          start exploring real and practical web design ideas.
+        </p>
+        <div class="link-container">
+          <p class="link">{{ .Email }}</p>
+           <p class="link">{{ .ConfirmationURL }}</p>
+        </div>
+        <div class="support">
+          If you did not sign up for Webspirre, please ignore this email.
+        </div>
+        <p class="support2 text-center">
+          If you run into issues or have any questions, please send us an email
+          at <br />
+          support@webspirre.com
+        </p>
+      </div>
+      <div class="footer">
+        <p>Copyright © 2023 Webspirre All rights reserved.</p>
+        <p class="dark">
+          You are receiving this mail because you want <br />
+          to sign up on Webspirre
+        </p>
+        <!-- <p>Follow our socials</p>
+        <div class="socials">
+          <a href="/"
+            ><img
+              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717587900/utilities/webspirre/Group_1_qmgep7.svg"
+              alt="linkedin"
+          /></a>
+          <a href="/"
+            ><img
+              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717588144/utilities/webspirre/Group_2_dmkeib.svg"
+              alt="twitter"
+          /></a>
+          <a href="/"
+            >
+            <img
+              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717587900/utilities/webspirre/facebook_1_atlcmv.svg"
+              alt="facebook"
+          />
+          </a>
+          <a href="/"
+            ><img
+              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717587900/utilities/webspirre/Group_4_gc4a9e.svg"
+              alt="instagram"
+          /></a>
+          <a href="/"
+            ><img
+              src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717587900/utilities/webspirre/mdi_youtube_oasgn3.svg"
+              alt="youtube"
+          /></a>
+        </div> -->
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Reset password
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Template</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #E6E6E6;
+        }
+        .container {
+            padding: 20px;
+            justify-content: center;
+            background-color: #E6E6E6;
+        }
+        .content {
+            background-color: white;
+            padding-top: 100px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .logo {
+            display: none;
+            padding-top: 4px;
+            margin-bottom: 47px;
+            border-radius: 8px;
+        }
+        .greeting {
+            font-size: 13px;
+            padding-bottom: 20px;
+        }
+        .title {
+            margin-bottom: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .message {
+            font-size: 13px;
+            margin-bottom: 31px;
+        }
+        .link-container {
+            background-color: #F7F7F7;
+            border-radius: 20px;
+            padding: 6px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            text-align: center;
+        }
+        .link {
+            font-size: 14px;
+            color: #F1A34D;
+        }
+        .support {
+            font-size: 12px;
+            opacity: 0.6;
+            text-align: center;
+            padding-bottom: 47px;
+            margin-bottom: 47px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .support2 {
+            font-size: 12px;
+            opacity: 0.6;
+            text-align: center;
+            padding-bottom: 47px;
+        }
+        .support .bold {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .footer {
+            background-color: black;
+            border-radius: 0 0 20px 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #7D7C83;
+            font-size: 12px;
+        }
+        .footer p {
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .footer .dark {
+            color: #414141;
+        }
+        .socials {
+            display: flex;
+            gap: 4px;
+            margin-top: 10px;
+        }
+        .socials a {
+            display: inline-block;
+        }
+        @media (min-width: 640px) {
+            .logo {
+                display: block;
+            }
+        }
+        @media (max-width: 640px) {
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- <img src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/logo_e8rxwj.svg" alt="Logo" class="logo" width="120" height="60"> -->
+            <!-- <h1 class="greeting">Good day sir, </h1> -->
+            <h2 class="title">Recover Password - OTP</h2>
+            <p class="message">
+                You requested for a password reset for your account with Webspirre. <br><br>
+                Copy the code below to reset your password and access your account.
+            </p>
+            <div class="link-container">
+                <p class="link">{{ .Token }}</p>
+            </div>
+            <div class="support">
+                If you did not make this request click here <span class="bold">Support</span>
+            </div>
+            <p class="support2 text-center">
+                If you run into issues or have any questions, please send us an email at <br>
+                support@webspirre.com
+            </p>
+        </div>
+        <div class="footer">
+            <p>Copyright © 2023 Webspirre All rights reserved.</p>
+            <p class="dark">
+                You are receiving this mail because you want <br>
+                to update your password on Webspirre
+            </p>
+            <!-- <p>Follow our socials</p>
+            <div class="socials">
+                <a href="/"><img src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717587900/utilities/webspirre/Group_1_qmgep7.svg" alt="linkedin"></a>
+                <a href="/"><img src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717588144/utilities/webspirre/Group_2_dmkeib.svg" alt="twitter"></a>
+                <a href="/"><img src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717587900/utilities/webspirre/facebook_1_atlcmv.svg" alt="facebook"></a>
+                <a href="/"><img src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717587900/utilities/webspirre/Group_4_gc4a9e.svg" alt="instagram"></a>
+                <a href="/"><img src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1717587900/utilities/webspirre/mdi_youtube_oasgn3.svg" alt="youtube"></a>
+            </div> -->
+        </div>
+    </div>
+</body>
+</html>
