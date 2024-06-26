@@ -5,14 +5,24 @@ import { signInWithPassword } from "@/libs/auth-helpers/server";
 import { supabaseBrowser } from "@/libs/supabase/browser";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { useState, useEffect } from "react";
 
 function Form() {
   let redirectMethod = "client";
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = redirectMethod === "client" ? useRouter() : null;
+  const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    const error = searchParams.get("error");
+    const errorDescription = searchParams.get("error_description");
+    if (error && errorDescription) {
+      setErrorMessage(decodeURIComponent(errorDescription));
+    }
+  }, [searchParams]);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setIsSubmitting(true); // Disable the button while the request is being handled
     await handleRequest(e, signInWithPassword, router);
@@ -40,7 +50,7 @@ function Form() {
   };
 
   return (
-    <div className="flex flex-col text-[12px] sm:mt-[50px] mt-[50px]   items-center justify-center gap-4">
+    <div className="flex flex-col text-[12px] sm:mt-[50px] mt-[50px] items-center justify-center gap-4">
       <Link href="/">
         <Image
           height={20}
@@ -109,6 +119,8 @@ function Form() {
             placeholder="example@mail.com"
             className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[50px] w-[320px] sm:w-[350px]"
           />
+          {/* Error message */}
+          {errorMessage && <div className="text-red-500">{errorMessage}</div>}
         </div>
 
         {/* Password Input */}
@@ -124,6 +136,8 @@ function Form() {
             placeholder="**********"
             className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[50px] w-[320px] md:w-[350px]"
           />
+          {/* Error message */}
+          {errorMessage && <div className="text-red-500">{errorMessage}</div>}
 
           <Link
             href="/auth/forgotpassword"
