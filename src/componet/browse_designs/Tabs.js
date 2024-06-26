@@ -84,9 +84,6 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
     };
   }, []);
   const reloadPage = () => windows.location.reload();
-
-  // console.log("DESIGNS", designs);
-
   return (
     <div className="mb-4">
       {/* Device Filters */}

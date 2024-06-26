@@ -15,7 +15,6 @@ const DisplayDesignsLayout: React.FC<DisplayDesignsLayoutProps> = ({
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     useDesigns();
   const designs = data?.pages.flatMap((page) => page) || [];
-  console.log("returned designs", designs);
   return (
     <>
       <div className="">

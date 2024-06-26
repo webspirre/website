@@ -23,8 +23,6 @@ async function page() {
     // Handle the error appropriately here
   }
 
-  console.log("Notification Data", notifications);
-
   return (
     <div>
       <Notification notifications={notifications} />
