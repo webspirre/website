@@ -44,7 +44,7 @@ function Form() {
           width={100}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/logo_e8rxwj.svg"
           alt="left"
-          className="hidden sm:block "
+          className="hidde sm:block "
         />{" "}
       </Link>
 
