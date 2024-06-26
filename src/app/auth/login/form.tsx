@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 function Form() {
   const router = useRouter();
@@ -19,6 +20,7 @@ function Form() {
     const errorDescription = searchParams.get("error_description");
     if (error && errorDescription) {
       setErrorMessage(decodeURIComponent(errorDescription));
+      toast.error(decodeURIComponent(errorDescription), { position: "top-center" });
     }
   }, [searchParams]);
 

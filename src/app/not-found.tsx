@@ -47,12 +47,12 @@ function NotFound() {
           >
             Back To Home
           </Link>
-          <div
-            // href="/"
+          <Link
+            href="mailto:webspirre@gmail.com"
             className="bg-white flex items-center gap-2 py-4 px-4 sm:py-4 sm:px-8 text-black rounded-[20px] border border-[#BBBBBB] font-medium text-[14px] sm:text-[18px] cursor-pointer"
           >
             Report This Problem
-          </div>
+          </Link>
         </div>
       </div>
     </>

@@ -13,6 +13,18 @@ const pageTypes = [
   { value: "signup", label: "Sign up page" },
   { value: "404", label: "404 page" },
 ];
+
+const filterOptions = [
+  { value: "landing", label: "Landing page" },
+  { value: "pricing", label: "Pricing page" },
+  { value: "about", label: "About page" },
+  { value: "login", label: "Login page" },
+  { value: "signup", label: "Sign up page" },
+  { value: "404", label: "404 page" },
+];
+
+const deviceFilters = ["Desktop", "Mobile"];
+
 const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [showFilterOptions, setShowFilterOptions] = useState(false);
@@ -28,16 +40,6 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
     }
   };
 
-  const filterOptions = [
-    "Landing pages",
-    "Pricing pages",
-    "About page",
-    "Login pages",
-    "Signup pages",
-    "404 pages",
-  ];
-
-  const deviceFilters = ["Desktop", "Mobile"];
   const categoryCounts = tabs.map(({ value }) => ({
     value,
     count: data.filter((item) => item.categories.includes(value)).length,
@@ -55,10 +57,12 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
     );
 
   const handleFilterClick = (option) => {
-    if (selectedFilters.includes(option)) {
-      setSelectedFilters(selectedFilters.filter((filter) => filter !== option));
+    if (selectedFilters.includes(option.value)) {
+      setSelectedFilters(
+        selectedFilters.filter((filter) => filter !== option.value)
+      );
     } else {
-      setSelectedFilters([...selectedFilters, option]);
+      setSelectedFilters([...selectedFilters, option.value]);
     }
   };
 
@@ -83,7 +87,7 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-  const reloadPage = () => windows.location.reload();
+
   return (
     <div className="mb-4">
       {/* Device Filters */}
@@ -124,18 +128,18 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
                   <div className="custom-checkbox flex">
                     <input
                       type="checkbox"
-                      id={option}
-                      checked={selectedFilters.includes(option)}
+                      id={option.value}
+                      checked={selectedFilters.includes(option.value)}
                       onChange={() => handleFilterClick(option)}
                       className="mr-2 hidden"
                     />
                     <label
-                      htmlFor={option}
+                      htmlFor={option.value}
                       className="checkbox-label mr-2"
                     ></label>
                   </div>
 
-                  <label htmlFor={option}>{option}</label>
+                  <label htmlFor={option.value}>{option.label}</label>
                 </div>
               ))}
             </div>
@@ -162,7 +166,7 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
                     : "border-2 text-[12px] rounded-full text-black hover:text-gray-700 hover:border-gray-500"
                 }`}
               >
-                {categoryCounts.find((c) => c.label === tab.label)?.count >
+                {categoryCounts.find((c) => c.value === tab.value)?.count >
                 0 ? (
                   <>
                     <div className="flex gap-2 items-center">
@@ -175,7 +179,7 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
                         }`}
                       >
                         {
-                          categoryCounts.find((c) => c.label === tab.label)
+                          categoryCounts.find((c) => c.value === tab.value)
                             ?.count
                         }
                       </div>
@@ -231,7 +235,6 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
       >
         Load More
       </button>
-      {/*  */}
     </div>
   );
 };
