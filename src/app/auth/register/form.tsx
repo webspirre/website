@@ -10,7 +10,11 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
-function Form() {
+interface FormProps {
+  onOpenModal: () => void;
+}
+
+const Form: React.FC<FormProps> = ({ onOpenModal }) => {
   let redirectMethod = "client";
   const router = redirectMethod === "client" ? useRouter() : null;
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,9 +25,17 @@ function Form() {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent default form submission behavior
     setIsSubmitting(true); // Disable the button while the request is being handled
-    await handleRequest(e, signUp, router);
-    setIsSubmitting(false);
+
+    try {
+      await handleRequest(e, signUp, router);
+      onOpenModal(); // Open the modal when sign-up is successful
+    } catch (error) {
+      console.error("Sign-up error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleOAuthSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -50,7 +62,7 @@ function Form() {
           width={100}
           src="https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705721941/utilities/logo_e8rxwj.svg"
           alt="left"
-          className="hidde sm:block "
+          className="hidden sm:block"
         />{" "}
       </Link>
 
@@ -86,8 +98,8 @@ function Form() {
         </button>
       </form>
 
-      <div className="fle gap-2 items-center hidden">
-        <div className="w-[150px] sm:w-[200px] h-[1px] sm:h-[2px]  bg-[#C7C7C7]"></div>
+      <div className="flex gap-2 items-center hidden">
+        <div className="w-[150px] sm:w-[200px] h-[1px] sm:h-[2px] bg-[#C7C7C7]"></div>
         <p>or</p>
         <div className="w-[150px] sm:w-[200px] h-[1px] sm:h-[2px] bg-[#C7C7C7]"></div>
       </div>
@@ -154,6 +166,14 @@ function Form() {
         </button>
       </form>
 
+      <button
+        type="button"
+        className="inset-y-0 right-3 flex items-center"
+        onClick={onOpenModal}
+      >
+        Sign Up Modal Button
+      </button>
+
       <p className="text-[13px] text-[#64748B]">
         Already have an account?{" "}
         <span className="font-bold text-black">
@@ -163,12 +183,12 @@ function Form() {
       <p className="text-[13px] text-[#64748B] w-[320px] sm:w-[350px]">
         By continuing to sign up, you confirm that you agree{" "}
         <br className="hidden sm:block" /> to Webspirre&apos;s{" "}
-        <span className=" border-b-2 w-fit">
+        <span className="border-b-2 w-fit">
           {" "}
           <Link href="/terms">Terms & Conditions</Link>{" "}
         </span>{" "}
         and{" "}
-        <span className=" border-b-2 w-fit">
+        <span className="border-b-2 w-fit">
           {" "}
           <Link href="/policy">Privacy Policy</Link>
         </span>{" "}
@@ -176,6 +196,6 @@ function Form() {
       </p>
     </div>
   );
-}
+};
 
 export default Form;
