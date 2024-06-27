@@ -8,19 +8,24 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 function Form() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     const error = searchParams.get("error");
     const errorDescription = searchParams.get("error_description");
     if (error && errorDescription) {
       setErrorMessage(decodeURIComponent(errorDescription));
-      toast.error(decodeURIComponent(errorDescription), { position: "top-center" });
+      toast.error(decodeURIComponent(errorDescription), {
+        position: "top-center",
+      });
     }
   }, [searchParams]);
 
@@ -48,6 +53,10 @@ function Form() {
         },
       },
     });
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -125,18 +134,37 @@ function Form() {
         </div>
 
         {/* Password Input */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 relative">
           <label htmlFor="password" className="text-[14px] -mb-2">
             Password
           </label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            autoComplete="current-password"
-            placeholder="**********"
-            className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[50px] w-[320px] md:w-[350px]"
-          />
+          <div className="relative">
+            <input
+              id="password"
+              type={showPassword ? "text" : "password"}
+              name="password"
+              autoComplete="current-password"
+              placeholder="**********"
+              className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[50px] w-[320px] md:w-[350px] pr-10"
+            />
+            <button
+              type="button"
+              className="absolute right-2 top-4"
+              onClick={togglePasswordVisibility}
+            >
+              <FontAwesomeIcon
+                icon={showPassword ? faEyeSlash : faEye}
+                style={{ color: "#6B7280" }}
+              />
+            </button>
+            {/* <button
+              type="button"
+              className="absolute right-8 top-3"
+              onClick={() => setShowPassword(false)}
+            >
+              <FontAwesomeIcon icon={faTimes} />
+            </button> */}
+          </div>
           {/* Error message */}
           {errorMessage && <div className="text-red-500">{errorMessage}</div>}
 
