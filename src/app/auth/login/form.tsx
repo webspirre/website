@@ -80,7 +80,7 @@ function Form() {
           best designed and highest-converting websites
         </p>
       </div>
-      <button onClick={() => handleLoginWithOAuth("google")} className="hidden">
+      <button onClick={() => handleLoginWithOAuth("google")} className="">
         <Image
           height={20}
           width={330}

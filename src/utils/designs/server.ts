@@ -11,6 +11,7 @@ export const fetchDesigns = async () => {
 export const fetchDesignByID = async (id: any) => {
   const supabase = createAdminClient();
   const { data, error } = await supabase
+    .schema("webspirre_admin")
     .from("website")
     .select()
     // .match({ uid: id })
@@ -24,6 +25,7 @@ export const fetchDesignByID = async (id: any) => {
 export const fetchDesignsPage = async (page: number, pageSize: number) => {
   const supabase = createAdminClient();
   const { data, error } = await supabase
+    .schema("webspirre_admin")
     .from("website")
     .select("*")
     .range((page - 1) * pageSize, page * pageSize - 1);

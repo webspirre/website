@@ -433,11 +433,91 @@ export interface Database {
       [_ in never]: never;
     };
   };
+  webspirre_admin: {
+    Tables: {
+      website: {
+        Row: {
+          name: string | null;
+          webURL: string | null;
+          pageType: string | null;
+          shortDescription: string | null;
+          longDescription: string | null;
+          logoImageURL: string | null;
+          desktopSsURL: string | null;
+          mobileSsURL: string | null;
+          desktopFpURL: string | null;
+          mobileFpURL: string | null;
+          categories: string[] | null;
+          date: string | null;
+          views: string | null;
+          uid: string | null;
+        };
+        Insert: {
+          name?: string | null;
+          webURL?: string | null;
+          pageType?: string | null;
+          shortDescription?: string | null;
+          longDescription?: string | null;
+          logoImageURL?: string | null;
+          desktopSsURL?: string | null;
+          mobileSsURL?: string | null;
+          desktopFpURL?: string | null;
+          mobileFpURL?: string | null;
+          categories?: string[] | null;
+          date?: string | null;
+          view?: string | null;
+          uid?: string | null;
+        };
+        Update: {
+          name?: string | null;
+          webURL?: string | null;
+          pageType?: string | null;
+          shortDescription?: string | null;
+          longDescription?: string | null;
+          logoImageURL?: string | null;
+          desktopSsURL?: string | null;
+          mobileSsURL?: string | null;
+          desktopFpURL?: string | null;
+          mobileFpURL?: string | null;
+          categories?: string[] | null;
+          date?: string | null;
+          view?: string | null;
+          uid?: string | null;
+        };
+        Relationships: [];
+      };
+    };
+    Views: {
+      [_ in never]: never;
+    };
+    Functions: {
+      [_ in never]: never;
+    };
+    Enums: {
+      pricing_plan_interval: "day" | "week" | "month" | "year";
+      pricing_type: "one_time" | "recurring";
+      subscription_status:
+        | "trialing"
+        | "active"
+        | "canceled"
+        | "incomplete"
+        | "incomplete_expired"
+        | "past_due"
+        | "unpaid"
+        | "paused";
+    };
+    CompositeTypes: {
+      [_ in never]: never;
+    };
+  };
 }
 
 export type Tables<
   PublicTableNameOrOptions extends
-    | keyof (Database["public"]["Tables"] & Database["public"]["Views"])
+    | keyof (Database["public"]["Tables"] &
+        Database["public"]["Views"] &
+        Database["webspirre_admin"]["Tables"] &
+        Database["webspirre_admin"]["Views"])
     | { schema: keyof Database },
   TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
     ? keyof (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
@@ -451,9 +531,13 @@ export type Tables<
     ? R
     : never
   : PublicTableNameOrOptions extends keyof (Database["public"]["Tables"] &
-      Database["public"]["Views"])
+      Database["public"]["Views"] &
+      Database["webspirre_admin"]["Tables"] &
+      Database["webspirre_admin"]["Views"])
   ? (Database["public"]["Tables"] &
-      Database["public"]["Views"])[PublicTableNameOrOptions] extends {
+      Database["public"]["Views"] &
+      Database["webspirre_admin"]["Tables"] &
+      Database["webspirre_admin"]["Views"])[PublicTableNameOrOptions] extends {
       Row: infer R;
     }
     ? R
@@ -463,6 +547,7 @@ export type Tables<
 export type TablesInsert<
   PublicTableNameOrOptions extends
     | keyof Database["public"]["Tables"]
+    | keyof Database["webspirre_admin"]["Tables"]
     | { schema: keyof Database },
   TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
     ? keyof Database[PublicTableNameOrOptions["schema"]]["Tables"]
@@ -504,13 +589,15 @@ export type TablesUpdate<
 
 export type Enums<
   PublicEnumNameOrOptions extends
-    | keyof Database["public"]["Enums"]
+    | keyof (Database["public"]["Enums"] & Database["webspirre_admin"]["Enums"])
     | { schema: keyof Database },
   EnumName extends PublicEnumNameOrOptions extends { schema: keyof Database }
     ? keyof Database[PublicEnumNameOrOptions["schema"]]["Enums"]
     : never = never
 > = PublicEnumNameOrOptions extends { schema: keyof Database }
   ? Database[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
-  : PublicEnumNameOrOptions extends keyof Database["public"]["Enums"]
-  ? Database["public"]["Enums"][PublicEnumNameOrOptions]
+  : PublicEnumNameOrOptions extends keyof (Database["public"]["Enums"] &
+      Database["webspirre_admin"]["Enums"])
+  ? (Database["public"]["Enums"] &
+      Database["webspirre_admin"]["Enums"])[PublicEnumNameOrOptions]
   : never;

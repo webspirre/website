@@ -12,38 +12,8 @@ interface Option {
 export type Map = string | string[] | null | Option | Option[];
 
 export interface DesignDatabase {
-  public: {
+  webspirre_admin: {
     Tables: {
-      notifications: {
-        Row: {
-          id: string | null;
-          uid: string | null;
-          title: string | null;
-          description: string | null;
-          timestamp: string | null;
-          isRead: boolean | null;
-        };
-        Insert: {
-          id?: string | null;
-          uid?: string | null;
-          title?: string | null;
-          description?: string | null;
-          timestamp?: string | null;
-          isRead?: boolean | null;
-        };
-        Update: {
-          id?: string | null;
-          uid?: string | null;
-          title?: string | null;
-          description?: string | null;
-          timestamp?: string | null;
-          isRead?: boolean | null;
-        };
-        Delete: {
-          id: string;
-        };
-        Relationships: [];
-      };
       website: {
         Row: {
           name: string | null;
@@ -95,35 +65,6 @@ export interface DesignDatabase {
         };
         Relationships: [];
       };
-      users: {
-        Row: {
-          id: string;
-          updated_at: string | null;
-          // username: string | null;
-          full_name: string | null;
-          avatar_url: string | null;
-          website: string | null;
-        };
-        Insert: {
-          id: string;
-          updated_at?: string | null;
-          // username?: string | null;
-          full_name?: string | null;
-          avatar_url?: string | null;
-          website?: string | null;
-        };
-        Update: {
-          id?: string;
-          updated_at?: string | null;
-          // username?: string | null;
-          full_name?: string | null;
-          avatar_url?: string | null;
-          website?: string | null;
-        };
-        Delete: {
-          id?: string;
-        };
-      };
     };
     Views: {
       [_ in never]: never;
@@ -152,8 +93,8 @@ export interface DesignDatabase {
 
 export type Tables<
   PublicTableNameOrOptions extends
-    | keyof (DesignDatabase["public"]["Tables"] &
-        DesignDatabase["public"]["Views"])
+    | keyof (DesignDatabase["webspirre_admin"]["Tables"] &
+        DesignDatabase["webspirre_admin"]["Views"])
     | { schema: keyof DesignDatabase },
   TableName extends PublicTableNameOrOptions extends {
     schema: keyof DesignDatabase;
@@ -168,10 +109,10 @@ export type Tables<
     }
     ? R
     : never
-  : PublicTableNameOrOptions extends keyof (DesignDatabase["public"]["Tables"] &
-      DesignDatabase["public"]["Views"])
-  ? (DesignDatabase["public"]["Tables"] &
-      DesignDatabase["public"]["Views"])[PublicTableNameOrOptions] extends {
+  : PublicTableNameOrOptions extends keyof (DesignDatabase["webspirre_admin"]["Tables"] &
+      DesignDatabase["webspirre_admin"]["Views"])
+  ? (DesignDatabase["webspirre_admin"]["Tables"] &
+      DesignDatabase["webspirre_admin"]["Views"])[PublicTableNameOrOptions] extends {
       Row: infer R;
     }
     ? R
@@ -180,7 +121,7 @@ export type Tables<
 
 export type TablesInsert<
   PublicTableNameOrOptions extends
-    | keyof DesignDatabase["public"]["Tables"]
+    | keyof DesignDatabase["webspirre_admin"]["Tables"]
     | { schema: keyof DesignDatabase },
   TableName extends PublicTableNameOrOptions extends {
     schema: keyof DesignDatabase;
@@ -193,8 +134,8 @@ export type TablesInsert<
     }
     ? I
     : never
-  : PublicTableNameOrOptions extends keyof DesignDatabase["public"]["Tables"]
-  ? DesignDatabase["public"]["Tables"][PublicTableNameOrOptions] extends {
+  : PublicTableNameOrOptions extends keyof DesignDatabase["webspirre_admin"]["Tables"]
+  ? DesignDatabase["webspirre_admin"]["Tables"][PublicTableNameOrOptions] extends {
       Insert: infer I;
     }
     ? I
@@ -203,7 +144,7 @@ export type TablesInsert<
 
 export type TablesUpdate<
   PublicTableNameOrOptions extends
-    | keyof DesignDatabase["public"]["Tables"]
+    | keyof DesignDatabase["webspirre_admin"]["Tables"]
     | { schema: keyof DesignDatabase },
   TableName extends PublicTableNameOrOptions extends {
     schema: keyof DesignDatabase;
@@ -216,8 +157,8 @@ export type TablesUpdate<
     }
     ? U
     : never
-  : PublicTableNameOrOptions extends keyof DesignDatabase["public"]["Tables"]
-  ? DesignDatabase["public"]["Tables"][PublicTableNameOrOptions] extends {
+  : PublicTableNameOrOptions extends keyof DesignDatabase["webspirre_admin"]["Tables"]
+  ? DesignDatabase["webspirre_admin"]["Tables"][PublicTableNameOrOptions] extends {
       Update: infer U;
     }
     ? U
@@ -226,7 +167,7 @@ export type TablesUpdate<
 
 export type Enums<
   PublicEnumNameOrOptions extends
-    | keyof DesignDatabase["public"]["Enums"]
+    | keyof DesignDatabase["webspirre_admin"]["Enums"]
     | { schema: keyof DesignDatabase },
   EnumName extends PublicEnumNameOrOptions extends {
     schema: keyof DesignDatabase;
@@ -235,6 +176,6 @@ export type Enums<
     : never = never
 > = PublicEnumNameOrOptions extends { schema: keyof DesignDatabase }
   ? DesignDatabase[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
-  : PublicEnumNameOrOptions extends keyof DesignDatabase["public"]["Enums"]
-  ? DesignDatabase["public"]["Enums"][PublicEnumNameOrOptions]
+  : PublicEnumNameOrOptions extends keyof DesignDatabase["webspirre_admin"]["Enums"]
+  ? DesignDatabase["webspirre_admin"]["Enums"][PublicEnumNameOrOptions]
   : never;
