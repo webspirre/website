@@ -240,7 +240,7 @@ function ItemDetail({
   };
 
   return (
-    <div className="  max-w-[1350px] ">
+    <div className="  max-w-[1350px] mt-[50pt] sm:mt-0 ">
       <div className="sm:mr-[]">
         {/* previous button, to move to the previous website detail */}
         <Image
