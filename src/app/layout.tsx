@@ -17,7 +17,7 @@ import { toast, ToastContainer } from "react-toastify";
 const inter = Inter({ subsets: ["latin"] });
 
 const meta = {
-  title: "Webspirre",
+  title: "Webspirre | The Web Design inspiration gallery",
   description: "Find Web design Inspiration Faster",
   cardImage: "/webspirrelogo.png",
   robots: "follow, index",

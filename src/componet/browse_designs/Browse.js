@@ -29,6 +29,7 @@ const Browse = ({ user, handleAuthModal, designs }) => {
     { value: "software-saas", label: "Software & SaaS" },
     { value: "travel-hospitality", label: "Travel & Hospitality" },
     { value: "agency-corporate", label: "Agency & Corporate" },
+    { value: "software-saas", label: "Developer Tools" },
   ];
 
   return (
