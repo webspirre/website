@@ -3,17 +3,22 @@
 import { handleRequest, signInWithOAuth } from "@/libs/auth-helpers/client";
 import { signUp } from "@/libs/auth-helpers/server";
 import { createPublicClient } from "@/libs/supabase/client";
-// import { supabaseBrowser } from "@/libs/supabase/browser";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 function Form() {
   let redirectMethod = "client";
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = redirectMethod === "client" ? useRouter() : null;
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setIsSubmitting(true); // Disable the button while the request is being handled
@@ -36,8 +41,9 @@ function Form() {
       },
     });
   };
+
   return (
-    <div className="flex flex-col text-[12px]  items-center justify-center gap-4">
+    <div className="flex flex-col text-[12px] items-center justify-center gap-4">
       <Link href="/">
         <Image
           height={20}
@@ -48,7 +54,7 @@ function Form() {
         />{" "}
       </Link>
 
-      <div className=" w-[320px] sm:w-[350px]">
+      <div className="w-[320px] sm:w-[350px]">
         <h1 className="text-center text-[20px] py-2 font-bold">
           Join Webspirre
         </h1>
@@ -110,20 +116,31 @@ function Form() {
         <label htmlFor="password" className="text-[14px] -mb-2">
           Password
         </label>
-        <input
-          id="password"
-          type="password"
-          name="password"
-          autoComplete="current-password"
-          //  placeholder="6+ Characters, 1 Capital letter"
-          placeholder="**********"
-          className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px]  w-[320px] sm:w-[350px]"
-        />
+        <div className="relative w-[320px] sm:w-[350px]">
+          <input
+            id="password"
+            type={showPassword ? "text" : "password"}
+            name="password"
+            autoComplete="current-password"
+            placeholder="**********"
+            className="border border-[#C7C7C7] bg-white p-2 rounded-md h-[60px] w-full"
+          />
+          <button
+            type="button"
+            className="absolute inset-y-0 right-3 flex items-center"
+            onClick={handleTogglePassword}
+          >
+            <FontAwesomeIcon
+              icon={showPassword ? faEyeSlash : faEye}
+              style={{ color: "#6B7280" }}
+            />
+          </button>
+        </div>
 
         {/* Sign Up Button */}
         <button
           type="submit"
-          className="bg-black text-center  text-white font-bold p-2 py-4 mt-2 rounded-md disabled:bg-opacity-35 disabled:cursor-not-allowed  w-[320px] sm:w-[350px]"
+          className="bg-black text-center text-white font-bold p-2 py-4 mt-2 rounded-md disabled:bg-opacity-35 disabled:cursor-not-allowed w-[320px] sm:w-[350px]"
           disabled={isSubmitting}
         >
           {isSubmitting ? (
@@ -137,15 +154,15 @@ function Form() {
         </button>
       </form>
 
-      <p className="text-[13px] text-[#64748B] ">
+      <p className="text-[13px] text-[#64748B]">
         Already have an account?{" "}
         <span className="font-bold text-black">
           <Link href="/auth/login">Log in instead</Link>
         </span>
       </p>
-      <p className="text-[13px] text-[#64748B]  w-[320px] sm:w-[350px]">
-        By continuing to sign up, you confirm that you agree <br className="hidden sm:block" /> to
-        Webspirre&apos;s{" "}
+      <p className="text-[13px] text-[#64748B] w-[320px] sm:w-[350px]">
+        By continuing to sign up, you confirm that you agree{" "}
+        <br className="hidden sm:block" /> to Webspirre&apos;s{" "}
         <span className=" border-b-2 w-fit">
           {" "}
           <Link href="/terms">Terms & Conditions</Link>{" "}
