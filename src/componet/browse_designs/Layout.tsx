@@ -16,6 +16,8 @@ import ScrollToTop from "react-scroll-to-top";
 import { useDesigns } from "@/hooks/useDesigns";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import DisplayDesignsLayout from "./DisplayDesignsLayout";
+import { useSearchParams } from "next/navigation";
+import { toast } from "react-toastify";
 
 interface HomeLayoutProps {
   user: User | null;
@@ -30,8 +32,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
   const [designs, setDesigns] = useState<Designs[]>([]);
   const [loading, setLoading] = useState<boolean>(true); // Add loading state
   const queryClient = new QueryClient();
-
-  // console.log("LAZY DATA", data);
+  const searchParams = useSearchParams();
 
   const displayDesigns = async () => {
     setLoading(true); // Set loading to true when starting to fetch designs
@@ -46,6 +47,18 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
     displayDesigns();
     AOS.init();
   }, []);
+
+  useEffect(() => {
+    const error = searchParams.get("error");
+    const errorDescription = searchParams.get("error_description");
+    if (error && errorDescription) {
+      // setErrorMessage(decodeURIComponent(errorDescription));
+      toast.error(decodeURIComponent(errorDescription), {
+        position: "top-center",
+      });
+    }
+  }, [searchParams]);
+
   const backgroundImageUrl =
     "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705724835/utilities/background_illustration_lcdskr.svg";
 
