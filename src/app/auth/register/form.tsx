@@ -15,12 +15,10 @@ interface FormProps {
 }
 
 const Form: React.FC<FormProps> = ({ onOpenModal }) => {
-  let redirectMethod = "client";
-  const router = redirectMethod === "client" ? useRouter() : null;
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-    const [email, setEmail] = useState("");
-
+  const [email, setEmail] = useState("");
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -32,9 +30,9 @@ const Form: React.FC<FormProps> = ({ onOpenModal }) => {
 
     try {
       await handleRequest(e, signUp, router);
-     setTimeout(() => {
-       onOpenModal(email);
-     }, 1000); // Open the modal when sign-up is successful
+      setTimeout(() => {
+        onOpenModal(email);
+      }, 1000); // Open the modal when sign-up is successful
     } catch (error) {
       console.error("Sign-up error:", error);
     } finally {
@@ -126,6 +124,7 @@ const Form: React.FC<FormProps> = ({ onOpenModal }) => {
           autoCorrect="off"
           placeholder="example@mail.com"
           className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] w-[320px] sm:w-[350px]"
+          onChange={(e) => setEmail(e.target.value)}
         />
 
         {/* Password Input */}
