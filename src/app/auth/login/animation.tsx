@@ -2,17 +2,19 @@
 import React from "react";
 
 const imageSources1 = [
-  "https://www.webspirre.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdwqantex4%2Fimage%2Fupload%2Fv1718435071%2Fwebspirre_assests%2Finydz57jmb0optdlpmmz.webp&w=750&q=75",
-  "https://www.webspirre.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdwqantex4%2Fimage%2Fupload%2Fv1718684528%2Fwebspirre_assests%2Fd9kp7t62bza0uztppbx6.png&w=750&q=75",
-  "https://www.webspirre.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdwqantex4%2Fimage%2Fupload%2Fv1718686612%2Fwebspirre_assests%2Firke9m6tfcdabozvwdzp.png&w=750&q=75",
-  "https://www.webspirre.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdwqantex4%2Fimage%2Fupload%2Fv1718703679%2Fwebspirre_assests%2Fubzwuzowdbo2s6zbx4s0.png&w=750&q=75",
-  "https://www.webspirre.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdwqantex4%2Fimage%2Fupload%2Fv1718730391%2Fwebspirre_assests%2Fytxbkvdyw2k3ddtn1uqq.png&w=750&q=75",
-  "https://www.webspirre.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdwqantex4%2Fimage%2Fupload%2Fv1719425587%2Fwebspirre_assests%2Fzqbj8z1r8s8dyfzmx1sy.webp&w=750&q=75",
-  "https://www.webspirre.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdwqantex4%2Fimage%2Fupload%2Fv1719423071%2Fwebspirre_assests%2Fhpc09gcmi1nkmbvaofxi.png&w=750&q=75",
-  "https://www.webspirre.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdwqantex4%2Fimage%2Fupload%2Fv1719424432%2Fwebspirre_assests%2Fwn4tn2p7nwil4zezxowg.png&w=750&q=75",
-  "https://www.webspirre.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdwqantex4%2Fimage%2Fupload%2Fv1719428726%2Fwebspirre_assests%2Ffwr76gkusln4lz1lawwf.webp&w=750&q=75",
-  "https://www.webspirre.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdwqantex4%2Fimage%2Fupload%2Fv1719434854%2Fwebspirre_assests%2Fce45ascanktkurm2saln.png&w=750&q=75",
-  "https://www.webspirre.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdwqantex4%2Fimage%2Fupload%2Fv1719471694%2Fwebspirre_assests%2Fzfm8qofp1cz5vf2g77i5.png&w=750&q=75",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1718703679/webspirre_assests/ubzwuzowdbo2s6zbx4s0.png",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1719471694/webspirre_assests/zfm8qofp1cz5vf2g77i5.png",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1718730391/webspirre_assests/ytxbkvdyw2k3ddtn1uqq.png",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1719434854/webspirre_assests/ce45ascanktkurm2saln.png",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1719502738/webspirre_assests/jwbuf3qcige7p2maxyi8.png",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1718684528/webspirre_assests/d9kp7t62bza0uztppbx6.png",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1719425587/webspirre_assests/zqbj8z1r8s8dyfzmx1sy.webp",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1718684528/webspirre_assests/d9kp7t62bza0uztppbx6.png",
+
+
+  "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
+  "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
+  "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
@@ -20,21 +22,22 @@ const imageSources1 = [
 ];
 
 const imageSources2 = [
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1719428726/webspirre_assests/fwr76gkusln4lz1lawwf.webp",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1719423071/webspirre_assests/hpc09gcmi1nkmbvaofxi.png",
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
-  "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
-  "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
-  "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
-  "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
-  "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
-  "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
-  "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
-  "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
-  "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
+
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1718703679/webspirre_assests/ubzwuzowdbo2s6zbx4s0.png",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1719471694/webspirre_assests/zfm8qofp1cz5vf2g77i5.png",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1718730391/webspirre_assests/ytxbkvdyw2k3ddtn1uqq.png",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1719434854/webspirre_assests/ce45ascanktkurm2saln.png",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1719502738/webspirre_assests/jwbuf3qcige7p2maxyi8.png",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1718684528/webspirre_assests/d9kp7t62bza0uztppbx6.png",
+  "https://res.cloudinary.com/dwqantex4/image/upload/v1719425587/webspirre_assests/zqbj8z1r8s8dyfzmx1sy.webp",
 ];
 
 const imageSources3 = [
@@ -46,6 +49,8 @@ const imageSources3 = [
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
+
+
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
   "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1707197538/utilities/image_8_zggunt.svg",
@@ -57,10 +62,10 @@ const imageSources3 = [
 
 function Animation() {
   return (
-    <div className="grid grid-cols-3 gap-2">
+    <div className="grid grid-cols-3 gap-2 bg-[#ebebeb] px-2">
       {/* first col */}
-      <div className="col-span-1 slider flex flex-col gap-4">
-        <div className="slide flex flex-col gap-4">
+      <div className="col-span-1 slider flex flex-col gap-4 ">
+        <div className="slide flex flex-col gap-4 bg-[#ebebeb]">
           {imageSources1.map((src, index) => (
             <div
               key={index}
@@ -73,8 +78,8 @@ function Animation() {
       </div>
 
       {/* second col */}
-      <div className="col-span-1 slider1 flex flex-col gap-4">
-        <div className="slide1 flex flex-col gap-4">
+      <div className="col-span-1 slider1 flex flex-col gap-4 bg-[#ebebeb]">
+        <div className="slide1 flex flex-col gap-4 bg-[#ebebeb]">
           {imageSources2.map((src, index) => (
             <div
               key={index}
@@ -84,7 +89,7 @@ function Animation() {
             </div>
           ))}
         </div>
-        <div className="slide1 flex flex-col gap-4">
+        <div className="slide1 flex flex-col gap-4 bg-[#ebebeb]">
           {imageSources2.map((src, index) => (
             <div
               key={index}
@@ -98,7 +103,7 @@ function Animation() {
 
       {/* 3rd col */}
       <div className="col-span-1 slider flex flex-col gap-4">
-        <div className="slide flex flex-col gap-4">
+        <div className="slide flex flex-col gap-4 bg-[#ebebeb]">
           {imageSources3.map((src, index) => (
             <div
               key={index}

@@ -5,8 +5,8 @@ import { signUp } from "@/libs/auth-helpers/server";
 import { createPublicClient } from "@/libs/supabase/client";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
@@ -19,6 +19,19 @@ const Form: React.FC<FormProps> = ({ onOpenModal }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
+  const searchParams = useSearchParams();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage1, setErrorMessage1] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  useEffect(() => {
+    const error = searchParams.get("error");
+    const errorDescription = searchParams.get("error_description");
+    if (error && errorDescription) {
+      setErrorMessage(decodeURIComponent(errorDescription));
+    }
+  }, [searchParams]);
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -26,6 +39,7 @@ const Form: React.FC<FormProps> = ({ onOpenModal }) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent default form submission behavior
+    if (!isFormValid) return;
     setIsSubmitting(true); // Disable the button while the request is being handled
 
     try {
@@ -54,6 +68,29 @@ const Form: React.FC<FormProps> = ({ onOpenModal }) => {
         redirectTo: location.origin + "/auth/callback",
       },
     });
+  };
+
+  const validateEmail = (email: string) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const email = e.target.value;
+    setEmail(email);
+    if (!validateEmail(email)) {
+      setIsEmailValid(false);
+      setErrorMessage1("Invalid email format");
+    } else {
+      setIsEmailValid(true);
+      setErrorMessage1("");
+    }
+    setIsFormValid(email !== "" && validateEmail(email));
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    handleEmailChange(e);
   };
 
   return (
@@ -100,7 +137,7 @@ const Form: React.FC<FormProps> = ({ onOpenModal }) => {
         </button>
       </form>
 
-      <div className="flex gap-2 items-center hidden">
+      <div className="fle gap-2 items-center hidden">
         <div className="w-[150px] sm:w-[200px] h-[1px] sm:h-[2px] bg-[#C7C7C7]"></div>
         <p>or</p>
         <div className="w-[150px] sm:w-[200px] h-[1px] sm:h-[2px] bg-[#C7C7C7]"></div>
@@ -124,8 +161,10 @@ const Form: React.FC<FormProps> = ({ onOpenModal }) => {
           autoCorrect="off"
           placeholder="example@mail.com"
           className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[60px] w-[320px] sm:w-[350px]"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleChange}
         />
+        {errorMessage && <div className="text-red-500 -mt-2 hidden">{errorMessage}</div>}
+        {!isEmailValid && <div className="text-red-500 -mt-2">{errorMessage1}</div>}
 
         {/* Password Input */}
         <label htmlFor="password" className="text-[14px] -mb-2">

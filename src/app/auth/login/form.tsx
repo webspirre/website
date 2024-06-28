@@ -14,9 +14,13 @@ import { faEye, faEyeSlash, faTimes } from "@fortawesome/free-solid-svg-icons";
 function Form() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage1, setErrorMessage1] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     const error = searchParams.get("error");
@@ -30,6 +34,8 @@ function Form() {
   }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!isFormValid) return;
     setIsSubmitting(true); // Disable the button while the request is being handled
     await handleRequest(e, signInWithPassword, router);
     setIsSubmitting(false);
@@ -57,6 +63,24 @@ function Form() {
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+  const validateEmail = (email: string) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const email = e.target.value;
+    setEmail(email);
+    if (!validateEmail(email)) {
+      setIsEmailValid(false);
+      setErrorMessage1("Invalid email format");
+    } else {
+      setIsEmailValid(true);
+      setErrorMessage1("");
+    }
+    setIsFormValid(email !== "" && validateEmail(email));
   };
 
   return (
@@ -128,9 +152,11 @@ function Form() {
             autoCorrect="off"
             placeholder="example@mail.com"
             className="border border-[#C7C7C7] bg-white p-4 rounded-md h-[50px] w-[320px] sm:w-[350px]"
+            onChange={handleEmailChange}
           />
           {/* Error message */}
           {errorMessage && <div className="text-red-500">{errorMessage}</div>}
+          {!isEmailValid && <div className="text-red-500">{errorMessage1}</div>}
         </div>
 
         {/* Password Input */}

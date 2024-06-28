@@ -82,7 +82,7 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ open, onClose, email }) => {
                     Thanks for signing up on Webspirre! We&apos;ve sent a{" "}
                     <br className="hidden sm:block" />
                     confirmation email to{" "}
-                    <span className="font-bold"> Your email{formatEmail(email)}</span>.
+                    <span className="font-bold"> {formatEmail(email)}</span>.
                     <br className="hidden sm:block" /> Please confirm the email
                     to complete your sign up.{" "}
                   </p>
