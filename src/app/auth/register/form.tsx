@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 interface FormProps {
-  onOpenModal: () => void;
+  onOpenModal: (email: string) => void;
 }
 
 const Form: React.FC<FormProps> = ({ onOpenModal }) => {
@@ -19,6 +19,8 @@ const Form: React.FC<FormProps> = ({ onOpenModal }) => {
   const router = redirectMethod === "client" ? useRouter() : null;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+    const [email, setEmail] = useState("");
+
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -30,7 +32,9 @@ const Form: React.FC<FormProps> = ({ onOpenModal }) => {
 
     try {
       await handleRequest(e, signUp, router);
-      onOpenModal(); // Open the modal when sign-up is successful
+     setTimeout(() => {
+       onOpenModal(email);
+     }, 1000); // Open the modal when sign-up is successful
     } catch (error) {
       console.error("Sign-up error:", error);
     } finally {
@@ -166,13 +170,13 @@ const Form: React.FC<FormProps> = ({ onOpenModal }) => {
         </button>
       </form>
 
-      <button
+      {/* <button
         type="button"
         className="inset-y-0 right-3 flex items-center"
         onClick={onOpenModal}
       >
         Sign Up Modal Button
-      </button>
+      </button> */}
 
       <p className="text-[13px] text-[#64748B]">
         Already have an account?{" "}

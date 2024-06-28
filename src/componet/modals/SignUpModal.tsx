@@ -11,9 +11,22 @@ import React, { Fragment } from "react";
 interface SignUpModalProps {
   open: boolean;
   onClose: () => void;
+  email: string;
 }
 
-const SignUpModal: React.FC<SignUpModalProps> = ({ open, onClose }) => {
+const SignUpModal: React.FC<SignUpModalProps> = ({ open, onClose, email }) => {
+     const formatEmail = (email: string) => {
+       if (!email.includes("@")) {
+         return email;
+       }
+
+       const [user, domain] = email.split("@");
+       const hiddenUser =
+         user.length > 3 ? `${user.slice(0, 3)}******${user.slice(-1)}` : user;
+       const hiddenDomain = domain.length > 4 ? `g****.com` : domain;
+       return `${hiddenUser}@${hiddenDomain}`;
+     };
+    
   return (
     <Transition appear show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onClose}>
@@ -68,7 +81,8 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ open, onClose }) => {
                   <p className="text-[14px] text-center max-w-full sm:max-w-4xl text-black ">
                     Thanks for signing up on Webspirre! We&apos;ve sent a{" "}
                     <br className="hidden sm:block" />
-                    confirmation email to jos******321@g****.com.
+                    confirmation email to{" "}
+                    <span className="font-bold"> Your email{formatEmail(email)}</span>.
                     <br className="hidden sm:block" /> Please confirm the email
                     to complete your sign up.{" "}
                   </p>

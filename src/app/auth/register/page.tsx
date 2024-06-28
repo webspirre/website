@@ -6,14 +6,16 @@ import Animation from "./animation";
 import SignUpModal from "@/componet/modals/SignUpModal";
 
 function Page() {
-  const [showModal, setShowModal] = useState(false);
+   const [isModalOpen, setIsModalOpen] = useState(false);
+   const [email, setEmail] = useState("");
 
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
+   const handleOpenModal = (submittedEmail: string) => {
+     setEmail(submittedEmail);
+     setIsModalOpen(true);
+   };
 
   const handleCloseModal = () => {
-    setShowModal(false);
+    setIsModalOpen(false);
   };
 
   return (
@@ -28,7 +30,11 @@ function Page() {
         <Animation />
       </div>
 
-      <SignUpModal open={showModal} onClose={handleCloseModal} />
+      <SignUpModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        email={email}
+      />
     </div>
   );
 }
