@@ -86,11 +86,11 @@ body {
 }
 
 @keyframes slideshow1 {
-  100% {
+  50% {
     transform: translateY(0); /* Change to translateY */
   }
   0% {
-    transform: translateY(-100%); /* Change to translateY */
+    transform: translateY(-50%); /* Change to translateY */
   }
 }
 

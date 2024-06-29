@@ -7,7 +7,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash, faTimes } from "@fortawesome/free-solid-svg-icons";
 
@@ -27,9 +26,7 @@ function Form() {
     const errorDescription = searchParams.get("error_description");
     if (error && errorDescription) {
       setErrorMessage(decodeURIComponent(errorDescription));
-      toast.error(decodeURIComponent(errorDescription), {
-        position: "top-center",
-      });
+      
     }
   }, [searchParams]);
 
@@ -155,8 +152,11 @@ function Form() {
             onChange={handleEmailChange}
           />
           {/* Error message */}
-          {errorMessage && <div className="text-red-500">{errorMessage}</div>}
-          {!isEmailValid && <div className="text-red-500">{errorMessage1}</div>}
+          {(!isEmailValid || errorMessage) && (
+            <div className="text-red-500">
+              {isEmailValid ? errorMessage : errorMessage1}
+            </div>
+          )}
         </div>
 
         {/* Password Input */}
