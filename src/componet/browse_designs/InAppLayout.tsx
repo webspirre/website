@@ -10,6 +10,7 @@ import Loader from "./Loader";
 import ScrollToTop from "react-scroll-to-top";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import DisplayDesignsLayout from "./DisplayDesignsLayout";
+import { EmailProvider } from "@/context/SignupProvider";
 
 interface HomeLayoutProps {
   user: User | null;
@@ -39,9 +40,10 @@ const InAppLayout: React.FC<HomeLayoutProps> = ({ user }) => {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <main>
-          <div className="mt-48">
-            {/* {loading ? (
+        <EmailProvider>
+          <main>
+            <div className="mt-48">
+              {/* {loading ? (
               <Loader />
             ) : (
               <Browse
@@ -50,16 +52,17 @@ const InAppLayout: React.FC<HomeLayoutProps> = ({ user }) => {
                 designs={designs}
               />
             )} */}
-            <DisplayDesignsLayout
-              handleAuthModal={handleAuthModal}
-              user={user}
+              <DisplayDesignsLayout
+                handleAuthModal={handleAuthModal}
+                user={user}
+              />
+            </div>
+            <ScrollToTop
+              smooth
+              className="flex justify-center items-center z-[999]"
             />
-          </div>
-          <ScrollToTop
-            smooth
-            className="flex justify-center items-center z-[999]"
-          />
-        </main>
+          </main>
+        </EmailProvider>
       </QueryClientProvider>
     </>
   );

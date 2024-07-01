@@ -1,22 +1,59 @@
+"use client";
+
 import { User } from "@supabase/supabase-js";
-import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import SignUpModal from "../modals/SignUpModal";
+import { useRouter } from "next/navigation";
 interface ConfirmLayoutProps {
   user: User | null;
 }
 const ConfirmLayout: React.FC<ConfirmLayoutProps> = ({ user }) => {
+  const router = useRouter();
   const backgroundImageUrl =
     "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705724835/utilities/background_illustration_lcdskr.svg";
+
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [email, setEmail] = useState("");
+
+  const handleCloseModal = () => {
+    router.push("/auth/login");
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedEmail = localStorage.getItem("newemail");
+      if (storedEmail) {
+        setEmail(storedEmail);
+      }
+    }
+  }, []);
+
+  // const modalOpenRef = useRef<boolean>(false);
+
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const isModalOpen = localStorage.getItem("isModalOpen");
+  //     if (isModalOpen) {
+  //       modalOpenRef.current = isModalOpen === "true";
+  //     }
+  //   }
+  // }, []);
   return (
     <>
+      <SignUpModal
+        open={isModalOpen}
+        onClose={() => handleCloseModal}
+        email={email}
+      />
       <div
         style={{
           backgroundImage: `url(${backgroundImageUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: "430px", // Set the desired height
-          position: "relative", // Position relative to allow absolute positioning of child elements
+          height: "430px",
+          position: "relative",
         }}
         className="max-w-screen-xl mx-auto items-center justify-center text-center flex-col flex gap-y-3 h-screen"
       >

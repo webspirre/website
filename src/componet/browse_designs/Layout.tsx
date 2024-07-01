@@ -7,14 +7,11 @@ import VideoModal from "../modals/VideoModal";
 import React, { useEffect, useState } from "react";
 import type { User } from "@supabase/auth-helpers-nextjs";
 import AuthModal from "../modals/AuthModal";
-import useDesign from "@/hooks/useDesign";
 import { fetchDesigns } from "@/utils/designs/server";
 import { Database } from "@/types/types_db";
-import Loader from "./Loader";
 import AOS from "aos";
 import ScrollToTop from "react-scroll-to-top";
-import { useDesigns } from "@/hooks/useDesigns";
-import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import DisplayDesignsLayout from "./DisplayDesignsLayout";
 import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
@@ -52,7 +49,6 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
     const error = searchParams.get("error");
     const errorDescription = searchParams.get("error_description");
     if (error && errorDescription) {
-      // setErrorMessage(decodeURIComponent(errorDescription));
       toast.error(decodeURIComponent(errorDescription), {
         position: "top-center",
       });
@@ -61,6 +57,8 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ user }) => {
 
   const backgroundImageUrl =
     "https://res.cloudinary.com/dcb4ilgmr/image/upload/v1705724835/utilities/background_illustration_lcdskr.svg";
+
+  //https://www.webspirre.com/#error=access_denied&error_code=403&error_description=Email+link+is+invalid+or+has+expired
 
   return (
     <>

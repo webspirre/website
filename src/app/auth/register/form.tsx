@@ -44,9 +44,10 @@ const Form: React.FC<FormProps> = ({ onOpenModal }) => {
 
     try {
       await handleRequest(e, signUp, router);
-      setTimeout(() => {
-        onOpenModal(email);
-      }, 1000); // Open the modal when sign-up is successful
+      // setTimeout(() => {
+      //   onOpenModal(email);
+      // }, 1000); // Open the modal when sign-up is successful
+      localStorage.setItem("newemail", email);
     } catch (error) {
       console.error("Sign-up error:", error);
     } finally {

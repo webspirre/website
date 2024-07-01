@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Browse from "./Browse";
 import Loader from "./Loader";
 import { useDesigns } from "@/hooks/useDesigns";
 import type { User } from "@supabase/auth-helpers-nextjs";
+import SignUpModal from "../modals/SignUpModal";
+import useEmail from "@/hooks/useSignup";
 
 interface DisplayDesignsLayoutProps {
   user: User | null;
@@ -27,6 +29,7 @@ const DisplayDesignsLayout: React.FC<DisplayDesignsLayoutProps> = ({
             designs={designs}
           />
         )}
+        {/* SIGNUP MODAL */}
       </div>
     </>
   );

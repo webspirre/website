@@ -1,41 +1,36 @@
-import { cookies } from "next/headers";
+import { createClient } from "@/libs/supabase/server";
 import { NextResponse } from "next/server";
-import { type CookieOptions, createServerClient } from "@supabase/ssr";
+import { NextRequest } from "next/server";
+import { getErrorRedirect, getStatusRedirect } from "@/libs/helpers";
 
-export async function GET(request: Request) {
-  const { searchParams, origin } = new URL(request.url);
-  const code = searchParams.get("code");
-  // if "next" is in param, use it as the redirect URL
-  // const next = searchParams.get("next") ?? "/";
+export async function GET(request: NextRequest) {
+  // The `/auth/callback` route is required for the server-side auth flow implemented
+  // by the `@supabase/ssr` package. It exchanges an auth code for the user's session.
+  const requestUrl = new URL(request.url);
+  const code = requestUrl.searchParams.get("code");
 
   if (code) {
-    const cookieStore = cookies();
-    const supabase = createServerClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-      {
-        cookies: {
-          get(name: string) {
-            return cookieStore.get(name)?.value;
-          },
-          set(name: string, value: string, options: CookieOptions) {
-            cookieStore.set({ name, value, ...options });
-          },
-          remove(name: string, options: CookieOptions) {
-            cookieStore.delete({ name, ...options });
-          },
-        },
-      }
-    );
+    const supabase = createClient();
+
     const { error } = await supabase.auth.exchangeCodeForSession(code);
-    // if (!error) {
-    //   return NextResponse.redirect(`${origin}${next}`);
-    // }
-    if (!error) {
-      return NextResponse.redirect(`${origin}/in-app`);
+
+    if (error) {
+      return NextResponse.redirect(
+        getErrorRedirect(
+          `${requestUrl.origin}/auth/login`,
+          error.name,
+          "Sorry, we weren't able to log you in. Please try again."
+        )
+      );
     }
   }
 
-  // return the user to an error page with instructions
-  return NextResponse.redirect(`${origin}`);
+  // URL to redirect to after sign in process completes
+  return NextResponse.redirect(
+    getStatusRedirect(
+      `${requestUrl.origin}/in-app`,
+      "Success!",
+      "You are now signed in."
+    )
+  );
 }

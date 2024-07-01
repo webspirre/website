@@ -6,6 +6,7 @@ import {
   TransitionChild,
 } from "@headlessui/react";
 import Image from "next/image";
+import Link from "next/link";
 import React, { Fragment } from "react";
 
 interface SignUpModalProps {
@@ -15,18 +16,18 @@ interface SignUpModalProps {
 }
 
 const SignUpModal: React.FC<SignUpModalProps> = ({ open, onClose, email }) => {
-     const formatEmail = (email: string) => {
-       if (!email.includes("@")) {
-         return email;
-       }
+  const formatEmail = (email: string) => {
+    if (!email.includes("@")) {
+      return email;
+    }
 
-       const [user, domain] = email.split("@");
-       const hiddenUser =
-         user.length > 3 ? `${user.slice(0, 3)}******${user.slice(-1)}` : user;
-       const hiddenDomain = domain.length > 4 ? `g****.com` : domain;
-       return `${hiddenUser}@${hiddenDomain}`;
-     };
-    
+    const [user, domain] = email.split("@");
+    const hiddenUser =
+      user.length > 3 ? `${user.slice(0, 3)}******${user.slice(-1)}` : user;
+    const hiddenDomain = domain.length > 4 ? `g****.com` : domain;
+    return `${hiddenUser}@${hiddenDomain}`;
+  };
+
   return (
     <Transition appear show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onClose}>
@@ -87,12 +88,13 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ open, onClose, email }) => {
                     to complete your sign up.{" "}
                   </p>
                   <div className="flex flex-col justify-center items-center sm:flex-row gap-3 w-full max-w-[70%] mx-auto p-4">
-                    <button
+                    <Link
+                      href="/auth/login"
                       onClick={onClose}
                       className="w-full sm:w-auto p-2.5 bg-white text-black text-xs font-medium border border-black rounded-lg hover:bg-gray-200 transition duration-300 ease-in-out text-center"
                     >
                       Go Back
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </DialogPanel>
