@@ -94,6 +94,14 @@ const Card = ({
     }
   };
 
+  document.addEventListener("DOMContentLoaded", (event) => {
+    document.querySelectorAll("img.no-right-click").forEach((img) => {
+      img.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+      });
+    });
+  });
+
   return (
     <>
       {/* <div>
@@ -161,7 +169,7 @@ const Card = ({
                   <img
                     src={logoImageURL}
                     alt={`${name} Logo`}
-                    className="sm:h-[34px] sm:w-[34px] rounded-[12px]"
+                    className="sm:h-[34px] sm:w-[34px] rounded-[12px] no-right-click"
                   />
                 </div>
               ) : (

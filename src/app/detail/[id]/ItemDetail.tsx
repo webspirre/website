@@ -22,6 +22,10 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
   websiteData,
   isTop,
 }) => {
+
+    const handleContextMenu = (event: React.MouseEvent<HTMLImageElement>) => {
+      event.preventDefault();
+    };
   return (
     <>
       {/* Detail Content */}
@@ -41,6 +45,7 @@ const ItemDetailContent: React.FC<{ websiteData: any; isTop?: boolean }> = ({
             src={websiteData.logoImageURL}
             alt="rice"
             className="p- rounded-[12px] border-[#F1F0EE]"
+            onContextMenu={handleContextMenu}
           />
           {/* website name */}
           <h1 className="font-bold ">{websiteData.name}</h1>
@@ -239,6 +244,10 @@ function ItemDetail({
     }
   };
 
+   const handleContextMenu = (event: React.MouseEvent<HTMLImageElement>) => {
+     event.preventDefault();
+  };
+  
   return (
     <div className="  max-w-[1350px] mt-[50pt] sm:mt-0 ">
       <div className="sm:mr-[]">
@@ -264,9 +273,9 @@ function ItemDetail({
       {/* Detail Item Content */}
       <ItemDetailContent websiteData={websiteData} isTop={true} />{" "}
       <div className="">
-        <div className="w-fit  bg-[#F1F0EE]  p-1 md:p-2 sm:mx-[40px mb-8 shadow-md rounded-full">
+        <div className="w-fit bg-[#F1F0EE]  p-1 md:p-2 sm:mx-[40px mb-8 shadow-md rounded-full">
           {/* Desktop and Mobile switch, to show the desktop or mobile image on the website image space*/}
-          <div className="flex  text-[12px] items-center ustify-center space-x-4 ">
+          <div className="flex text-[12px] items-center ustify-center space-x-4 ">
             <div
               className={`cursor-pointer ${
                 !isMobileView
@@ -303,6 +312,7 @@ function ItemDetail({
                   src={webImgUrl}
                   alt={webImgAlt}
                   className="shadow-lg transition- transform duration-500 ease-in-out border-2 rounded-md"
+                  onContextMenu={handleContextMenu}
                 />
               </div>
             </div>
