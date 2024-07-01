@@ -237,7 +237,7 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
           </div>
         </div>
       </div>
-      {isFetchingNextPage && <div>Loading...</div>}
+      {/* {isFetchingNextPage && <div>Loading...</div>} */}
       {/* <button
         onClick={loadMore}
         disabled={!hasNextPage || isFetchingNextPage}

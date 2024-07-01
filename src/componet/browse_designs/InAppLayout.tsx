@@ -40,7 +40,7 @@ const InAppLayout: React.FC<HomeLayoutProps> = ({ user }) => {
     <>
       <QueryClientProvider client={queryClient}>
         <main>
-          <div className="mt-20">
+          <div className="mt-48">
             {/* {loading ? (
               <Loader />
             ) : (
