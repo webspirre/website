@@ -57,7 +57,7 @@ function Form() {
           best designed and highest-converting websites{" "}
         </p>
       </div>
-      <button onClick={() => handleLoginWithOAuth("google")} className="hidden">
+      <button onClick={() => handleLoginWithOAuth("google")} className="">
         <Image
           height={20}
           width={330}
@@ -144,8 +144,8 @@ function Form() {
         </span>
       </p>
       <p className="text-[13px] text-[#64748B]  w-[320px] sm:w-[350px]">
-        By continuing to sign up, you confirm that you agree <br className="hidden sm:block" /> to
-        Webspirre&apos;s{" "}
+        By continuing to sign up, you confirm that you agree{" "}
+        <br className="hidden sm:block" /> to Webspirre&apos;s{" "}
         <span className=" border-b-2 w-fit">
           {" "}
           <Link href="/terms">Terms & Conditions</Link>{" "}

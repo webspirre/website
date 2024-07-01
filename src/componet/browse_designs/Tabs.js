@@ -94,6 +94,10 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
     };
   }, []);
 
+  useEffect(() => {
+    loadMore();
+  }, [hasNextPage, loadMore]);
+
   return (
     <div className="mb-4">
       {/* Device Filters */}
@@ -234,13 +238,13 @@ const HorizontalTabs = ({ tabs, user, handleAuthModal, designs: data }) => {
         </div>
       </div>
       {isFetchingNextPage && <div>Loading...</div>}
-      <button
+      {/* <button
         onClick={loadMore}
         disabled={!hasNextPage || isFetchingNextPage}
         className="text-xs italic disabled:text-slate-500 disabled:cursor-not-allowed cursor-pointer disabled:hidden block"
       >
         Load More
-      </button>
+      </button> */}
     </div>
   );
 };

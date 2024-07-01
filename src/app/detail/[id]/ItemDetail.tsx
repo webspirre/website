@@ -371,7 +371,7 @@ function ItemDetail({
                 </div>
                 {/* Website Link */}
                 <a
-                  href={`https://${webUrl}`}
+                  href={`https://${webUrl}?ref=webspirre.com`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
