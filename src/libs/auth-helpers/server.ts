@@ -59,7 +59,7 @@ export async function SignOut(formData: FormData) {
     );
   }
 
-  return "/auth/login";
+  return "/";
 }
 
 /**
