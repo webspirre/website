@@ -54,7 +54,7 @@ body {
     transform: translateY(0); /* Change to translateY */
   }
   100% {
-    transform: translateY(-100%); /* Change to translateY */
+    transform: translateY(-50%); /* Change to translateY */
   }
 }
 
@@ -90,7 +90,7 @@ body {
     transform: translateY(0); /* Change to translateY */
   }
   0% {
-    transform: translateY(-100%); /* Change to translateY */
+    transform: translateY(-50%); /* Change to translateY */
   }
 }
 
