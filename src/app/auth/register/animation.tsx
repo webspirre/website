@@ -12,6 +12,12 @@ import {
   img8,
   img9,
   img10,
+  img11,
+  img12,
+  img13,
+  img14,
+  img15,
+  img16,
 } from "../../images/index";
 
 type StaticImageData = {
@@ -45,14 +51,14 @@ const imageSources1 = [
 ];
 
 const imageSources2 = [
+  img11,
+  img12,
+  img13,
   img9,
   img10,
-  img2,
-  img2,
-  img2,
-  img1,
-  img2,
-  img2,
+  img14,
+  img15,
+  img16,
   img2,
   img2,
   img1,
