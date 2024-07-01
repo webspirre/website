@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import SignUpModal from "../modals/SignUpModal";
 import { useRouter } from "next/navigation";
+import { formatEmail } from "@/hooks/functions/useEmailFormats";
 interface ConfirmLayoutProps {
   user: User | null;
 }
@@ -61,7 +62,9 @@ const ConfirmLayout: React.FC<ConfirmLayoutProps> = ({ user }) => {
           Thanks for signing up on <span className="font-black">Webspirre</span>
         </h1>
         <p className="italic font-semibold text-sm sm:text-lg">
-          Please, confirm the email sent to your email to proceed to loginin
+          Please, confirm the email sent to your email{" "}
+          <span className="font-bold"> {formatEmail(email)}</span>. to proceed
+          to loginin
         </p>
 
         <Link
