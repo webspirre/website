@@ -163,6 +163,10 @@ function isStaticImageData(src: any): src is StaticImageData {
 }
 
 function Animation() {
+  const handleContextMenu = (event: React.MouseEvent<HTMLImageElement>) => {
+    event.preventDefault();
+  };
+
   return (
     <div className="grid grid-cols-3 gap-2 px-2">
       {/* First column */}
@@ -174,14 +178,14 @@ function Animation() {
               className="h-[400px] w-full bg-[#ebebeb] overflow-hidden border-4 rounded-[10px]"
             >
               {isStaticImageData(src) ? (
-                <Image src={src} alt="" />
+                <Image src={src} alt="" onContextMenu={handleContextMenu} />
               ) : (
-                <img src={src} alt="" />
+                <img src={src} alt="" onContextMenu={handleContextMenu} />
               )}
               {isStaticImageData(src) ? (
-                <Image src={src} alt="" />
+                <Image src={src} alt="" onContextMenu={handleContextMenu} />
               ) : (
-                <img src={src} alt="" />
+                <img src={src} alt="" onContextMenu={handleContextMenu} />
               )}
             </div>
           ))}
@@ -200,19 +204,21 @@ function Animation() {
                 <Image
                   src={src}
                   alt=""
+                  onContextMenu={handleContextMenu}
                   // layout="fill" objectFit="cover"
                 />
               ) : (
-                <img src={src} alt="" />
+                <img src={src} alt="" onContextMenu={handleContextMenu} />
               )}
               {isStaticImageData(src) ? (
                 <Image
                   src={src}
                   alt=""
+                  onContextMenu={handleContextMenu}
                   // layout="fill" objectFit="cover"
                 />
               ) : (
-                <img src={src} alt="" />
+                <img src={src} alt="" onContextMenu={handleContextMenu} />
               )}
             </div>
           ))}
@@ -228,14 +234,14 @@ function Animation() {
               className="h-[400px] w-full bg-[#ebebeb] overflow-hidden border-4 rounded-[10px]"
             >
               {isStaticImageData(src) ? (
-                <Image src={src} alt="" />
+                <Image src={src} alt="" onContextMenu={handleContextMenu} />
               ) : (
-                <img src={src} alt="" />
+                <img src={src} alt="" onContextMenu={handleContextMenu} />
               )}
               {isStaticImageData(src) ? (
-                <Image src={src} alt="" />
+                <Image src={src} alt="" onContextMenu={handleContextMenu} />
               ) : (
-                <img src={src} alt="" />
+                <img src={src} alt="" onContextMenu={handleContextMenu} />
               )}
             </div>
           ))}

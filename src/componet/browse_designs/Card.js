@@ -94,14 +94,10 @@ const Card = ({
     }
   };
 
-  document.addEventListener("DOMContentLoaded", (event) => {
-    document.querySelectorAll("img.no-right-click").forEach((img) => {
-      img.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-      });
-    });
-  });
-
+const handleContextMenu = (event) => {
+  event.preventDefault();
+  };
+  
   return (
     <>
       {/* <div>
@@ -149,6 +145,7 @@ const Card = ({
                 key={uid}
                 src={deviceFilter === "Mobile" ? mobileFpURL : desktopFpURL}
                 alt={name}
+                onContextMenu={handleContextMenu}
               />
             ) : (
               <div className="h-[507px] w-full bg-[#F5F5F5] p-2 rounded-[24px]">
@@ -170,6 +167,8 @@ const Card = ({
                     src={logoImageURL}
                     alt={`${name} Logo`}
                     className="sm:h-[34px] sm:w-[34px] rounded-[12px] no-right-click"
+                    onContextMenu={handleContextMenu}
+                    
                   />
                 </div>
               ) : (
